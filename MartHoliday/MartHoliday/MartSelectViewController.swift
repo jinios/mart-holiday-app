@@ -12,13 +12,27 @@ class MartSelectViewController: UIViewController {
 
     @IBOutlet weak var emartButton: UIButton!
     @IBOutlet weak var lotteMartButton: UIButton!
+    @IBOutlet weak var homeplusButton: UIButton!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var expLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setScrollView()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+
+    private func setScrollView() {
+        scrollView.contentSize.width = UIScreen.main.bounds.width
+        scrollView.contentSize.height = (UIScreen.main.bounds.height)*2
+
+        scrollView.addSubview(emartButton)
+        scrollView.addSubview(lotteMartButton)
+        scrollView.addSubview(homeplusButton)
+        scrollView.addSubview(expLabel)
     }
 
     @IBAction func emartButtonTapped(_ sender: Any) {

@@ -19,6 +19,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oL1-xa-T00">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </scrollView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="검색할 마트를 선택하세요 :)" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oT5-EJ-aJk">
+                                <rect key="frame" x="173" y="148" width="186" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yQJ-eh-lDx" userLabel="lottemart">
                                 <rect key="frame" x="19" y="362.5" width="337.5" height="133"/>
                                 <color key="backgroundColor" red="0.99953407049999998" green="0.98835557699999999" blue="0.47265523669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -32,12 +41,6 @@
                                 <color key="backgroundColor" red="0.99953407049999998" green="0.98835557699999999" blue="0.47265523669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="검색할 마트를 선택하세요 :)" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oT5-EJ-aJk">
-                                <rect key="frame" x="173" y="148" width="186" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xV5-li-QeS" userLabel="emart">
                                 <rect key="frame" x="19" y="214" width="337.5" height="133.5"/>
                                 <color key="backgroundColor" red="0.99953407049999998" green="0.98835557699999999" blue="0.47265523669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -50,6 +53,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="hgy-YU-EqH" firstAttribute="width" secondItem="yQJ-eh-lDx" secondAttribute="width" id="0S0-em-dlQ"/>
+                            <constraint firstItem="oL1-xa-T00" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="1PL-bf-9Ri"/>
                             <constraint firstItem="oT5-EJ-aJk" firstAttribute="leading" relation="lessThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="173" id="2EM-q6-HRO"/>
                             <constraint firstItem="xV5-li-QeS" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1:5" id="471-dp-knG"/>
                             <constraint firstItem="yQJ-eh-lDx" firstAttribute="top" secondItem="xV5-li-QeS" secondAttribute="bottom" constant="15" id="5v7-Nu-QA2"/>
@@ -59,18 +63,24 @@
                             <constraint firstItem="hgy-YU-EqH" firstAttribute="top" secondItem="yQJ-eh-lDx" secondAttribute="bottom" constant="15" id="Sc5-h1-NMy"/>
                             <constraint firstItem="yQJ-eh-lDx" firstAttribute="height" secondItem="xV5-li-QeS" secondAttribute="height" id="Ura-yq-g66"/>
                             <constraint firstItem="xV5-li-QeS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VQJ-td-utB"/>
-                            <constraint firstItem="oT5-EJ-aJk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="84" id="cLY-00-wBW"/>
+                            <constraint firstItem="oT5-EJ-aJk" firstAttribute="top" secondItem="oL1-xa-T00" secondAttribute="top" constant="84" id="cLY-00-wBW"/>
+                            <constraint firstItem="oL1-xa-T00" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dUu-UB-TtT"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="oT5-EJ-aJk" secondAttribute="trailing" constant="16" id="eAO-8c-neu"/>
                             <constraint firstItem="hgy-YU-EqH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lTT-gN-a7c"/>
                             <constraint firstItem="yQJ-eh-lDx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="oRd-g6-jVK"/>
+                            <constraint firstItem="oL1-xa-T00" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="rXk-Uz-XH3"/>
                             <constraint firstItem="xV5-li-QeS" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="9:10" id="uOA-yO-3eY"/>
+                            <constraint firstItem="oL1-xa-T00" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="yqS-IU-8C9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="9vX-k6-Fkc"/>
                     <connections>
                         <outlet property="emartButton" destination="xV5-li-QeS" id="vZL-Ey-wPz"/>
+                        <outlet property="expLabel" destination="oT5-EJ-aJk" id="G1x-sm-ZCJ"/>
+                        <outlet property="homeplusButton" destination="hgy-YU-EqH" id="bhg-EB-8EI"/>
                         <outlet property="lotteMartButton" destination="yQJ-eh-lDx" id="Df4-Zn-hcY"/>
+                        <outlet property="scrollView" destination="oL1-xa-T00" id="1MY-oK-x3x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
