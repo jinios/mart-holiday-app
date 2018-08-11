@@ -1,0 +1,1810 @@
+[  
+   {  
+      "id":1,
+      "martType":"이마트",
+      "branchName":"가든5점",
+      "region":"서울",
+      "phoneNumber":"02-411-1234",
+      "address":"서울특별시 송파구 문정동 628",
+      "url":"http://store.emart.com/branch/list.do?id=1140",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":2,
+      "martType":"이마트",
+      "branchName":"가양점",
+      "region":"서울",
+      "phoneNumber":"02-2101-1234",
+      "address":"서울특별시 강서구 가양동 449-19",
+      "url":"http://store.emart.com/branch/list.do?id=1026",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":3,
+      "martType":"이마트",
+      "branchName":"구로점",
+      "region":"서울",
+      "phoneNumber":"02-2009-1234",
+      "address":"서울특별시 구로구 구로동 188-26",
+      "url":"http://store.emart.com/branch/list.do?id=1021",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":4,
+      "martType":"이마트",
+      "branchName":"마포점",
+      "region":"서울",
+      "phoneNumber":"02-2197-1234",
+      "address":"서울특별시 마포구 신공덕동 173",
+      "url":"http://store.emart.com/branch/list.do?id=1144",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":5,
+      "martType":"이마트",
+      "branchName":"명일점",
+      "region":"서울",
+      "phoneNumber":"02-2145-1234",
+      "address":"서울특별시 강동구 명일동 46-4",
+      "url":"http://store.emart.com/branch/list.do?id=1062",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":6,
+      "martType":"이마트",
+      "branchName":"목동점",
+      "region":"서울",
+      "phoneNumber":"02-6923-1234",
+      "address":"서울특별시 양천구 목동 962",
+      "url":"http://store.emart.com/branch/list.do?id=1124",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":7,
+      "martType":"이마트",
+      "branchName":"묵동점",
+      "region":"서울",
+      "phoneNumber":"02-2083-1234",
+      "address":"서울특별시 중랑구 묵동 170-1",
+      "url":"http://store.emart.com/branch/list.do?id=1139",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)"
+      ]
+   },
+   {  
+      "id":8,
+      "martType":"이마트",
+      "branchName":"미아점",
+      "region":"서울",
+      "phoneNumber":"02-944-1234",
+      "address":"서울특별시 성북구 길음동 25-2",
+      "url":"http://store.emart.com/branch/list.do?id=1120",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":9,
+      "martType":"이마트",
+      "branchName":"상봉점",
+      "region":"서울",
+      "phoneNumber":"02-490-1234",
+      "address":"서울특별시 중랑구 망우동 506-1",
+      "url":"http://store.emart.com/branch/list.do?id=1029",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":10,
+      "martType":"이마트",
+      "branchName":"성수점",
+      "region":"서울",
+      "phoneNumber":"02-3408-1234",
+      "address":"서울특별시 성동구 성수동2가 333-16",
+      "url":"http://store.emart.com/branch/list.do?id=1038",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":11,
+      "martType":"이마트",
+      "branchName":"수색점",
+      "region":"서울",
+      "phoneNumber":"02-6943-1234",
+      "address":"서울특별시 은평구 수색동 75",
+      "url":"http://store.emart.com/branch/list.do?id=1128",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)"
+      ]
+   },
+   {  
+      "id":12,
+      "martType":"이마트",
+      "branchName":"수서점",
+      "region":"서울",
+      "phoneNumber":"02-451-6123",
+      "address":"서울특별시 강남구 수서동 724",
+      "url":"http://store.emart.com/branch/list.do?id=1041",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":13,
+      "martType":"이마트",
+      "branchName":"신도림점",
+      "region":"서울",
+      "phoneNumber":"02-6715-1234",
+      "address":"서울특별시 구로구 구로동 3-25",
+      "url":"http://store.emart.com/branch/list.do?id=1109",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)"
+      ]
+   },
+   {  
+      "id":14,
+      "martType":"이마트",
+      "branchName":"신월점",
+      "region":"서울",
+      "phoneNumber":"02-6716-1234",
+      "address":"서울특별시 양천구 신월동 26",
+      "url":"http://store.emart.com/branch/list.do?id=1022",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":15,
+      "martType":"이마트",
+      "branchName":"양재점",
+      "region":"서울",
+      "phoneNumber":"02-2155-1234",
+      "address":"서울특별시 서초구 양재동 204",
+      "url":"http://store.emart.com/branch/list.do?id=1087",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":16,
+      "martType":"이마트",
+      "branchName":"여의도점",
+      "region":"서울",
+      "phoneNumber":"02-2280-1234",
+      "address":"서울특별시 영등포구 여의도동 47",
+      "url":"http://store.emart.com/branch/list.do?id=1113",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":17,
+      "martType":"이마트",
+      "branchName":"역삼점",
+      "region":"서울",
+      "phoneNumber":"02-6908-1234",
+      "address":"서울특별시 강남구 역삼동 755",
+      "url":"http://store.emart.com/branch/list.do?id=1020",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":18,
+      "martType":"이마트",
+      "branchName":"용산점",
+      "region":"서울",
+      "phoneNumber":"02-2012-1234",
+      "address":"서울특별시 용산구 한강로3가 40-999",
+      "url":"http://store.emart.com/branch/list.do?id=1085",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":19,
+      "martType":"이마트",
+      "branchName":"월계점",
+      "region":"서울",
+      "phoneNumber":"02-2092-1234",
+      "address":"서울특별시 노원구 월계동 333-1",
+      "url":"http://store.emart.com/branch/list.do?id=1084",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":20,
+      "martType":"이마트",
+      "branchName":"이문점",
+      "region":"서울",
+      "phoneNumber":"02-959-1234",
+      "address":"서울특별시 동대문구 이문동 292-10",
+      "url":"http://store.emart.com/branch/list.do?id=1123",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":21,
+      "martType":"이마트",
+      "branchName":"이수점",
+      "region":"서울",
+      "phoneNumber":"02-595-1234",
+      "address":"서울특별시 동작구 사당동 147-29 이수자이 B1",
+      "url":"http://store.emart.com/branch/list.do?id=1138",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)",
+         "2018-09-24 (월)"
+      ]
+   },
+   {  
+      "id":22,
+      "martType":"이마트",
+      "branchName":"창동점",
+      "region":"서울",
+      "phoneNumber":"02-901-1234",
+      "address":"서울특별시 도봉구 창동 135-26",
+      "url":"http://store.emart.com/branch/list.do?id=1000",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":23,
+      "martType":"이마트",
+      "branchName":"천호점",
+      "region":"서울",
+      "phoneNumber":"02-2224-1234",
+      "address":"서울특별시 강동구 천호동 454-1",
+      "url":"http://store.emart.com/branch/list.do?id=1025",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":24,
+      "martType":"이마트",
+      "branchName":"청계천점",
+      "region":"서울",
+      "phoneNumber":"02-2290-1234",
+      "address":"서울특별시 중구 황학동 2545",
+      "url":"http://store.emart.com/branch/list.do?id=1116",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":25,
+      "martType":"이마트",
+      "branchName":"하월곡점",
+      "region":"서울",
+      "phoneNumber":"02-6936-1234",
+      "address":"서울특별시 성북구 하월곡동 230",
+      "url":"http://store.emart.com/branch/list.do?id=1148",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":26,
+      "martType":"이마트",
+      "branchName":"검단점",
+      "region":"인천",
+      "phoneNumber":"032-440-1234",
+      "address":"인천광역시 서구 당하동 1065-1",
+      "url":"http://store.emart.com/branch/list.do?id=1101",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":27,
+      "martType":"이마트",
+      "branchName":"계양점",
+      "region":"인천",
+      "phoneNumber":"032-717-1234",
+      "address":"인천광역시 계양구 작전동 911-1",
+      "url":"http://store.emart.com/branch/list.do?id=1057",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":28,
+      "martType":"이마트",
+      "branchName":"동인천점",
+      "region":"인천",
+      "phoneNumber":"032-451-1234",
+      "address":"인천광역시 중구 신생동 38",
+      "url":"http://store.emart.com/branch/list.do?id=1035",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)"
+      ]
+   },
+   {  
+      "id":29,
+      "martType":"이마트",
+      "branchName":"부평점",
+      "region":"인천",
+      "phoneNumber":"032-500-1234",
+      "address":"인천광역시 부평구 갈산동 171",
+      "url":"http://store.emart.com/branch/list.do?id=1003",
+      "holidays":[  
+
+      ]
+   },
+   {  
+      "id":30,
+      "martType":"이마트",
+      "branchName":"인천공항점",
+      "region":"인천",
+      "phoneNumber":"032-744-1234",
+      "address":"인천광역시 중구 운서동 2850-2",
+      "url":"http://store.emart.com/branch/list.do?id=1088",
+      "holidays":[  
+         "2018-08-22 (수)",
+         "2018-09-12 (수)",
+         "2018-09-24 (월)"
+      ]
+   },
+   {  
+      "id":31,
+      "martType":"이마트",
+      "branchName":"인천점",
+      "region":"인천",
+      "phoneNumber":"032-430-1822",
+      "address":"인천광역시 남구 관교동 15",
+      "url":"http://store.emart.com/branch/list.do?id=1013",
+      "holidays":[  
+         "2018-08-20 (월)"
+      ]
+   },
+   {  
+      "id":32,
+      "martType":"이마트",
+      "branchName":"경기광주점",
+      "region":"경기",
+      "phoneNumber":"031-8026-1234",
+      "address":"경기도 광주시 경안동 20-11",
+      "url":"http://store.emart.com/branch/list.do?id=1127",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)"
+      ]
+   },
+   {  
+      "id":33,
+      "martType":"이마트",
+      "branchName":"과천점",
+      "region":"경기",
+      "phoneNumber":"02-6445-4123",
+      "address":"경기도 과천시 별양동 1-19",
+      "url":"http://store.emart.com/branch/list.do?id=1161",
+      "holidays":[  
+         "2018-08-22 (수)",
+         "2018-09-12 (수)",
+         "2018-09-24 (월)"
+      ]
+   },
+   {  
+      "id":34,
+      "martType":"이마트",
+      "branchName":"광교점",
+      "region":"경기",
+      "phoneNumber":"031-328-9123",
+      "address":"경기도 수원시 영통구 이의동 1240",
+      "url":"http://store.emart.com/branch/list.do?id=1160",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)"
+      ]
+   },
+   {  
+      "id":35,
+      "martType":"이마트",
+      "branchName":"광명소하점",
+      "region":"경기",
+      "phoneNumber":"02-6918-1234",
+      "address":"경기도 광명시 소하동 1339-3",
+      "url":"http://store.emart.com/branch/list.do?id=1134",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-24 (월)"
+      ]
+   },
+   {  
+      "id":36,
+      "martType":"이마트",
+      "branchName":"광명점",
+      "region":"경기",
+      "phoneNumber":"02-2676-1234",
+      "address":"경기도 광명시 광명동 150-19",
+      "url":"http://store.emart.com/branch/list.do?id=1105",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)"
+      ]
+   },
+   {  
+      "id":37,
+      "martType":"이마트",
+      "branchName":"김포한강점",
+      "region":"경기",
+      "phoneNumber":"031-990-7123",
+      "address":"경기도 김포시 구래동 6880-9",
+      "url":"http://store.emart.com/branch/list.do?id=1157",
+      "holidays":[  
+         "2018-08-22 (수)"
+      ]
+   },
+   {  
+      "id":38,
+      "martType":"이마트",
+      "branchName":"남양주점",
+      "region":"경기",
+      "phoneNumber":"031-590-1234",
+      "address":"경기도 남양주시 호평동 637",
+      "url":"http://store.emart.com/branch/list.do?id=1094",
+      "holidays":[  
+         "2018-08-22 (수)",
+         "2018-09-12 (수)",
+         "2018-09-26 (수)"
+      ]
+   },
+   {  
+      "id":39,
+      "martType":"이마트",
+      "branchName":"다산점",
+      "region":"경기",
+      "phoneNumber":"031-579-1234",
+      "address":"경기도 남양주시 도농동 1-29",
+      "url":"http://store.emart.com/branch/list.do?id=1114",
+      "holidays":[  
+         "2018-08-22 (수)",
+         "2018-09-12 (수)",
+         "2018-09-26 (수)"
+      ]
+   },
+   {  
+      "id":40,
+      "martType":"이마트",
+      "branchName":"덕이점",
+      "region":"경기",
+      "phoneNumber":"031-927-1234",
+      "address":"경기도 고양시 일산서구 덕이동 205",
+      "url":"http://store.emart.com/branch/list.do?id=1008",
+      "holidays":[  
+         "2018-08-22 (수)",
+         "2018-09-12 (수)",
+         "2018-09-24 (월)"
+      ]
+   },
+   {  
+      "id":41,
+      "martType":"이마트",
+      "branchName":"동백점",
+      "region":"경기",
+      "phoneNumber":"031-546-1234",
+      "address":"경기도 용인시 기흥구 중동 833",
+      "url":"http://store.emart.com/branch/list.do?id=1100",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)"
+      ]
+   },
+   {  
+      "id":42,
+      "martType":"이마트",
+      "branchName":"별내점",
+      "region":"경기",
+      "phoneNumber":"031-550-1234",
+      "address":"경기도 남양주시 별내동 989",
+      "url":"http://store.emart.com/branch/list.do?id=1155",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-08-22 (수)",
+         "2018-09-12 (수)",
+         "2018-09-26 (수)"
+      ]
+   },
+   {  
+      "id":43,
+      "martType":"이마트",
+      "branchName":"보라점",
+      "region":"경기",
+      "phoneNumber":"031-8009-1234",
+      "address":"경기도 용인시 기흥구 보라동 623-1",
+      "url":"http://store.emart.com/branch/list.do?id=1121",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":44,
+      "martType":"이마트",
+      "branchName":"부천점",
+      "region":"경기",
+      "phoneNumber":"032-610-5123",
+      "address":"경기도 부천시 소사구 심곡본동 316-2",
+      "url":"http://store.emart.com/branch/list.do?id=1018",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":45,
+      "martType":"이마트",
+      "branchName":"분당점",
+      "region":"경기",
+      "phoneNumber":"031-710-1234",
+      "address":"경기도 성남시 분당구 정자동 211",
+      "url":"http://store.emart.com/branch/list.do?id=1007",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)"
+      ]
+   },
+   {  
+      "id":46,
+      "martType":"이마트",
+      "branchName":"산본점",
+      "region":"경기",
+      "phoneNumber":"031-450-1234",
+      "address":"경기도 군포시 산본동 1123",
+      "url":"http://store.emart.com/branch/list.do?id=1024",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-24 (월)"
+      ]
+   },
+   {  
+      "id":47,
+      "martType":"이마트",
+      "branchName":"서수원점",
+      "region":"경기",
+      "phoneNumber":"031-895-1234",
+      "address":"경기도 수원시 권선구 구운동 925",
+      "url":"http://store.emart.com/branch/list.do?id=1091",
+      "holidays":[  
+
+      ]
+   },
+   {  
+      "id":48,
+      "martType":"이마트",
+      "branchName":"성남점",
+      "region":"경기",
+      "phoneNumber":"031-8023-1234",
+      "address":"경기도 성남시 수정구 태평동 7336",
+      "url":"http://store.emart.com/branch/list.do?id=1133",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)"
+      ]
+   },
+   {  
+      "id":49,
+      "martType":"이마트",
+      "branchName":"수지점",
+      "region":"경기",
+      "phoneNumber":"031-270-1234",
+      "address":"경기도 용인시 수지구 신봉동 909",
+      "url":"http://store.emart.com/branch/list.do?id=1070",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)"
+      ]
+   },
+   {  
+      "id":50,
+      "martType":"이마트",
+      "branchName":"시화점",
+      "region":"경기",
+      "phoneNumber":"031-496-4123",
+      "address":"경기도 시흥시 정왕동 1734-1",
+      "url":"http://store.emart.com/branch/list.do?id=1028",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":51,
+      "martType":"이마트",
+      "branchName":"안성점",
+      "region":"경기",
+      "phoneNumber":"031-686-1234",
+      "address":"경기도 안성시 석정동 149-3",
+      "url":"http://store.emart.com/branch/list.do?id=1119",
+      "holidays":[  
+         "2018-08-22 (수)",
+         "2018-09-12 (수)",
+         "2018-09-24 (월)"
+      ]
+   },
+   {  
+      "id":52,
+      "martType":"이마트",
+      "branchName":"안양점",
+      "region":"경기",
+      "phoneNumber":"031-380-3300",
+      "address":"경기도 안양시 동안구 비산동 411-8",
+      "url":"http://store.emart.com/branch/list.do?id=1010",
+      "holidays":[  
+         "2018-08-22 (수)"
+      ]
+   },
+   {  
+      "id":53,
+      "martType":"이마트",
+      "branchName":"양주점",
+      "region":"경기",
+      "phoneNumber":"031-860-0123",
+      "address":"경기도 양주시 회정동 98",
+      "url":"http://store.emart.com/branch/list.do?id=1078",
+      "holidays":[  
+         "2018-08-22 (수)",
+         "2018-09-12 (수)",
+         "2018-09-26 (수)"
+      ]
+   },
+   {  
+      "id":54,
+      "martType":"이마트",
+      "branchName":"여주점",
+      "region":"경기",
+      "phoneNumber":"031-887-6123",
+      "address":"경기도 여주시 홍문동 384-1",
+      "url":"http://store.emart.com/branch/list.do?id=1110",
+      "holidays":[  
+         "2018-08-22 (수)",
+         "2018-09-12 (수)",
+         "2018-09-24 (월)"
+      ]
+   },
+   {  
+      "id":55,
+      "martType":"이마트",
+      "branchName":"오산점",
+      "region":"경기",
+      "phoneNumber":"031-369-7123",
+      "address":"경기도 오산시 원동 360-6",
+      "url":"http://store.emart.com/branch/list.do?id=1095",
+      "holidays":[  
+         "2018-08-22 (수)",
+         "2018-09-12 (수)",
+         "2018-09-26 (수)"
+      ]
+   },
+   {  
+      "id":56,
+      "martType":"이마트",
+      "branchName":"용인점",
+      "region":"경기",
+      "phoneNumber":"031-326-1234",
+      "address":"경기도 용인시 처인구 역북동 586-6",
+      "url":"http://store.emart.com/branch/list.do?id=1096",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":57,
+      "martType":"이마트",
+      "branchName":"의정부점",
+      "region":"경기",
+      "phoneNumber":"031-850-1234",
+      "address":"경기도 의정부시 민락동 849",
+      "url":"http://store.emart.com/branch/list.do?id=1154",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-24 (월)"
+      ]
+   },
+   {  
+      "id":58,
+      "martType":"이마트",
+      "branchName":"이천점",
+      "region":"경기",
+      "phoneNumber":"031-644-8123",
+      "address":"경기도 이천시 증포동 47-4",
+      "url":"http://store.emart.com/branch/list.do?id=1030",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":59,
+      "martType":"이마트",
+      "branchName":"일산점",
+      "region":"경기",
+      "phoneNumber":"031-900-1234",
+      "address":"경기도 고양시 일산동구 백석동 1194",
+      "url":"http://store.emart.com/branch/list.do?id=1001",
+      "holidays":[  
+         "2018-08-22 (수)",
+         "2018-09-12 (수)",
+         "2018-09-24 (월)"
+      ]
+   },
+   {  
+      "id":60,
+      "martType":"이마트",
+      "branchName":"진접점",
+      "region":"경기",
+      "phoneNumber":"031-522-1234",
+      "address":"경기도 남양주시 진접읍 연평리 101-14",
+      "url":"http://store.emart.com/branch/list.do?id=1136",
+      "holidays":[  
+         "2018-08-22 (수)",
+         "2018-09-12 (수)",
+         "2018-09-26 (수)"
+      ]
+   },
+   {  
+      "id":61,
+      "martType":"이마트",
+      "branchName":"파주운정점",
+      "region":"경기",
+      "phoneNumber":"031-931-2123",
+      "address":"경기도 파주시 동패동 1763",
+      "url":"http://store.emart.com/branch/list.do?id=1141",
+      "holidays":[  
+         "2018-08-22 (수)",
+         "2018-09-12 (수)",
+         "2018-09-24 (월)"
+      ]
+   },
+   {  
+      "id":62,
+      "martType":"이마트",
+      "branchName":"파주점",
+      "region":"경기",
+      "phoneNumber":"031-950-1234",
+      "address":"경기도 파주시 당하동 195-5",
+      "url":"http://store.emart.com/branch/list.do?id=1081",
+      "holidays":[  
+         "2018-08-22 (수)",
+         "2018-09-12 (수)",
+         "2018-09-24 (월)"
+      ]
+   },
+   {  
+      "id":63,
+      "martType":"이마트",
+      "branchName":"평촌점",
+      "region":"경기",
+      "phoneNumber":"031-687-1234",
+      "address":"경기도 안양시 동안구 관양동 1608",
+      "url":"http://store.emart.com/branch/list.do?id=1060",
+      "holidays":[  
+         "2018-08-22 (수)"
+      ]
+   },
+   {  
+      "id":64,
+      "martType":"이마트",
+      "branchName":"평택점",
+      "region":"경기",
+      "phoneNumber":"031-371-1234",
+      "address":"경기도 평택시 지제동 50",
+      "url":"http://store.emart.com/branch/list.do?id=1048",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":65,
+      "martType":"이마트",
+      "branchName":"포천점",
+      "region":"경기",
+      "phoneNumber":"031-540-1234",
+      "address":"경기도 포천시 설운동 2",
+      "url":"http://store.emart.com/branch/list.do?id=1132",
+      "holidays":[  
+
+      ]
+   },
+   {  
+      "id":66,
+      "martType":"이마트",
+      "branchName":"풍산점",
+      "region":"경기",
+      "phoneNumber":"031-910-1234",
+      "address":"경기도 고양시 일산동구 중산동 1809",
+      "url":"http://store.emart.com/branch/list.do?id=1156",
+      "holidays":[  
+         "2018-08-22 (수)",
+         "2018-09-12 (수)",
+         "2018-09-26 (수)"
+      ]
+   },
+   {  
+      "id":67,
+      "martType":"이마트",
+      "branchName":"하남점",
+      "region":"경기",
+      "phoneNumber":"031-524-1234",
+      "address":"경기도 하남시 덕풍동 736",
+      "url":"http://store.emart.com/branch/list.do?id=1115",
+      "holidays":[  
+         "2018-08-22 (수)",
+         "2018-09-12 (수)",
+         "2018-09-26 (수)"
+      ]
+   },
+   {  
+      "id":68,
+      "martType":"이마트",
+      "branchName":"화성봉담점",
+      "region":"경기",
+      "phoneNumber":"031-228-1234",
+      "address":"경기도 화성시 봉담읍 동화리 138-1",
+      "url":"http://store.emart.com/branch/list.do?id=1150",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)"
+      ]
+   },
+   {  
+      "id":69,
+      "martType":"이마트",
+      "branchName":"화정점",
+      "region":"경기",
+      "phoneNumber":"031-995-1234",
+      "address":"경기도 고양시 덕양구 화정동 976",
+      "url":"http://store.emart.com/branch/list.do?id=1042",
+      "holidays":[  
+         "2018-08-22 (수)"
+      ]
+   },
+   {  
+      "id":70,
+      "martType":"이마트",
+      "branchName":"흥덕점",
+      "region":"경기",
+      "phoneNumber":"031-8021-1234",
+      "address":"경기도 용인시 기흥구 영덕동 985-3",
+      "url":"http://store.emart.com/branch/list.do?id=1125",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":71,
+      "martType":"이마트",
+      "branchName":"둔산점",
+      "region":"대전",
+      "phoneNumber":"042-479-1234",
+      "address":"대전광역시 서구 둔산동 959-2",
+      "url":"http://store.emart.com/branch/list.do?id=1056",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":72,
+      "martType":"이마트",
+      "branchName":"세종점",
+      "region":"세종",
+      "phoneNumber":"044-902-1234",
+      "address":"세종특별자치시 가람동 406",
+      "url":"http://store.emart.com/branch/list.do?id=1158",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":73,
+      "martType":"이마트",
+      "branchName":"보령점",
+      "region":"충남",
+      "phoneNumber":"041-640-1234",
+      "address":"충청남도 보령시 궁촌동 340-1",
+      "url":"http://store.emart.com/branch/list.do?id=1118",
+      "holidays":[  
+         "2018-08-22 (수)",
+         "2018-09-12 (수)",
+         "2018-09-26 (수)"
+      ]
+   },
+   {  
+      "id":74,
+      "martType":"이마트",
+      "branchName":"서산점",
+      "region":"충남",
+      "phoneNumber":"041-670-1234",
+      "address":"충청남도 서산시 잠홍동 463",
+      "url":"http://store.emart.com/branch/list.do?id=1145",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":75,
+      "martType":"이마트",
+      "branchName":"아산점",
+      "region":"충남",
+      "phoneNumber":"041-422-1234",
+      "address":"충청남도 아산시 풍기동 192-2",
+      "url":"http://store.emart.com/branch/list.do?id=1103",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":76,
+      "martType":"이마트",
+      "branchName":"천안서북점",
+      "region":"충남",
+      "phoneNumber":"041-580-9123",
+      "address":"충청남도 천안시 서북구 백석동 1047",
+      "url":"http://store.emart.com/branch/list.do?id=1152",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":77,
+      "martType":"이마트",
+      "branchName":"천안점",
+      "region":"충남",
+      "phoneNumber":"041-620-1234",
+      "address":"충청남도 천안시 서북구 쌍용동 191",
+      "url":"http://store.emart.com/branch/list.do?id=1040",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)"
+      ]
+   },
+   {  
+      "id":78,
+      "martType":"이마트",
+      "branchName":"천안터미널점",
+      "region":"충남",
+      "phoneNumber":"041-411-1234",
+      "address":"충청남도 천안시 동남구 신부동 363-2",
+      "url":"http://store.emart.com/branch/list.do?id=1135",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":79,
+      "martType":"이마트",
+      "branchName":"펜타포트점",
+      "region":"충남",
+      "phoneNumber":"041-537-9123",
+      "address":"충청남도 천안시 서북구 불당동 1289",
+      "url":"http://store.emart.com/branch/list.do?id=1146",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)"
+      ]
+   },
+   {  
+      "id":80,
+      "martType":"이마트",
+      "branchName":"제천점",
+      "region":"충북",
+      "phoneNumber":"043-641-1234",
+      "address":"충청북도 제천시 강제동 684",
+      "url":"http://store.emart.com/branch/list.do?id=1129",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)"
+      ]
+   },
+   {  
+      "id":81,
+      "martType":"이마트",
+      "branchName":"청주점",
+      "region":"충북",
+      "phoneNumber":"043-210-1234",
+      "address":"충청북도 청주시 서원구 미평동 123-1",
+      "url":"http://store.emart.com/branch/list.do?id=1016",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)"
+      ]
+   },
+   {  
+      "id":82,
+      "martType":"이마트",
+      "branchName":"충주점",
+      "region":"충북",
+      "phoneNumber":"043-841-1234",
+      "address":"충청북도 충주시 문화동 1024",
+      "url":"http://store.emart.com/branch/list.do?id=1047",
+      "holidays":[  
+         "2018-08-25 (토)",
+         "2018-09-10 (월)",
+         "2018-09-24 (월)"
+      ]
+   },
+   {  
+      "id":83,
+      "martType":"이마트",
+      "branchName":"감삼점",
+      "region":"대구",
+      "phoneNumber":"053-722-1234",
+      "address":"대구광역시 달서구 감삼동 521",
+      "url":"http://store.emart.com/branch/list.do?id=1061",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":84,
+      "martType":"이마트",
+      "branchName":"만촌점",
+      "region":"대구",
+      "phoneNumber":"053-602-1234",
+      "address":"대구광역시 수성구 만촌동 1356-5",
+      "url":"http://store.emart.com/branch/list.do?id=1036",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":85,
+      "martType":"이마트",
+      "branchName":"반야월점",
+      "region":"대구",
+      "phoneNumber":"053-665-1234",
+      "address":"대구광역시 동구 신서동 520-1",
+      "url":"http://store.emart.com/branch/list.do?id=1082",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)"
+      ]
+   },
+   {  
+      "id":86,
+      "martType":"이마트",
+      "branchName":"성서점",
+      "region":"대구",
+      "phoneNumber":"053-605-1234",
+      "address":"대구광역시 달서구 이곡동 1254",
+      "url":"http://store.emart.com/branch/list.do?id=1023",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":87,
+      "martType":"이마트",
+      "branchName":"시지점",
+      "region":"대구",
+      "phoneNumber":"053-718-1234",
+      "address":"대구광역시 수성구 신매동 566-3",
+      "url":"http://store.emart.com/branch/list.do?id=1033",
+      "holidays":[  
+
+      ]
+   },
+   {  
+      "id":88,
+      "martType":"이마트",
+      "branchName":"칠성점",
+      "region":"대구",
+      "phoneNumber":"053-609-1234",
+      "address":"대구광역시 북구 칠성동 2가 20-1",
+      "url":"http://store.emart.com/branch/list.do?id=1055",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":89,
+      "martType":"이마트",
+      "branchName":"마산점",
+      "region":"경남",
+      "phoneNumber":"055-711-1234",
+      "address":"경상남도 창원시 마산합포구 중앙동3가 4-1",
+      "url":"http://store.emart.com/branch/list.do?id=1063",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-24 (월)"
+      ]
+   },
+   {  
+      "id":90,
+      "martType":"이마트",
+      "branchName":"사천점",
+      "region":"경남",
+      "phoneNumber":"055-850-1234",
+      "address":"경상남도 사천시 좌룡동 388-10",
+      "url":"http://store.emart.com/branch/list.do?id=1137",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)"
+      ]
+   },
+   {  
+      "id":91,
+      "martType":"이마트",
+      "branchName":"양산점",
+      "region":"경남",
+      "phoneNumber":"055-371-8123",
+      "address":"경상남도 양산시 중부동 705",
+      "url":"http://store.emart.com/branch/list.do?id=1080",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-24 (월)"
+      ]
+   },
+   {  
+      "id":92,
+      "martType":"이마트",
+      "branchName":"통영점",
+      "region":"경남",
+      "phoneNumber":"055-650-1234",
+      "address":"경상남도 통영시 광도면 죽림리 1566-2",
+      "url":"http://store.emart.com/branch/list.do?id=1089",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":93,
+      "martType":"이마트",
+      "branchName":"경산점",
+      "region":"경북",
+      "phoneNumber":"053-940-1234",
+      "address":"경상북도 경산시 중산동 623",
+      "url":"http://store.emart.com/branch/list.do?id=1098",
+      "holidays":[  
+         "2018-08-22 (수)",
+         "2018-09-12 (수)",
+         "2018-09-26 (수)"
+      ]
+   },
+   {  
+      "id":94,
+      "martType":"이마트",
+      "branchName":"구미점",
+      "region":"경북",
+      "phoneNumber":"054-467-1234",
+      "address":"경상북도 구미시 광평동 65-1",
+      "url":"http://store.emart.com/branch/list.do?id=1058",
+      "holidays":[  
+
+      ]
+   },
+   {  
+      "id":95,
+      "martType":"이마트",
+      "branchName":"김천점",
+      "region":"경북",
+      "phoneNumber":"054-420-1234",
+      "address":"경상북도 김천시 신음동 990-1",
+      "url":"http://store.emart.com/branch/list.do?id=1014",
+      "holidays":[  
+         "2018-08-22 (수)",
+         "2018-09-12 (수)",
+         "2018-09-24 (월)"
+      ]
+   },
+   {  
+      "id":96,
+      "martType":"이마트",
+      "branchName":"동구미점",
+      "region":"경북",
+      "phoneNumber":"054-480-1234",
+      "address":"경상북도 구미시 임수동 92-28",
+      "url":"http://store.emart.com/branch/list.do?id=1142",
+      "holidays":[  
+         "2018-08-22 (수)",
+         "2018-09-12 (수)",
+         "2018-09-24 (월)"
+      ]
+   },
+   {  
+      "id":97,
+      "martType":"이마트",
+      "branchName":"상주점",
+      "region":"경북",
+      "phoneNumber":"054-537-1234",
+      "address":"경상북도 상주시 만산동 693-29",
+      "url":"http://store.emart.com/branch/list.do?id=1107",
+      "holidays":[  
+         "2018-08-22 (수)"
+      ]
+   },
+   {  
+      "id":98,
+      "martType":"이마트",
+      "branchName":"안동점",
+      "region":"경북",
+      "phoneNumber":"054-850-1234",
+      "address":"경상북도 안동시 옥동 800-3",
+      "url":"http://store.emart.com/branch/list.do?id=1086",
+      "holidays":[  
+         "2018-08-22 (수)",
+         "2018-09-12 (수)",
+         "2018-09-24 (월)"
+      ]
+   },
+   {  
+      "id":99,
+      "martType":"이마트",
+      "branchName":"영천점",
+      "region":"경북",
+      "phoneNumber":"054-330-1234",
+      "address":"경상북도 영천시 오수동 286",
+      "url":"http://store.emart.com/branch/list.do?id=1076",
+      "holidays":[  
+         "2018-08-22 (수)",
+         "2018-09-12 (수)",
+         "2018-09-24 (월)"
+      ]
+   },
+   {  
+      "id":100,
+      "martType":"이마트",
+      "branchName":"포항이동점",
+      "region":"경북",
+      "phoneNumber":"054-721-1234",
+      "address":"경상북도 포항시 북구 득량동 305",
+      "url":"http://store.emart.com/branch/list.do?id=1083",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)"
+      ]
+   },
+   {  
+      "id":101,
+      "martType":"이마트",
+      "branchName":"포항점",
+      "region":"경북",
+      "phoneNumber":"054-223-1234",
+      "address":"경상북도 포항시 남구 인덕동 161-176",
+      "url":"http://store.emart.com/branch/list.do?id=1050",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":102,
+      "martType":"이마트",
+      "branchName":"금정점",
+      "region":"부산",
+      "phoneNumber":"051-606-1234",
+      "address":"부산광역시 금정구 구서동 368",
+      "url":"http://store.emart.com/branch/list.do?id=1069",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":103,
+      "martType":"이마트",
+      "branchName":"문현점",
+      "region":"부산",
+      "phoneNumber":"051-609-1234",
+      "address":"부산광역시 남구 문현동 751",
+      "url":"http://store.emart.com/branch/list.do?id=1068",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":104,
+      "martType":"이마트",
+      "branchName":"사상점",
+      "region":"부산",
+      "phoneNumber":"051-329-1234",
+      "address":"부산광역시 사상구 괘법동 531-2",
+      "url":"http://store.emart.com/branch/list.do?id=1073",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":105,
+      "martType":"이마트",
+      "branchName":"서부산점",
+      "region":"부산",
+      "phoneNumber":"051-310-1234",
+      "address":"부산광역시 사상구 감전동 502-1",
+      "url":"http://store.emart.com/branch/list.do?id=1011",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":106,
+      "martType":"이마트",
+      "branchName":"연제점",
+      "region":"부산",
+      "phoneNumber":"051-860-1234",
+      "address":"부산광역시 연제구 연산동 822-7",
+      "url":"http://store.emart.com/branch/list.do?id=1052",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)"
+      ]
+   },
+   {  
+      "id":107,
+      "martType":"이마트",
+      "branchName":"해운대점",
+      "region":"부산",
+      "phoneNumber":"051-608-1234",
+      "address":"부산광역시 해운대구 중동 1767",
+      "url":"http://store.emart.com/branch/list.do?id=1027",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":108,
+      "martType":"이마트",
+      "branchName":"광산점",
+      "region":"광주",
+      "phoneNumber":"062-949-1234",
+      "address":"광주광역시 광산구 우산동 1594-3",
+      "url":"http://store.emart.com/branch/list.do?id=1077",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":109,
+      "martType":"이마트",
+      "branchName":"광주점",
+      "region":"광주",
+      "phoneNumber":"062-360-0123",
+      "address":"광주광역시 서구 화정동 12-13",
+      "url":"http://store.emart.com/branch/list.do?id=1099",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":110,
+      "martType":"이마트",
+      "branchName":"동광주점",
+      "region":"광주",
+      "phoneNumber":"062-519-1234",
+      "address":"광주광역시 동구 계림동 100-11",
+      "url":"http://store.emart.com/branch/list.do?id=1015",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)"
+      ]
+   },
+   {  
+      "id":111,
+      "martType":"이마트",
+      "branchName":"봉선점",
+      "region":"광주",
+      "phoneNumber":"062-611-1234",
+      "address":"광주광역시 남구 봉선동 1064",
+      "url":"http://store.emart.com/branch/list.do?id=1108",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":112,
+      "martType":"이마트",
+      "branchName":"상무점",
+      "region":"광주",
+      "phoneNumber":"062-610-1234",
+      "address":"광주광역시 서구 치평동 1208-5",
+      "url":"http://store.emart.com/branch/list.do?id=1044",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":113,
+      "martType":"이마트",
+      "branchName":"목포점",
+      "region":"전남",
+      "phoneNumber":"061-260-1234",
+      "address":"전라남도 목포시 옥암동 915-25",
+      "url":"http://store.emart.com/branch/list.do?id=1034",
+      "holidays":[  
+
+      ]
+   },
+   {  
+      "id":114,
+      "martType":"이마트",
+      "branchName":"순천점",
+      "region":"전남",
+      "phoneNumber":"061-749-1234",
+      "address":"전라남도 순천시 덕암동 169",
+      "url":"http://store.emart.com/branch/list.do?id=1090",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":115,
+      "martType":"이마트",
+      "branchName":"여수점",
+      "region":"전남",
+      "phoneNumber":"061-650-1234",
+      "address":"전라남도 여수시 오림동 405-1",
+      "url":"http://store.emart.com/branch/list.do?id=1051",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":116,
+      "martType":"이마트",
+      "branchName":"군산점",
+      "region":"전북",
+      "phoneNumber":"063-472-1234",
+      "address":"전라북도 군산시 경암동 590-296",
+      "url":"http://store.emart.com/branch/list.do?id=1037",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":117,
+      "martType":"이마트",
+      "branchName":"남원점",
+      "region":"전북",
+      "phoneNumber":"063-620-3123",
+      "address":"전라북도 남원시 왕정동 146-1",
+      "url":"http://store.emart.com/branch/list.do?id=1009",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":118,
+      "martType":"이마트",
+      "branchName":"익산점",
+      "region":"전북",
+      "phoneNumber":"063-860-1234",
+      "address":"전라북도 익산시 동산동 667-53",
+      "url":"http://store.emart.com/branch/list.do?id=1102",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":119,
+      "martType":"이마트",
+      "branchName":"전주점",
+      "region":"전북",
+      "phoneNumber":"063-259-1234",
+      "address":"전라북도 전주시 완산구 서신동 767",
+      "url":"http://store.emart.com/branch/list.do?id=1017",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)"
+      ]
+   },
+   {  
+      "id":120,
+      "martType":"이마트",
+      "branchName":"강릉점",
+      "region":"강원",
+      "phoneNumber":"033-649-1234",
+      "address":"강원도 강릉시 송정동 1008-7",
+      "url":"http://store.emart.com/branch/list.do?id=1065",
+      "holidays":[  
+         "2018-08-22 (수)",
+         "2018-09-12 (수)",
+         "2018-09-26 (수)"
+      ]
+   },
+   {  
+      "id":121,
+      "martType":"이마트",
+      "branchName":"동해점",
+      "region":"강원",
+      "phoneNumber":"033-539-7123",
+      "address":"강원도 동해시 천곡동 831",
+      "url":"http://store.emart.com/branch/list.do?id=1075",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":122,
+      "martType":"이마트",
+      "branchName":"속초점",
+      "region":"강원",
+      "phoneNumber":"033-630-1234",
+      "address":"강원도 속초시 청호동 459-134",
+      "url":"http://store.emart.com/branch/list.do?id=1072",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":123,
+      "martType":"이마트",
+      "branchName":"원주점",
+      "region":"강원",
+      "phoneNumber":"033-749-1234",
+      "address":"강원도 원주시 무실동 1062-1",
+      "url":"http://store.emart.com/branch/list.do?id=1019",
+      "holidays":[  
+         "2018-08-22 (수)"
+      ]
+   },
+   {  
+      "id":124,
+      "martType":"이마트",
+      "branchName":"춘천점",
+      "region":"강원",
+      "phoneNumber":"033-240-1234",
+      "address":"강원도 춘천시 온의동 511",
+      "url":"http://store.emart.com/branch/list.do?id=1093",
+      "holidays":[  
+         "2018-08-12 (일)",
+         "2018-08-26 (일)",
+         "2018-09-09 (일)",
+         "2018-09-23 (일)"
+      ]
+   },
+   {  
+      "id":125,
+      "martType":"이마트",
+      "branchName":"태백점",
+      "region":"강원",
+      "phoneNumber":"033-580-1234",
+      "address":"강원도 태백시 화전동 113",
+      "url":"http://store.emart.com/branch/list.do?id=1104",
+      "holidays":[  
+         "2018-08-22 (수)"
+      ]
+   },
+   {  
+      "id":126,
+      "martType":"이마트",
+      "branchName":"서귀포점",
+      "region":"제주",
+      "phoneNumber":"064-797-1234",
+      "address":"제주특별자치도 서귀포시 법환동 841-2",
+      "url":"http://store.emart.com/branch/list.do?id=1097",
+      "holidays":[  
+         "2018-08-25 (토)"
+      ]
+   },
+   {  
+      "id":127,
+      "martType":"이마트",
+      "branchName":"신제주점",
+      "region":"제주",
+      "phoneNumber":"064-798-1234",
+      "address":"제주특별자치도 제주시 노형동 919",
+      "url":"http://store.emart.com/branch/list.do?id=1071",
+      "holidays":[  
+         "2018-08-25 (토)",
+         "2018-09-14 (금)",
+         "2018-09-24 (월)"
+      ]
+   },
+   {  
+      "id":128,
+      "martType":"이마트",
+      "branchName":"제주점",
+      "region":"제주",
+      "phoneNumber":"064-729-1234",
+      "address":"제주특별자치도 제주시 삼도이동 1259",
+      "url":"http://store.emart.com/branch/list.do?id=1006",
+      "holidays":[  
+         "2018-08-25 (토)",
+         "2018-09-14 (금)",
+         "2018-09-24 (월)"
+      ]
+   }
+]
