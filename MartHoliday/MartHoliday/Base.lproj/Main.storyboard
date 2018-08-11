@@ -22,7 +22,10 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yQJ-eh-lDx" userLabel="lottemart">
                                 <rect key="frame" x="19" y="362.5" width="337.5" height="133"/>
                                 <color key="backgroundColor" red="0.99953407049999998" green="0.98835557699999999" blue="0.47265523669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="롯데마트"/>
+                                <connections>
+                                    <action selector="lotteMartButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JCy-30-jUi"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hgy-YU-EqH" userLabel="homeplus">
                                 <rect key="frame" x="19" y="510.5" width="337.5" height="132.5"/>
@@ -38,8 +41,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xV5-li-QeS" userLabel="emart">
                                 <rect key="frame" x="19" y="214" width="337.5" height="133.5"/>
                                 <color key="backgroundColor" red="0.99953407049999998" green="0.98835557699999999" blue="0.47265523669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="이마트"/>
                                 <connections>
+                                    <action selector="emartButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Yh1-8h-huB"/>
                                     <segue destination="ppn-tM-5rG" kind="show" id="CZ1-X7-59F"/>
                                 </connections>
                             </button>
@@ -65,6 +69,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="9vX-k6-Fkc"/>
+                    <connections>
+                        <outlet property="emartButton" destination="xV5-li-QeS" id="vZL-Ey-wPz"/>
+                        <outlet property="lotteMartButton" destination="yQJ-eh-lDx" id="Df4-Zn-hcY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -73,7 +81,7 @@
         <!--Search View Controller-->
         <scene sceneID="s0c-5S-ZoM">
             <objects>
-                <viewController id="ppn-tM-5rG" customClass="SearchViewController" customModule="MartHoliday" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="searchVC" id="ppn-tM-5rG" customClass="SearchViewController" customModule="MartHoliday" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bzI-Ks-tYp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -89,7 +97,7 @@
                                 <rect key="frame" x="0.0" y="120" width="375" height="547"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Idk-lk-Fnx" detailTextLabel="sNu-Yv-dmB" rowHeight="60" style="IBUITableViewCellStyleSubtitle" id="fNV-J2-n97">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Idk-lk-Fnx" detailTextLabel="sNu-Yv-dmB" rowHeight="60" style="IBUITableViewCellStyleSubtitle" id="fNV-J2-n97">
                                         <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fNV-J2-n97" id="d2e-qp-Rwd">
