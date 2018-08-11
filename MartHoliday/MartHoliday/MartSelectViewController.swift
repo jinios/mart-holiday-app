@@ -19,6 +19,7 @@ class MartSelectViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setScrollView()
+        self.navigationItem.title = "마트 선택"
     }
 
     override func didReceiveMemoryWarning() {
