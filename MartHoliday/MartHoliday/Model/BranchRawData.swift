@@ -25,14 +25,36 @@ class BranchList {
     init(branches: [BranchRawData]){
         self.branches = branches.map{ Branch(branch: $0) }
     }
+
+    func count() -> Int {
+        return self.branches.count
+    }
 }
 
 class Branch {
-    let branch: BranchRawData
+    private let branch: BranchRawData
+
+    let id: Int
+    let martType: String
+    let branchName: String
+    let region: String
+    let phoneNumber: String
+    let address: String
+    let url: String
+    let holidays: [String]
+
     var favorite: Bool = false
 
     init(branch: BranchRawData) {
         self.branch = branch
+        self.id = branch.id
+        self.martType = branch.martType
+        self.branchName = branch.branchName
+        self.region = branch.region
+        self.phoneNumber = branch.phoneNumber
+        self.address = branch.address
+        self.url = branch.url
+        self.holidays = branch.holidays
     }
 
     func toggleFavorite() {
