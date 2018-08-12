@@ -45,6 +45,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FD391C51212025DB004C4A65 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FDB4BE23211D6BAD00D3B264 /* MartSelectViewController.swift */,
+				FD1CC4E0211DF76300B21E09 /* DetailViewController.swift */,
+				FD1CC4DE211DF10A00B21E09 /* SearchViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		FD9F40A1211ECAE2007D7F1B /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -81,16 +91,14 @@
 		FDB4BE20211D6BAD00D3B264 /* MartHoliday */ = {
 			isa = PBXGroup;
 			children = (
+				FD391C51212025DB004C4A65 /* ViewController */,
 				FD9F40A1211ECAE2007D7F1B /* Model */,
-				FDB4BE21211D6BAD00D3B264 /* AppDelegate.swift */,
-				FDB4BE23211D6BAD00D3B264 /* MartSelectViewController.swift */,
-				FD1CC4E0211DF76300B21E09 /* DetailViewController.swift */,
-				FD1CC4DE211DF10A00B21E09 /* SearchViewController.swift */,
-				FDB4BE25211D6BAD00D3B264 /* Main.storyboard */,
-				FDB4BE28211D6BAE00D3B264 /* Assets.xcassets */,
-				FDB4BE2A211D6BAE00D3B264 /* LaunchScreen.storyboard */,
-				FDB4BE2D211D6BAE00D3B264 /* Info.plist */,
 				FD9F40A2211ECB26007D7F1B /* Utility */,
+				FDB4BE25211D6BAD00D3B264 /* Main.storyboard */,
+				FDB4BE2A211D6BAE00D3B264 /* LaunchScreen.storyboard */,
+				FDB4BE28211D6BAE00D3B264 /* Assets.xcassets */,
+				FDB4BE21211D6BAD00D3B264 /* AppDelegate.swift */,
+				FDB4BE2D211D6BAE00D3B264 /* Info.plist */,
 			);
 			path = MartHoliday;
 			sourceTree = "<group>";

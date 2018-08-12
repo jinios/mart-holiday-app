@@ -8,7 +8,30 @@
 
 import Foundation
 
-enum JSONFiles: String {
-    case emartList
-    case lottemartList
+enum Mart: String, KoreanName, JSONfile {
+
+    case emart
+    case lottemart
+
+    var koreanName: String {
+        switch self {
+        case .emart: return "이마트"
+        case .lottemart: return "롯데마트"
+        }
+    }
+
+    var JSONfile: String {
+        switch self {
+        case .emart: return "emartList"
+        case .lottemart: return "lottemartList"
+        }
+    }
+}
+
+protocol KoreanName {
+    var koreanName: String { get }
+}
+
+protocol JSONfile {
+    var JSONfile: String { get }
 }

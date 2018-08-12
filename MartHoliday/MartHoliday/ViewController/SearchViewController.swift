@@ -10,15 +10,21 @@ import UIKit
 
 class SearchViewController: UIViewController {
 
-    var list: BranchList!
+    var list: BranchList?
+    var mart: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setNavigationBarTitle()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
 
+    private func setNavigationBarTitle() {
+        guard let mart = self.mart else { return }
+        self.navigationItem.title = mart
+    }
 
 }
