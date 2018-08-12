@@ -46,7 +46,7 @@ class MartSelectViewController: UIViewController {
 
     private func pushSearchViewController(mart: Mart) {
         guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "searchVC") as? SearchViewController else { return }
-        guard let branches = DataDecoder<Branch>.makeData(assetName: mart.JSONfile) else  { return }
+        guard let branches = DataDecoder<BranchRawData>.makeData(assetName: mart.JSONfile) else  { return }
         nextVC.list = BranchList(branches: branches)
         nextVC.mart = mart.koreanName
         self.navigationController?.pushViewController(nextVC, animated: true)

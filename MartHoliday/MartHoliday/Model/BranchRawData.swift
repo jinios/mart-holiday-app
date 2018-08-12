@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Branch: Codable {
+struct BranchRawData: Codable {
     var id: Int
     var martType: String
     var branchName: String
@@ -22,7 +22,23 @@ struct Branch: Codable {
 class BranchList {
     var branches: [Branch]
 
-    init(branches: [Branch]){
-        self.branches = branches
+    init(branches: [BranchRawData]){
+        self.branches = branches.map{ Branch(branch: $0) }
     }
 }
+
+class Branch {
+    let branch: BranchRawData
+    var favorite: Bool = false
+
+    init(branch: BranchRawData) {
+        self.branch = branch
+    }
+
+    func toggleFavorite() {
+        self.favorite = !favorite
+    }
+
+}
+
+
