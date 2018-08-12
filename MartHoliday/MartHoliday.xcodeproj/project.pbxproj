@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		FD1CC4DF211DF10A00B21E09 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1CC4DE211DF10A00B21E09 /* SearchViewController.swift */; };
 		FD1CC4E1211DF76300B21E09 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1CC4E0211DF76300B21E09 /* DetailViewController.swift */; };
+		FD9F409C211EBFAF007D7F1B /* Branch.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409B211EBFAF007D7F1B /* Branch.swift */; };
+		FD9F409E211EC0C8007D7F1B /* DataDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409D211EC0C8007D7F1B /* DataDecoder.swift */; };
+		FD9F40A0211EC5EA007D7F1B /* Keywords.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409F211EC5EA007D7F1B /* Keywords.swift */; };
 		FDB4BE22211D6BAD00D3B264 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB4BE21211D6BAD00D3B264 /* AppDelegate.swift */; };
 		FDB4BE24211D6BAD00D3B264 /* MartSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB4BE23211D6BAD00D3B264 /* MartSelectViewController.swift */; };
 		FDB4BE27211D6BAD00D3B264 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDB4BE25211D6BAD00D3B264 /* Main.storyboard */; };
@@ -19,6 +22,9 @@
 /* Begin PBXFileReference section */
 		FD1CC4DE211DF10A00B21E09 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		FD1CC4E0211DF76300B21E09 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		FD9F409B211EBFAF007D7F1B /* Branch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Branch.swift; sourceTree = "<group>"; };
+		FD9F409D211EC0C8007D7F1B /* DataDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDecoder.swift; sourceTree = "<group>"; };
+		FD9F409F211EC5EA007D7F1B /* Keywords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keywords.swift; sourceTree = "<group>"; };
 		FDB4BE1E211D6BAD00D3B264 /* MartHoliday.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MartHoliday.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDB4BE21211D6BAD00D3B264 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FDB4BE23211D6BAD00D3B264 /* MartSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MartSelectViewController.swift; sourceTree = "<group>"; };
@@ -39,6 +45,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FD9F40A1211ECAE2007D7F1B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FD9F409B211EBFAF007D7F1B /* Branch.swift */,
+				FD9F409D211EC0C8007D7F1B /* DataDecoder.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FD9F40A2211ECB26007D7F1B /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				FD9F409F211EC5EA007D7F1B /* Keywords.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 		FDB4BE15211D6BAD00D3B264 = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +81,7 @@
 		FDB4BE20211D6BAD00D3B264 /* MartHoliday */ = {
 			isa = PBXGroup;
 			children = (
+				FD9F40A1211ECAE2007D7F1B /* Model */,
 				FDB4BE21211D6BAD00D3B264 /* AppDelegate.swift */,
 				FDB4BE23211D6BAD00D3B264 /* MartSelectViewController.swift */,
 				FD1CC4E0211DF76300B21E09 /* DetailViewController.swift */,
@@ -66,6 +90,7 @@
 				FDB4BE28211D6BAE00D3B264 /* Assets.xcassets */,
 				FDB4BE2A211D6BAE00D3B264 /* LaunchScreen.storyboard */,
 				FDB4BE2D211D6BAE00D3B264 /* Info.plist */,
+				FD9F40A2211ECB26007D7F1B /* Utility */,
 			);
 			path = MartHoliday;
 			sourceTree = "<group>";
@@ -141,8 +166,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD9F409E211EC0C8007D7F1B /* DataDecoder.swift in Sources */,
 				FD1CC4DF211DF10A00B21E09 /* SearchViewController.swift in Sources */,
+				FD9F40A0211EC5EA007D7F1B /* Keywords.swift in Sources */,
 				FDB4BE24211D6BAD00D3B264 /* MartSelectViewController.swift in Sources */,
+				FD9F409C211EBFAF007D7F1B /* Branch.swift in Sources */,
 				FDB4BE22211D6BAD00D3B264 /* AppDelegate.swift in Sources */,
 				FD1CC4E1211DF76300B21E09 /* DetailViewController.swift in Sources */,
 			);
