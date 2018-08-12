@@ -19,6 +19,7 @@ class SearchViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         setNavigationBarTitle()
+        tableView.rowHeight = 60.0
     }
 
     override func didReceiveMemoryWarning() {
