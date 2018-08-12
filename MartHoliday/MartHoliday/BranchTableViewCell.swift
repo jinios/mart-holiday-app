@@ -10,6 +10,16 @@ import UIKit
 
 class BranchTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var address: UILabel!
+
+    var branchData: Branch? {
+        didSet {
+            setTitle()
+            setAddress()
+        }
+    }
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,6 +29,16 @@ class BranchTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+
+    private func setTitle() {
+        guard let branchData = self.branchData else { return }
+        self.title.text = branchData.branchName
+    }
+
+    private func setAddress() {
+        guard let branchData = self.branchData else { return }
+        self.address.text = branchData.address
     }
 
 }
