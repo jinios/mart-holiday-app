@@ -106,7 +106,7 @@
                                 <rect key="frame" x="0.0" y="76" width="375" height="591"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Idk-lk-Fnx" detailTextLabel="sNu-Yv-dmB" rowHeight="60" style="IBUITableViewCellStyleSubtitle" id="fNV-J2-n97">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="branchCell" textLabel="Idk-lk-Fnx" detailTextLabel="sNu-Yv-dmB" rowHeight="60" style="IBUITableViewCellStyleSubtitle" id="fNV-J2-n97" customClass="BranchTableViewCell" customModule="MartHoliday" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fNV-J2-n97" id="d2e-qp-Rwd">
@@ -130,6 +130,8 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="address" destination="sNu-Yv-dmB" id="NGz-cX-yIn"/>
+                                            <outlet property="title" destination="Idk-lk-Fnx" id="3hU-d5-8JT"/>
                                             <segue destination="zW4-f6-rWz" kind="show" id="qwP-xq-ucp"/>
                                         </connections>
                                     </tableViewCell>
@@ -150,6 +152,7 @@
                     </view>
                     <connections>
                         <outlet property="searchDisplayController" destination="y4g-sB-r6h" id="Ud9-kL-yVm"/>
+                        <outlet property="tableView" destination="itu-oI-71t" id="mCM-gN-eSs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qre-Wy-OR0" userLabel="First Responder" sceneMemberID="firstResponder"/>
