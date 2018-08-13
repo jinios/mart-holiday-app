@@ -26,6 +26,10 @@ class BranchList {
         self.branches = branches.map{ Branch(branch: $0) }
     }
 
+    init(branchData: [Branch]) {
+        self.branches = branchData
+    }
+
     func count() -> Int {
         return self.branches.count
     }

@@ -11,8 +11,16 @@ import UIKit
 class SearchViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    var list: BranchList?
+    let searchController = UISearchController(searchResultsController: nil)
+
+    var list: BranchList? {
+        didSet {
+            guard let list = self.list else { return }
+            self.filtered = list
+        }
+    }
     var mart: String?
+    var filtered: BranchList?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +28,16 @@ class SearchViewController: UIViewController {
         tableView.dataSource = self
         setNavigationBarTitle()
         tableView.rowHeight = 60.0
+        setSearchController()
+    }
+
+    private func setSearchController() {
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "지점명을 입력하세요."
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        definesPresentationContext = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,6 +49,36 @@ class SearchViewController: UIViewController {
         self.navigationItem.title = mart
     }
 
+    // MARK: - Private instance methods
+
+    func searchBarIsEmpty() -> Bool {
+        // Returns true if the text is empty or nil
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+
+    func filterContentForSearchText(_ searchText: String, scope: String = "All") {
+        let filtered = list?.branches.filter({ (branch) -> Bool in
+            branch.branchName.contains(searchText)
+        })
+        self.filtered = BranchList(branchData: filtered!)
+        tableView.reloadData()
+    }
+
+    func isFiltering() -> Bool {
+        return searchController.isActive && !searchBarIsEmpty()
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "showDetail" else { return }
+        guard let nextVC = segue.destination as? DetailViewController else { return }
+        if let indexPath = tableView.indexPathForSelectedRow {
+            if isFiltering() {
+                nextVC.branchData = filtered!.branches[indexPath.row]
+            } else {
+                nextVC.branchData = list!.branches[indexPath.row]
+            }
+        }
+    }
 }
 
 extension SearchViewController: UITableViewDelegate {
@@ -42,14 +90,30 @@ extension SearchViewController: UITableViewDelegate {
 
 extension SearchViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let currentList = self.filtered else { return 0 }
         guard let list = self.list else { return 0 }
-        return list.count()
+        guard isFiltering() else { return list.count() }
+        return currentList.count()
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let branchCell = tableView.dequeueReusableCell(withIdentifier: "branchCell", for: indexPath) as? BranchTableViewCell else { return UITableViewCell() }
         guard let list = self.list else { return UITableViewCell() }
-        branchCell.branchData = list.branches[indexPath.row]
+        guard let filtered = self.filtered else { return UITableViewCell() }
+        if isFiltering() {
+            branchCell.branchData = filtered.branches[indexPath.row]
+        } else {
+            branchCell.branchData = list.branches[indexPath.row]
+        }
         return branchCell
     }
+}
+
+extension SearchViewController: UISearchResultsUpdating {
+    // Called when the search bar becomes the first responder or when the user makes changes inside the search bar.
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
+    }
+
+
 }

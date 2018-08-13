@@ -96,15 +96,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" placeholder="지점 이름을 입력하세요." translatesAutoresizingMaskIntoConstraints="NO" id="KHZ-qs-dQa">
-                                <rect key="frame" x="0.0" y="20" width="375" height="56"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="ppn-tM-5rG" id="r67-Z0-RyR"/>
-                                </connections>
-                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="itu-oI-71t">
-                                <rect key="frame" x="0.0" y="76" width="375" height="591"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="branchCell" rowHeight="60" id="fNV-J2-n97" customClass="BranchTableViewCell" customModule="MartHoliday" customModuleProvider="target">
@@ -129,7 +122,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nWa-bS-hdO">
-                                                    <rect key="frame" x="313" y="13" width="29" height="30"/>
+                                                    <rect key="frame" x="312" y="13" width="30" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="nWa-bS-hdO" secondAttribute="height" multiplier="1:1" id="uSZ-Ri-zJN"/>
                                                     </constraints>
@@ -146,7 +139,7 @@
                                             <outlet property="address" destination="CnI-W2-HP4" id="3Rm-wu-mBi"/>
                                             <outlet property="star" destination="nWa-bS-hdO" id="B2k-j5-NsR"/>
                                             <outlet property="title" destination="GZs-en-hg5" id="QbF-V3-kRh"/>
-                                            <segue destination="zW4-f6-rWz" kind="show" id="qwP-xq-ucp"/>
+                                            <segue destination="zW4-f6-rWz" kind="show" identifier="showDetail" id="qwP-xq-ucp"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -155,11 +148,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="itu-oI-71t" firstAttribute="trailing" secondItem="2qd-M4-ebx" secondAttribute="trailing" id="8hJ-SK-LlW"/>
-                            <constraint firstItem="KHZ-qs-dQa" firstAttribute="trailing" secondItem="2qd-M4-ebx" secondAttribute="trailing" id="EPI-np-UMn"/>
-                            <constraint firstItem="itu-oI-71t" firstAttribute="top" secondItem="KHZ-qs-dQa" secondAttribute="bottom" id="QMf-Lf-OOr"/>
-                            <constraint firstItem="KHZ-qs-dQa" firstAttribute="leading" secondItem="2qd-M4-ebx" secondAttribute="leading" id="aLG-b7-82C"/>
+                            <constraint firstItem="itu-oI-71t" firstAttribute="top" secondItem="2qd-M4-ebx" secondAttribute="top" id="OYY-4a-MuU"/>
                             <constraint firstItem="itu-oI-71t" firstAttribute="bottom" secondItem="2qd-M4-ebx" secondAttribute="bottom" id="cvB-Du-JYe"/>
-                            <constraint firstItem="KHZ-qs-dQa" firstAttribute="top" secondItem="2qd-M4-ebx" secondAttribute="top" id="jah-4j-hpJ"/>
                             <constraint firstItem="itu-oI-71t" firstAttribute="leading" secondItem="2qd-M4-ebx" secondAttribute="leading" id="siI-RR-X2S"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2qd-M4-ebx"/>
@@ -173,7 +163,6 @@
                 <searchDisplayController id="y4g-sB-r6h">
                     <connections>
                         <outlet property="delegate" destination="ppn-tM-5rG" id="lBf-7v-2Ez"/>
-                        <outlet property="searchBar" destination="KHZ-qs-dQa" id="gCs-tW-Gy3"/>
                         <outlet property="searchContentsController" destination="ppn-tM-5rG" id="FTP-Tw-aX1"/>
                         <outlet property="searchResultsDataSource" destination="ppn-tM-5rG" id="Cqg-0w-K9M"/>
                         <outlet property="searchResultsDelegate" destination="ppn-tM-5rG" id="OlE-zo-7tV"/>
@@ -260,6 +249,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dcD-h2-T35"/>
                     </view>
+                    <connections>
+                        <outlet property="martTitle" destination="z5T-Uw-6h6" id="lLJ-NT-epg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ttn-IL-WYn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
