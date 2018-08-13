@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import SafariServices
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, SFSafariViewControllerDelegate {
 
     @IBOutlet weak var martTitle: UILabel!
     @IBOutlet weak var holidayStackView: UIStackView!
@@ -65,7 +66,11 @@ class DetailViewController: UIViewController {
     }
 
     @IBAction func goToWebPage(_ sender: Any) {
-        
+        guard let branchData = self.branchData else { return }
+        guard let url = URL(string: branchData.url) else { return }
+        let safariViewController = SFSafariViewController(url: url)
+        safariViewController.delegate = self
+        self.present(safariViewController, animated: true, completion: nil)
     }
 
 }
