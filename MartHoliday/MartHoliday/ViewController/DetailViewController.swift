@@ -10,6 +10,10 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
+    @IBOutlet weak var martTitle: UILabel!
+
+    var branchData: Branch!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
