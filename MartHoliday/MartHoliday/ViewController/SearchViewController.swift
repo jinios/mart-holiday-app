@@ -107,6 +107,10 @@ extension SearchViewController: UITableViewDataSource {
         }
         return branchCell
     }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
 
 extension SearchViewController: UISearchResultsUpdating {
@@ -114,6 +118,5 @@ extension SearchViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         filterContentForSearchText(searchController.searchBar.text!)
     }
-
-
 }
+
