@@ -11,29 +11,61 @@ import UIKit
 class DetailViewController: UIViewController {
 
     @IBOutlet weak var martTitle: UILabel!
+    @IBOutlet weak var holidayStackView: UIStackView!
+    @IBOutlet weak var businessHour: UILabel!
+    @IBOutlet weak var address: UILabel!
+    @IBOutlet weak var homepageButton: UIButton!
+    @IBOutlet weak var phoneNumber: UILabel!
 
-    var branchData: Branch!
+    var branchData: Branch?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setNavigationItem()
+        setTitle()
+        setAddress()
+        setHolidays()
+        setPhoneNumber()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    private func setNavigationItem() {
+        guard let branchData = self.branchData else { return }
+        self.navigationItem.title = branchData.branchName
     }
-    */
+
+    private func setTitle() {
+        guard let branchData = self.branchData else { return }
+        self.martTitle.text = branchData.branchName
+    }
+
+    private func setHolidays() {
+        guard let branchData = self.branchData else { return }
+        branchData.holidays.forEach { holiday in
+            let label = UILabel(frame: CGRect.zero)
+            label.font = label.font.withSize(12.0)
+            label.textColor = UIColor.blue
+            label.text = holiday
+            self.holidayStackView.addArrangedSubview(label)
+        }
+    }
+
+    private func setPhoneNumber() {
+        guard let branchData = self.branchData else { return }
+        self.phoneNumber.text = branchData.phoneNumber
+    }
+
+    private func setAddress() {
+        guard let branchData = self.branchData else { return }
+        address.text = branchData.address
+    }
+
+    @IBAction func goToWebPage(_ sender: Any) {
+        
+    }
 
 }

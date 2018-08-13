@@ -182,75 +182,97 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="bcL-Ps-2m9">
                                 <rect key="frame" x="0.0" y="20" width="375" height="333.5"/>
                             </mapView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="지점명" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5T-Uw-6h6">
-                                <rect key="frame" x="16" y="418" width="84" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지점명" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5T-Uw-6h6">
+                                <rect key="frame" x="16" y="389" width="343" height="38.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="32"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="후뮤일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pPv-Wm-ho9">
-                                <rect key="frame" x="16" y="461" width="55" height="26"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
-                                <color key="textColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="yec-k3-UKX" userLabel="휴무일스택뷰">
+                                <rect key="frame" x="16" y="438" width="82" height="26"/>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="guY-aq-IUi">
+                                <rect key="frame" x="16" y="473" width="59" height="109.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="영업시간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jz8-Kg-hmQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="59" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="전화번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2XA-B2-zJG">
+                                        <rect key="frame" x="0.0" y="25.5" width="59" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="주소" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vQc-kI-Tdm">
+                                        <rect key="frame" x="0.0" y="51" width="59" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rOi-8g-ADi">
+                                        <rect key="frame" x="0.0" y="76.5" width="59" height="33"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="홈페이지"/>
+                                        <connections>
+                                            <action selector="goToWebPage:" destination="zW4-f6-rWz" eventType="touchUpInside" id="z1w-Sd-gCm"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="즐겨찾는 지점에 추가하고 휴무일 알림을 받아보세요!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xN8-1A-dUw">
+                                <rect key="frame" x="7" y="361" width="360" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="영업시간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jz8-Kg-hmQ">
-                                <rect key="frame" x="16" y="511" width="59" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="전화번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kJ8-sn-4Bt">
-                                <rect key="frame" x="16" y="540" width="59" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="주소" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vQc-kI-Tdm">
-                                <rect key="frame" x="16" y="569" width="30" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D3l-HN-scg">
-                                <rect key="frame" x="108" y="422" width="78" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="즐겨찾기버튼"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D3l-HN-scg">
+                                <rect key="frame" x="339" y="577" width="28" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="D3l-HN-scg" secondAttribute="height" multiplier="1:1" id="W4V-52-Cmt"/>
+                                </constraints>
+                                <state key="normal" image="emptyStar"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="elG-dc-hgP">
-                                <rect key="frame" x="70" y="617" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="elG-dc-hgP">
+                                <rect key="frame" x="0.0" y="622.5" width="375" height="44.5"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="즐겨찾기에 추가">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o1m-5T-SQK">
-                                <rect key="frame" x="252" y="617" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="즐겨찾는 지점에 추가해보세요." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xN8-1A-dUw">
-                                <rect key="frame" x="7" y="382" width="360" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="yec-k3-UKX" firstAttribute="leading" secondItem="dcD-h2-T35" secondAttribute="leading" constant="16" id="2l2-mL-tm1"/>
+                            <constraint firstItem="dcD-h2-T35" firstAttribute="trailing" secondItem="xN8-1A-dUw" secondAttribute="trailing" constant="8" id="3Fr-n6-5YP"/>
                             <constraint firstItem="bcL-Ps-2m9" firstAttribute="trailing" secondItem="dcD-h2-T35" secondAttribute="trailing" id="87O-qA-8GG"/>
+                            <constraint firstItem="yec-k3-UKX" firstAttribute="top" secondItem="z5T-Uw-6h6" secondAttribute="bottom" constant="10" id="KEa-Vr-g8R"/>
+                            <constraint firstItem="elG-dc-hgP" firstAttribute="leading" secondItem="dcD-h2-T35" secondAttribute="leading" id="UK4-ge-bEu"/>
+                            <constraint firstItem="elG-dc-hgP" firstAttribute="trailing" secondItem="dcD-h2-T35" secondAttribute="trailing" id="UVd-Wh-FuB"/>
+                            <constraint firstItem="dcD-h2-T35" firstAttribute="trailing" secondItem="z5T-Uw-6h6" secondAttribute="trailing" constant="16" id="Vuk-LO-Q5C"/>
+                            <constraint firstItem="xN8-1A-dUw" firstAttribute="top" secondItem="bcL-Ps-2m9" secondAttribute="bottom" constant="7.5" id="Y5z-rO-Kkh"/>
                             <constraint firstItem="bcL-Ps-2m9" firstAttribute="leading" secondItem="dcD-h2-T35" secondAttribute="leading" id="bXl-GK-a5L"/>
+                            <constraint firstItem="z5T-Uw-6h6" firstAttribute="top" secondItem="xN8-1A-dUw" secondAttribute="bottom" constant="10" id="jhx-Bg-zeX"/>
+                            <constraint firstItem="guY-aq-IUi" firstAttribute="top" secondItem="yec-k3-UKX" secondAttribute="bottom" constant="10" id="mRs-of-pkg"/>
+                            <constraint firstItem="elG-dc-hgP" firstAttribute="height" secondItem="lvG-wH-6KM" secondAttribute="height" multiplier="1:15" id="nyH-RY-JbB"/>
                             <constraint firstItem="bcL-Ps-2m9" firstAttribute="top" secondItem="dcD-h2-T35" secondAttribute="top" id="oGU-3k-XSo"/>
-                            <constraint firstItem="bcL-Ps-2m9" firstAttribute="height" secondItem="lvG-wH-6KM" secondAttribute="height" multiplier="1:2" id="sP7-lx-O5I"/>
+                            <constraint firstItem="elG-dc-hgP" firstAttribute="bottom" secondItem="dcD-h2-T35" secondAttribute="bottom" id="pTV-LP-Yia"/>
+                            <constraint firstItem="guY-aq-IUi" firstAttribute="leading" secondItem="dcD-h2-T35" secondAttribute="leading" constant="16" id="qmq-ss-fRp"/>
+                            <constraint firstItem="bcL-Ps-2m9" firstAttribute="height" secondItem="lvG-wH-6KM" secondAttribute="height" multiplier="7.5:15" id="sP7-lx-O5I"/>
+                            <constraint firstItem="z5T-Uw-6h6" firstAttribute="leading" secondItem="dcD-h2-T35" secondAttribute="leading" constant="16" id="yUo-te-Nac"/>
+                            <constraint firstItem="xN8-1A-dUw" firstAttribute="leading" secondItem="dcD-h2-T35" secondAttribute="leading" constant="7" id="yoJ-Kz-Aze"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dcD-h2-T35"/>
                     </view>
                     <connections>
+                        <outlet property="address" destination="vQc-kI-Tdm" id="odm-Qq-749"/>
+                        <outlet property="businessHour" destination="jz8-Kg-hmQ" id="O7U-ez-cMB"/>
+                        <outlet property="holidayStackView" destination="yec-k3-UKX" id="qmL-eC-lha"/>
+                        <outlet property="homepageButton" destination="rOi-8g-ADi" id="qJV-66-jeC"/>
                         <outlet property="martTitle" destination="z5T-Uw-6h6" id="lLJ-NT-epg"/>
+                        <outlet property="phoneNumber" destination="2XA-B2-zJG" id="gxo-Yn-jRv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ttn-IL-WYn" userLabel="First Responder" sceneMemberID="firstResponder"/>
