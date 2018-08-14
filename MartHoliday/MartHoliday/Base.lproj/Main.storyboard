@@ -41,6 +41,9 @@
                                 <rect key="frame" x="19" y="510.5" width="337.5" height="132.5"/>
                                 <color key="backgroundColor" red="0.99953407049999998" green="0.98835557699999999" blue="0.47265523669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="aCo-3d-rkH" kind="show" id="m8I-nX-Vsl"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xV5-li-QeS" userLabel="emart">
                                 <rect key="frame" x="19" y="214" width="337.5" height="133.5"/>
@@ -87,6 +90,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="764" y="-564.46776611694156"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="KgC-ev-6qe">
+            <objects>
+                <viewController id="aCo-3d-rkH" customClass="MapViewController" customModule="MartHoliday" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XpV-mn-Etk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="FLY-du-Q48"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PnO-kj-tLF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1465" y="143"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="s0c-5S-ZoM">
@@ -179,10 +197,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="bcL-Ps-2m9">
-                                <rect key="frame" x="0.0" y="20" width="375" height="333.5"/>
-                            </mapView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지점명" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5T-Uw-6h6">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="지점명" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5T-Uw-6h6">
                                 <rect key="frame" x="16" y="389" width="343" height="38.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="32"/>
                                 <nil key="textColor"/>
@@ -222,7 +237,7 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="즐겨찾는 지점에 추가하고 휴무일 알림을 받아보세요!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xN8-1A-dUw">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="즐겨찾는 지점에 추가하고 휴무일 알림을 받아보세요!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xN8-1A-dUw">
                                 <rect key="frame" x="7" y="361" width="360" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -242,25 +257,28 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EPP-nl-lMa">
+                                <rect key="frame" x="0.0" y="20" width="375" height="333.5"/>
+                                <color key="backgroundColor" red="0.99953407049999998" green="0.98835557699999999" blue="0.47265523669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="yec-k3-UKX" firstAttribute="leading" secondItem="dcD-h2-T35" secondAttribute="leading" constant="16" id="2l2-mL-tm1"/>
                             <constraint firstItem="dcD-h2-T35" firstAttribute="trailing" secondItem="xN8-1A-dUw" secondAttribute="trailing" constant="8" id="3Fr-n6-5YP"/>
-                            <constraint firstItem="bcL-Ps-2m9" firstAttribute="trailing" secondItem="dcD-h2-T35" secondAttribute="trailing" id="87O-qA-8GG"/>
+                            <constraint firstItem="EPP-nl-lMa" firstAttribute="trailing" secondItem="dcD-h2-T35" secondAttribute="trailing" id="ANx-eH-ATG"/>
+                            <constraint firstItem="EPP-nl-lMa" firstAttribute="height" secondItem="lvG-wH-6KM" secondAttribute="height" multiplier="7.5:15" id="FfG-sj-Rp7"/>
+                            <constraint firstItem="EPP-nl-lMa" firstAttribute="top" secondItem="dcD-h2-T35" secondAttribute="top" id="GfC-yh-57e"/>
                             <constraint firstItem="yec-k3-UKX" firstAttribute="top" secondItem="z5T-Uw-6h6" secondAttribute="bottom" constant="10" id="KEa-Vr-g8R"/>
                             <constraint firstItem="elG-dc-hgP" firstAttribute="leading" secondItem="dcD-h2-T35" secondAttribute="leading" id="UK4-ge-bEu"/>
                             <constraint firstItem="elG-dc-hgP" firstAttribute="trailing" secondItem="dcD-h2-T35" secondAttribute="trailing" id="UVd-Wh-FuB"/>
                             <constraint firstItem="dcD-h2-T35" firstAttribute="trailing" secondItem="z5T-Uw-6h6" secondAttribute="trailing" constant="16" id="Vuk-LO-Q5C"/>
-                            <constraint firstItem="xN8-1A-dUw" firstAttribute="top" secondItem="bcL-Ps-2m9" secondAttribute="bottom" constant="7.5" id="Y5z-rO-Kkh"/>
-                            <constraint firstItem="bcL-Ps-2m9" firstAttribute="leading" secondItem="dcD-h2-T35" secondAttribute="leading" id="bXl-GK-a5L"/>
+                            <constraint firstItem="EPP-nl-lMa" firstAttribute="leading" secondItem="dcD-h2-T35" secondAttribute="leading" id="bci-0t-GIm"/>
                             <constraint firstItem="z5T-Uw-6h6" firstAttribute="top" secondItem="xN8-1A-dUw" secondAttribute="bottom" constant="10" id="jhx-Bg-zeX"/>
                             <constraint firstItem="guY-aq-IUi" firstAttribute="top" secondItem="yec-k3-UKX" secondAttribute="bottom" constant="10" id="mRs-of-pkg"/>
                             <constraint firstItem="elG-dc-hgP" firstAttribute="height" secondItem="lvG-wH-6KM" secondAttribute="height" multiplier="1:15" id="nyH-RY-JbB"/>
-                            <constraint firstItem="bcL-Ps-2m9" firstAttribute="top" secondItem="dcD-h2-T35" secondAttribute="top" id="oGU-3k-XSo"/>
                             <constraint firstItem="elG-dc-hgP" firstAttribute="bottom" secondItem="dcD-h2-T35" secondAttribute="bottom" id="pTV-LP-Yia"/>
                             <constraint firstItem="guY-aq-IUi" firstAttribute="leading" secondItem="dcD-h2-T35" secondAttribute="leading" constant="16" id="qmq-ss-fRp"/>
-                            <constraint firstItem="bcL-Ps-2m9" firstAttribute="height" secondItem="lvG-wH-6KM" secondAttribute="height" multiplier="7.5:15" id="sP7-lx-O5I"/>
                             <constraint firstItem="z5T-Uw-6h6" firstAttribute="leading" secondItem="dcD-h2-T35" secondAttribute="leading" constant="16" id="yUo-te-Nac"/>
                             <constraint firstItem="xN8-1A-dUw" firstAttribute="leading" secondItem="dcD-h2-T35" secondAttribute="leading" constant="7" id="yoJ-Kz-Aze"/>
                         </constraints>
