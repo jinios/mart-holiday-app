@@ -257,6 +257,9 @@
                                         <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="즐겨찾기"/>
+                                        <connections>
+                                            <action selector="favoriteTapped:" destination="zW4-f6-rWz" eventType="touchUpInside" id="LTc-jh-ap3"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VKP-Ge-3oW">
                                         <rect key="frame" x="128.5" y="0.0" width="118" height="33"/>

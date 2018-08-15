@@ -23,6 +23,8 @@
 		FDB4BE27211D6BAD00D3B264 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDB4BE25211D6BAD00D3B264 /* Main.storyboard */; };
 		FDB4BE29211D6BAE00D3B264 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDB4BE28211D6BAE00D3B264 /* Assets.xcassets */; };
 		FDB4BE2C211D6BAE00D3B264 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDB4BE2A211D6BAE00D3B264 /* LaunchScreen.storyboard */; };
+		FDBF9A4821240911001C2DAA /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBF9A4721240911001C2DAA /* DataStorage.swift */; };
+		FDBF9A4A212414A9001C2DAA /* FavoriteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBF9A49212414A9001C2DAA /* FavoriteList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -58,6 +60,8 @@
 		FDB4BE28211D6BAE00D3B264 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FDB4BE2B211D6BAE00D3B264 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FDB4BE2D211D6BAE00D3B264 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FDBF9A4721240911001C2DAA /* DataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
+		FDBF9A49212414A9001C2DAA /* FavoriteList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,8 @@
 			children = (
 				FD9F409B211EBFAF007D7F1B /* BranchRawData.swift */,
 				FD9F409D211EC0C8007D7F1B /* DataDecoder.swift */,
+				FDBF9A4721240911001C2DAA /* DataStorage.swift */,
+				FDBF9A49212414A9001C2DAA /* FavoriteList.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -236,12 +242,14 @@
 			files = (
 				FD9F409E211EC0C8007D7F1B /* DataDecoder.swift in Sources */,
 				FD1CC4DF211DF10A00B21E09 /* SearchViewController.swift in Sources */,
+				FDBF9A4821240911001C2DAA /* DataStorage.swift in Sources */,
 				FD9F40A0211EC5EA007D7F1B /* Keywords.swift in Sources */,
 				FDB4BE24211D6BAD00D3B264 /* MartSelectViewController.swift in Sources */,
 				FD3B642F2122A4FF003C1332 /* NMapViewResources.swift in Sources */,
 				FD3B642D21229892003C1332 /* MapViewController.swift in Sources */,
 				FD9F409C211EBFAF007D7F1B /* BranchRawData.swift in Sources */,
 				FDB4BE22211D6BAD00D3B264 /* AppDelegate.swift in Sources */,
+				FDBF9A4A212414A9001C2DAA /* FavoriteList.swift in Sources */,
 				FD1CC4E1211DF76300B21E09 /* DetailViewController.swift in Sources */,
 				FD11EAE321203A4C003EB3E9 /* BranchTableViewCell.swift in Sources */,
 			);
