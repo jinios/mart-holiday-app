@@ -34,12 +34,19 @@ class FavoriteList: NSObject, NSCoding {
 
     private(set) var favoriteList: Set<Int>
 
-    func push(branchID: Int) {
-        self.favoriteList.insert(branchID)
+    func push(branchID: Int) -> Bool {
+        return self.favoriteList.insert(branchID).inserted
     }
 
-    func pop(branchID: Int) {
-        self.favoriteList.remove(branchID)
+    func pop(branchID: Int) -> Bool {
+        var popResult: Bool
+        let result = self.favoriteList.remove(branchID)
+        if result != nil {
+            popResult = true
+        } else {
+            popResult = false
+        }
+        return popResult
     }
 
     func isFavorite(id: Int) -> Bool {

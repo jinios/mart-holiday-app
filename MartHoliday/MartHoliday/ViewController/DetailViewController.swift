@@ -20,6 +20,7 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate {
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var phoneCallButton: UIButton!
     @IBOutlet weak var homepageButton: UIButton!
+    @IBOutlet weak var starIcon: UIButton!
 
     var branchData: Branch?
 
@@ -30,6 +31,7 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate {
         setAddress()
         setHolidays()
         setPhoneNumber()
+        setStarIcon()
     }
 
     override func didReceiveMemoryWarning() {
@@ -90,8 +92,23 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate {
     }
 
     @IBAction func favoriteTapped(_ sender: Any) {
-        self.branchData?.toggleFavorite()
+        guard let branchData = self.branchData else { return }
+        guard branchData.toggleFavorite() else { return }
+        // 별 바꾸기
+        toggleStarIconStatus()
     }
 
+    private func toggleStarIconStatus() {
+        starIcon.isSelected = !starIcon.isSelected
+    }
+
+    private func setStarIcon() {
+        guard let branchData = self.branchData else { return }
+        starIcon.isSelected = branchData.favorite
+        starIcon.setImage(UIImage(named: "emptyStar"), for: .normal)
+        starIcon.setImage(UIImage(named: "yellowStar"), for: .selected)
+    }
 
 }
+
+

@@ -197,12 +197,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지점명" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5T-Uw-6h6">
-                                <rect key="frame" x="16" y="280.5" width="343" height="38.5"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="32"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="yec-k3-UKX" userLabel="휴무일스택뷰">
                                 <rect key="frame" x="16" y="327" width="82" height="26"/>
                             </stackView>
@@ -284,6 +278,26 @@
                                     <constraint firstAttribute="height" constant="33" id="BC1-yS-0m0"/>
                                 </constraints>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="PTR-Vp-wHT" userLabel="martTitleStackView">
+                                <rect key="frame" x="16" y="280.5" width="123.5" height="38.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지점명" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5T-Uw-6h6">
+                                        <rect key="frame" x="0.0" y="0.0" width="83.5" height="38.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="32"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aRD-d4-DJV">
+                                        <rect key="frame" x="88.5" y="0.0" width="35" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="8rr-Dy-UwA"/>
+                                            <constraint firstAttribute="width" secondItem="aRD-d4-DJV" secondAttribute="height" multiplier="1:1" id="r8L-5u-cu5"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
+                                        <state key="normal" title="Button" image="yellowStar"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -295,19 +309,19 @@
                             <constraint firstItem="xN8-1A-dUw" firstAttribute="top" secondItem="EPP-nl-lMa" secondAttribute="bottom" constant="10" id="BHG-0y-ULT"/>
                             <constraint firstItem="EPP-nl-lMa" firstAttribute="height" secondItem="lvG-wH-6KM" secondAttribute="height" multiplier="5:15" id="FfG-sj-Rp7"/>
                             <constraint firstItem="EPP-nl-lMa" firstAttribute="top" secondItem="dcD-h2-T35" secondAttribute="top" id="GfC-yh-57e"/>
+                            <constraint firstItem="PTR-Vp-wHT" firstAttribute="leading" secondItem="dcD-h2-T35" secondAttribute="leading" constant="16" id="Nld-dS-mFJ"/>
+                            <constraint firstItem="dcD-h2-T35" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="PTR-Vp-wHT" secondAttribute="trailing" constant="235.5" id="O0Z-Wc-2zI"/>
                             <constraint firstItem="elG-dc-hgP" firstAttribute="leading" secondItem="dcD-h2-T35" secondAttribute="leading" id="UK4-ge-bEu"/>
                             <constraint firstItem="elG-dc-hgP" firstAttribute="trailing" secondItem="dcD-h2-T35" secondAttribute="trailing" id="UVd-Wh-FuB"/>
-                            <constraint firstItem="dcD-h2-T35" firstAttribute="trailing" secondItem="z5T-Uw-6h6" secondAttribute="trailing" constant="16" id="Vuk-LO-Q5C"/>
                             <constraint firstItem="EPP-nl-lMa" firstAttribute="leading" secondItem="dcD-h2-T35" secondAttribute="leading" id="bci-0t-GIm"/>
+                            <constraint firstItem="PTR-Vp-wHT" firstAttribute="top" secondItem="xN8-1A-dUw" secondAttribute="bottom" constant="10" id="ccU-Dp-179"/>
                             <constraint firstItem="dcD-h2-T35" firstAttribute="trailing" secondItem="iBR-fH-tky" secondAttribute="trailing" id="d92-xt-RFQ"/>
-                            <constraint firstItem="z5T-Uw-6h6" firstAttribute="top" secondItem="xN8-1A-dUw" secondAttribute="bottom" constant="10" id="jhx-Bg-zeX"/>
-                            <constraint firstItem="yec-k3-UKX" firstAttribute="top" secondItem="z5T-Uw-6h6" secondAttribute="bottom" constant="10" id="mn2-lS-QQ6"/>
                             <constraint firstItem="guY-aq-IUi" firstAttribute="top" secondItem="iBR-fH-tky" secondAttribute="bottom" constant="10" id="njF-TJ-3dZ"/>
                             <constraint firstItem="elG-dc-hgP" firstAttribute="height" secondItem="lvG-wH-6KM" secondAttribute="height" multiplier="1:15" id="nyH-RY-JbB"/>
                             <constraint firstItem="iBR-fH-tky" firstAttribute="leading" secondItem="dcD-h2-T35" secondAttribute="leading" id="o2D-qF-iBV"/>
                             <constraint firstItem="elG-dc-hgP" firstAttribute="bottom" secondItem="dcD-h2-T35" secondAttribute="bottom" id="pTV-LP-Yia"/>
                             <constraint firstItem="guY-aq-IUi" firstAttribute="leading" secondItem="dcD-h2-T35" secondAttribute="leading" constant="16" id="qmq-ss-fRp"/>
-                            <constraint firstItem="z5T-Uw-6h6" firstAttribute="leading" secondItem="dcD-h2-T35" secondAttribute="leading" constant="16" id="yUo-te-Nac"/>
+                            <constraint firstItem="yec-k3-UKX" firstAttribute="top" secondItem="PTR-Vp-wHT" secondAttribute="bottom" constant="8" id="sYp-kj-cxB"/>
                             <constraint firstItem="xN8-1A-dUw" firstAttribute="leading" secondItem="dcD-h2-T35" secondAttribute="leading" constant="7" id="yoJ-Kz-Aze"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dcD-h2-T35"/>
@@ -322,6 +336,7 @@
                         <outlet property="martTitle" destination="z5T-Uw-6h6" id="lLJ-NT-epg"/>
                         <outlet property="phoneCallButton" destination="VKP-Ge-3oW" id="Aox-H6-nuC"/>
                         <outlet property="phoneNumberLabel" destination="2XA-B2-zJG" id="gxo-Yn-jRv"/>
+                        <outlet property="starIcon" destination="aRD-d4-DJV" id="m1e-ZH-gNi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ttn-IL-WYn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -349,5 +364,6 @@
     </scenes>
     <resources>
         <image name="emptyStar" width="64" height="64"/>
+        <image name="yellowStar" width="64" height="64"/>
     </resources>
 </document>

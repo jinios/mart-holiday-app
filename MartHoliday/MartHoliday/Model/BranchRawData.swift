@@ -61,13 +61,17 @@ class Branch {
         self.favorite = FavoriteList.shared().isFavorite(id: branch.id)
     }
 
-    func toggleFavorite() {
-        self.favorite = !favorite
+    func toggleFavorite() -> Bool {
         if self.favorite {
-            FavoriteList.shared().push(branchID: self.id)
+            // self.favorite이 즐겨찾기일때 끄기
+            guard FavoriteList.shared().pop(branchID: self.id) else { return false }
         } else {
-            FavoriteList.shared().pop(branchID: self.id)
+            // self.favorite이 즐겨찾기가 아닐때 켜기
+            guard FavoriteList.shared().push(branchID: self.id) else { return false }
         }
+        favorite = !favorite
+        NotificationCenter.default.post(name: .favoriteChanged, object: nil, userInfo: ["favoriteChangeResult": true])
+        return true
     }
 
 }

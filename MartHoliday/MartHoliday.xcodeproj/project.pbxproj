@@ -121,9 +121,9 @@
 		FDB4BE15211D6BAD00D3B264 = {
 			isa = PBXGroup;
 			children = (
-				FD3B64232121BEAA003C1332 /* ApiGatewayMac.framework */,
 				FDB4BE20211D6BAD00D3B264 /* MartHoliday */,
 				FDB4BE1F211D6BAD00D3B264 /* Products */,
+				FD3B64232121BEAA003C1332 /* ApiGatewayMac.framework */,
 				FD3B64272121BEDD003C1332 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -139,15 +139,15 @@
 		FDB4BE20211D6BAD00D3B264 /* MartHoliday */ = {
 			isa = PBXGroup;
 			children = (
+				FDB4BE21211D6BAD00D3B264 /* AppDelegate.swift */,
+				FD11EAE221203A4C003EB3E9 /* BranchTableViewCell.swift */,
 				FD391C51212025DB004C4A65 /* ViewController */,
 				FD9F40A1211ECAE2007D7F1B /* Model */,
 				FD9F40A2211ECB26007D7F1B /* Utility */,
 				FDB4BE25211D6BAD00D3B264 /* Main.storyboard */,
 				FDB4BE2A211D6BAE00D3B264 /* LaunchScreen.storyboard */,
 				FDB4BE28211D6BAE00D3B264 /* Assets.xcassets */,
-				FDB4BE21211D6BAD00D3B264 /* AppDelegate.swift */,
 				FDB4BE2D211D6BAE00D3B264 /* Info.plist */,
-				FD11EAE221203A4C003EB3E9 /* BranchTableViewCell.swift */,
 				FD3B642E2122A4FF003C1332 /* NMapViewResources.swift */,
 				FD3B642B2121C3FB003C1332 /* Header.h */,
 			);
