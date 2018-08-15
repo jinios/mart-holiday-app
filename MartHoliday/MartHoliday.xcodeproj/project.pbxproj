@@ -25,6 +25,7 @@
 		FDB4BE2C211D6BAE00D3B264 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDB4BE2A211D6BAE00D3B264 /* LaunchScreen.storyboard */; };
 		FDBF9A4821240911001C2DAA /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBF9A4721240911001C2DAA /* DataStorage.swift */; };
 		FDBF9A4A212414A9001C2DAA /* FavoriteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBF9A49212414A9001C2DAA /* FavoriteList.swift */; };
+		FDC2A942212458F400A1E2FF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC2A941212458F400A1E2FF /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -62,6 +63,7 @@
 		FDB4BE2D211D6BAE00D3B264 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FDBF9A4721240911001C2DAA /* DataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
 		FDBF9A49212414A9001C2DAA /* FavoriteList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteList.swift; sourceTree = "<group>"; };
+		FDC2A941212458F400A1E2FF /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				FD9F409F211EC5EA007D7F1B /* Keywords.swift */,
+				FDC2A941212458F400A1E2FF /* Extensions.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 				FD3B642F2122A4FF003C1332 /* NMapViewResources.swift in Sources */,
 				FD3B642D21229892003C1332 /* MapViewController.swift in Sources */,
 				FD9F409C211EBFAF007D7F1B /* BranchRawData.swift in Sources */,
+				FDC2A942212458F400A1E2FF /* Extensions.swift in Sources */,
 				FDB4BE22211D6BAD00D3B264 /* AppDelegate.swift in Sources */,
 				FDBF9A4A212414A9001C2DAA /* FavoriteList.swift in Sources */,
 				FD1CC4E1211DF76300B21E09 /* DetailViewController.swift in Sources */,

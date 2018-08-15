@@ -20,7 +20,9 @@ class FavoriteList: NSObject, NSCoding {
 
     private static var sharedFavorite = FavoriteList()
 
-    override init() { }
+    override init() {
+        self.favoriteList = Set<Int>()
+    }
 
     static func shared() -> FavoriteList {
         return sharedFavorite
@@ -30,7 +32,7 @@ class FavoriteList: NSObject, NSCoding {
         sharedFavorite = data
     }
 
-    private(set) var favoriteList = Set<Int>()
+    private(set) var favoriteList: Set<Int>
 
     func push(branchID: Int) {
         self.favoriteList.insert(branchID)

@@ -63,6 +63,11 @@ class Branch {
 
     func toggleFavorite() {
         self.favorite = !favorite
+        if self.favorite {
+            FavoriteList.shared().push(branchID: self.id)
+        } else {
+            FavoriteList.shared().pop(branchID: self.id)
+        }
     }
 
 }

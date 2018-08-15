@@ -90,7 +90,7 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate {
     }
 
     @IBAction func favoriteTapped(_ sender: Any) {
-
+        self.branchData?.toggleFavorite()
     }
 
 
