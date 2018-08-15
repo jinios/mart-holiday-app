@@ -8,9 +8,9 @@
 
 import Foundation
 
-class DataStorage {
+class DataStorage<T> {
 
-    func load<T>() -> T? {
+    class func load() -> T? {
         // 존재확인
         if UserDefaults.standard.object(forKey: String(describing: T.self)) != nil {
             // key값으로 데이터 가져옴
@@ -21,7 +21,7 @@ class DataStorage {
         return nil
     }
 
-    func saveVendingMachine<T>(data: T) {
+    class func saveVendingMachine(data: T) {
         UserDefaults.standard.set(NSKeyedArchiver.archivedData(withRootObject: data), forKey: String(describing: T.self))
     }
 }

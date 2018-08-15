@@ -46,8 +46,7 @@ class Branch {
     let address: String
     let url: String
     let holidays: [String]
-
-    var favorite: Bool = false
+    var favorite: Bool
 
     init(branch: BranchRawData) {
         self.branch = branch
@@ -59,6 +58,7 @@ class Branch {
         self.address = branch.address
         self.url = branch.url
         self.holidays = branch.holidays
+        self.favorite = FavoriteList.isFavorite(id: branch.id)
     }
 
     func toggleFavorite() {
