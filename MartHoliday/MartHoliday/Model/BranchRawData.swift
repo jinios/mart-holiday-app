@@ -58,7 +58,7 @@ class Branch {
         self.address = branch.address
         self.url = branch.url
         self.holidays = branch.holidays
-        self.favorite = FavoriteList.isFavorite(id: branch.id)
+        self.favorite = FavoriteList.shared().isFavorite(id: branch.id)
     }
 
     func toggleFavorite() {

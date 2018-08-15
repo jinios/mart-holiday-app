@@ -11,11 +11,11 @@ import Foundation
 class FavoriteList: NSObject, NSCoding {
 
     func encode(with aCoder: NSCoder) {
-        aCoder.encode(FavoriteList.favoriteList, forKey: "favorite")
+        aCoder.encode(favoriteList, forKey: String(describing: FavoriteList.self))
     }
 
     required init?(coder aDecoder: NSCoder) {
-        FavoriteList.favoriteList = aDecoder.decodeObject(forKey: "favorite") as! Set<Int>
+        favoriteList = aDecoder.decodeObject(forKey: String(describing: FavoriteList.self)) as! Set<Int>
     }
 
     private static var sharedFavorite = FavoriteList()
@@ -30,18 +30,18 @@ class FavoriteList: NSObject, NSCoding {
         sharedFavorite = data
     }
 
-    static private(set) var favoriteList = Set<Int>()
+    private(set) var favoriteList = Set<Int>()
 
-    static func push(branchID: Int) {
+    func push(branchID: Int) {
         self.favoriteList.insert(branchID)
     }
 
-    static func pop(branchID: Int) {
+    func pop(branchID: Int) {
         self.favoriteList.remove(branchID)
     }
 
-    static func isFavorite(id: Int) -> Bool {
-        return favoriteList.contains(id)
+    func isFavorite(id: Int) -> Bool {
+        return self.favoriteList.contains(id)
     }
 }
 

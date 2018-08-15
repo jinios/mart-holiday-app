@@ -21,7 +21,7 @@ class DataStorage<T> {
         return nil
     }
 
-    class func saveVendingMachine(data: T) {
+    class func save(data: T) {
         UserDefaults.standard.set(NSKeyedArchiver.archivedData(withRootObject: data), forKey: String(describing: T.self))
     }
 }
