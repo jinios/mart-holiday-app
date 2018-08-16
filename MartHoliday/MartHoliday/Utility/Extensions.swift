@@ -6,8 +6,19 @@
 //  Copyright © 2018년 JINiOS. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 extension Notification.Name {
     static let favoriteChanged = Notification.Name("favoriteChanged")
+}
+
+extension UIButton {
+    func setStarIconImage() {
+        self.setImage(UIImage(named: "emptyStar"), for: .normal)
+        self.setImage(UIImage(named: "yellowStar"), for: .selected)
+    }
+
+    func toggleSelectedState() {
+        self.isSelected = !self.isSelected
+    }
 }

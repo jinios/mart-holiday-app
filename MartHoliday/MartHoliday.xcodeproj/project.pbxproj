@@ -82,8 +82,8 @@
 		FD391C51212025DB004C4A65 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				FDB4BE23211D6BAD00D3B264 /* MartSelectViewController.swift */,
 				FD1CC4E0211DF76300B21E09 /* DetailViewController.swift */,
+				FDB4BE23211D6BAD00D3B264 /* MartSelectViewController.swift */,
 				FD1CC4DE211DF10A00B21E09 /* SearchViewController.swift */,
 				FD3B642C21229892003C1332 /* MapViewController.swift */,
 			);

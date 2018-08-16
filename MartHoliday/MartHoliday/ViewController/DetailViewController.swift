@@ -94,20 +94,14 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate {
     @IBAction func favoriteTapped(_ sender: Any) {
         guard let branchData = self.branchData else { return }
         guard branchData.toggleFavorite() else { return }
-        toggleStarIconStatus()
-    }
-
-    private func toggleStarIconStatus() {
-        starIcon.isSelected = !starIcon.isSelected
+        starIcon.toggleSelectedState()
     }
 
     private func setStarIcon() {
         guard let branchData = self.branchData else { return }
         starIcon.isSelected = branchData.favorite
-        starIcon.setImage(UIImage(named: "emptyStar"), for: .normal)
-        starIcon.setImage(UIImage(named: "yellowStar"), for: .selected)
+        starIcon.setStarIconImage()
     }
 
 }
-
 

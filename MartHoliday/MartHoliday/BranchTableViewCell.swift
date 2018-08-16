@@ -27,7 +27,8 @@ class BranchTableViewCell: UITableViewCell {
     }
 
     override func prepareForReuse() {
-        self.star.imageView?.image = UIImage(named: "emptyStar")
+        guard let branchData = self.branchData else { return }
+        star.isSelected = branchData.favorite
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -47,14 +48,9 @@ class BranchTableViewCell: UITableViewCell {
     }
 
     private func setStar() {
-        DispatchQueue.main.async {
-            guard let branchData = self.branchData else { return }
-
-            switch branchData.favorite {
-            case true : self.star.imageView?.image = UIImage(named: "yellowStar")
-            case false : return
-            }
-        }
+        guard let branchData = self.branchData else { return }
+        star.isSelected = branchData.favorite
+        star.setStarIconImage()
     }
 
 }
