@@ -79,7 +79,11 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate {
     }
 
     @IBAction func phoneCallTapped(_ sender: Any) {
-        if let phoneNumberURL = URL(string: "tel://1234567") {
+        guard let branchData = self.branchData else { return }
+        let phoneNumber = branchData.phoneNumber
+                                    .filter { $0 != Character(" ") }
+                                    .filter { $0 != Character("-") }
+        if let phoneNumberURL = URL(string: "tel://\(phoneNumber)") {
             UIApplication.shared.open(phoneNumberURL, options: [:]) { (success) in
                 if success {
                     print("call")
