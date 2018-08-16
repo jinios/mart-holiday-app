@@ -94,7 +94,6 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate {
     @IBAction func favoriteTapped(_ sender: Any) {
         guard let branchData = self.branchData else { return }
         guard branchData.toggleFavorite() else { return }
-        // 별 바꾸기
         toggleStarIconStatus()
     }
 

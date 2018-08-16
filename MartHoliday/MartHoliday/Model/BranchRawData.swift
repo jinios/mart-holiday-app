@@ -70,7 +70,6 @@ class Branch {
             guard FavoriteList.shared().push(branchID: self.id) else { return false }
         }
         favorite = !favorite
-        NotificationCenter.default.post(name: .favoriteChanged, object: nil, userInfo: ["favoriteChangeResult": true])
         return true
     }
 

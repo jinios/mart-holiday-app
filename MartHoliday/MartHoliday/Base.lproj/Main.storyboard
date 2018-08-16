@@ -232,13 +232,6 @@
                                 <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="elG-dc-hgP">
-                                <rect key="frame" x="0.0" y="622.5" width="375" height="44.5"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="즐겨찾기에 추가">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EPP-nl-lMa">
                                 <rect key="frame" x="0.0" y="20" width="375" height="222.5"/>
                                 <color key="backgroundColor" red="0.99953407049999998" green="0.98835557699999999" blue="0.47265523669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -311,15 +304,11 @@
                             <constraint firstItem="EPP-nl-lMa" firstAttribute="top" secondItem="dcD-h2-T35" secondAttribute="top" id="GfC-yh-57e"/>
                             <constraint firstItem="PTR-Vp-wHT" firstAttribute="leading" secondItem="dcD-h2-T35" secondAttribute="leading" constant="16" id="Nld-dS-mFJ"/>
                             <constraint firstItem="dcD-h2-T35" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="PTR-Vp-wHT" secondAttribute="trailing" constant="235.5" id="O0Z-Wc-2zI"/>
-                            <constraint firstItem="elG-dc-hgP" firstAttribute="leading" secondItem="dcD-h2-T35" secondAttribute="leading" id="UK4-ge-bEu"/>
-                            <constraint firstItem="elG-dc-hgP" firstAttribute="trailing" secondItem="dcD-h2-T35" secondAttribute="trailing" id="UVd-Wh-FuB"/>
                             <constraint firstItem="EPP-nl-lMa" firstAttribute="leading" secondItem="dcD-h2-T35" secondAttribute="leading" id="bci-0t-GIm"/>
                             <constraint firstItem="PTR-Vp-wHT" firstAttribute="top" secondItem="xN8-1A-dUw" secondAttribute="bottom" constant="10" id="ccU-Dp-179"/>
                             <constraint firstItem="dcD-h2-T35" firstAttribute="trailing" secondItem="iBR-fH-tky" secondAttribute="trailing" id="d92-xt-RFQ"/>
                             <constraint firstItem="guY-aq-IUi" firstAttribute="top" secondItem="iBR-fH-tky" secondAttribute="bottom" constant="10" id="njF-TJ-3dZ"/>
-                            <constraint firstItem="elG-dc-hgP" firstAttribute="height" secondItem="lvG-wH-6KM" secondAttribute="height" multiplier="1:15" id="nyH-RY-JbB"/>
                             <constraint firstItem="iBR-fH-tky" firstAttribute="leading" secondItem="dcD-h2-T35" secondAttribute="leading" id="o2D-qF-iBV"/>
-                            <constraint firstItem="elG-dc-hgP" firstAttribute="bottom" secondItem="dcD-h2-T35" secondAttribute="bottom" id="pTV-LP-Yia"/>
                             <constraint firstItem="guY-aq-IUi" firstAttribute="leading" secondItem="dcD-h2-T35" secondAttribute="leading" constant="16" id="qmq-ss-fRp"/>
                             <constraint firstItem="yec-k3-UKX" firstAttribute="top" secondItem="PTR-Vp-wHT" secondAttribute="bottom" constant="8" id="sYp-kj-cxB"/>
                             <constraint firstItem="xN8-1A-dUw" firstAttribute="leading" secondItem="dcD-h2-T35" secondAttribute="leading" constant="7" id="yoJ-Kz-Aze"/>
