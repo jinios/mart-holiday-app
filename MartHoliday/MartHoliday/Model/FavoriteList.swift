@@ -32,6 +32,10 @@ class FavoriteList: NSObject, NSCoding {
         sharedFavorite = data
     }
 
+    static func isSameData(_ data: FavoriteList) -> Bool {
+        return sharedFavorite.favoriteList == data.favoriteList
+    }
+
     private(set) var favoriteList: Set<Int>
 
     func push(branchID: Int) -> Bool {
