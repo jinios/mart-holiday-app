@@ -46,8 +46,7 @@ class Branch {
     let address: String
     let url: String
     let holidays: [String]
-
-    var favorite: Bool = false
+    var favorite: Bool
 
     init(branch: BranchRawData) {
         self.branch = branch
@@ -59,10 +58,19 @@ class Branch {
         self.address = branch.address
         self.url = branch.url
         self.holidays = branch.holidays
+        self.favorite = FavoriteList.shared().isFavorite(id: branch.id)
     }
 
-    func toggleFavorite() {
-        self.favorite = !favorite
+    func toggleFavorite() -> Bool {
+        if self.favorite {
+            // self.favorite이 즐겨찾기일때 끄기
+            guard FavoriteList.shared().pop(branchID: self.id) else { return false }
+        } else {
+            // self.favorite이 즐겨찾기가 아닐때 켜기
+            guard FavoriteList.shared().push(branchID: self.id) else { return false }
+        }
+        favorite = !favorite
+        return true
     }
 
 }
