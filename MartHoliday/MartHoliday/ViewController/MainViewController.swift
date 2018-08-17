@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, SlideLauncherDelegate {
 
     @IBOutlet weak var firstFavoriteLabel: UILabel!
     @IBOutlet weak var secondFavoriteLabel: UILabel!
@@ -17,9 +17,6 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,12 +24,17 @@ class MainViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    let slideBackgroundView = SlideBackgroundView()
+    let slideMenu = SlideMenu()
     let slideLauncher = SlideLauncher()
 
     @IBAction func slideMenuTapped(_ sender: Any) {
-        self.view.addSubview(slideLauncher)
-        slideLauncher.showSettings()
+        slideLauncher.delegate = self
+        slideLauncher.set()
+        slideLauncher.show()
     }
+}
 
+protocol SlideLauncherDelegate {
 
 }
