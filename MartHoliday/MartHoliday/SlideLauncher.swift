@@ -8,15 +8,31 @@
 
 import UIKit
 
-class SlideLauncher {
-    var delegate: (UIViewController & SlideLauncherDelegate)!
-    let background: SlideBackgroundView
-    let menu: SlideMenu
+class SlideLauncher: NSObject, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
-    init() {
+    override init() {
+        super.init()
         self.background = SlideBackgroundView()
         self.menu = SlideMenu()
+        menu.delegate = self
+        menu.dataSource = self
     }
+
+    static let cellID = "cellID"
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 3
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SlideLauncher.cellID, for: indexPath) as! SlideMenuCell
+        cell.setup()
+        return cell
+    }
+
+    var delegate: (UIViewController & SlideLauncherDelegate)!
+    var background: SlideBackgroundView!
+    var menu: SlideMenu!
 
     private func add() {
         delegate.view.addSubview(background)
@@ -73,6 +89,7 @@ class SlideMenu: UICollectionView {
 
     convenience init() {
         self.init(frame: CGRect(x: -(UIScreen.main.bounds.width/2), y: 0, width: UIScreen.main.bounds.width/2, height: UIScreen.main.bounds.height), collectionViewLayout: UICollectionViewFlowLayout())
+        self.register(SlideMenuCell.self, forCellWithReuseIdentifier: SlideLauncher.cellID)
     }
 
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
