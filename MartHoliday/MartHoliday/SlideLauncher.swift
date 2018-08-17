@@ -8,31 +8,17 @@
 
 import UIKit
 
-class SlideLauncher: NSObject, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class SlideLauncher: NSObject {
+
+    var delegate: (UIViewController & SlideLauncherDelegate)!
+    var background: SlideBackgroundView!
+    var menu: SlideMenu!
 
     override init() {
         super.init()
         self.background = SlideBackgroundView()
         self.menu = SlideMenu()
-        menu.delegate = self
-        menu.dataSource = self
     }
-
-    static let cellID = "cellID"
-
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
-    }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SlideLauncher.cellID, for: indexPath) as! SlideMenuCell
-        cell.setup()
-        return cell
-    }
-
-    var delegate: (UIViewController & SlideLauncherDelegate)!
-    var background: SlideBackgroundView!
-    var menu: SlideMenu!
 
     private func add() {
         delegate.view.addSubview(background)
@@ -59,8 +45,6 @@ class SlideLauncher: NSObject, UICollectionViewDelegate, UICollectionViewDataSou
                 self.menu.dismiss()
         }, completion: nil)
     }
-
-
 
 }
 

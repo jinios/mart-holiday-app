@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		FD11EAE321203A4C003EB3E9 /* BranchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD11EAE221203A4C003EB3E9 /* BranchTableViewCell.swift */; };
 		FD1B4F1B2126750900946311 /* SlideLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1B4F1A2126750900946311 /* SlideLauncher.swift */; };
-		FD1B4F1D2126B83200946311 /* SlideMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1B4F1C2126B83200946311 /* SlideMenuCell.swift */; };
 		FD1B4F212126BB8B00946311 /* SlideBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1B4F202126BB8B00946311 /* SlideBackgroundView.swift */; };
 		FD1B4F232126BBD200946311 /* SlideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1B4F222126BBD200946311 /* SlideMenu.swift */; };
+		FD1B4F252126C0FA00946311 /* SlideMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD1B4F242126C0FA00946311 /* SlideMenuView.xib */; };
 		FD1CC4DF211DF10A00B21E09 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1CC4DE211DF10A00B21E09 /* SearchViewController.swift */; };
 		FD1CC4E1211DF76300B21E09 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1CC4E0211DF76300B21E09 /* DetailViewController.swift */; };
 		FD3B64242121BEAA003C1332 /* ApiGatewayMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3B64232121BEAA003C1332 /* ApiGatewayMac.framework */; };
@@ -50,9 +50,9 @@
 /* Begin PBXFileReference section */
 		FD11EAE221203A4C003EB3E9 /* BranchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchTableViewCell.swift; sourceTree = "<group>"; };
 		FD1B4F1A2126750900946311 /* SlideLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SlideLauncher.swift; path = MartHoliday/SlideLauncher.swift; sourceTree = SOURCE_ROOT; };
-		FD1B4F1C2126B83200946311 /* SlideMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideMenuCell.swift; sourceTree = "<group>"; };
 		FD1B4F202126BB8B00946311 /* SlideBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideBackgroundView.swift; sourceTree = "<group>"; };
 		FD1B4F222126BBD200946311 /* SlideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideMenu.swift; sourceTree = "<group>"; };
+		FD1B4F242126C0FA00946311 /* SlideMenuView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SlideMenuView.xib; sourceTree = "<group>"; };
 		FD1CC4DE211DF10A00B21E09 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		FD1CC4E0211DF76300B21E09 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		FD3B64232121BEAA003C1332 /* ApiGatewayMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ApiGatewayMac.framework; sourceTree = "<group>"; };
@@ -93,7 +93,6 @@
 			isa = PBXGroup;
 			children = (
 				FD11EAE221203A4C003EB3E9 /* BranchTableViewCell.swift */,
-				FD1B4F1C2126B83200946311 /* SlideMenuCell.swift */,
 				FD1B4F202126BB8B00946311 /* SlideBackgroundView.swift */,
 				FD1B4F222126BBD200946311 /* SlideMenu.swift */,
 			);
@@ -168,6 +167,7 @@
 				FD9F40A1211ECAE2007D7F1B /* Model */,
 				FD9F40A2211ECB26007D7F1B /* Utility */,
 				FDB4BE25211D6BAD00D3B264 /* Main.storyboard */,
+				FD1B4F242126C0FA00946311 /* SlideMenuView.xib */,
 				FDB4BE2A211D6BAE00D3B264 /* LaunchScreen.storyboard */,
 				FDB4BE28211D6BAE00D3B264 /* Assets.xcassets */,
 				FDB4BE2D211D6BAE00D3B264 /* Info.plist */,
@@ -240,6 +240,7 @@
 				FDB4BE2C211D6BAE00D3B264 /* LaunchScreen.storyboard in Resources */,
 				FDB4BE29211D6BAE00D3B264 /* Assets.xcassets in Resources */,
 				FDB4BE27211D6BAD00D3B264 /* Main.storyboard in Resources */,
+				FD1B4F252126C0FA00946311 /* SlideMenuView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,7 +272,6 @@
 				FDBF9A4821240911001C2DAA /* DataStorage.swift in Sources */,
 				FD1B4F212126BB8B00946311 /* SlideBackgroundView.swift in Sources */,
 				FD1B4F1B2126750900946311 /* SlideLauncher.swift in Sources */,
-				FD1B4F1D2126B83200946311 /* SlideMenuCell.swift in Sources */,
 				FD9F40A0211EC5EA007D7F1B /* Keywords.swift in Sources */,
 				FDB4BE24211D6BAD00D3B264 /* MartSelectViewController.swift in Sources */,
 				FD1B4F232126BBD200946311 /* SlideMenu.swift in Sources */,

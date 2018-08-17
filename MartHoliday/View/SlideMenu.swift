@@ -8,15 +8,25 @@
 
 import UIKit
 
-class SlideMenu: UICollectionView {
+class SlideMenu: UIView {
+    @IBOutlet var content: UIView!
+    @IBOutlet weak var mainButton: UIButton!
+    @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var nothingButton: UIButton!
 
     convenience init() {
-        self.init(frame: CGRect(x: -(UIScreen.main.bounds.width/2), y: 0, width: UIScreen.main.bounds.width/2, height: UIScreen.main.bounds.height), collectionViewLayout: UICollectionViewFlowLayout())
-        self.register(SlideMenuCell.self, forCellWithReuseIdentifier: SlideLauncher.cellID)
+        self.init(frame: CGRect(x: -(UIScreen.main.bounds.width/2), y: 0, width: UIScreen.main.bounds.width/2, height: UIScreen.main.bounds.height))
+        Bundle.main.loadNibNamed("SlideMenuView", owner: self, options: nil)
+        addSubview(content)
+        content.frame = self.bounds
+        content.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        mainButton.setTitle("메인", for: .normal)
+        searchButton.setTitle("검색", for: .normal)
+        nothingButton.setTitle("버튼", for: .normal)
     }
 
-    override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
-        super.init(frame: frame, collectionViewLayout: layout)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
     }
 
     required init?(coder aDecoder: NSCoder) {
