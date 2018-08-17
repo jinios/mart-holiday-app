@@ -22,6 +22,10 @@
 		FD9F409C211EBFAF007D7F1B /* BranchRawData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409B211EBFAF007D7F1B /* BranchRawData.swift */; };
 		FD9F409E211EC0C8007D7F1B /* DataDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409D211EC0C8007D7F1B /* DataDecoder.swift */; };
 		FD9F40A0211EC5EA007D7F1B /* Keywords.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409F211EC5EA007D7F1B /* Keywords.swift */; };
+		FDAF601F21273E880006B68A /* NanumSquareRoundOTFL.otf in Resources */ = {isa = PBXBuildFile; fileRef = FDAF601B21273E880006B68A /* NanumSquareRoundOTFL.otf */; };
+		FDAF602021273E880006B68A /* NanumSquareRoundOTFB.otf in Resources */ = {isa = PBXBuildFile; fileRef = FDAF601C21273E880006B68A /* NanumSquareRoundOTFB.otf */; };
+		FDAF602121273E880006B68A /* NanumSquareRoundOTFR.otf in Resources */ = {isa = PBXBuildFile; fileRef = FDAF601D21273E880006B68A /* NanumSquareRoundOTFR.otf */; };
+		FDAF602221273E880006B68A /* NanumSquareRoundOTFEB.otf in Resources */ = {isa = PBXBuildFile; fileRef = FDAF601E21273E880006B68A /* NanumSquareRoundOTFEB.otf */; };
 		FDB4BE22211D6BAD00D3B264 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB4BE21211D6BAD00D3B264 /* AppDelegate.swift */; };
 		FDB4BE24211D6BAD00D3B264 /* MartSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB4BE23211D6BAD00D3B264 /* MartSelectViewController.swift */; };
 		FDB4BE27211D6BAD00D3B264 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDB4BE25211D6BAD00D3B264 /* Main.storyboard */; };
@@ -63,6 +67,10 @@
 		FD9F409B211EBFAF007D7F1B /* BranchRawData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchRawData.swift; sourceTree = "<group>"; };
 		FD9F409D211EC0C8007D7F1B /* DataDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDecoder.swift; sourceTree = "<group>"; };
 		FD9F409F211EC5EA007D7F1B /* Keywords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keywords.swift; sourceTree = "<group>"; };
+		FDAF601B21273E880006B68A /* NanumSquareRoundOTFL.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundOTFL.otf; sourceTree = "<group>"; };
+		FDAF601C21273E880006B68A /* NanumSquareRoundOTFB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundOTFB.otf; sourceTree = "<group>"; };
+		FDAF601D21273E880006B68A /* NanumSquareRoundOTFR.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundOTFR.otf; sourceTree = "<group>"; };
+		FDAF601E21273E880006B68A /* NanumSquareRoundOTFEB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundOTFEB.otf; sourceTree = "<group>"; };
 		FDB4BE1E211D6BAD00D3B264 /* MartHoliday.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MartHoliday.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDB4BE21211D6BAD00D3B264 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FDB4BE23211D6BAD00D3B264 /* MartSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MartSelectViewController.swift; sourceTree = "<group>"; };
@@ -140,10 +148,20 @@
 			path = Utility;
 			sourceTree = "<group>";
 		};
+		FDAF601A21273D9F0006B68A /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				FDAF601C21273E880006B68A /* NanumSquareRoundOTFB.otf */,
+				FDAF601E21273E880006B68A /* NanumSquareRoundOTFEB.otf */,
+				FDAF601B21273E880006B68A /* NanumSquareRoundOTFL.otf */,
+				FDAF601D21273E880006B68A /* NanumSquareRoundOTFR.otf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
 		FDB4BE15211D6BAD00D3B264 = {
 			isa = PBXGroup;
 			children = (
-				FD1B4F1F2126BB4900946311 /* View */,
 				FDB4BE20211D6BAD00D3B264 /* MartHoliday */,
 				FDB4BE1F211D6BAD00D3B264 /* Products */,
 				FD3B64232121BEAA003C1332 /* ApiGatewayMac.framework */,
@@ -163,9 +181,11 @@
 			isa = PBXGroup;
 			children = (
 				FDB4BE21211D6BAD00D3B264 /* AppDelegate.swift */,
+				FD1B4F1F2126BB4900946311 /* View */,
 				FD391C51212025DB004C4A65 /* ViewController */,
 				FD9F40A1211ECAE2007D7F1B /* Model */,
 				FD9F40A2211ECB26007D7F1B /* Utility */,
+				FDAF601A21273D9F0006B68A /* fonts */,
 				FDB4BE25211D6BAD00D3B264 /* Main.storyboard */,
 				FD1B4F242126C0FA00946311 /* SlideMenuView.xib */,
 				FDB4BE2A211D6BAE00D3B264 /* LaunchScreen.storyboard */,
@@ -237,7 +257,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDAF602221273E880006B68A /* NanumSquareRoundOTFEB.otf in Resources */,
+				FDAF602021273E880006B68A /* NanumSquareRoundOTFB.otf in Resources */,
+				FDAF602121273E880006B68A /* NanumSquareRoundOTFR.otf in Resources */,
 				FDB4BE2C211D6BAE00D3B264 /* LaunchScreen.storyboard in Resources */,
+				FDAF601F21273E880006B68A /* NanumSquareRoundOTFL.otf in Resources */,
 				FDB4BE29211D6BAE00D3B264 /* Assets.xcassets in Resources */,
 				FDB4BE27211D6BAD00D3B264 /* Main.storyboard in Resources */,
 				FD1B4F252126C0FA00946311 /* SlideMenuView.xib in Resources */,

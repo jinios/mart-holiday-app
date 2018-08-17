@@ -2,6 +2,13 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>NanumSquareRoundOTFR.otf</string>
+		<string>NanumSquareRoundOTFL.otf</string>
+		<string>NanumSquareRoundOTFEB.otf</string>
+		<string>NanumSquareRoundOTFB.otf</string>
+	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -40,16 +47,13 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
-    </array>
-    
-    <key>NSAppTransportSecurity</key>
-    <dict>
-        <key>NSAllowsArbitraryLoads</key>
-        <true/>
-    </dict>
-    
-    <key>LSApplicationCategoryType</key>
-    <string>NSLocationWhenInUseUsageDescription</string>
-
+	</array>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>LSApplicationCategoryType</key>
+	<string>NSLocationWhenInUseUsageDescription</string>
 </dict>
 </plist>
