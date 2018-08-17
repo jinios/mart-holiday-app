@@ -33,6 +33,10 @@ class SlideMenu: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    @IBAction func closeButtonTapped(_ sender: Any) {
+        NotificationCenter.default.post(name: .slideMenuClose, object: nil)
+    }
+
     func add(to superview: UIViewController) {
         superview.view.addSubview(self)
     }

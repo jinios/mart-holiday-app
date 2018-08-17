@@ -18,6 +18,7 @@ class SlideLauncher: NSObject {
         super.init()
         self.background = SlideBackgroundView()
         self.menu = SlideMenu()
+        NotificationCenter.default.addObserver(self, selector: #selector(handleDismiss), name: .slideMenuClose, object: nil)
     }
 
     private func add() {

@@ -10,6 +10,7 @@ import UIKit
 
 extension Notification.Name {
     static let favoriteChanged = Notification.Name("favoriteChanged")
+    static let slideMenuClose = Notification.Name("slideMenuClose")
 }
 
 extension UIButton {

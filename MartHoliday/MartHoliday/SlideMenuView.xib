@@ -26,6 +26,9 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j1z-QL-eBQ">
                     <rect key="frame" x="24" y="39" width="30" height="30"/>
                     <state key="normal" title="닫기"/>
+                    <connections>
+                        <action selector="closeButtonTapped:" destination="-1" eventType="touchUpInside" id="uk9-Bs-hAL"/>
+                    </connections>
                 </button>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZUr-C9-BX1">
                     <rect key="frame" x="24" y="93" width="46" height="106"/>
