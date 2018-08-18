@@ -11,15 +11,12 @@ import UIKit
 class SlideTopView: UIView {
     @IBOutlet var content: UIView!
 
-    @IBOutlet weak var searchButton: UIButton!
-
     convenience init() {
-        self.init(frame: CGRect(x: -(UIScreen.main.bounds.width/2), y: 0, width: UIScreen.main.bounds.width/2, height: UIScreen.main.bounds.height))
+        self.init(frame: CGRect(x: -(UIScreen.main.bounds.width/2), y: 0, width: UIScreen.main.bounds.width/2, height: SlideLauncher.slideMenuDivider))
         Bundle.main.loadNibNamed("SlideMenuView", owner: self, options: nil)
         addSubview(content)
         content.frame = self.bounds
         content.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        searchButton.setTitle("검색", for: .normal)
     }
 
     override init(frame: CGRect) {

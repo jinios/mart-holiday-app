@@ -19,7 +19,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SlideTopView" customModule="MartHoliday" customModuleProvider="target">
             <connections>
                 <outlet property="content" destination="iN0-l3-epB" id="Dz4-8s-jof"/>
-                <outlet property="searchButton" destination="7e7-vZ-a5E" id="5eI-aa-KZL"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -27,44 +26,31 @@
             <rect key="frame" x="0.0" y="0.0" width="170" height="656"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ZUr-C9-BX1">
-                    <rect key="frame" x="24" y="93" width="73" height="79"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bw3-jP-DPd">
-                            <rect key="frame" x="0.0" y="0.0" width="73" height="34"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7e7-vZ-a5E">
-                            <rect key="frame" x="0.0" y="44" width="73" height="35"/>
-                            <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="20"/>
-                            <state key="normal" title="마트검색"/>
-                        </button>
-                    </subviews>
-                    <constraints>
-                        <constraint firstAttribute="trailing" secondItem="7e7-vZ-a5E" secondAttribute="trailing" id="4eI-xO-i2x"/>
-                        <constraint firstItem="bw3-jP-DPd" firstAttribute="top" secondItem="ZUr-C9-BX1" secondAttribute="top" id="7mK-JZ-pxH"/>
-                        <constraint firstItem="bw3-jP-DPd" firstAttribute="leading" secondItem="ZUr-C9-BX1" secondAttribute="leading" id="D00-Q2-hcX"/>
-                        <constraint firstItem="7e7-vZ-a5E" firstAttribute="leading" secondItem="ZUr-C9-BX1" secondAttribute="leading" id="aFi-Oo-BpB"/>
-                        <constraint firstAttribute="trailing" secondItem="bw3-jP-DPd" secondAttribute="trailing" id="zbu-ks-9by"/>
-                    </constraints>
-                </stackView>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j1z-QL-eBQ">
-                    <rect key="frame" x="24" y="36" width="27" height="26"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j1z-QL-eBQ">
+                    <rect key="frame" x="135" y="45" width="20" height="20"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="j1z-QL-eBQ" secondAttribute="height" multiplier="1:1" id="7R3-Zt-Mpx"/>
-                        <constraint firstAttribute="width" constant="30" id="ddi-ab-RWC"/>
+                        <constraint firstAttribute="width" constant="20" id="ddi-ab-RWC"/>
                     </constraints>
                     <state key="normal" image="sign-out"/>
                     <connections>
                         <action selector="closeButtonTapped:" destination="-1" eventType="touchUpInside" id="uk9-Bs-hAL"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="마트휴일알리미 : )" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5oH-NE-tVe">
+                    <rect key="frame" x="15" y="49.5" width="110" height="16"/>
+                    <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="14"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="ZUr-C9-BX1" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="24" id="6LH-2m-bDF"/>
-                <constraint firstItem="j1z-QL-eBQ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="24" id="Qrh-ma-Sjm"/>
-                <constraint firstItem="ZUr-C9-BX1" firstAttribute="top" secondItem="j1z-QL-eBQ" secondAttribute="bottom" constant="24" id="Sjo-yO-Vet"/>
-                <constraint firstItem="j1z-QL-eBQ" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="19" id="k2L-E0-9Gk"/>
+                <constraint firstItem="j1z-QL-eBQ" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="25" id="JXN-S5-J1f"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="j1z-QL-eBQ" secondAttribute="trailing" constant="15" id="K05-ek-t5o"/>
+                <constraint firstItem="5oH-NE-tVe" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="T8a-Wb-xfU"/>
+                <constraint firstItem="j1z-QL-eBQ" firstAttribute="leading" relation="lessThanOrEqual" secondItem="5oH-NE-tVe" secondAttribute="trailing" constant="10" id="gPM-Ew-a3v"/>
+                <constraint firstItem="5oH-NE-tVe" firstAttribute="bottom" secondItem="j1z-QL-eBQ" secondAttribute="bottom" id="pY2-Wu-Gu2"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

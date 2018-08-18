@@ -19,6 +19,9 @@
 		FD3B64292121BEDD003C1332 /* NMapViewerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3B64282121BEDD003C1332 /* NMapViewerSDK.framework */; };
 		FD3B642D21229892003C1332 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3B642C21229892003C1332 /* MapViewController.swift */; };
 		FD3B642F2122A4FF003C1332 /* NMapViewResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3B642E2122A4FF003C1332 /* NMapViewResources.swift */; };
+		FD4850F2212843FB0064747A /* SlideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4850F1212843FB0064747A /* SlideMenu.swift */; };
+		FD4850F4212869AF0064747A /* SlideMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4850F3212869AF0064747A /* SlideMenuCell.swift */; };
+		FD4850F621287AFE0064747A /* SlideMenuCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD4850F521287AFE0064747A /* SlideMenuCellView.xib */; };
 		FD9F409C211EBFAF007D7F1B /* BranchRawData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409B211EBFAF007D7F1B /* BranchRawData.swift */; };
 		FD9F409E211EC0C8007D7F1B /* DataDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409D211EC0C8007D7F1B /* DataDecoder.swift */; };
 		FD9F40A0211EC5EA007D7F1B /* Keywords.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409F211EC5EA007D7F1B /* Keywords.swift */; };
@@ -64,6 +67,9 @@
 		FD3B642B2121C3FB003C1332 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		FD3B642C21229892003C1332 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		FD3B642E2122A4FF003C1332 /* NMapViewResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NMapViewResources.swift; sourceTree = "<group>"; };
+		FD4850F1212843FB0064747A /* SlideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideMenu.swift; sourceTree = "<group>"; };
+		FD4850F3212869AF0064747A /* SlideMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideMenuCell.swift; sourceTree = "<group>"; };
+		FD4850F521287AFE0064747A /* SlideMenuCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SlideMenuCellView.xib; path = MartHoliday/SlideMenuCellView.xib; sourceTree = SOURCE_ROOT; };
 		FD9F409B211EBFAF007D7F1B /* BranchRawData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchRawData.swift; sourceTree = "<group>"; };
 		FD9F409D211EC0C8007D7F1B /* DataDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDecoder.swift; sourceTree = "<group>"; };
 		FD9F409F211EC5EA007D7F1B /* Keywords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keywords.swift; sourceTree = "<group>"; };
@@ -103,6 +109,8 @@
 				FD11EAE221203A4C003EB3E9 /* BranchTableViewCell.swift */,
 				FD1B4F202126BB8B00946311 /* SlideBackgroundView.swift */,
 				FD1B4F222126BBD200946311 /* SlideTopView.swift */,
+				FD4850F1212843FB0064747A /* SlideMenu.swift */,
+				FD4850F3212869AF0064747A /* SlideMenuCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -187,6 +195,7 @@
 				FD9F40A2211ECB26007D7F1B /* Utility */,
 				FDAF601A21273D9F0006B68A /* fonts */,
 				FDB4BE25211D6BAD00D3B264 /* Main.storyboard */,
+				FD4850F521287AFE0064747A /* SlideMenuCellView.xib */,
 				FD1B4F242126C0FA00946311 /* SlideMenuView.xib */,
 				FDB4BE2A211D6BAE00D3B264 /* LaunchScreen.storyboard */,
 				FDB4BE28211D6BAE00D3B264 /* Assets.xcassets */,
@@ -265,6 +274,7 @@
 				FDB4BE29211D6BAE00D3B264 /* Assets.xcassets in Resources */,
 				FDB4BE27211D6BAD00D3B264 /* Main.storyboard in Resources */,
 				FD1B4F252126C0FA00946311 /* SlideMenuView.xib in Resources */,
+				FD4850F621287AFE0064747A /* SlideMenuCellView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,8 +309,10 @@
 				FD9F40A0211EC5EA007D7F1B /* Keywords.swift in Sources */,
 				FDB4BE24211D6BAD00D3B264 /* MartSelectViewController.swift in Sources */,
 				FD1B4F232126BBD200946311 /* SlideTopView.swift in Sources */,
+				FD4850F2212843FB0064747A /* SlideMenu.swift in Sources */,
 				FD3B642F2122A4FF003C1332 /* NMapViewResources.swift in Sources */,
 				FD3B642D21229892003C1332 /* MapViewController.swift in Sources */,
+				FD4850F4212869AF0064747A /* SlideMenuCell.swift in Sources */,
 				FDCB9E8B212566F1006281CB /* MainViewController.swift in Sources */,
 				FD9F409C211EBFAF007D7F1B /* BranchRawData.swift in Sources */,
 				FDC2A942212458F400A1E2FF /* Extensions.swift in Sources */,
