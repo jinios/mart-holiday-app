@@ -1,5 +1,5 @@
 //
-//  SlideMenu.swift
+//  SlideTopView.swift
 //  MartHoliday
 //
 //  Created by YOUTH2 on 2018. 8. 17..
@@ -8,11 +8,10 @@
 
 import UIKit
 
-class SlideMenu: UIView {
+class SlideTopView: UIView {
     @IBOutlet var content: UIView!
-    @IBOutlet weak var mainButton: UIButton!
+
     @IBOutlet weak var searchButton: UIButton!
-    @IBOutlet weak var nothingButton: UIButton!
 
     convenience init() {
         self.init(frame: CGRect(x: -(UIScreen.main.bounds.width/2), y: 0, width: UIScreen.main.bounds.width/2, height: UIScreen.main.bounds.height))
@@ -20,9 +19,7 @@ class SlideMenu: UIView {
         addSubview(content)
         content.frame = self.bounds
         content.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        mainButton.setTitle("메인", for: .normal)
         searchButton.setTitle("검색", for: .normal)
-        nothingButton.setTitle("버튼", for: .normal)
     }
 
     override init(frame: CGRect) {
@@ -53,4 +50,5 @@ class SlideMenu: UIView {
         self.frame = CGRect(x: -(self.frame.width), y: 0, width: self.frame.width, height: self.frame.height)
     }
 }
+
 

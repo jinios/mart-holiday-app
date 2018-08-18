@@ -12,30 +12,30 @@ class SlideLauncher: NSObject {
 
     var delegate: (UIViewController & SlideLauncherDelegate)!
     var background: SlideBackgroundView!
-    var menu: SlideMenu!
+    var topView: SlideTopView!
 
     override init() {
         super.init()
         self.background = SlideBackgroundView()
-        self.menu = SlideMenu()
+        self.topView = SlideTopView()
         NotificationCenter.default.addObserver(self, selector: #selector(handleDismiss), name: .slideMenuClose, object: nil)
     }
 
     private func add() {
         delegate.view.addSubview(background)
-        delegate.view.addSubview(menu)
+        delegate.view.addSubview(topView)
     }
 
     func set() {
         add()
         background.frame = self.delegate.view.frame
         background.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleDismiss)))
-        self.menu.backgroundColor = UIColor.yellow
+        self.topView.backgroundColor = UIColor.yellow
     }
 
     func show() {
         background.show()
-        menu.show()
+        topView.show()
     }
 
     @objc func handleDismiss() {
@@ -43,7 +43,7 @@ class SlideLauncher: NSObject {
             withDuration: 0.5, delay: 0, options: .curveEaseOut,
             animations: {
                 self.background.dismiss()
-                self.menu.dismiss()
+                self.topView.dismiss()
         }, completion: nil)
     }
 

@@ -24,8 +24,6 @@ class MainViewController: UIViewController, SlideLauncherDelegate {
         // Dispose of any resources that can be recreated.
     }
 
-    let slideBackgroundView = SlideBackgroundView()
-    let slideMenu = SlideMenu()
     let slideLauncher = SlideLauncher()
 
     @IBAction func slideMenuTapped(_ sender: Any) {

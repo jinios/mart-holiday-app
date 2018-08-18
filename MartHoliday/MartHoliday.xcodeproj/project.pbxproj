@@ -10,7 +10,7 @@
 		FD11EAE321203A4C003EB3E9 /* BranchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD11EAE221203A4C003EB3E9 /* BranchTableViewCell.swift */; };
 		FD1B4F1B2126750900946311 /* SlideLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1B4F1A2126750900946311 /* SlideLauncher.swift */; };
 		FD1B4F212126BB8B00946311 /* SlideBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1B4F202126BB8B00946311 /* SlideBackgroundView.swift */; };
-		FD1B4F232126BBD200946311 /* SlideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1B4F222126BBD200946311 /* SlideMenu.swift */; };
+		FD1B4F232126BBD200946311 /* SlideTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1B4F222126BBD200946311 /* SlideTopView.swift */; };
 		FD1B4F252126C0FA00946311 /* SlideMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD1B4F242126C0FA00946311 /* SlideMenuView.xib */; };
 		FD1CC4DF211DF10A00B21E09 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1CC4DE211DF10A00B21E09 /* SearchViewController.swift */; };
 		FD1CC4E1211DF76300B21E09 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1CC4E0211DF76300B21E09 /* DetailViewController.swift */; };
@@ -55,7 +55,7 @@
 		FD11EAE221203A4C003EB3E9 /* BranchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchTableViewCell.swift; sourceTree = "<group>"; };
 		FD1B4F1A2126750900946311 /* SlideLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SlideLauncher.swift; path = MartHoliday/SlideLauncher.swift; sourceTree = SOURCE_ROOT; };
 		FD1B4F202126BB8B00946311 /* SlideBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideBackgroundView.swift; sourceTree = "<group>"; };
-		FD1B4F222126BBD200946311 /* SlideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideMenu.swift; sourceTree = "<group>"; };
+		FD1B4F222126BBD200946311 /* SlideTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideTopView.swift; sourceTree = "<group>"; };
 		FD1B4F242126C0FA00946311 /* SlideMenuView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SlideMenuView.xib; sourceTree = "<group>"; };
 		FD1CC4DE211DF10A00B21E09 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		FD1CC4E0211DF76300B21E09 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -102,7 +102,7 @@
 			children = (
 				FD11EAE221203A4C003EB3E9 /* BranchTableViewCell.swift */,
 				FD1B4F202126BB8B00946311 /* SlideBackgroundView.swift */,
-				FD1B4F222126BBD200946311 /* SlideMenu.swift */,
+				FD1B4F222126BBD200946311 /* SlideTopView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -298,7 +298,7 @@
 				FD1B4F1B2126750900946311 /* SlideLauncher.swift in Sources */,
 				FD9F40A0211EC5EA007D7F1B /* Keywords.swift in Sources */,
 				FDB4BE24211D6BAD00D3B264 /* MartSelectViewController.swift in Sources */,
-				FD1B4F232126BBD200946311 /* SlideMenu.swift in Sources */,
+				FD1B4F232126BBD200946311 /* SlideTopView.swift in Sources */,
 				FD3B642F2122A4FF003C1332 /* NMapViewResources.swift in Sources */,
 				FD3B642D21229892003C1332 /* MapViewController.swift in Sources */,
 				FDCB9E8B212566F1006281CB /* MainViewController.swift in Sources */,

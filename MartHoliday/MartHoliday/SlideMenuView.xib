@@ -6,26 +6,19 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="NanumSquareRoundOTFB.otf">
-            <string>NanumSquareRoundOTFB</string>
-        </array>
-        <array key="NanumSquareRoundOTFEB.otf">
-            <string>NanumSquareRoundOTFEB</string>
-        </array>
         <array key="NanumSquareRoundOTFR.otf">
             <string>NanumSquareRoundOTFR</string>
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SlideMenu" customModule="MartHoliday" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SlideTopView" customModule="MartHoliday" customModuleProvider="target">
             <connections>
                 <outlet property="content" destination="iN0-l3-epB" id="Dz4-8s-jof"/>
-                <outlet property="mainButton" destination="bw3-jP-DPd" id="jNa-5M-1yK"/>
-                <outlet property="nothingButton" destination="c2Q-RP-aQf" id="eJn-j4-uBG"/>
                 <outlet property="searchButton" destination="7e7-vZ-a5E" id="5eI-aa-KZL"/>
             </connections>
         </placeholder>
@@ -34,33 +27,37 @@
             <rect key="frame" x="0.0" y="0.0" width="170" height="656"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j1z-QL-eBQ">
-                    <rect key="frame" x="24" y="39" width="30" height="30"/>
-                    <state key="normal" title="닫기"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ZUr-C9-BX1">
+                    <rect key="frame" x="24" y="93" width="73" height="79"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bw3-jP-DPd">
+                            <rect key="frame" x="0.0" y="0.0" width="73" height="34"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7e7-vZ-a5E">
+                            <rect key="frame" x="0.0" y="44" width="73" height="35"/>
+                            <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="20"/>
+                            <state key="normal" title="마트검색"/>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="7e7-vZ-a5E" secondAttribute="trailing" id="4eI-xO-i2x"/>
+                        <constraint firstItem="bw3-jP-DPd" firstAttribute="top" secondItem="ZUr-C9-BX1" secondAttribute="top" id="7mK-JZ-pxH"/>
+                        <constraint firstItem="bw3-jP-DPd" firstAttribute="leading" secondItem="ZUr-C9-BX1" secondAttribute="leading" id="D00-Q2-hcX"/>
+                        <constraint firstItem="7e7-vZ-a5E" firstAttribute="leading" secondItem="ZUr-C9-BX1" secondAttribute="leading" id="aFi-Oo-BpB"/>
+                        <constraint firstAttribute="trailing" secondItem="bw3-jP-DPd" secondAttribute="trailing" id="zbu-ks-9by"/>
+                    </constraints>
+                </stackView>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j1z-QL-eBQ">
+                    <rect key="frame" x="24" y="36" width="27" height="26"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="j1z-QL-eBQ" secondAttribute="height" multiplier="1:1" id="7R3-Zt-Mpx"/>
+                        <constraint firstAttribute="width" constant="30" id="ddi-ab-RWC"/>
+                    </constraints>
+                    <state key="normal" image="sign-out"/>
                     <connections>
                         <action selector="closeButtonTapped:" destination="-1" eventType="touchUpInside" id="uk9-Bs-hAL"/>
                     </connections>
                 </button>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZUr-C9-BX1">
-                    <rect key="frame" x="24" y="93" width="67" height="121"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bw3-jP-DPd">
-                            <rect key="frame" x="0.0" y="0.0" width="67" height="35"/>
-                            <fontDescription key="fontDescription" name="NanumSquareRoundOTFB" family="NanumSquareRoundOTF" pointSize="20"/>
-                            <state key="normal" title="Button"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7e7-vZ-a5E">
-                            <rect key="frame" x="0.0" y="43" width="67" height="35"/>
-                            <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="20"/>
-                            <state key="normal" title="Button"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c2Q-RP-aQf">
-                            <rect key="frame" x="0.0" y="86" width="67" height="35"/>
-                            <fontDescription key="fontDescription" name="NanumSquareRoundOTFEB" family="NanumSquareRoundOTF" pointSize="20"/>
-                            <state key="normal" title="Button"/>
-                        </button>
-                    </subviews>
-                </stackView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -74,4 +71,7 @@
             <point key="canvasLocation" x="2168" y="45"/>
         </view>
     </objects>
+    <resources>
+        <image name="sign-out" width="128" height="128"/>
+    </resources>
 </document>
