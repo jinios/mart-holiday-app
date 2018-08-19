@@ -74,6 +74,20 @@ extension SlideLauncher: UICollectionViewDataSource {
         return cell
     }
 
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let menuData = self.menuData[indexPath.row]
+        print(menuData.title)
+        UIView.animate(
+            withDuration: 0.5, delay: 0, options: .curveEaseOut,
+            animations: {
+                self.background.dismiss()
+                self.topView.dismiss()
+                self.slideMenu.dismiss()
+        }) { (completed: Bool) in
+            NotificationCenter.default.post(name: .slideMenuTapped, object: nil, userInfo: ["next": menuData.destinationInfo()])
+        }
+    }
+
 }
 
 extension SlideLauncher: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -95,6 +109,17 @@ class MenuData {
         self.title = title
         self.imageName = imageName
     }
+
+    func destinationInfo() -> SelectedSlideMenu {
+        switch self.title {
+        case "메인으로": return .main
+        case "마트검색": return .select
+        default: return .main
+        }
+    }
 }
 
-
+enum SelectedSlideMenu {
+    case main
+    case select
+}

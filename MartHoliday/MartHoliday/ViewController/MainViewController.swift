@@ -17,6 +17,7 @@ class MainViewController: UIViewController, SlideLauncherDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(detectSelectedMenu(_:)), name: .slideMenuTapped, object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,6 +32,18 @@ class MainViewController: UIViewController, SlideLauncherDelegate {
         slideLauncher.set()
         slideLauncher.show()
     }
+
+    @objc func detectSelectedMenu(_ notification: Notification) {
+        guard let userInfo = notification.userInfo else {return}
+        guard let destination = userInfo["next"] as? SelectedSlideMenu else {return}
+        switch destination {
+        case .main: return
+        case .select:
+            guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "martSelectVC") as? MartSelectViewController else { return }
+            self.navigationController?.pushViewController(nextVC, animated: true)
+        }
+    }
+
 }
 
 protocol SlideLauncherDelegate {
