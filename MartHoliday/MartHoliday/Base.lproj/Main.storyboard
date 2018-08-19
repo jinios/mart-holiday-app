@@ -379,19 +379,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="00m-aq-Gs4">
-                                <rect key="frame" x="5" y="94" width="76" height="30"/>
-                                <state key="normal" title="Slide Menu"/>
-                                <connections>
-                                    <action selector="slideMenuTapped:" destination="q17-AI-WJc" eventType="touchUpInside" id="Efl-Vd-ITZ"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="uuV-jV-4Qr" firstAttribute="trailing" secondItem="P6e-Z7-HsD" secondAttribute="trailing" constant="5" id="4zp-yO-oAu"/>
-                            <constraint firstItem="00m-aq-Gs4" firstAttribute="leading" secondItem="uuV-jV-4Qr" secondAttribute="leading" constant="5" id="5V2-qo-oW5"/>
-                            <constraint firstItem="00m-aq-Gs4" firstAttribute="top" secondItem="uuV-jV-4Qr" secondAttribute="top" constant="30" id="JMm-1A-dvv"/>
                             <constraint firstItem="P6e-Z7-HsD" firstAttribute="top" secondItem="uuV-jV-4Qr" secondAttribute="top" constant="122" id="bkF-QQ-scE"/>
                             <constraint firstItem="P6e-Z7-HsD" firstAttribute="leading" secondItem="uuV-jV-4Qr" secondAttribute="leading" constant="5" id="qXr-v4-jax"/>
                         </constraints>
@@ -401,7 +392,6 @@
                     <connections>
                         <outlet property="firstFavoriteLabel" destination="yzQ-AW-4EH" id="yjw-eg-B8O"/>
                         <outlet property="secondFavoriteLabel" destination="1ma-cF-DrQ" id="P2Y-bP-as8"/>
-                        <outlet property="slideMenuButton" destination="00m-aq-Gs4" id="YRW-cr-6pL"/>
                         <outlet property="thirdFavoriteLabel" destination="gwr-T3-zt7" id="rTK-bu-URY"/>
                     </connections>
                 </viewController>
@@ -412,7 +402,6 @@
         <!--Navigation Controller-->
         <scene sceneID="eUZ-GV-Ufb">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LOI-cO-x34" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="nav" automaticallyAdjustsScrollViewInsets="NO" id="kQc-JJ-oq5" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="VAb-4Y-dIh">
@@ -424,6 +413,7 @@
                         <segue destination="q17-AI-WJc" kind="relationship" relationship="rootViewController" id="3GB-cw-b7r"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LOI-cO-x34" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1113" y="-564"/>
         </scene>

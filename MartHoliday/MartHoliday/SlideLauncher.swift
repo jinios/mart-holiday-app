@@ -17,6 +17,7 @@ class SlideLauncher: NSObject {
     var background: SlideBackgroundView!
     var topView: SlideTopView!
     var slideMenu: SlideMenu!
+    var openFlag: Bool?
 
     let menuData = [MenuData(title: "메인으로", imageName: "home"),
                     MenuData(title: "마트검색", imageName: "search-2")]
@@ -38,26 +39,44 @@ class SlideLauncher: NSObject {
     }
 
     func set() {
+        self.openFlag = false
         add()
         background.frame = self.delegate.view.frame
         background.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleDismiss)))
-        self.topView.backgroundColor = UIColor.yellow
     }
 
     func show() {
-        background.show()
-        topView.show()
-        slideMenu.show()
+        guard let openFlag = self.openFlag else { return }
+        if openFlag == false {
+            background.show()
+            topView.show()
+            slideMenu.show()
+            self.openFlag = true
+        }
     }
 
     @objc func handleDismiss() {
-        UIView.animate(
-            withDuration: 0.5, delay: 0, options: .curveEaseOut,
-            animations: {
-                self.background.dismiss()
-                self.topView.dismiss()
-                self.slideMenu.dismiss()
-        }, completion: nil)
+        guard let openFlag = self.openFlag else { return }
+        if openFlag == true {
+            UIView.animate(
+                withDuration: 0.5, delay: 0, options: .curveEaseOut,
+                animations: {
+                    self.background.dismiss()
+                    self.topView.dismiss()
+                    self.slideMenu.dismiss()
+            }) { complete in
+                if complete {
+                    self.openFlag! = false
+                } else {
+                    return
+                }
+            }
+        }
+    }
+
+    func isOpened() -> Bool {
+        guard let result = self.openFlag else { return false }
+        return result
     }
 
 }
@@ -76,7 +95,6 @@ extension SlideLauncher: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let menuData = self.menuData[indexPath.row]
-        print(menuData.title)
         UIView.animate(
             withDuration: 0.5, delay: 0, options: .curveEaseOut,
             animations: {

@@ -13,10 +13,13 @@ class MainViewController: UIViewController, SlideLauncherDelegate {
     @IBOutlet weak var firstFavoriteLabel: UILabel!
     @IBOutlet weak var secondFavoriteLabel: UILabel!
     @IBOutlet weak var thirdFavoriteLabel: UILabel!
-    @IBOutlet weak var slideMenuButton: UIButton!
+    let slideLauncher = SlideLauncher()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setSlideBarButton()
+        slideLauncher.delegate = self
+        slideLauncher.set()
         NotificationCenter.default.addObserver(self, selector: #selector(detectSelectedMenu(_:)), name: .slideMenuTapped, object: nil)
     }
 
@@ -25,12 +28,13 @@ class MainViewController: UIViewController, SlideLauncherDelegate {
         // Dispose of any resources that can be recreated.
     }
 
-    let slideLauncher = SlideLauncher()
-
-    @IBAction func slideMenuTapped(_ sender: Any) {
-        slideLauncher.delegate = self
-        slideLauncher.set()
-        slideLauncher.show()
+    @objc func toggleSlideMenu() {
+        // open or dismiss
+        if slideLauncher.isOpened() {
+            slideLauncher.handleDismiss()
+        } else {
+            slideLauncher.show()
+        }
     }
 
     @objc func detectSelectedMenu(_ notification: Notification) {
@@ -42,6 +46,12 @@ class MainViewController: UIViewController, SlideLauncherDelegate {
             guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "martSelectVC") as? MartSelectViewController else { return }
             self.navigationController?.pushViewController(nextVC, animated: true)
         }
+    }
+
+    private func setSlideBarButton() {
+        let searchImage = UIImage(named: "slidebar")
+        let searhButton = UIBarButtonItem(image: searchImage, style: .plain, target: self, action: #selector(toggleSlideMenu))
+        navigationItem.leftBarButtonItem = searhButton
     }
 
 }
