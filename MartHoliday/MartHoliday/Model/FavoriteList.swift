@@ -11,17 +11,17 @@ import Foundation
 class FavoriteList: NSObject, NSCoding {
 
     func encode(with aCoder: NSCoder) {
-        aCoder.encode(favoriteList, forKey: String(describing: FavoriteList.self))
+        aCoder.encode(martList, forKey: String(describing: FavoriteList.self))
     }
 
     required init?(coder aDecoder: NSCoder) {
-        favoriteList = aDecoder.decodeObject(forKey: String(describing: FavoriteList.self)) as! Set<Int>
+        martList = aDecoder.decodeObject(forKey: String(describing: FavoriteList.self)) as! Set<Branch>
     }
 
     private static var sharedFavorite = FavoriteList()
 
     override init() {
-        self.favoriteList = Set<Int>()
+        self.martList = Set<Branch>()
     }
 
     static func shared() -> FavoriteList {
@@ -33,18 +33,18 @@ class FavoriteList: NSObject, NSCoding {
     }
 
     static func isSameData(_ data: FavoriteList) -> Bool {
-        return sharedFavorite.favoriteList == data.favoriteList
+        return sharedFavorite.martList == data.martList
     }
 
-    private(set) var favoriteList: Set<Int>
+    private(set) var martList: Set<Branch>
 
-    func push(branchID: Int) -> Bool {
-        return self.favoriteList.insert(branchID).inserted
+    func push(branch: Branch) -> Bool {
+        return self.martList.insert(branch).inserted
     }
 
-    func pop(branchID: Int) -> Bool {
+    func pop(branch: Branch) -> Bool {
         var popResult: Bool
-        let result = self.favoriteList.remove(branchID)
+        let result = self.martList.remove(branch)
         if result != nil {
             popResult = true
         } else {
@@ -53,8 +53,10 @@ class FavoriteList: NSObject, NSCoding {
         return popResult
     }
 
-    func isFavorite(id: Int) -> Bool {
-        return self.favoriteList.contains(id)
+    func isFavorite(branchId: Int) -> Bool {
+        guard martList.count > 0 else { return false }
+        let martIdList = martList.map { $0.id }
+        return martIdList.contains(branchId)
     }
 }
 
