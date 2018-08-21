@@ -10,8 +10,12 @@ import UIKit
 
 class SlideBackgroundView: UIView {
 
-    func add(to superview: UIViewController) {
-        superview.view.addSubview(self)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     func show() {
