@@ -35,7 +35,8 @@ class BranchList {
     }
 }
 
-class Branch: NSObject, NSCoding {
+class Branch: NSObject, NSCoding, Comparable {
+
     func encode(with aCoder: NSCoder) {
         aCoder.encode(id, forKey: "branchId")
         aCoder.encode(martType, forKey: "branchMartType")
@@ -64,8 +65,14 @@ class Branch: NSObject, NSCoding {
         return self.id
     }
 
-    static func == (lhs: Branch, rhs: Branch) -> Bool {
-        return lhs.hashValue == rhs.hashValue
+    override func isEqual(_ object: Any?) -> Bool {
+        super.isEqual(object)
+        guard let branch = object as? Branch else { return false }
+        return self.id == branch.id
+    }
+
+    static func < (lhs: Branch, rhs: Branch) -> Bool {
+        return lhs.hashValue < rhs.hashValue
     }
 
     var id: Int
