@@ -7,11 +7,15 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="NanumSquareRoundOTFB.otf">
+            <string>NanumSquareRoundOTFB</string>
+        </array>
         <array key="NanumSquareRoundOTFL.otf">
             <string>NanumSquareRoundOTFL</string>
         </array>
@@ -355,64 +359,103 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pzB-yg-cAD">
-                                <rect key="frame" x="32" y="206" width="132" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KxD-7U-jIo">
-                                <rect key="frame" x="32" y="258" width="301" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xET-Dd-y4x">
-                                <rect key="frame" x="31" y="315" width="132" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ubQ-h4-YUs">
-                                <rect key="frame" x="31" y="367" width="302" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vRl-Sc-a33">
-                                <rect key="frame" x="31" y="419" width="132" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fw3-jd-0PC">
-                                <rect key="frame" x="31" y="480" width="302" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="V9d-IY-9Cb">
+                                <rect key="frame" x="16" y="156" width="343" height="511"/>
+                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JtA-Fv-gi9">
+                                    <size key="itemSize" width="343" height="163"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="favoriteCell" id="VBG-7W-wTk" customClass="FavoriteCell" customModule="MartHoliday" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="163"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="163"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5E2-xi-KDP">
+                                                    <rect key="frame" x="20" y="20" width="303" height="25.5"/>
+                                                    <fontDescription key="fontDescription" name="NanumSquareRoundOTFB" family="NanumSquareRoundOTF" pointSize="23"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZS-oS-qwN" customClass="RoundedEdgeLabel" customModule="MartHoliday" customModuleProvider="target">
+                                                    <rect key="frame" x="18" y="73" width="38" height="17"/>
+                                                    <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q8n-9y-fyT" customClass="RoundedEdgeLabel" customModule="MartHoliday" customModuleProvider="target">
+                                                    <rect key="frame" x="18" y="115" width="38" height="17"/>
+                                                    <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6mm-kZ-fpX" customClass="RoundedEdgeLabel" customModule="MartHoliday" customModuleProvider="target">
+                                                    <rect key="frame" x="106" y="115" width="40.5" height="18"/>
+                                                    <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lZR-r0-QEl" userLabel="splitbar">
+                                                    <rect key="frame" x="8" y="51" width="327" height="2"/>
+                                                    <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="2" id="ht9-kz-nkQ"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jvf-dg-EPb" customClass="RoundedEdgeLabel" customModule="MartHoliday" customModuleProvider="target">
+                                                    <rect key="frame" x="106" y="73" width="38" height="17"/>
+                                                    <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="Q8n-9y-fyT" firstAttribute="top" secondItem="PZS-oS-qwN" secondAttribute="bottom" constant="25" id="3Mk-X3-bcp"/>
+                                            <constraint firstItem="Q8n-9y-fyT" firstAttribute="leading" secondItem="VBG-7W-wTk" secondAttribute="leadingMargin" constant="10" id="5i6-9g-KxP"/>
+                                            <constraint firstItem="lZR-r0-QEl" firstAttribute="top" secondItem="5E2-xi-KDP" secondAttribute="bottom" constant="5" id="EDb-9g-MAv"/>
+                                            <constraint firstItem="5E2-xi-KDP" firstAttribute="leading" secondItem="VBG-7W-wTk" secondAttribute="leadingMargin" constant="12" id="N3u-DO-47q"/>
+                                            <constraint firstItem="PZS-oS-qwN" firstAttribute="top" secondItem="lZR-r0-QEl" secondAttribute="bottom" constant="20" id="NBC-T9-EEk"/>
+                                            <constraint firstItem="PZS-oS-qwN" firstAttribute="leading" secondItem="VBG-7W-wTk" secondAttribute="leadingMargin" constant="10" id="Pcs-0r-RXW"/>
+                                            <constraint firstItem="6mm-kZ-fpX" firstAttribute="baseline" secondItem="Q8n-9y-fyT" secondAttribute="baseline" id="PoT-6y-kZH"/>
+                                            <constraint firstItem="Jvf-dg-EPb" firstAttribute="leading" secondItem="PZS-oS-qwN" secondAttribute="trailing" constant="50" id="Qmh-SY-AUD"/>
+                                            <constraint firstItem="Jvf-dg-EPb" firstAttribute="baseline" secondItem="PZS-oS-qwN" secondAttribute="baseline" id="cf2-mR-htC"/>
+                                            <constraint firstItem="6mm-kZ-fpX" firstAttribute="leading" secondItem="Q8n-9y-fyT" secondAttribute="trailing" constant="50" id="nTd-bv-Bt3"/>
+                                            <constraint firstItem="5E2-xi-KDP" firstAttribute="top" secondItem="VBG-7W-wTk" secondAttribute="topMargin" constant="12" id="rpT-ao-icv"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="lZR-r0-QEl" secondAttribute="trailing" id="tbH-e0-9fM"/>
+                                            <constraint firstItem="lZR-r0-QEl" firstAttribute="leading" secondItem="VBG-7W-wTk" secondAttribute="leadingMargin" id="wrS-F3-2Rg"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="5E2-xi-KDP" secondAttribute="trailing" constant="12" id="yse-UG-Cd8"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="title" destination="5E2-xi-KDP" id="d17-98-Ikh"/>
+                                            <outletCollection property="holidayLabels" destination="PZS-oS-qwN" collectionClass="NSMutableArray" id="PIW-Tc-r3v"/>
+                                            <outletCollection property="holidayLabels" destination="Jvf-dg-EPb" collectionClass="NSMutableArray" id="22i-TI-gxy"/>
+                                            <outletCollection property="holidayLabels" destination="Q8n-9y-fyT" collectionClass="NSMutableArray" id="xkt-AJ-uRB"/>
+                                            <outletCollection property="holidayLabels" destination="6mm-kZ-fpX" collectionClass="NSMutableArray" id="lF7-1i-8rF"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="N9y-ZV-rG2" firstAttribute="top" secondItem="uuV-jV-4Qr" secondAttribute="top" constant="50" id="32n-sD-lMz"/>
+                            <constraint firstItem="V9d-IY-9Cb" firstAttribute="bottom" secondItem="uuV-jV-4Qr" secondAttribute="bottom" id="Bjo-ff-Jh6"/>
+                            <constraint firstItem="V9d-IY-9Cb" firstAttribute="top" secondItem="N9y-ZV-rG2" secondAttribute="bottom" constant="16" id="PlA-pF-NrT"/>
+                            <constraint firstItem="uuV-jV-4Qr" firstAttribute="trailing" secondItem="V9d-IY-9Cb" secondAttribute="trailing" constant="16" id="air-Xe-Kru"/>
                             <constraint firstItem="N9y-ZV-rG2" firstAttribute="centerX" secondItem="lGz-DN-65V" secondAttribute="centerX" id="g6C-Ud-K7L"/>
+                            <constraint firstItem="V9d-IY-9Cb" firstAttribute="leading" secondItem="uuV-jV-4Qr" secondAttribute="leading" constant="16" id="yNs-UV-3ta"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uuV-jV-4Qr"/>
                     </view>
                     <navigationItem key="navigationItem" id="dWC-CE-cfN"/>
                     <connections>
-                        <outlet property="holiday1" destination="KxD-7U-jIo" id="xtF-cl-4wF"/>
-                        <outlet property="holiday2" destination="ubQ-h4-YUs" id="7Xc-O6-kym"/>
-                        <outlet property="holiday3" destination="Fw3-jd-0PC" id="2XY-eK-XZ0"/>
-                        <outlet property="mart1" destination="pzB-yg-cAD" id="KeW-fS-D0a"/>
-                        <outlet property="mart2" destination="xET-Dd-y4x" id="brn-Om-NCE"/>
-                        <outlet property="mart3" destination="vRl-Sc-a33" id="ikH-ex-mmj"/>
+                        <outlet property="favoritesCollectionView" destination="V9d-IY-9Cb" id="BQu-n2-Bfj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Od-HW-B51" userLabel="First Responder" sceneMemberID="firstResponder"/>

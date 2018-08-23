@@ -38,6 +38,7 @@
 		FDBF9A4A212414A9001C2DAA /* FavoriteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBF9A49212414A9001C2DAA /* FavoriteList.swift */; };
 		FDC2A942212458F400A1E2FF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC2A941212458F400A1E2FF /* Extensions.swift */; };
 		FDCB9E8B212566F1006281CB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCB9E8A212566F1006281CB /* MainViewController.swift */; };
+		FDFB0346212E930E0092411E /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFB0345212E930E0092411E /* FavoriteCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -89,6 +90,7 @@
 		FDC2A941212458F400A1E2FF /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		FDCB9E8A212566F1006281CB /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		FDFB0344212E7AF10092411E /* MartHoliday.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MartHoliday.entitlements; sourceTree = "<group>"; };
+		FDFB0345212E930E0092411E /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				FD1B4F222126BBD200946311 /* SlideTopView.swift */,
 				FD4850F1212843FB0064747A /* SlideMenu.swift */,
 				FD4850F3212869AF0064747A /* SlideMenuCell.swift */,
+				FDFB0345212E930E0092411E /* FavoriteCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				FDC2A942212458F400A1E2FF /* Extensions.swift in Sources */,
 				FDB4BE22211D6BAD00D3B264 /* AppDelegate.swift in Sources */,
 				FDBF9A4A212414A9001C2DAA /* FavoriteList.swift in Sources */,
+				FDFB0346212E930E0092411E /* FavoriteCell.swift in Sources */,
 				FD1CC4E1211DF76300B21E09 /* DetailViewController.swift in Sources */,
 				FD11EAE321203A4C003EB3E9 /* BranchTableViewCell.swift in Sources */,
 			);

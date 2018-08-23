@@ -11,22 +11,20 @@ import UIKit
 class MainViewController: UIViewController {
 
     static let cellID = "cellID"
-    static let mainCellID = "mainCellID"
+    static let favoriteCellID = "favoriteCell"
 
     var backgroundView: SlideBackgroundView!
     var slidetopView: SlideTopView!
     var slideMenu: SlideMenu!
     var openFlag: Bool?
 
+    let slideMenuCollectionViewTag = 100
+    let favoritesCollectionViewTag = 200
+
     let menuData = [MenuData(title: "메인으로", imageName: "home"),
                     MenuData(title: "마트검색", imageName: "search-2")]
 
-    @IBOutlet weak var mart1: UILabel!
-    @IBOutlet weak var holiday1: UILabel!
-    @IBOutlet weak var mart2: UILabel!
-    @IBOutlet weak var holiday2: UILabel!
-    @IBOutlet weak var mart3: UILabel!
-    @IBOutlet weak var holiday3: UILabel!
+    @IBOutlet weak var favoritesCollectionView: UICollectionView!
 
     // MARK: override functions
 
@@ -37,25 +35,17 @@ class MainViewController: UIViewController {
 
         slideMenu.delegate = self
         slideMenu.dataSource = self
-        slideMenu.tag = 100
+        slideMenu.tag = slideMenuCollectionViewTag
+
+        favoritesCollectionView.delegate = self
+        favoritesCollectionView.dataSource = self
+        favoritesCollectionView.tag = favoritesCollectionViewTag
 
         openFlag = false
 
         addGestures()
         NotificationCenter.default.addObserver(self, selector: #selector(detectSelectedMenu(_:)), name: .slideMenuTapped, object: nil)
 
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        // favorites 화면에 표시
-        let martlist = Array(FavoriteList.shared().martList)
-        guard martlist.count > 0 else { return }
-        mart1.text = martlist[0].branchName
-        holiday1.text = martlist[0].holidays.reduce("", +)
-        mart2.text = martlist[1].branchName
-        print(martlist[1].branchName)
-        holiday2.text = martlist[1].holidays.reduce("", +)
     }
 
     override func viewWillLayoutSubviews() {
@@ -174,14 +164,31 @@ extension MainViewController: UICollectionViewDataSource {
         if collectionView.tag == slideMenu.tag {
             return menuData.count
         } else {
-            return FavoriteList.shared().martList.count
+            return FavoriteList.shared().martList().count
         }
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = slideMenu.dequeueReusableCell(withReuseIdentifier: MainViewController.cellID, for: indexPath) as! SlideMenuCell
-        cell.setData(menu: menuData[indexPath.row])
-        return cell
+        if collectionView.tag == slideMenu.tag {
+            let cell = slideMenu.dequeueReusableCell(withReuseIdentifier: MainViewController.cellID, for: indexPath) as! SlideMenuCell
+            cell.setData(menu: menuData[indexPath.row])
+            return cell
+        } else {
+            let martList = FavoriteList.shared().martList()
+            let cell = favoritesCollectionView.dequeueReusableCell(withReuseIdentifier: MainViewController.favoriteCellID, for: indexPath) as! FavoriteCell
+            cell.setData(branch: martList[indexPath.row])
+            cell.layer.cornerRadius = 10.0
+            cell.layer.borderWidth = 1.0
+            cell.layer.borderColor = UIColor.clear.cgColor
+            cell.clipsToBounds = true
+
+            cell.layer.shadowColor = UIColor.lightGray.cgColor
+            cell.layer.shadowOffset = CGSize(width:0,height: 2.0)
+            cell.layer.shadowRadius = 2.0
+            cell.layer.shadowOpacity = 1.0
+            cell.layer.masksToBounds = false
+            return cell
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -198,7 +205,8 @@ extension MainViewController: UICollectionViewDataSource {
                 NotificationCenter.default.post(name: .slideMenuTapped, object: nil, userInfo: ["next": menuData.destinationInfo()])
             }
         } else {
-
+            let martList = FavoriteList.shared().martList()
+            print(martList[indexPath.row])
         }
     }
 
@@ -210,7 +218,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDelegate
         if collectionView.tag == slideMenu.tag {
             return CGSize(width: slideMenu.frame.width, height: 70)
         } else {
-            return CGSize(width: self.view.frame.width, height: 120)
+            return CGSize(width: collectionView.frame.width - 10, height: 140)
         }
     }
 
