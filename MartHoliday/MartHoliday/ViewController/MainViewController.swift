@@ -10,11 +10,8 @@ import UIKit
 
 class MainViewController: UIViewController {
 
-    @IBOutlet weak var firstFavoriteLabel: UILabel!
-    @IBOutlet weak var secondFavoriteLabel: UILabel!
-    @IBOutlet weak var thirdFavoriteLabel: UILabel!
-
     static let cellID = "cellID"
+    static let mainCellID = "mainCellID"
 
     var backgroundView: SlideBackgroundView!
     var slidetopView: SlideTopView!
@@ -24,6 +21,12 @@ class MainViewController: UIViewController {
     let menuData = [MenuData(title: "메인으로", imageName: "home"),
                     MenuData(title: "마트검색", imageName: "search-2")]
 
+    @IBOutlet weak var mart1: UILabel!
+    @IBOutlet weak var holiday1: UILabel!
+    @IBOutlet weak var mart2: UILabel!
+    @IBOutlet weak var holiday2: UILabel!
+    @IBOutlet weak var mart3: UILabel!
+    @IBOutlet weak var holiday3: UILabel!
 
     // MARK: override functions
 
@@ -34,11 +37,29 @@ class MainViewController: UIViewController {
 
         slideMenu.delegate = self
         slideMenu.dataSource = self
+        slideMenu.tag = 100
 
         openFlag = false
 
         addGestures()
         NotificationCenter.default.addObserver(self, selector: #selector(detectSelectedMenu(_:)), name: .slideMenuTapped, object: nil)
+
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // favorites 화면에 표시
+        let martlist = Array(FavoriteList.shared().martList)
+        guard martlist.count > 0 else { return }
+        mart1.text = martlist[0].branchName
+        holiday1.text = martlist[0].holidays.reduce("", +)
+        mart2.text = martlist[1].branchName
+        print(martlist[1].branchName)
+        holiday2.text = martlist[1].holidays.reduce("", +)
+    }
+
+    override func viewWillLayoutSubviews() {
+
     }
 
     override func viewDidLayoutSubviews() {
@@ -150,7 +171,11 @@ class MainViewController: UIViewController {
 extension MainViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return menuData.count
+        if collectionView.tag == slideMenu.tag {
+            return menuData.count
+        } else {
+            return FavoriteList.shared().martList.count
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -160,16 +185,20 @@ extension MainViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let menuData = self.menuData[indexPath.row]
-        UIView.animate(
-            withDuration: 0.5, delay: 0, options: .curveEaseOut,
-            animations: {
-                self.backgroundView.dismiss()
-                self.slidetopView.dismiss()
-                self.slideMenu.dismiss()
-                self.openFlag = false
-        }) { (completed: Bool) in
-            NotificationCenter.default.post(name: .slideMenuTapped, object: nil, userInfo: ["next": menuData.destinationInfo()])
+        if collectionView.tag == slideMenu.tag {
+            let menuData = self.menuData[indexPath.row]
+            UIView.animate(
+                withDuration: 0.5, delay: 0, options: .curveEaseOut,
+                animations: {
+                    self.backgroundView.dismiss()
+                    self.slidetopView.dismiss()
+                    self.slideMenu.dismiss()
+                    self.openFlag = false
+            }) { (completed: Bool) in
+                NotificationCenter.default.post(name: .slideMenuTapped, object: nil, userInfo: ["next": menuData.destinationInfo()])
+            }
+        } else {
+
         }
     }
 
@@ -178,10 +207,18 @@ extension MainViewController: UICollectionViewDataSource {
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: slideMenu.frame.width, height: 70)
+        if collectionView.tag == slideMenu.tag {
+            return CGSize(width: slideMenu.frame.width, height: 70)
+        } else {
+            return CGSize(width: self.view.frame.width, height: 120)
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
+        if collectionView.tag == slideMenu.tag {
+            return 0
+        } else {
+            return 10
+        }
     }
 }
