@@ -10,21 +10,18 @@ import UIKit
 
 class MainViewController: UIViewController {
 
+    @IBOutlet weak var favoritesCollectionView: UICollectionView!
+
     static let cellID = "cellID"
     static let favoriteCellID = "favoriteCell"
 
+    let slideMenuManager = SlideMenuManager()
     var backgroundView: SlideBackgroundView!
     var slidetopView: SlideTopView!
     var slideMenu: SlideMenu!
     var openFlag: Bool?
 
-    let slideMenuCollectionViewTag = 100
     let favoritesCollectionViewTag = 200
-
-    let menuData = [MenuData(title: "메인으로", imageName: "home"),
-                    MenuData(title: "마트검색", imageName: "search-2")]
-
-    @IBOutlet weak var favoritesCollectionView: UICollectionView!
 
     // MARK: override functions
 
@@ -33,9 +30,8 @@ class MainViewController: UIViewController {
         setSlideBarNavigationButton()
         addSubViews()
 
-        slideMenu.delegate = self
-        slideMenu.dataSource = self
-        slideMenu.tag = slideMenuCollectionViewTag
+        slideMenu.delegate = slideMenuManager
+        slideMenu.dataSource = slideMenuManager
 
         favoritesCollectionView.delegate = self
         favoritesCollectionView.dataSource = self
@@ -147,8 +143,10 @@ class MainViewController: UIViewController {
         guard let userInfo = notification.userInfo else {return}
         guard let destination = userInfo["next"] as? SelectedSlideMenu else {return}
         switch destination {
-        case .main: return
+        case .main:
+            handleDismiss()
         case .select:
+            handleDismiss()
             guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "martSelectVC") as? MartSelectViewController else { return }
             self.navigationController?.pushViewController(nextVC, animated: true)
         }
@@ -161,53 +159,32 @@ class MainViewController: UIViewController {
 extension MainViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView.tag == slideMenu.tag {
-            return menuData.count
-        } else {
-            return FavoriteList.shared().martList().count
-        }
+        return FavoriteList.shared().martList().count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView.tag == slideMenu.tag {
-            let cell = slideMenu.dequeueReusableCell(withReuseIdentifier: MainViewController.cellID, for: indexPath) as! SlideMenuCell
-            cell.setData(menu: menuData[indexPath.row])
-            return cell
-        } else {
-            let martList = FavoriteList.shared().martList()
-            let cell = favoritesCollectionView.dequeueReusableCell(withReuseIdentifier: MainViewController.favoriteCellID, for: indexPath) as! FavoriteCell
-            cell.setData(branch: martList[indexPath.row])
-            cell.layer.cornerRadius = 10.0
-            cell.layer.borderWidth = 1.0
-            cell.layer.borderColor = UIColor.clear.cgColor
-            cell.clipsToBounds = true
 
-            cell.layer.shadowColor = UIColor.lightGray.cgColor
-            cell.layer.shadowOffset = CGSize(width:0,height: 2.0)
-            cell.layer.shadowRadius = 2.0
-            cell.layer.shadowOpacity = 1.0
-            cell.layer.masksToBounds = false
-            return cell
-        }
+        let martList = FavoriteList.shared().martList()
+        let cell = favoritesCollectionView.dequeueReusableCell(withReuseIdentifier: MainViewController.favoriteCellID, for: indexPath) as! FavoriteCell
+        cell.setData(branch: martList[indexPath.row])
+        cell.layer.cornerRadius = 10.0
+        cell.layer.borderWidth = 1.0
+        cell.layer.borderColor = UIColor.clear.cgColor
+        cell.clipsToBounds = true
+
+        cell.layer.shadowColor = UIColor.lightGray.cgColor
+        cell.layer.shadowOffset = CGSize(width:0,height: 2.0)
+        cell.layer.shadowRadius = 2.0
+        cell.layer.shadowOpacity = 1.0
+        cell.layer.masksToBounds = false
+        return cell
+
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView.tag == slideMenu.tag {
-            let menuData = self.menuData[indexPath.row]
-            UIView.animate(
-                withDuration: 0.5, delay: 0, options: .curveEaseOut,
-                animations: {
-                    self.backgroundView.dismiss()
-                    self.slidetopView.dismiss()
-                    self.slideMenu.dismiss()
-                    self.openFlag = false
-            }) { (completed: Bool) in
-                NotificationCenter.default.post(name: .slideMenuTapped, object: nil, userInfo: ["next": menuData.destinationInfo()])
-            }
-        } else {
-            let martList = FavoriteList.shared().martList()
-            print(martList[indexPath.row])
-        }
+        let martList = FavoriteList.shared().martList()
+        print(martList[indexPath.row])
+
     }
 
 }
@@ -215,18 +192,12 @@ extension MainViewController: UICollectionViewDataSource {
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if collectionView.tag == slideMenu.tag {
-            return CGSize(width: slideMenu.frame.width, height: 70)
-        } else {
-            return CGSize(width: collectionView.frame.width - 10, height: 140)
-        }
+        return CGSize(width: collectionView.frame.width - 10, height: 140)
+
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        if collectionView.tag == slideMenu.tag {
-            return 0
-        } else {
-            return 10
-        }
+        return 10
+
     }
 }
