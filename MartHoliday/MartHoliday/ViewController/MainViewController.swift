@@ -21,7 +21,7 @@ class MainViewController: UIViewController {
     var slideMenu: SlideMenu!
     var openFlag: Bool?
 
-    let favoritesCollectionViewTag = 200
+    let favoritesCollectionViewTag = 100
 
     // MARK: override functions
 
@@ -166,6 +166,8 @@ extension MainViewController: UICollectionViewDataSource {
 
         let martList = FavoriteList.shared().martList()
         let cell = favoritesCollectionView.dequeueReusableCell(withReuseIdentifier: MainViewController.favoriteCellID, for: indexPath) as! FavoriteCell
+//        let holidaysManager = HolidaysCollecionViewManager(dateData: martList[indexPath.row].holidays)
+        //        cell.setData(branch: martList[indexPath.row], holidaysManager: holidaysManager)
         cell.setData(branch: martList[indexPath.row])
         cell.layer.cornerRadius = 10.0
         cell.layer.borderWidth = 1.0
