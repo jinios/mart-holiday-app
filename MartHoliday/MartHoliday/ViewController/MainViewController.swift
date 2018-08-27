@@ -44,8 +44,9 @@ class MainViewController: UIViewController {
 
     }
 
-    override func viewWillLayoutSubviews() {
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        favoritesCollectionView.reloadData()
     }
 
     override func viewDidLayoutSubviews() {

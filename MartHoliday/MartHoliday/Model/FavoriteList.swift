@@ -20,7 +20,7 @@ class FavoriteList: NSObject, NSCoding {
 
     private static var sharedFavorite = FavoriteList()
 
-    override init() {
+    private override init() {
         self.martSet = Set<Branch>()
     }
 
@@ -36,7 +36,11 @@ class FavoriteList: NSObject, NSCoding {
         return sharedFavorite.martSet == data.martSet
     }
 
-    private var martSet: Set<Branch>
+    private var martSet: Set<Branch> {
+        didSet {
+            DataStorage<FavoriteList>.save(data: self)
+        }
+    }
 
 
     func push(branch: Branch) -> Bool {
