@@ -185,7 +185,7 @@ extension MainViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let martList = FavoriteList.shared().martList()
-        print(martList[indexPath.row])
+        print(martList[indexPath.row].branchName)
 
     }
 

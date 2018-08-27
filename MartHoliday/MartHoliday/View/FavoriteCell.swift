@@ -21,12 +21,13 @@ class FavoriteCell: UICollectionViewCell, UICollectionViewDataSource, UICollecti
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         backgroundColor = UIColor.white
-        print(type(of:holidaysCollectionView))
     }
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        holidaysCollectionView.backgroundColor = UIColor.white
+        holidaysCollectionView.backgroundColor = UIColor.clear
+        holidaysCollectionView.contentInset = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
+        holidaysCollectionView.scrollIndicatorInsets = holidaysCollectionView.contentInset
     }
 
     var dateData: [String]!
@@ -50,8 +51,7 @@ class FavoriteCell: UICollectionViewCell, UICollectionViewDataSource, UICollecti
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width / 2.5, height: collectionView.frame.height/2.5)
-
+        return CGSize(width: collectionView.frame.width / 2.3, height: collectionView.frame.height/2.5)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
