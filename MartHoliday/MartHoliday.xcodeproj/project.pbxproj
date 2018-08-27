@@ -39,6 +39,7 @@
 		FDBF9A4A212414A9001C2DAA /* FavoriteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBF9A49212414A9001C2DAA /* FavoriteList.swift */; };
 		FDC2A942212458F400A1E2FF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC2A941212458F400A1E2FF /* Extensions.swift */; };
 		FDCB9E8B212566F1006281CB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCB9E8A212566F1006281CB /* MainViewController.swift */; };
+		FDF8058321315DC200B22356 /* HolidaysCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF8058221315DC200B22356 /* HolidaysCell.swift */; };
 		FDFB0346212E930E0092411E /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFB0345212E930E0092411E /* FavoriteCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +92,7 @@
 		FDBF9A49212414A9001C2DAA /* FavoriteList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteList.swift; sourceTree = "<group>"; };
 		FDC2A941212458F400A1E2FF /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		FDCB9E8A212566F1006281CB /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		FDF8058221315DC200B22356 /* HolidaysCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidaysCell.swift; sourceTree = "<group>"; };
 		FDFB0344212E7AF10092411E /* MartHoliday.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MartHoliday.entitlements; sourceTree = "<group>"; };
 		FDFB0345212E930E0092411E /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -117,6 +119,7 @@
 				FD4850F1212843FB0064747A /* SlideMenu.swift */,
 				FD4850F3212869AF0064747A /* SlideMenuCell.swift */,
 				FDFB0345212E930E0092411E /* FavoriteCell.swift */,
+				FDF8058221315DC200B22356 /* HolidaysCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				FD9F40A0211EC5EA007D7F1B /* Keywords.swift in Sources */,
 				FDB4BE24211D6BAD00D3B264 /* MartSelectViewController.swift in Sources */,
 				FD1B4F232126BBD200946311 /* SlideTopView.swift in Sources */,
+				FDF8058321315DC200B22356 /* HolidaysCell.swift in Sources */,
 				FD4850F2212843FB0064747A /* SlideMenu.swift in Sources */,
 				FD3B642F2122A4FF003C1332 /* NMapViewResources.swift in Sources */,
 				FD3B642D21229892003C1332 /* MapViewController.swift in Sources */,

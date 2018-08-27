@@ -8,11 +8,10 @@
 
 import Foundation
 
-class FavoriteCell: UICollectionViewCell {
+class FavoriteCell: UICollectionViewCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
-    @IBOutlet weak var title: RoundedEdgeLabel!
-    @IBOutlet var holidayLabels: [RoundedEdgeLabel]!
-
+    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var holidaysCollectionView: UICollectionView!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,62 +21,42 @@ class FavoriteCell: UICollectionViewCell {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         backgroundColor = UIColor.white
+        print(type(of:holidaysCollectionView))
     }
 
     override func awakeFromNib() {
         super.awakeFromNib()
-
+        holidaysCollectionView.backgroundColor = UIColor.white
     }
+
+    var dateData: [String]!
 
     func setData(branch: Branch) {
         title.text = "\(branch.martType) \(branch.branchName)"
-        for i in 0..<branch.holidays.count {
-            holidayLabels[i].text = branch.holidays[i]
-        }
+        self.dateData = branch.holidays
+        holidaysCollectionView.delegate = self
+        holidaysCollectionView.dataSource = self
+        holidaysCollectionView.reloadData()
     }
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.dateData.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "holidaysCell", for: indexPath) as! HolidaysCell
+        cell.setData(text: dateData[indexPath.row])
+        return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width / 2.5, height: collectionView.frame.height/2.5)
+
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 5
+    }
+
 
 }
-
-
-class RoundedEdgeLabel: UILabel {
-
-    init() {
-        super.init(frame: CGRect.zero)
-        self.adjustsFontSizeToFitWidth = true
-        setup()
-    }
-
-    override func drawText(in rect: CGRect) {
-        let insets = UIEdgeInsets(top: 2, left: 8, bottom: 5, right: 8)
-        super.drawText(in: UIEdgeInsetsInsetRect(rect, insets))
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-
-    func setup() {
-        self.backgroundColor = UIColor.black
-        self.textColor = UIColor.white
-        self.textAlignment = .center
-        layer.cornerRadius = frame.height / 7
-        clipsToBounds = true
-    }
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        setup()
-    }
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        setup()
-    }
-
-    override func prepareForInterfaceBuilder() {
-        super.prepareForInterfaceBuilder()
-        setup()
-    }
-
-}
-
