@@ -79,7 +79,12 @@ class MainViewController: UIViewController {
 
     private func addGestures() {
         backgroundView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(toggleSlideMenu)))
-        view.addGestureRecognizer(UISwipeGestureRecognizer(target: self, action: #selector(toggleSlideMenu)))
+        let swipeToRight = UISwipeGestureRecognizer(target: self, action: #selector(handleOpen))
+        swipeToRight.direction = .right
+        view.addGestureRecognizer(swipeToRight)
+        let swipeToLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleDismiss))
+        swipeToLeft.direction = .left
+        view.addGestureRecognizer(swipeToLeft)
     }
 
     private func addSubViews() {
@@ -99,7 +104,7 @@ class MainViewController: UIViewController {
         navigationItem.leftBarButtonItem = searhButton
     }
 
-    private func handleDismiss() {
+    @objc private func handleDismiss() {
         guard let openFlag = self.openFlag else { return }
         if openFlag == true {
             UIView.animate(
@@ -118,7 +123,7 @@ class MainViewController: UIViewController {
         }
     }
 
-    private func handleOpen() {
+    @objc private func handleOpen() {
         guard let openFlag = self.openFlag else { return }
         if openFlag == false {
             backgroundView.show()
