@@ -10,7 +10,7 @@ import Foundation
 
 class MapSetter {
 
-    class func tryGeoRequestTask(url: String, address: String) {
+    class func tryGeoRequestTask(url: String, address: String, handler: @escaping((GeoPoint) -> Void)) {
         // append queryItem to url
         var urlComponents = URLComponents(string: url)!
 
@@ -31,7 +31,8 @@ class MapSetter {
             if let response = response as? HTTPURLResponse, 200...299 ~= response.statusCode, let data = data {
                 do {
                     let result = try JSONDecoder().decode(AddressDatum.self, from: data)
-                    print(result.geoPoint())
+                    let geoPoint = result.geoPoint()
+                    handler(geoPoint)
                 } catch let decodeErr {
                     print(decodeErr)
                 }
