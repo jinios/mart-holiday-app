@@ -13,13 +13,9 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate, NM
 
     @IBOutlet weak var mockUpMapview: UIView!
     @IBOutlet weak var martTitle: UILabel!
-    @IBOutlet weak var holidayStackView: UIStackView!
     @IBOutlet weak var businessHour: UILabel!
     @IBOutlet weak var phoneNumberLabel: UILabel!
     @IBOutlet weak var address: UILabel!
-    @IBOutlet weak var favoriteButton: UIButton!
-    @IBOutlet weak var phoneCallButton: UIButton!
-    @IBOutlet weak var homepageButton: UIButton!
     @IBOutlet weak var starIcon: UIButton!
 
     var branchData: Branch?
@@ -30,7 +26,6 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate, NM
         setNavigationItem()
         setTitle()
         setAddress()
-        setHolidays()
         setPhoneNumber()
         setStarIcon()
         setMapView()
@@ -49,17 +44,6 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate, NM
     private func setTitle() {
         guard let branchData = self.branchData else { return }
         self.martTitle.text = branchData.branchName
-    }
-
-    private func setHolidays() {
-        guard let branchData = self.branchData else { return }
-        branchData.holidays.forEach { holiday in
-            let label = UILabel(frame: CGRect.zero)
-            label.font = label.font.withSize(12.0)
-            label.textColor = UIColor.blue
-            label.text = holiday
-            self.holidayStackView.addArrangedSubview(label)
-        }
     }
 
     private func setPhoneNumber() {
