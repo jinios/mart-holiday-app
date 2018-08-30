@@ -9,9 +9,9 @@
 import UIKit
 import SafariServices
 
-class DetailViewController: UIViewController, SFSafariViewControllerDelegate {
+class DetailViewController: UIViewController, SFSafariViewControllerDelegate, NMapViewDelegate, NMapPOIdataOverlayDelegate {
 
-    @IBOutlet weak var mapview: UIView!
+    @IBOutlet weak var mockUpMapview: UIView!
     @IBOutlet weak var martTitle: UILabel!
     @IBOutlet weak var holidayStackView: UIStackView!
     @IBOutlet weak var businessHour: UILabel!
@@ -23,6 +23,7 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate {
     @IBOutlet weak var starIcon: UIButton!
 
     var branchData: Branch?
+    var mapView : NMapView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +33,7 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate {
         setHolidays()
         setPhoneNumber()
         setStarIcon()
+        setMapView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -104,6 +106,67 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate {
         starIcon.isSelected = branchData.favorite
         starIcon.setStarIconImage()
     }
+
+    private func setMapView() {
+        mapView = NMapView()
+        if let mapView = mapView {
+            // set the delegate for map view
+            mapView.delegate = self
+
+            // set the application api key for Open MapViewer Library
+            guard let keyInfo = MapSetter.loadNMapKeySet() else { return }
+            guard let id = keyInfo.id as? String else { return }
+            mapView.setClientId(id)
+            mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+
+            mockUpMapview.addSubview(mapView)
+            mapView.frame = mockUpMapview.bounds
+        }
+    }
+
+    private func setMapCenter(point: GeoPoint) {
+        let x = point.x
+        let y = point.y
+        mapView!.setMapCenter(NGeoPoint(longitude:x, latitude:y), atLevel:12)
+    }
+
+
+    // MARK: NMapViewDelegate
+
+    public func onMapView(_ mapView: NMapView!, initHandler error: NMapError!) {
+        if (error == nil) { // success
+            // set map center and level
+            guard let branchData = self.branchData else { return }
+            MapSetter.tryGeoRequestTask(address: branchData.address) { geo in
+                DispatchQueue.main.async {
+                    self.setMapCenter(point: geo)
+                    mapView.setMapEnlarged(true, mapHD: true)
+                    mapView.mapViewMode = .vector
+                }
+            }
+        } else { // fail
+            print("onMapView:initHandler: \(error.description)")
+        }
+    }
+
+    // MARK: NMapPOIdataOverlayDelegate
+
+    open func onMapOverlay(_ poiDataOverlay: NMapPOIdataOverlay!, imageForOverlayItem poiItem: NMapPOIitem!, selected: Bool) -> UIImage! {
+        return NMapViewResources.imageWithType(poiItem.poiFlagType, selected: selected)
+    }
+
+    open func onMapOverlay(_ poiDataOverlay: NMapPOIdataOverlay!, anchorPointWithType poiFlagType: NMapPOIflagType) -> CGPoint {
+        return NMapViewResources.anchorPoint(withType: poiFlagType)
+    }
+
+    open func onMapOverlay(_ poiDataOverlay: NMapPOIdataOverlay!, calloutOffsetWithType poiFlagType: NMapPOIflagType) -> CGPoint {
+        return CGPoint(x: 0, y: 0)
+    }
+
+    open func onMapOverlay(_ poiDataOverlay: NMapPOIdataOverlay!, imageForCalloutOverlayItem poiItem: NMapPOIitem!, constraintSize: CGSize, selected: Bool, imageForCalloutRightAccessory: UIImage!, calloutPosition: UnsafeMutablePointer<CGPoint>!, calloutHit calloutHitRect: UnsafeMutablePointer<CGRect>!) -> UIImage! {
+        return nil
+    }
+
 
 }
 

@@ -10,9 +10,11 @@ import Foundation
 
 class MapSetter {
 
-    class func tryGeoRequestTask(url: String, address: String, handler: @escaping((GeoPoint) -> Void)) {
+    class func tryGeoRequestTask(address: String, handler: @escaping((GeoPoint) -> Void)) {
+        let geoCodeURL = "https://openapi.naver.com/v1/map/geocode"
+
         // append queryItem to url
-        var urlComponents = URLComponents(string: url)!
+        var urlComponents = URLComponents(string: geoCodeURL)!
 
         urlComponents.queryItems = [
             URLQueryItem(name: "query", value: String(address.utf8)),
@@ -42,7 +44,7 @@ class MapSetter {
             }.resume()
     }
 
-    private class func loadNMapKeySet() -> (id: Any, secretKey: Any)? {
+    class func loadNMapKeySet() -> (id: Any, secretKey: Any)? {
         if let path = Bundle.main.path(forResource: "KeyInfo", ofType: "plist"){
             guard let myDict = NSDictionary(contentsOfFile: path) else { return nil }
             let appID = myDict["NMapClientID"]!

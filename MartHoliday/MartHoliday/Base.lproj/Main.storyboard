@@ -245,7 +245,7 @@
                                 <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EPP-nl-lMa">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EPP-nl-lMa" userLabel="yellowView">
                                 <rect key="frame" x="0.0" y="20" width="375" height="222.5"/>
                                 <color key="backgroundColor" red="0.99953407049999998" green="0.98835557699999999" blue="0.47265523669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -334,8 +334,8 @@
                         <outlet property="favoriteButton" destination="yjE-7I-1pG" id="E2E-VI-Mrl"/>
                         <outlet property="holidayStackView" destination="yec-k3-UKX" id="qmL-eC-lha"/>
                         <outlet property="homepageButton" destination="rOi-8g-ADi" id="qJV-66-jeC"/>
-                        <outlet property="mapview" destination="EPP-nl-lMa" id="bYw-Ff-2OO"/>
                         <outlet property="martTitle" destination="z5T-Uw-6h6" id="lLJ-NT-epg"/>
+                        <outlet property="mockUpMapview" destination="EPP-nl-lMa" id="bYw-Ff-2OO"/>
                         <outlet property="phoneCallButton" destination="VKP-Ge-3oW" id="Aox-H6-nuC"/>
                         <outlet property="phoneNumberLabel" destination="2XA-B2-zJG" id="gxo-Yn-jRv"/>
                         <outlet property="starIcon" destination="aRD-d4-DJV" id="m1e-ZH-gNi"/>
