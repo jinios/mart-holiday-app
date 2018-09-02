@@ -134,6 +134,23 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate, NM
         mapView!.setMapCenter(NGeoPoint(longitude:x, latitude:y), atLevel:12)
     }
 
+    private func showMapMarker(point: GeoPoint) {
+        let x = point.x
+        let y = point.y
+
+        if let mapOverlayManager = mapView?.mapOverlayManager {
+
+            if let poiDataOverlay = mapOverlayManager.newPOIdataOverlay() {
+
+                poiDataOverlay.initPOIdata(1)
+
+                poiDataOverlay.addPOIitem(atLocation: NGeoPoint(longitude: x, latitude: y), title: branchData!.branchName, type: UserPOIflagTypeDefault, iconIndex: 0, with: nil)
+
+                poiDataOverlay.endPOIdata()
+                poiDataOverlay.showAllPOIdata()
+            }
+        }
+    }
 
     // MARK: NMapViewDelegate
 
@@ -143,6 +160,7 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate, NM
             guard let branchData = self.branchData else { return }
             MapSetter.tryGeoRequestTask(address: branchData.address) { geo in
                 DispatchQueue.main.async {
+                    self.showMapMarker(point: geo)
                     self.setMapCenter(point: geo)
                     mapView.setMapEnlarged(true, mapHD: true)
                     mapView.mapViewMode = .vector
