@@ -54,6 +54,7 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate, NM
     private func setNavigationItem() {
         guard let branchData = self.branchData else { return }
         self.navigationItem.title = branchData.branchName
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "home-nav-button"), style: .plain, target: self, action: #selector(popToRoot))
     }
 
     private func setTitle() {
@@ -69,6 +70,10 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate, NM
     private func setAddress() {
         guard let branchData = self.branchData else { return }
         address.text = branchData.address
+    }
+
+    @objc func popToRoot() {
+        self.navigationController?.popToRootViewController(animated: true)
     }
 
     @IBAction func goToWebPage(_ sender: Any) {
