@@ -22,7 +22,7 @@ class HolidaysCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        holidayDate.titleEdgeInsets = UIEdgeInsets(top: 3, left: 3, bottom: 3, right: 3)
+        holidayDate.contentEdgeInsets = UIEdgeInsets(top: 3, left: 5, bottom: 3, right: 5)
         holidayDate.layer.cornerRadius = 7.0
         holidayDate.clipsToBounds = true
         holidayDate.backgroundColor = UIColor.darkGray
@@ -38,7 +38,6 @@ class HolidaysCell: UICollectionViewCell {
     private func makeTextWithAttributes(of myText: String) -> NSAttributedString {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .center
-
         let customAttributes = [NSAttributedStringKey.paragraphStyle: paragraphStyle,
                                 NSAttributedStringKey.font: UIFont(name: "NanumSquareRoundOTF", size: self.frame.width * 0.12)?.bold(),
                                 NSAttributedStringKey.foregroundColor: UIColor.white,

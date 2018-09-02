@@ -17,9 +17,16 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate, NM
     @IBOutlet weak var phoneNumberLabel: UILabel!
     @IBOutlet weak var address: UILabel!
     @IBOutlet weak var starIcon: UIButton!
+    @IBOutlet weak var holidaysCollectionView: UICollectionView!
 
-    var branchData: Branch?
+    var branchData: Branch? {
+        didSet {
+            guard let branch = branchData else { return }
+            holidaysManager = HolidaysCollectionViewManager(dates: branch.holidays)
+        }
+    }
     var mapView : NMapView?
+    var holidaysManager: HolidaysCollectionViewManager!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +36,14 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate, NM
         setPhoneNumber()
         setStarIcon()
         setMapView()
+        setHolidays()
+    }
+
+    private func setHolidays() {
+        holidaysCollectionView.contentInset = UIEdgeInsets(top: 7, left: 5, bottom: 7, right: 5)
+        holidaysCollectionView.scrollIndicatorInsets = holidaysCollectionView.contentInset
+        holidaysCollectionView.delegate = holidaysManager
+        holidaysCollectionView.dataSource = holidaysManager
     }
 
     override func didReceiveMemoryWarning() {
