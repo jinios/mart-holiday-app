@@ -9,29 +9,41 @@
 import UIKit
 import SafariServices
 
-class DetailViewController: UIViewController, SFSafariViewControllerDelegate {
+class DetailViewController: UIViewController, SFSafariViewControllerDelegate, NMapViewDelegate, NMapPOIdataOverlayDelegate {
 
-    @IBOutlet weak var mapview: UIView!
+    @IBOutlet weak var mockUpMapview: UIView!
     @IBOutlet weak var martTitle: UILabel!
-    @IBOutlet weak var holidayStackView: UIStackView!
     @IBOutlet weak var businessHour: UILabel!
     @IBOutlet weak var phoneNumberLabel: UILabel!
     @IBOutlet weak var address: UILabel!
-    @IBOutlet weak var favoriteButton: UIButton!
-    @IBOutlet weak var phoneCallButton: UIButton!
-    @IBOutlet weak var homepageButton: UIButton!
     @IBOutlet weak var starIcon: UIButton!
+    @IBOutlet weak var holidaysCollectionView: UICollectionView!
 
-    var branchData: Branch?
+    var branchData: Branch? {
+        didSet {
+            guard let branch = branchData else { return }
+            holidaysManager = HolidaysCollectionViewManager(dates: branch.holidays)
+        }
+    }
+    var mapView : NMapView?
+    var holidaysManager: HolidaysCollectionViewManager!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationItem()
         setTitle()
         setAddress()
-        setHolidays()
         setPhoneNumber()
         setStarIcon()
+        setMapView()
+        setHolidays()
+    }
+
+    private func setHolidays() {
+        holidaysCollectionView.contentInset = UIEdgeInsets(top: 7, left: 5, bottom: 7, right: 5)
+        holidaysCollectionView.scrollIndicatorInsets = holidaysCollectionView.contentInset
+        holidaysCollectionView.delegate = holidaysManager
+        holidaysCollectionView.dataSource = holidaysManager
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,22 +54,12 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate {
     private func setNavigationItem() {
         guard let branchData = self.branchData else { return }
         self.navigationItem.title = branchData.branchName
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "home-nav-button"), style: .plain, target: self, action: #selector(popToRoot))
     }
 
     private func setTitle() {
         guard let branchData = self.branchData else { return }
         self.martTitle.text = branchData.branchName
-    }
-
-    private func setHolidays() {
-        guard let branchData = self.branchData else { return }
-        branchData.holidays.forEach { holiday in
-            let label = UILabel(frame: CGRect.zero)
-            label.font = label.font.withSize(12.0)
-            label.textColor = UIColor.blue
-            label.text = holiday
-            self.holidayStackView.addArrangedSubview(label)
-        }
     }
 
     private func setPhoneNumber() {
@@ -68,6 +70,10 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate {
     private func setAddress() {
         guard let branchData = self.branchData else { return }
         address.text = branchData.address
+    }
+
+    @objc func popToRoot() {
+        self.navigationController?.popToRootViewController(animated: true)
     }
 
     @IBAction func goToWebPage(_ sender: Any) {
@@ -104,6 +110,85 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate {
         starIcon.isSelected = branchData.favorite
         starIcon.setStarIconImage()
     }
+
+    private func setMapView() {
+        mapView = NMapView()
+        if let mapView = mapView {
+            // set the delegate for map view
+            mapView.delegate = self
+
+            // set the application api key for Open MapViewer Library
+            guard let keyInfo = MapSetter.loadNMapKeySet() else { return }
+            guard let id = keyInfo.id as? String else { return }
+            mapView.setClientId(id)
+            mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+
+            mockUpMapview.addSubview(mapView)
+            mapView.frame = mockUpMapview.bounds
+        }
+    }
+
+    private func setMapCenter(point: GeoPoint) {
+        let x = point.x
+        let y = point.y
+        mapView!.setMapCenter(NGeoPoint(longitude:x, latitude:y), atLevel:12)
+    }
+
+    private func showMapMarker(point: GeoPoint) {
+        let x = point.x
+        let y = point.y
+
+        if let mapOverlayManager = mapView?.mapOverlayManager {
+
+            if let poiDataOverlay = mapOverlayManager.newPOIdataOverlay() {
+
+                poiDataOverlay.initPOIdata(1)
+
+                poiDataOverlay.addPOIitem(atLocation: NGeoPoint(longitude: x, latitude: y), title: branchData!.branchName, type: UserPOIflagTypeDefault, iconIndex: 0, with: nil)
+
+                poiDataOverlay.endPOIdata()
+                poiDataOverlay.showAllPOIdata()
+            }
+        }
+    }
+
+    // MARK: NMapViewDelegate
+
+    public func onMapView(_ mapView: NMapView!, initHandler error: NMapError!) {
+        if (error == nil) { // success
+            // set map center and level
+            guard let branchData = self.branchData else { return }
+            MapSetter.tryGeoRequestTask(address: branchData.address) { geo in
+                DispatchQueue.main.async {
+                    self.showMapMarker(point: geo)
+                    self.setMapCenter(point: geo)
+                    mapView.setMapEnlarged(true, mapHD: true)
+                    mapView.mapViewMode = .vector
+                }
+            }
+        } else { // fail
+            print("onMapView:initHandler: \(error.description)")
+        }
+    }
+
+    // MARK: NMapPOIdataOverlayDelegate
+
+    open func onMapOverlay(_ poiDataOverlay: NMapPOIdataOverlay!, imageForOverlayItem poiItem: NMapPOIitem!, selected: Bool) -> UIImage! {
+        return NMapViewResources.imageWithType(poiItem.poiFlagType, selected: selected)
+    }
+
+    open func onMapOverlay(_ poiDataOverlay: NMapPOIdataOverlay!, anchorPointWithType poiFlagType: NMapPOIflagType) -> CGPoint {
+        return NMapViewResources.anchorPoint(withType: poiFlagType)
+    }
+
+    open func onMapOverlay(_ poiDataOverlay: NMapPOIdataOverlay!, calloutOffsetWithType poiFlagType: NMapPOIflagType) -> CGPoint {
+        return CGPoint(x: 0, y: 0)
+    }
+
+    open func onMapOverlay(_ poiDataOverlay: NMapPOIdataOverlay!, imageForCalloutOverlayItem poiItem: NMapPOIitem!, constraintSize: CGSize, selected: Bool, imageForCalloutRightAccessory: UIImage!, calloutPosition: UnsafeMutablePointer<CGPoint>!, calloutHit calloutHitRect: UnsafeMutablePointer<CGRect>!) -> UIImage! {
+        return nil
+    }
+
 
 }
 
