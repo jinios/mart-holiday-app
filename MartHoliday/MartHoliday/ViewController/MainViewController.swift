@@ -28,8 +28,8 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setSlideBarNavigationButton()
-        addSubViews()
 
+        addSubViews()
         slideMenu.delegate = slideMenuManager
         slideMenu.dataSource = slideMenuManager
 
@@ -192,7 +192,9 @@ extension MainViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let martList = FavoriteList.shared().martList()
         print(martList[indexPath.row].branchName)
-
+        guard let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "detailVC") as? DetailViewController else { return }
+        detailVC.branchData = martList[indexPath.row]
+        self.navigationController?.pushViewController(detailVC, animated: true)
     }
 
 }
