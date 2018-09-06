@@ -10,38 +10,18 @@ import UIKit
 
 class MartSelectViewController: UIViewController {
 
-    @IBOutlet weak var emartButton: UIButton!
-    @IBOutlet weak var lotteMartButton: UIButton!
-    @IBOutlet weak var homeplusButton: UIButton!
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var expLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setScrollView()
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.separatorStyle = .none
         self.navigationItem.title = "마트 선택"
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    }
-
-    private func setScrollView() {
-        scrollView.contentSize.width = UIScreen.main.bounds.width
-        scrollView.contentSize.height = (UIScreen.main.bounds.height)*2
-
-        scrollView.addSubview(emartButton)
-        scrollView.addSubview(lotteMartButton)
-        scrollView.addSubview(homeplusButton)
-        scrollView.addSubview(expLabel)
-    }
-
-    @IBAction func emartButtonTapped(_ sender: Any) {
-        DataSetter<Mart, BranchRawData>.goToSearchViewController(of: Mart.emart, handler: pushViewController(mart:data:))
-    }
-
-    @IBAction func lotteMartButtonTapped(_ sender: Any) {
-        DataSetter<Mart, BranchRawData>.goToSearchViewController(of: Mart.lottemart, handler: pushViewController(mart:data:))
     }
 
     private func pushViewController(mart: Mart, data: [BranchRawData]) {
@@ -55,3 +35,33 @@ class MartSelectViewController: UIViewController {
 
 }
 
+extension MartSelectViewController: UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let marts = Mart.allValues
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "selectionCell", for: indexPath) as? SelectionTableViewCell else { return UITableViewCell() }
+        cell.selectionStyle = .none
+        cell.data = marts[indexPath.row]
+        cell.setImage()
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return Mart.allValues.count
+    }
+}
+
+extension MartSelectViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
+    }
+
+
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let marts = Mart.allValues
+        DataSetter<Mart, BranchRawData>.goToSearchViewController(of: marts[indexPath.row], handler: pushViewController(mart:data:))
+    }
+
+
+}

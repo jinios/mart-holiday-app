@@ -24,6 +24,7 @@
 		FD4850F621287AFE0064747A /* SlideMenuCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD4850F521287AFE0064747A /* SlideMenuCellView.xib */; };
 		FD48E1BF212BF57B00FC05D9 /* MenuData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD48E1BE212BF57B00FC05D9 /* MenuData.swift */; };
 		FD4DDC8E21411236004E981F /* DataSetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4DDC8D21411236004E981F /* DataSetter.swift */; };
+		FD4DDC9021412294004E981F /* SelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4DDC8F21412294004E981F /* SelectionTableViewCell.swift */; };
 		FD52566F21353C9C0014070E /* KeyInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD52566E21353C9C0014070E /* KeyInfo.plist */; };
 		FD780D77212F185600B569B3 /* SlideMenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD780D76212F185600B569B3 /* SlideMenuManager.swift */; };
 		FD9F409C211EBFAF007D7F1B /* BranchRawData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409B211EBFAF007D7F1B /* BranchRawData.swift */; };
@@ -80,6 +81,7 @@
 		FD4850F521287AFE0064747A /* SlideMenuCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SlideMenuCellView.xib; path = MartHoliday/SlideMenuCellView.xib; sourceTree = SOURCE_ROOT; };
 		FD48E1BE212BF57B00FC05D9 /* MenuData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuData.swift; sourceTree = "<group>"; };
 		FD4DDC8D21411236004E981F /* DataSetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSetter.swift; sourceTree = "<group>"; };
+		FD4DDC8F21412294004E981F /* SelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionTableViewCell.swift; sourceTree = "<group>"; };
 		FD52566E21353C9C0014070E /* KeyInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = KeyInfo.plist; sourceTree = "<group>"; };
 		FD780D76212F185600B569B3 /* SlideMenuManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideMenuManager.swift; sourceTree = "<group>"; };
 		FD9F409B211EBFAF007D7F1B /* BranchRawData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchRawData.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				FD4850F3212869AF0064747A /* SlideMenuCell.swift */,
 				FDFB0345212E930E0092411E /* FavoriteCell.swift */,
 				FDF8058221315DC200B22356 /* HolidaysCell.swift */,
+				FD4DDC8F21412294004E981F /* SelectionTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				FDB4BE22211D6BAD00D3B264 /* AppDelegate.swift in Sources */,
 				FDBF9A4A212414A9001C2DAA /* FavoriteList.swift in Sources */,
 				FDFB0346212E930E0092411E /* FavoriteCell.swift in Sources */,
+				FD4DDC9021412294004E981F /* SelectionTableViewCell.swift in Sources */,
 				FD1CC4E1211DF76300B21E09 /* DetailViewController.swift in Sources */,
 				FD11EAE321203A4C003EB3E9 /* BranchTableViewCell.swift in Sources */,
 			);
