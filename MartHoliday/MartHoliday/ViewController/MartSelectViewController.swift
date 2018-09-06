@@ -37,19 +37,20 @@ class MartSelectViewController: UIViewController {
     }
 
     @IBAction func emartButtonTapped(_ sender: Any) {
-        pushSearchViewController(mart: Mart.emart)
+        DataSetter<Mart, BranchRawData>.goToSearchViewController(of: Mart.emart, handler: pushViewController(mart:data:))
     }
 
     @IBAction func lotteMartButtonTapped(_ sender: Any) {
-        pushSearchViewController(mart: Mart.lottemart)
+        DataSetter<Mart, BranchRawData>.goToSearchViewController(of: Mart.lottemart, handler: pushViewController(mart:data:))
     }
 
-    private func pushSearchViewController(mart: Mart) {
-        guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "searchVC") as? SearchViewController else { return }
-        guard let branches = DataDecoder<BranchRawData>.makeData(assetName: mart.JSONfile) else  { return }
-        nextVC.list = BranchList(branches: branches)
-        nextVC.mart = mart.koreanName
-        self.navigationController?.pushViewController(nextVC, animated: true)
+    private func pushViewController(mart: Mart, data: [BranchRawData]) {
+        DispatchQueue.main.async {
+            guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "searchVC") as? SearchViewController else { return }
+            nextVC.list = BranchList(branches: data)
+            nextVC.mart = mart.koreanName
+            self.navigationController?.pushViewController(nextVC, animated: true)
+        }
     }
 
 }
