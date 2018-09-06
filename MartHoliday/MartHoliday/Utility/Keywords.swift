@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Mart: String, KoreanName, JSONfile, URLHolder {
+enum Mart: String, KoreanName, JSONfile, URLHolder, CIImageHolder {
 
     case emart
     case lottemart
@@ -40,6 +40,17 @@ enum Mart: String, KoreanName, JSONfile, URLHolder {
         case .homeplusExpress: return URL(string: "http://ec2-13-209-38-224.ap-northeast-2.compute.amazonaws.com/api/mart/HOMEPLUS_EXPRESS/list")
         }
     }
+
+    var imageName: String {
+        switch self {
+        case .emart: return "emart-ci"
+        case .lottemart: return "lottemart-ci"
+        case .homeplus: return "homeplus-ci"
+        case .homeplusExpress: return "homeplus-express-ci"
+        }
+    }
+
+    static let allValues: [Mart] = [emart, lottemart, homeplus, homeplusExpress]
 }
 
 protocol KoreanName {
@@ -53,3 +64,8 @@ protocol JSONfile {
 protocol URLHolder {
     var url: URL? { get }
 }
+
+protocol CIImageHolder {
+    var imageName: String { get }
+}
+
