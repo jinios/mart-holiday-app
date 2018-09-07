@@ -13,6 +13,7 @@
 		FD1B4F252126C0FA00946311 /* SlideMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD1B4F242126C0FA00946311 /* SlideMenuView.xib */; };
 		FD1CC4DF211DF10A00B21E09 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1CC4DE211DF10A00B21E09 /* SearchViewController.swift */; };
 		FD1CC4E1211DF76300B21E09 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1CC4E0211DF76300B21E09 /* DetailViewController.swift */; };
+		FD228F382142EB1A0062B75F /* BranchList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD228F372142EB1A0062B75F /* BranchList.swift */; };
 		FD37C0A6213BEC52007E6E7A /* HolidaysCollectionViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD37C0A5213BEC52007E6E7A /* HolidaysCollectionViewManager.swift */; };
 		FD3B64242121BEAA003C1332 /* ApiGatewayMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3B64232121BEAA003C1332 /* ApiGatewayMac.framework */; };
 		FD3B64252121BEAA003C1332 /* ApiGatewayMac.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD3B64232121BEAA003C1332 /* ApiGatewayMac.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -70,6 +71,7 @@
 		FD1B4F242126C0FA00946311 /* SlideMenuView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SlideMenuView.xib; sourceTree = "<group>"; };
 		FD1CC4DE211DF10A00B21E09 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		FD1CC4E0211DF76300B21E09 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		FD228F372142EB1A0062B75F /* BranchList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchList.swift; sourceTree = "<group>"; };
 		FD37C0A5213BEC52007E6E7A /* HolidaysCollectionViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidaysCollectionViewManager.swift; sourceTree = "<group>"; };
 		FD3B64232121BEAA003C1332 /* ApiGatewayMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ApiGatewayMac.framework; sourceTree = "<group>"; };
 		FD3B64282121BEDD003C1332 /* NMapViewerSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NMapViewerSDK.framework; path = "../../../../../Desktop/maps.ios-master/Frameworks/NMapViewerSDK.framework"; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 		FD9F40A1211ECAE2007D7F1B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FD228F372142EB1A0062B75F /* BranchList.swift */,
 				FD9F409B211EBFAF007D7F1B /* BranchRawData.swift */,
 				FD9F409D211EC0C8007D7F1B /* DataDecoder.swift */,
 				FDC3461C2136708400F6D6FF /* AddressDatum.swift */,
@@ -361,6 +364,7 @@
 				FDBF9A4A212414A9001C2DAA /* FavoriteList.swift in Sources */,
 				FDFB0346212E930E0092411E /* FavoriteCell.swift in Sources */,
 				FD4DDC9021412294004E981F /* SelectionTableViewCell.swift in Sources */,
+				FD228F382142EB1A0062B75F /* BranchList.swift in Sources */,
 				FD1CC4E1211DF76300B21E09 /* DetailViewController.swift in Sources */,
 				FD11EAE321203A4C003EB3E9 /* BranchTableViewCell.swift in Sources */,
 			);
