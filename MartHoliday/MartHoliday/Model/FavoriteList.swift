@@ -67,5 +67,11 @@ class FavoriteList: NSObject, NSCoding {
     func martList() -> [Branch] {
         return martSet.sorted { $0.id > $1.id }
     }
+
+    func ids() -> [Int] {
+        let ids = martSet.map{$0.id}.sorted()
+        return ids
+    }
+
 }
 

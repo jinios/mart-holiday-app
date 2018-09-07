@@ -8,11 +8,14 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+protocol FavoriteConvertible {
+    var favoriteList: [Branch] { get set }
+    func setFavoriteBranch(handler: @escaping(()->Void))
+}
 
+class MainViewController: UIViewController, FavoriteConvertible {
     @IBOutlet weak var favoritesCollectionView: UICollectionView!
 
-    static let cellID = "cellID"
     static let favoriteCellID = "favoriteCell"
 
     let slideMenuManager = SlideMenuManager()
@@ -20,6 +23,7 @@ class MainViewController: UIViewController {
     var slidetopView: SlideTopView!
     var slideMenu: SlideMenu!
     var openFlag: Bool?
+    var favoriteList = [Branch]()
 
     let favoritesCollectionViewTag = 100
 
@@ -41,12 +45,11 @@ class MainViewController: UIViewController {
 
         addGestures()
         NotificationCenter.default.addObserver(self, selector: #selector(detectSelectedMenu(_:)), name: .slideMenuTapped, object: nil)
-
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        favoritesCollectionView.reloadData()
+        loadFavoritesCollectionView()
     }
 
     override func viewDidLayoutSubviews() {
@@ -158,6 +161,38 @@ class MainViewController: UIViewController {
         }
     }
 
+    private func loadFavoritesCollectionView() {
+        setFavoriteBranch(handler: reloadCollectionView)
+    }
+
+    func setFavoriteBranch(handler: @escaping (() -> Void)) {
+        let ids = FavoriteList.shared().ids()
+        let idstr = ids.map{String($0)}.joined(separator: ",")
+        guard let baseURL = URL(string: "http://ec2-13-209-38-224.ap-northeast-2.compute.amazonaws.com/api/mart/branch") else { return }
+        let url = baseURL.appendingPathComponent(idstr)
+
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if let response = response as? HTTPURLResponse, 200...299 ~= response.statusCode, let data = data {
+                var branches = [BranchRawData]()
+                do {
+                    branches = try JSONDecoder().decode([BranchRawData].self, from: data)
+                    self.favoriteList = BranchList(branches: branches).branches
+                    handler()
+                } catch let error {
+                    print("Cannot make Data: \(error)")
+                }
+            } else {
+                print("Network error: \((response as? HTTPURLResponse)?.statusCode)")
+            }
+        }.resume()
+    }
+
+    private func reloadCollectionView() {
+        DispatchQueue.main.async {
+            self.favoritesCollectionView.reloadData()
+        }
+    }
+
 }
 
 // MARK: CollectionView related
@@ -165,16 +200,14 @@ class MainViewController: UIViewController {
 extension MainViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return FavoriteList.shared().martList().count
+        return favoriteList.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
-        let martList = FavoriteList.shared().martList()
         let cell = favoritesCollectionView.dequeueReusableCell(withReuseIdentifier: MainViewController.favoriteCellID, for: indexPath) as! FavoriteCell
 //        let holidaysManager = HolidaysCollecionViewManager(dateData: martList[indexPath.row].holidays)
         //        cell.setData(branch: martList[indexPath.row], holidaysManager: holidaysManager)
-        cell.setData(branch: martList[indexPath.row])
+        cell.setData(branch: favoriteList[indexPath.row])
         cell.layer.cornerRadius = 10.0
         cell.layer.borderWidth = 1.0
         cell.layer.borderColor = UIColor.clear.cgColor
@@ -190,10 +223,8 @@ extension MainViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let martList = FavoriteList.shared().martList()
-        print(martList[indexPath.row].branchName)
         guard let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "detailVC") as? DetailViewController else { return }
-        detailVC.branchData = martList[indexPath.row]
+        detailVC.branchData = favoriteList[indexPath.row]
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
 
