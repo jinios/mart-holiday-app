@@ -10,6 +10,8 @@ import Foundation
 
 class SlideMenuManager: NSObject, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
+    static let cellID = "cellID"
+
     let menuData = [MenuData(title: "메인으로", imageName: "home"),
                     MenuData(title: "마트검색", imageName: "search-2")]
 
@@ -27,7 +29,7 @@ class SlideMenuManager: NSObject, UICollectionViewDataSource, UICollectionViewDe
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainViewController.cellID, for: indexPath) as! SlideMenuCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SlideMenuManager.cellID, for: indexPath) as! SlideMenuCell
             cell.setData(menu: menuData[indexPath.row])
             return cell
     }

@@ -13,7 +13,7 @@ class SlideMenu: UICollectionView {
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
         self.backgroundColor = UIColor.white
-        self.register(SlideMenuCell.self, forCellWithReuseIdentifier: MainViewController.cellID)
+        self.register(SlideMenuCell.self, forCellWithReuseIdentifier: SlideMenuManager.cellID)
     }
 
     required init?(coder aDecoder: NSCoder) {
