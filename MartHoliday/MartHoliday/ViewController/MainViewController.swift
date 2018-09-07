@@ -8,11 +8,6 @@
 
 import UIKit
 
-protocol FavoriteConvertible {
-    var favoriteList: [Branch] { get set }
-    func setFavoriteBranch(handler: @escaping(()->Void))
-}
-
 class MainViewController: UIViewController, FavoriteConvertible {
     @IBOutlet weak var favoritesCollectionView: UICollectionView!
 
@@ -23,7 +18,7 @@ class MainViewController: UIViewController, FavoriteConvertible {
     var slidetopView: SlideTopView!
     var slideMenu: SlideMenu!
     var openFlag: Bool?
-    var favoriteList = [Branch]()
+    var favoriteList = BranchList()
 
     let favoritesCollectionViewTag = 100
 
@@ -165,6 +160,14 @@ class MainViewController: UIViewController, FavoriteConvertible {
         setFavoriteBranch(handler: reloadCollectionView)
     }
 
+    private func reloadCollectionView() {
+        DispatchQueue.main.async {
+            self.favoritesCollectionView.reloadData()
+        }
+    }
+
+    // MARK: FavoriteConvertible related
+
     func setFavoriteBranch(handler: @escaping (() -> Void)) {
         let ids = FavoriteList.shared().ids()
         let idstr = ids.map{String($0)}.joined(separator: ",")
@@ -176,7 +179,7 @@ class MainViewController: UIViewController, FavoriteConvertible {
                 var branches = [BranchRawData]()
                 do {
                     branches = try JSONDecoder().decode([BranchRawData].self, from: data)
-                    self.favoriteList = BranchList(branches: branches).branches
+                    self.favoriteList = BranchList(branches: branches)
                     handler()
                 } catch let error {
                     print("Cannot make Data: \(error)")
@@ -187,12 +190,6 @@ class MainViewController: UIViewController, FavoriteConvertible {
         }.resume()
     }
 
-    private func reloadCollectionView() {
-        DispatchQueue.main.async {
-            self.favoritesCollectionView.reloadData()
-        }
-    }
-
 }
 
 // MARK: CollectionView related
@@ -200,7 +197,7 @@ class MainViewController: UIViewController, FavoriteConvertible {
 extension MainViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return favoriteList.count
+        return favoriteList.count()
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -241,4 +238,9 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDelegate
         return 10
 
     }
+}
+
+protocol FavoriteConvertible {
+    var favoriteList: BranchList { get set }
+    func setFavoriteBranch(handler: @escaping(()->Void))
 }

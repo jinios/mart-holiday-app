@@ -22,6 +22,16 @@ struct BranchRawData: Codable {
 class BranchList {
     var branches: [Branch]
 
+    subscript(index: Int) -> Branch {
+        get {
+            return branches[index]
+        }
+    }
+
+    init() {
+        self.branches = [Branch]()
+    }
+
     init(branches: [BranchRawData]){
         self.branches = branches.map{ Branch(branch: $0) }
     }
@@ -100,10 +110,10 @@ class Branch: NSObject, NSCoding, Comparable {
     func toggleFavorite() -> Bool {
         if self.favorite {
             // self.favorite이 즐겨찾기일때 끄기
-            guard FavoriteList.shared().pop(branch: self) else { return false }
+            guard FavoriteList.shared().pop(id: self.id) else { return false }
         } else {
             // self.favorite이 즐겨찾기가 아닐때 켜기
-            guard FavoriteList.shared().push(branch: self) else { return false }
+            guard FavoriteList.shared().push(id: self.id) else { return false }
         }
         favorite = !favorite
         return true
