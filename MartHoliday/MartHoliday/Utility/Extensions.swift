@@ -14,13 +14,3 @@ extension Notification.Name {
     static let slideMenuTapped = Notification.Name("slideMenuClose")
 }
 
-extension UIButton {
-    func setStarIconImage() {
-        self.setImage(UIImage(named: "emptyStar"), for: .normal)
-        self.setImage(UIImage(named: "yellowStar"), for: .selected)
-    }
-
-    func toggleSelectedState() {
-        self.isSelected = !self.isSelected
-    }
-}
