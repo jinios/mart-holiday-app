@@ -28,6 +28,7 @@
 		FD4DDC9021412294004E981F /* SelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4DDC8F21412294004E981F /* SelectionTableViewCell.swift */; };
 		FD52566F21353C9C0014070E /* KeyInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD52566E21353C9C0014070E /* KeyInfo.plist */; };
 		FD780D77212F185600B569B3 /* SlideMenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD780D76212F185600B569B3 /* SlideMenuManager.swift */; };
+		FD86712321458FCB00273B3C /* StarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD86712221458FCB00273B3C /* StarButton.swift */; };
 		FD9F409C211EBFAF007D7F1B /* BranchRawData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409B211EBFAF007D7F1B /* BranchRawData.swift */; };
 		FD9F409E211EC0C8007D7F1B /* DataDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409D211EC0C8007D7F1B /* DataDecoder.swift */; };
 		FD9F40A0211EC5EA007D7F1B /* Keywords.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409F211EC5EA007D7F1B /* Keywords.swift */; };
@@ -86,6 +87,7 @@
 		FD4DDC8F21412294004E981F /* SelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionTableViewCell.swift; sourceTree = "<group>"; };
 		FD52566E21353C9C0014070E /* KeyInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = KeyInfo.plist; sourceTree = "<group>"; };
 		FD780D76212F185600B569B3 /* SlideMenuManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideMenuManager.swift; sourceTree = "<group>"; };
+		FD86712221458FCB00273B3C /* StarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarButton.swift; sourceTree = "<group>"; };
 		FD9F409B211EBFAF007D7F1B /* BranchRawData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchRawData.swift; sourceTree = "<group>"; };
 		FD9F409D211EC0C8007D7F1B /* DataDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDecoder.swift; sourceTree = "<group>"; };
 		FD9F409F211EC5EA007D7F1B /* Keywords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keywords.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 			children = (
 				FDFB0344212E7AF10092411E /* MartHoliday.entitlements */,
 				FDB4BE21211D6BAD00D3B264 /* AppDelegate.swift */,
+				FD86712221458FCB00273B3C /* StarButton.swift */,
 				FD1B4F1F2126BB4900946311 /* View */,
 				FD391C51212025DB004C4A65 /* ViewController */,
 				FD9F40A1211ECAE2007D7F1B /* Model */,
@@ -352,6 +355,7 @@
 				FD4DDC8E21411236004E981F /* DataSetter.swift in Sources */,
 				FDF8058321315DC200B22356 /* HolidaysCell.swift in Sources */,
 				FD4850F2212843FB0064747A /* SlideMenu.swift in Sources */,
+				FD86712321458FCB00273B3C /* StarButton.swift in Sources */,
 				FD3B642F2122A4FF003C1332 /* NMapViewResources.swift in Sources */,
 				FDC3461B2136618E00F6D6FF /* MapSetter.swift in Sources */,
 				FD3B642D21229892003C1332 /* MapViewController.swift in Sources */,
