@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD0202852146559B0083BE22 /* DataDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409D211EC0C8007D7F1B /* DataDecoder.swift */; };
+		FD0202862146559B0083BE22 /* BranchList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD228F372142EB1A0062B75F /* BranchList.swift */; };
+		FD0202872146559B0083BE22 /* BranchRawData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409B211EBFAF007D7F1B /* BranchRawData.swift */; };
+		FD0202882146559B0083BE22 /* AddressDatum.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC3461C2136708400F6D6FF /* AddressDatum.swift */; };
+		FD0202892146559B0083BE22 /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBF9A4721240911001C2DAA /* DataStorage.swift */; };
+		FD02028A2146559B0083BE22 /* FavoriteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBF9A49212414A9001C2DAA /* FavoriteList.swift */; };
+		FD02028B2146559B0083BE22 /* MenuData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD48E1BE212BF57B00FC05D9 /* MenuData.swift */; };
+		FD02028C2146559B0083BE22 /* MapSetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC3461A2136618E00F6D6FF /* MapSetter.swift */; };
+		FD02028E2146559B0083BE22 /* DataSetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4DDC8D21411236004E981F /* DataSetter.swift */; };
+		FD02028F2146559B0083BE22 /* Keywords.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409F211EC5EA007D7F1B /* Keywords.swift */; };
+		FD0202902146559B0083BE22 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC2A941212458F400A1E2FF /* Extensions.swift */; };
+		FD0202912146565C0083BE22 /* MartHolidayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0202612146517B0083BE22 /* MartHolidayTests.swift */; };
+		FD020295214658EA0083BE22 /* HolidaysCollectionViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD37C0A5213BEC52007E6E7A /* HolidaysCollectionViewManager.swift */; };
 		FD11EAE321203A4C003EB3E9 /* BranchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD11EAE221203A4C003EB3E9 /* BranchTableViewCell.swift */; };
 		FD1B4F212126BB8B00946311 /* SlideBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1B4F202126BB8B00946311 /* SlideBackgroundView.swift */; };
 		FD1B4F232126BBD200946311 /* SlideTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1B4F222126BBD200946311 /* SlideTopView.swift */; };
@@ -14,7 +27,6 @@
 		FD1CC4DF211DF10A00B21E09 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1CC4DE211DF10A00B21E09 /* SearchViewController.swift */; };
 		FD1CC4E1211DF76300B21E09 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1CC4E0211DF76300B21E09 /* DetailViewController.swift */; };
 		FD228F382142EB1A0062B75F /* BranchList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD228F372142EB1A0062B75F /* BranchList.swift */; };
-		FD37C0A6213BEC52007E6E7A /* HolidaysCollectionViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD37C0A5213BEC52007E6E7A /* HolidaysCollectionViewManager.swift */; };
 		FD3B64242121BEAA003C1332 /* ApiGatewayMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3B64232121BEAA003C1332 /* ApiGatewayMac.framework */; };
 		FD3B64252121BEAA003C1332 /* ApiGatewayMac.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD3B64232121BEAA003C1332 /* ApiGatewayMac.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FD3B64292121BEDD003C1332 /* NMapViewerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3B64282121BEDD003C1332 /* NMapViewerSDK.framework */; };
@@ -51,6 +63,16 @@
 		FDFB0346212E930E0092411E /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFB0345212E930E0092411E /* FavoriteCell.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		FD0202642146517B0083BE22 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FDB4BE16211D6BAD00D3B264 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FDB4BE1D211D6BAD00D3B264;
+			remoteInfo = MartHoliday;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		FD3B64262121BEAA003C1332 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -66,6 +88,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		FD02025F2146517B0083BE22 /* MartHolidayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MartHolidayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD0202612146517B0083BE22 /* MartHolidayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MartHolidayTests.swift; sourceTree = "<group>"; };
+		FD0202632146517B0083BE22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD11EAE221203A4C003EB3E9 /* BranchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchTableViewCell.swift; sourceTree = "<group>"; };
 		FD1B4F202126BB8B00946311 /* SlideBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideBackgroundView.swift; sourceTree = "<group>"; };
 		FD1B4F222126BBD200946311 /* SlideTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideTopView.swift; sourceTree = "<group>"; };
@@ -114,6 +139,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		FD02025C2146517B0083BE22 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FDB4BE1B211D6BAD00D3B264 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -126,6 +158,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FD0202602146517B0083BE22 /* MartHolidayTests */ = {
+			isa = PBXGroup;
+			children = (
+				FD0202612146517B0083BE22 /* MartHolidayTests.swift */,
+				FD0202632146517B0083BE22 /* Info.plist */,
+			);
+			path = MartHolidayTests;
+			sourceTree = "<group>";
+		};
 		FD1B4F1F2126BB4900946311 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -144,11 +185,11 @@
 		FD391C51212025DB004C4A65 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				FDCB9E8A212566F1006281CB /* MainViewController.swift */,
 				FD1CC4E0211DF76300B21E09 /* DetailViewController.swift */,
 				FDB4BE23211D6BAD00D3B264 /* MartSelectViewController.swift */,
 				FD1CC4DE211DF10A00B21E09 /* SearchViewController.swift */,
 				FD3B642C21229892003C1332 /* MapViewController.swift */,
-				FDCB9E8A212566F1006281CB /* MainViewController.swift */,
 				FD780D76212F185600B569B3 /* SlideMenuManager.swift */,
 			);
 			path = ViewController;
@@ -165,9 +206,9 @@
 		FD9F40A1211ECAE2007D7F1B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FD9F409D211EC0C8007D7F1B /* DataDecoder.swift */,
 				FD228F372142EB1A0062B75F /* BranchList.swift */,
 				FD9F409B211EBFAF007D7F1B /* BranchRawData.swift */,
-				FD9F409D211EC0C8007D7F1B /* DataDecoder.swift */,
 				FDC3461C2136708400F6D6FF /* AddressDatum.swift */,
 				FDBF9A4721240911001C2DAA /* DataStorage.swift */,
 				FDBF9A49212414A9001C2DAA /* FavoriteList.swift */,
@@ -203,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				FDB4BE20211D6BAD00D3B264 /* MartHoliday */,
+				FD0202602146517B0083BE22 /* MartHolidayTests */,
 				FDB4BE1F211D6BAD00D3B264 /* Products */,
 				FD3B64232121BEAA003C1332 /* ApiGatewayMac.framework */,
 				FD3B64272121BEDD003C1332 /* Frameworks */,
@@ -213,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				FDB4BE1E211D6BAD00D3B264 /* MartHoliday.app */,
+				FD02025F2146517B0083BE22 /* MartHolidayTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -244,6 +287,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		FD02025E2146517B0083BE22 /* MartHolidayTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD0202662146517B0083BE22 /* Build configuration list for PBXNativeTarget "MartHolidayTests" */;
+			buildPhases = (
+				FD02025B2146517B0083BE22 /* Sources */,
+				FD02025C2146517B0083BE22 /* Frameworks */,
+				FD02025D2146517B0083BE22 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FD0202652146517B0083BE22 /* PBXTargetDependency */,
+			);
+			name = MartHolidayTests;
+			productName = MartHolidayTests;
+			productReference = FD02025F2146517B0083BE22 /* MartHolidayTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		FDB4BE1D211D6BAD00D3B264 /* MartHoliday */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FDB4BE30211D6BAE00D3B264 /* Build configuration list for PBXNativeTarget "MartHoliday" */;
@@ -273,6 +334,10 @@
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = JINiOS;
 				TargetAttributes = {
+					FD02025E2146517B0083BE22 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = FDB4BE1D211D6BAD00D3B264;
+					};
 					FDB4BE1D211D6BAD00D3B264 = {
 						CreatedOnToolsVersion = 9.4.1;
 						SystemCapabilities = {
@@ -297,11 +362,19 @@
 			projectRoot = "";
 			targets = (
 				FDB4BE1D211D6BAD00D3B264 /* MartHoliday */,
+				FD02025E2146517B0083BE22 /* MartHolidayTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		FD02025D2146517B0083BE22 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FDB4BE1C211D6BAD00D3B264 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -338,6 +411,25 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		FD02025B2146517B0083BE22 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD0202852146559B0083BE22 /* DataDecoder.swift in Sources */,
+				FD0202862146559B0083BE22 /* BranchList.swift in Sources */,
+				FD0202872146559B0083BE22 /* BranchRawData.swift in Sources */,
+				FD0202912146565C0083BE22 /* MartHolidayTests.swift in Sources */,
+				FD0202882146559B0083BE22 /* AddressDatum.swift in Sources */,
+				FD0202892146559B0083BE22 /* DataStorage.swift in Sources */,
+				FD02028A2146559B0083BE22 /* FavoriteList.swift in Sources */,
+				FD02028B2146559B0083BE22 /* MenuData.swift in Sources */,
+				FD02028C2146559B0083BE22 /* MapSetter.swift in Sources */,
+				FD02028E2146559B0083BE22 /* DataSetter.swift in Sources */,
+				FD02028F2146559B0083BE22 /* Keywords.swift in Sources */,
+				FD0202902146559B0083BE22 /* Extensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FDB4BE1A211D6BAD00D3B264 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -345,7 +437,6 @@
 				FD9F409E211EC0C8007D7F1B /* DataDecoder.swift in Sources */,
 				FD48E1BF212BF57B00FC05D9 /* MenuData.swift in Sources */,
 				FD1CC4DF211DF10A00B21E09 /* SearchViewController.swift in Sources */,
-				FD37C0A6213BEC52007E6E7A /* HolidaysCollectionViewManager.swift in Sources */,
 				FDBF9A4821240911001C2DAA /* DataStorage.swift in Sources */,
 				FD1B4F212126BB8B00946311 /* SlideBackgroundView.swift in Sources */,
 				FD9F40A0211EC5EA007D7F1B /* Keywords.swift in Sources */,
@@ -359,6 +450,7 @@
 				FD3B642F2122A4FF003C1332 /* NMapViewResources.swift in Sources */,
 				FDC3461B2136618E00F6D6FF /* MapSetter.swift in Sources */,
 				FD3B642D21229892003C1332 /* MapViewController.swift in Sources */,
+				FD020295214658EA0083BE22 /* HolidaysCollectionViewManager.swift in Sources */,
 				FD780D77212F185600B569B3 /* SlideMenuManager.swift in Sources */,
 				FD4850F4212869AF0064747A /* SlideMenuCell.swift in Sources */,
 				FDCB9E8B212566F1006281CB /* MainViewController.swift in Sources */,
@@ -375,6 +467,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FD0202652146517B0083BE22 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FDB4BE1D211D6BAD00D3B264 /* MartHoliday */;
+			targetProxy = FD0202642146517B0083BE22 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		FDB4BE25211D6BAD00D3B264 /* Main.storyboard */ = {
@@ -396,6 +496,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		FD0202672146517B0083BE22 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B3PWYBKFUK;
+				INFOPLIST_FILE = MartHolidayTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jinios.MartHolidayTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MartHoliday.app/MartHoliday";
+			};
+			name = Debug;
+		};
+		FD0202682146517B0083BE22 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B3PWYBKFUK;
+				INFOPLIST_FILE = MartHolidayTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jinios.MartHolidayTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MartHoliday.app/MartHoliday";
+			};
+			name = Release;
+		};
 		FDB4BE2E211D6BAE00D3B264 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -571,6 +713,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		FD0202662146517B0083BE22 /* Build configuration list for PBXNativeTarget "MartHolidayTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD0202672146517B0083BE22 /* Debug */,
+				FD0202682146517B0083BE22 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		FDB4BE19211D6BAD00D3B264 /* Build configuration list for PBXProject "MartHoliday" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
