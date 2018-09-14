@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		460B7E50883D5C58F79DDD97 /* Pods_MartHoliday.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 911AAA1B6BE368358930D098 /* Pods_MartHoliday.framework */; };
+		4D644265BB133FC0E727B5D4 /* Pods_MartHolidayTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A65D9831135D5A77156023F /* Pods_MartHolidayTests.framework */; };
 		FD0202852146559B0083BE22 /* DataDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409D211EC0C8007D7F1B /* DataDecoder.swift */; };
 		FD0202862146559B0083BE22 /* BranchList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD228F372142EB1A0062B75F /* BranchList.swift */; };
 		FD0202872146559B0083BE22 /* BranchRawData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409B211EBFAF007D7F1B /* BranchRawData.swift */; };
@@ -40,6 +42,7 @@
 		FD4DDC9021412294004E981F /* SelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4DDC8F21412294004E981F /* SelectionTableViewCell.swift */; };
 		FD52566F21353C9C0014070E /* KeyInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD52566E21353C9C0014070E /* KeyInfo.plist */; };
 		FD780D77212F185600B569B3 /* SlideMenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD780D76212F185600B569B3 /* SlideMenuManager.swift */; };
+		FD7DA866214981DB0070B25B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD7DA865214981DA0070B25B /* GoogleService-Info.plist */; };
 		FD86712321458FCB00273B3C /* StarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD86712221458FCB00273B3C /* StarButton.swift */; };
 		FD9F409C211EBFAF007D7F1B /* BranchRawData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409B211EBFAF007D7F1B /* BranchRawData.swift */; };
 		FD9F409E211EC0C8007D7F1B /* DataDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409D211EC0C8007D7F1B /* DataDecoder.swift */; };
@@ -88,6 +91,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1A65D9831135D5A77156023F /* Pods_MartHolidayTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MartHolidayTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		42BB0559CA154986E3EBAD98 /* Pods-MartHoliday.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MartHoliday.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MartHoliday/Pods-MartHoliday.debug.xcconfig"; sourceTree = "<group>"; };
+		63985991677D1CC39462408B /* Pods-MartHoliday.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MartHoliday.release.xcconfig"; path = "Pods/Target Support Files/Pods-MartHoliday/Pods-MartHoliday.release.xcconfig"; sourceTree = "<group>"; };
+		911AAA1B6BE368358930D098 /* Pods_MartHoliday.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MartHoliday.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A952FB47A8AE1C6D4170F2F3 /* Pods-MartHolidayTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MartHolidayTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MartHolidayTests/Pods-MartHolidayTests.release.xcconfig"; sourceTree = "<group>"; };
+		D2A84150BED7895841275DB5 /* Pods-MartHolidayTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MartHolidayTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MartHolidayTests/Pods-MartHolidayTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FD02025F2146517B0083BE22 /* MartHolidayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MartHolidayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD0202612146517B0083BE22 /* MartHolidayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MartHolidayTests.swift; sourceTree = "<group>"; };
 		FD0202632146517B0083BE22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -112,6 +121,7 @@
 		FD4DDC8F21412294004E981F /* SelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionTableViewCell.swift; sourceTree = "<group>"; };
 		FD52566E21353C9C0014070E /* KeyInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = KeyInfo.plist; sourceTree = "<group>"; };
 		FD780D76212F185600B569B3 /* SlideMenuManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideMenuManager.swift; sourceTree = "<group>"; };
+		FD7DA865214981DA0070B25B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FD86712221458FCB00273B3C /* StarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarButton.swift; sourceTree = "<group>"; };
 		FD9F409B211EBFAF007D7F1B /* BranchRawData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchRawData.swift; sourceTree = "<group>"; };
 		FD9F409D211EC0C8007D7F1B /* DataDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDecoder.swift; sourceTree = "<group>"; };
@@ -143,6 +153,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D644265BB133FC0E727B5D4 /* Pods_MartHolidayTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,12 +163,24 @@
 			files = (
 				FD3B64292121BEDD003C1332 /* NMapViewerSDK.framework in Frameworks */,
 				FD3B64242121BEAA003C1332 /* ApiGatewayMac.framework in Frameworks */,
+				460B7E50883D5C58F79DDD97 /* Pods_MartHoliday.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B0917C9021D076F617634C8C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				42BB0559CA154986E3EBAD98 /* Pods-MartHoliday.debug.xcconfig */,
+				63985991677D1CC39462408B /* Pods-MartHoliday.release.xcconfig */,
+				D2A84150BED7895841275DB5 /* Pods-MartHolidayTests.debug.xcconfig */,
+				A952FB47A8AE1C6D4170F2F3 /* Pods-MartHolidayTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		FD0202602146517B0083BE22 /* MartHolidayTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,6 +222,8 @@
 			isa = PBXGroup;
 			children = (
 				FD3B64282121BEDD003C1332 /* NMapViewerSDK.framework */,
+				911AAA1B6BE368358930D098 /* Pods_MartHoliday.framework */,
+				1A65D9831135D5A77156023F /* Pods_MartHolidayTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -248,6 +273,7 @@
 				FDB4BE1F211D6BAD00D3B264 /* Products */,
 				FD3B64232121BEAA003C1332 /* ApiGatewayMac.framework */,
 				FD3B64272121BEDD003C1332 /* Frameworks */,
+				B0917C9021D076F617634C8C /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -277,6 +303,7 @@
 				FDB4BE2A211D6BAE00D3B264 /* LaunchScreen.storyboard */,
 				FDB4BE28211D6BAE00D3B264 /* Assets.xcassets */,
 				FDB4BE2D211D6BAE00D3B264 /* Info.plist */,
+				FD7DA865214981DA0070B25B /* GoogleService-Info.plist */,
 				FD52566E21353C9C0014070E /* KeyInfo.plist */,
 				FD3B642E2122A4FF003C1332 /* NMapViewResources.swift */,
 				FD3B642B2121C3FB003C1332 /* Header.h */,
@@ -291,6 +318,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FD0202662146517B0083BE22 /* Build configuration list for PBXNativeTarget "MartHolidayTests" */;
 			buildPhases = (
+				A2941B5A4530CD89F3490E62 /* [CP] Check Pods Manifest.lock */,
 				FD02025B2146517B0083BE22 /* Sources */,
 				FD02025C2146517B0083BE22 /* Frameworks */,
 				FD02025D2146517B0083BE22 /* Resources */,
@@ -309,11 +337,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FDB4BE30211D6BAE00D3B264 /* Build configuration list for PBXNativeTarget "MartHoliday" */;
 			buildPhases = (
+				17BC1F819E5CF9A81B80231B /* [CP] Check Pods Manifest.lock */,
 				FDB4BE1A211D6BAD00D3B264 /* Sources */,
 				FDB4BE1B211D6BAD00D3B264 /* Frameworks */,
 				FDB4BE1C211D6BAD00D3B264 /* Resources */,
 				FD3B64262121BEAA003C1332 /* Embed Frameworks */,
 				FD3B642A2121C316003C1332 /* ShellScript */,
+				78728324D64945C492FCEA92 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -341,6 +371,9 @@
 					FDB4BE1D211D6BAD00D3B264 = {
 						CreatedOnToolsVersion = 9.4.1;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -387,6 +420,7 @@
 				FDAF601F21273E880006B68A /* NanumSquareRoundOTFL.otf in Resources */,
 				FDB4BE29211D6BAE00D3B264 /* Assets.xcassets in Resources */,
 				FDB4BE27211D6BAD00D3B264 /* Main.storyboard in Resources */,
+				FD7DA866214981DB0070B25B /* GoogleService-Info.plist in Resources */,
 				FD1B4F252126C0FA00946311 /* SlideMenuView.xib in Resources */,
 				FD4850F621287AFE0064747A /* SlideMenuCellView.xib in Resources */,
 			);
@@ -395,6 +429,64 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		17BC1F819E5CF9A81B80231B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MartHoliday-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		78728324D64945C492FCEA92 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MartHoliday/Pods-MartHoliday-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MartHoliday/Pods-MartHoliday-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A2941B5A4530CD89F3490E62 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MartHolidayTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		FD3B642A2121C316003C1332 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -498,6 +590,7 @@
 /* Begin XCBuildConfiguration section */
 		FD0202672146517B0083BE22 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D2A84150BED7895841275DB5 /* Pods-MartHolidayTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -519,6 +612,7 @@
 		};
 		FD0202682146517B0083BE22 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A952FB47A8AE1C6D4170F2F3 /* Pods-MartHolidayTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -662,7 +756,9 @@
 		};
 		FDB4BE31211D6BAE00D3B264 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42BB0559CA154986E3EBAD98 /* Pods-MartHoliday.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MartHoliday/MartHoliday.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -673,6 +769,7 @@
 					"/Users/jeonmijin/Desktop/maps.ios-master/Frameworks",
 				);
 				INFOPLIST_FILE = MartHoliday/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -687,7 +784,9 @@
 		};
 		FDB4BE32211D6BAE00D3B264 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 63985991677D1CC39462408B /* Pods-MartHoliday.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MartHoliday/MartHoliday.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -698,6 +797,7 @@
 					"/Users/jeonmijin/Desktop/maps.ios-master/Frameworks",
 				);
 				INFOPLIST_FILE = MartHoliday/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
