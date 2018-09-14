@@ -15,13 +15,13 @@ class FavoriteList: NSObject, NSCoding {
     }
 
     required init?(coder aDecoder: NSCoder) {
-        martSet = aDecoder.decodeObject(forKey: String(describing: FavoriteList.self)) as! Set<Branch>
+        martSet = aDecoder.decodeObject(forKey: String(describing: FavoriteList.self)) as! Set<Int>
     }
 
     private static var sharedFavorite = FavoriteList()
 
     private override init() {
-        self.martSet = Set<Branch>()
+        self.martSet = Set<Int>()
     }
 
     static func shared() -> FavoriteList {
@@ -36,20 +36,19 @@ class FavoriteList: NSObject, NSCoding {
         return sharedFavorite.martSet == data.martSet
     }
 
-    private var martSet: Set<Branch> {
+    private var martSet: Set<Int> {
         didSet {
             DataStorage<FavoriteList>.save(data: self)
         }
     }
 
-
-    func push(branch: Branch) -> Bool {
-        return self.martSet.insert(branch).inserted
+    func push(id: Int) -> Bool {
+        return self.martSet.insert(id).inserted
     }
 
-    func pop(branch: Branch) -> Bool {
+    func pop(id: Int) -> Bool {
         var popResult: Bool
-        let result = self.martSet.remove(branch)
+        let result = self.martSet.remove(id)
         if result != nil {
             popResult = true
         } else {
@@ -60,12 +59,16 @@ class FavoriteList: NSObject, NSCoding {
 
     func isFavorite(branchId: Int) -> Bool {
         guard martSet.count > 0 else { return false }
-        let martIdList = martSet.map { $0.id }
-        return martIdList.contains(branchId)
+        return martSet.contains(branchId)
     }
 
-    func martList() -> [Branch] {
-        return martSet.sorted { $0.id > $1.id }
+    func martList() -> [Int] {
+        return martSet.sorted { $0 > $1 }
     }
+
+    func ids() -> [Int] {
+        return martSet.sorted()
+    }
+
 }
 

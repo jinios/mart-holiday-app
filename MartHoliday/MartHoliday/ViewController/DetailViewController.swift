@@ -16,7 +16,7 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate, NM
     @IBOutlet weak var businessHour: UILabel!
     @IBOutlet weak var phoneNumberLabel: UILabel!
     @IBOutlet weak var address: UILabel!
-    @IBOutlet weak var starIcon: UIButton!
+    @IBOutlet weak var starButton: StarButton!
     @IBOutlet weak var holidaysCollectionView: UICollectionView!
 
     var branchData: Branch? {
@@ -34,7 +34,7 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate, NM
         setTitle()
         setAddress()
         setPhoneNumber()
-        setStarIcon()
+        setStarButton()
         setMapView()
         setHolidays()
     }
@@ -100,15 +100,7 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate, NM
     }
 
     @IBAction func favoriteTapped(_ sender: Any) {
-        guard let branchData = self.branchData else { return }
-        guard branchData.toggleFavorite() else { return }
-        starIcon.toggleSelectedState()
-    }
-
-    private func setStarIcon() {
-        guard let branchData = self.branchData else { return }
-        starIcon.isSelected = branchData.favorite
-        starIcon.setStarIconImage()
+        toggleState()
     }
 
     private func setMapView() {
@@ -189,6 +181,21 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate, NM
         return nil
     }
 
+}
+
+extension DetailViewController: FavoriteTogglable {
+
+    func toggleState() {
+        guard let branchData = self.branchData else { return }
+        guard branchData.toggleFavorite() else { return }
+        starButton.toggleState()
+    }
+
+    func setStarButton() {
+        guard let branchData = self.branchData else { return }
+        starButton.isSelected = branchData.favorite
+        starButton.setImage()
+    }
 
 }
 

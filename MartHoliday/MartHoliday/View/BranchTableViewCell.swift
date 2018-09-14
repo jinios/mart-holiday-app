@@ -12,13 +12,13 @@ class BranchTableViewCell: UITableViewCell {
 
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var address: UILabel!
-    @IBOutlet weak var star: UIButton!
+    @IBOutlet weak var starButton: StarButton!
 
     var branchData: Branch? {
         didSet {
             setTitle()
             setAddress()
-            setStar()
+            setStarButton()
         }
     }
 
@@ -28,13 +28,17 @@ class BranchTableViewCell: UITableViewCell {
 
     override func prepareForReuse() {
         guard let branchData = self.branchData else { return }
-        star.isSelected = branchData.favorite
+        starButton.isSelected = branchData.favorite
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+
+    @IBAction func starButtonTapped(_ sender: Any) {
+        toggleState()
     }
 
     private func setTitle() {
@@ -47,10 +51,19 @@ class BranchTableViewCell: UITableViewCell {
         self.address.text = branchData.address
     }
 
-    private func setStar() {
+}
+
+extension BranchTableViewCell: FavoriteTogglable {
+    func toggleState() {
         guard let branchData = self.branchData else { return }
-        star.isSelected = branchData.favorite
-        star.setStarIconImage()
+        guard branchData.toggleFavorite() else { return }
+        self.starButton.toggleState()
+    }
+
+    func setStarButton() {
+        guard let branchData = self.branchData else { return }
+        starButton.isSelected = branchData.favorite
+        starButton.setImage()
     }
 
 }
