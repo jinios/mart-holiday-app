@@ -42,6 +42,10 @@
 		FD52566F21353C9C0014070E /* KeyInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD52566E21353C9C0014070E /* KeyInfo.plist */; };
 		FD780D77212F185600B569B3 /* SlideMenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD780D76212F185600B569B3 /* SlideMenuManager.swift */; };
 		FD7DA866214981DB0070B25B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD7DA865214981DA0070B25B /* GoogleService-Info.plist */; };
+		FD85985B214BE9FA00C1A3E2 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD85985A214BE9FA00C1A3E2 /* NotificationCenter.framework */; };
+		FD85985E214BE9FA00C1A3E2 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD85985D214BE9FA00C1A3E2 /* TodayViewController.swift */; };
+		FD859861214BE9FA00C1A3E2 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD85985F214BE9FA00C1A3E2 /* MainInterface.storyboard */; };
+		FD859865214BE9FA00C1A3E2 /* MartHolidayTodayExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = FD859859214BE9FA00C1A3E2 /* MartHolidayTodayExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		FD86712321458FCB00273B3C /* StarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD86712221458FCB00273B3C /* StarButton.swift */; };
 		FD9F409C211EBFAF007D7F1B /* BranchRawData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409B211EBFAF007D7F1B /* BranchRawData.swift */; };
 		FD9F409E211EC0C8007D7F1B /* DataDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409D211EC0C8007D7F1B /* DataDecoder.swift */; };
@@ -73,6 +77,13 @@
 			remoteGlobalIDString = FDB4BE1D211D6BAD00D3B264;
 			remoteInfo = MartHoliday;
 		};
+		FD859863214BE9FA00C1A3E2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FDB4BE16211D6BAD00D3B264 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FD859858214BE9FA00C1A3E2;
+			remoteInfo = MartHolidayTodayExtension;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -85,6 +96,17 @@
 				FD3B64252121BEAA003C1332 /* ApiGatewayMac.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD859869214BE9FA00C1A3E2 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				FD859865214BE9FA00C1A3E2 /* MartHolidayTodayExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -120,6 +142,11 @@
 		FD52566E21353C9C0014070E /* KeyInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = KeyInfo.plist; sourceTree = "<group>"; };
 		FD780D76212F185600B569B3 /* SlideMenuManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideMenuManager.swift; sourceTree = "<group>"; };
 		FD7DA865214981DA0070B25B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FD859859214BE9FA00C1A3E2 /* MartHolidayTodayExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MartHolidayTodayExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD85985A214BE9FA00C1A3E2 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		FD85985D214BE9FA00C1A3E2 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		FD859860214BE9FA00C1A3E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		FD859862214BE9FA00C1A3E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD86712221458FCB00273B3C /* StarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarButton.swift; sourceTree = "<group>"; };
 		FD9F409B211EBFAF007D7F1B /* BranchRawData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchRawData.swift; sourceTree = "<group>"; };
 		FD9F409D211EC0C8007D7F1B /* DataDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDecoder.swift; sourceTree = "<group>"; };
@@ -152,6 +179,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D644265BB133FC0E727B5D4 /* Pods_MartHolidayTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD859856214BE9FA00C1A3E2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD85985B214BE9FA00C1A3E2 /* NotificationCenter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,8 +256,19 @@
 				FD3B64282121BEDD003C1332 /* NMapViewerSDK.framework */,
 				911AAA1B6BE368358930D098 /* Pods_MartHoliday.framework */,
 				1A65D9831135D5A77156023F /* Pods_MartHolidayTests.framework */,
+				FD85985A214BE9FA00C1A3E2 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FD85985C214BE9FA00C1A3E2 /* MartHolidayTodayExtension */ = {
+			isa = PBXGroup;
+			children = (
+				FD85985D214BE9FA00C1A3E2 /* TodayViewController.swift */,
+				FD85985F214BE9FA00C1A3E2 /* MainInterface.storyboard */,
+				FD859862214BE9FA00C1A3E2 /* Info.plist */,
+			);
+			path = MartHolidayTodayExtension;
 			sourceTree = "<group>";
 		};
 		FD9F40A1211ECAE2007D7F1B /* Model */ = {
@@ -267,6 +313,7 @@
 			children = (
 				FDB4BE20211D6BAD00D3B264 /* MartHoliday */,
 				FD0202602146517B0083BE22 /* MartHolidayTests */,
+				FD85985C214BE9FA00C1A3E2 /* MartHolidayTodayExtension */,
 				FDB4BE1F211D6BAD00D3B264 /* Products */,
 				FD3B64232121BEAA003C1332 /* ApiGatewayMac.framework */,
 				FD3B64272121BEDD003C1332 /* Frameworks */,
@@ -279,6 +326,7 @@
 			children = (
 				FDB4BE1E211D6BAD00D3B264 /* MartHoliday.app */,
 				FD02025F2146517B0083BE22 /* MartHolidayTests.xctest */,
+				FD859859214BE9FA00C1A3E2 /* MartHolidayTodayExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -330,6 +378,23 @@
 			productReference = FD02025F2146517B0083BE22 /* MartHolidayTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		FD859858214BE9FA00C1A3E2 /* MartHolidayTodayExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD859868214BE9FA00C1A3E2 /* Build configuration list for PBXNativeTarget "MartHolidayTodayExtension" */;
+			buildPhases = (
+				FD859855214BE9FA00C1A3E2 /* Sources */,
+				FD859856214BE9FA00C1A3E2 /* Frameworks */,
+				FD859857214BE9FA00C1A3E2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MartHolidayTodayExtension;
+			productName = MartHolidayTodayExtension;
+			productReference = FD859859214BE9FA00C1A3E2 /* MartHolidayTodayExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		FDB4BE1D211D6BAD00D3B264 /* MartHoliday */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FDB4BE30211D6BAE00D3B264 /* Build configuration list for PBXNativeTarget "MartHoliday" */;
@@ -341,10 +406,12 @@
 				FD3B64262121BEAA003C1332 /* Embed Frameworks */,
 				FD3B642A2121C316003C1332 /* ShellScript */,
 				78728324D64945C492FCEA92 /* [CP] Embed Pods Frameworks */,
+				FD859869214BE9FA00C1A3E2 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				FD859864214BE9FA00C1A3E2 /* PBXTargetDependency */,
 			);
 			name = MartHoliday;
 			productName = MartHoliday;
@@ -364,6 +431,9 @@
 					FD02025E2146517B0083BE22 = {
 						CreatedOnToolsVersion = 9.4.1;
 						TestTargetID = FDB4BE1D211D6BAD00D3B264;
+					};
+					FD859858214BE9FA00C1A3E2 = {
+						CreatedOnToolsVersion = 9.4.1;
 					};
 					FDB4BE1D211D6BAD00D3B264 = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -393,6 +463,7 @@
 			targets = (
 				FDB4BE1D211D6BAD00D3B264 /* MartHoliday */,
 				FD02025E2146517B0083BE22 /* MartHolidayTests */,
+				FD859858214BE9FA00C1A3E2 /* MartHolidayTodayExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -402,6 +473,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD859857214BE9FA00C1A3E2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD859861214BE9FA00C1A3E2 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,6 +598,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FD859855214BE9FA00C1A3E2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD85985E214BE9FA00C1A3E2 /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FDB4BE1A211D6BAD00D3B264 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -562,9 +649,22 @@
 			target = FDB4BE1D211D6BAD00D3B264 /* MartHoliday */;
 			targetProxy = FD0202642146517B0083BE22 /* PBXContainerItemProxy */;
 		};
+		FD859864214BE9FA00C1A3E2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FD859858214BE9FA00C1A3E2 /* MartHolidayTodayExtension */;
+			targetProxy = FD859863214BE9FA00C1A3E2 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		FD85985F214BE9FA00C1A3E2 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FD859860214BE9FA00C1A3E2 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		FDB4BE25211D6BAD00D3B264 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -625,6 +725,46 @@
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MartHoliday.app/MartHoliday";
+			};
+			name = Release;
+		};
+		FD859866214BE9FA00C1A3E2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B3PWYBKFUK;
+				INFOPLIST_FILE = MartHolidayTodayExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jinios.MartHoliday.MartHolidayTodayExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FD859867214BE9FA00C1A3E2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B3PWYBKFUK;
+				INFOPLIST_FILE = MartHolidayTodayExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jinios.MartHoliday.MartHolidayTodayExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -814,6 +954,15 @@
 			buildConfigurations = (
 				FD0202672146517B0083BE22 /* Debug */,
 				FD0202682146517B0083BE22 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FD859868214BE9FA00C1A3E2 /* Build configuration list for PBXNativeTarget "MartHolidayTodayExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD859866214BE9FA00C1A3E2 /* Debug */,
+				FD859867214BE9FA00C1A3E2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
