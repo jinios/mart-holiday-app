@@ -46,10 +46,22 @@
 		FD85985E214BE9FA00C1A3E2 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD85985D214BE9FA00C1A3E2 /* TodayViewController.swift */; };
 		FD859861214BE9FA00C1A3E2 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD85985F214BE9FA00C1A3E2 /* MainInterface.storyboard */; };
 		FD859865214BE9FA00C1A3E2 /* MartHolidayTodayExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = FD859859214BE9FA00C1A3E2 /* MartHolidayTodayExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		FD85986B214BFAC400C1A3E2 /* Pods_MartHoliday.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD85986A214BFAC400C1A3E2 /* Pods_MartHoliday.framework */; };
+		FD859876214C000500C1A3E2 /* FavoriteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBF9A49212414A9001C2DAA /* FavoriteList.swift */; };
+		FD859877214C005700C1A3E2 /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBF9A4721240911001C2DAA /* DataStorage.swift */; };
+		FD85987A214C0D7D00C1A3E2 /* TodayExtensionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD859879214C0D7D00C1A3E2 /* TodayExtensionTableViewCell.swift */; };
 		FD86712321458FCB00273B3C /* StarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD86712221458FCB00273B3C /* StarButton.swift */; };
 		FD9F409C211EBFAF007D7F1B /* BranchRawData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409B211EBFAF007D7F1B /* BranchRawData.swift */; };
 		FD9F409E211EC0C8007D7F1B /* DataDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409D211EC0C8007D7F1B /* DataDecoder.swift */; };
 		FD9F40A0211EC5EA007D7F1B /* Keywords.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409F211EC5EA007D7F1B /* Keywords.swift */; };
+		FDA311A8214C141400A7E94B /* BranchList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD228F372142EB1A0062B75F /* BranchList.swift */; };
+		FDA311A9214C141800A7E94B /* BranchRawData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409B211EBFAF007D7F1B /* BranchRawData.swift */; };
+		FDA311AD214C147600A7E94B /* HolidaysCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF8058221315DC200B22356 /* HolidaysCell.swift */; };
+		FDA311AE214C147900A7E94B /* SelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4DDC8F21412294004E981F /* SelectionTableViewCell.swift */; };
+		FDA311B0214C14B600A7E94B /* BranchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD11EAE221203A4C003EB3E9 /* BranchTableViewCell.swift */; };
+		FDA311B1214C14B900A7E94B /* SlideBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1B4F202126BB8B00946311 /* SlideBackgroundView.swift */; };
+		FDA311B2214C14CA00A7E94B /* StarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD86712221458FCB00273B3C /* StarButton.swift */; };
+		FDA311B5214C150100A7E94B /* Keywords.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409F211EC5EA007D7F1B /* Keywords.swift */; };
 		FDAF601F21273E880006B68A /* NanumSquareRoundOTFL.otf in Resources */ = {isa = PBXBuildFile; fileRef = FDAF601B21273E880006B68A /* NanumSquareRoundOTFL.otf */; };
 		FDAF602021273E880006B68A /* NanumSquareRoundOTFB.otf in Resources */ = {isa = PBXBuildFile; fileRef = FDAF601C21273E880006B68A /* NanumSquareRoundOTFB.otf */; };
 		FDAF602121273E880006B68A /* NanumSquareRoundOTFR.otf in Resources */ = {isa = PBXBuildFile; fileRef = FDAF601D21273E880006B68A /* NanumSquareRoundOTFR.otf */; };
@@ -65,6 +77,10 @@
 		FDC3461B2136618E00F6D6FF /* MapSetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC3461A2136618E00F6D6FF /* MapSetter.swift */; };
 		FDC3461D2136708400F6D6FF /* AddressDatum.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC3461C2136708400F6D6FF /* AddressDatum.swift */; };
 		FDCB9E8B212566F1006281CB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCB9E8A212566F1006281CB /* MainViewController.swift */; };
+		FDEECC2F214D001F00F6FF09 /* NanumSquareRoundOTFB.otf in Resources */ = {isa = PBXBuildFile; fileRef = FDAF601C21273E880006B68A /* NanumSquareRoundOTFB.otf */; };
+		FDEECC30214D002100F6FF09 /* NanumSquareRoundOTFEB.otf in Resources */ = {isa = PBXBuildFile; fileRef = FDAF601E21273E880006B68A /* NanumSquareRoundOTFEB.otf */; };
+		FDEECC31214D002400F6FF09 /* NanumSquareRoundOTFL.otf in Resources */ = {isa = PBXBuildFile; fileRef = FDAF601B21273E880006B68A /* NanumSquareRoundOTFL.otf */; };
+		FDEECC32214D002700F6FF09 /* NanumSquareRoundOTFR.otf in Resources */ = {isa = PBXBuildFile; fileRef = FDAF601D21273E880006B68A /* NanumSquareRoundOTFR.otf */; };
 		FDF8058321315DC200B22356 /* HolidaysCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF8058221315DC200B22356 /* HolidaysCell.swift */; };
 		FDFB0346212E930E0092411E /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFB0345212E930E0092411E /* FavoriteCell.swift */; };
 /* End PBXBuildFile section */
@@ -147,6 +163,13 @@
 		FD85985D214BE9FA00C1A3E2 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		FD859860214BE9FA00C1A3E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		FD859862214BE9FA00C1A3E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD85986A214BFAC400C1A3E2 /* Pods_MartHoliday.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_MartHoliday.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD85986C214BFEF500C1A3E2 /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD85986E214BFEF500C1A3E2 /* FirebaseMessaging.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseMessaging.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD859870214BFEF500C1A3E2 /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleToolboxForMac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD859872214BFEF500C1A3E2 /* nanopb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = nanopb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD859874214BFEF500C1A3E2 /* Protobuf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Protobuf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD859879214C0D7D00C1A3E2 /* TodayExtensionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayExtensionTableViewCell.swift; sourceTree = "<group>"; };
 		FD86712221458FCB00273B3C /* StarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarButton.swift; sourceTree = "<group>"; };
 		FD9F409B211EBFAF007D7F1B /* BranchRawData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchRawData.swift; sourceTree = "<group>"; };
 		FD9F409D211EC0C8007D7F1B /* DataDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDecoder.swift; sourceTree = "<group>"; };
@@ -168,6 +191,7 @@
 		FDC3461A2136618E00F6D6FF /* MapSetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSetter.swift; sourceTree = "<group>"; };
 		FDC3461C2136708400F6D6FF /* AddressDatum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressDatum.swift; sourceTree = "<group>"; };
 		FDCB9E8A212566F1006281CB /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		FDEECC2C214CD3BD00F6FF09 /* MartHolidayTodayExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MartHolidayTodayExtension.entitlements; sourceTree = "<group>"; };
 		FDF8058221315DC200B22356 /* HolidaysCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidaysCell.swift; sourceTree = "<group>"; };
 		FDFB0344212E7AF10092411E /* MartHoliday.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MartHoliday.entitlements; sourceTree = "<group>"; };
 		FDFB0345212E930E0092411E /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
@@ -186,6 +210,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD85986B214BFAC400C1A3E2 /* Pods_MartHoliday.framework in Frameworks */,
 				FD85985B214BE9FA00C1A3E2 /* NotificationCenter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -253,6 +278,12 @@
 		FD3B64272121BEDD003C1332 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FD85986C214BFEF500C1A3E2 /* FirebaseCore.framework */,
+				FD85986E214BFEF500C1A3E2 /* FirebaseMessaging.framework */,
+				FD859870214BFEF500C1A3E2 /* GoogleToolboxForMac.framework */,
+				FD859872214BFEF500C1A3E2 /* nanopb.framework */,
+				FD859874214BFEF500C1A3E2 /* Protobuf.framework */,
+				FD85986A214BFAC400C1A3E2 /* Pods_MartHoliday.framework */,
 				FD3B64282121BEDD003C1332 /* NMapViewerSDK.framework */,
 				911AAA1B6BE368358930D098 /* Pods_MartHoliday.framework */,
 				1A65D9831135D5A77156023F /* Pods_MartHolidayTests.framework */,
@@ -264,7 +295,9 @@
 		FD85985C214BE9FA00C1A3E2 /* MartHolidayTodayExtension */ = {
 			isa = PBXGroup;
 			children = (
+				FDEECC2C214CD3BD00F6FF09 /* MartHolidayTodayExtension.entitlements */,
 				FD85985D214BE9FA00C1A3E2 /* TodayViewController.swift */,
+				FD859879214C0D7D00C1A3E2 /* TodayExtensionTableViewCell.swift */,
 				FD85985F214BE9FA00C1A3E2 /* MainInterface.storyboard */,
 				FD859862214BE9FA00C1A3E2 /* Info.plist */,
 			);
@@ -346,12 +379,12 @@
 				FD4850F521287AFE0064747A /* SlideMenuCellView.xib */,
 				FD1B4F242126C0FA00946311 /* SlideMenuView.xib */,
 				FDB4BE2A211D6BAE00D3B264 /* LaunchScreen.storyboard */,
-				FDB4BE28211D6BAE00D3B264 /* Assets.xcassets */,
 				FDB4BE2D211D6BAE00D3B264 /* Info.plist */,
 				FD7DA865214981DA0070B25B /* GoogleService-Info.plist */,
 				FD52566E21353C9C0014070E /* KeyInfo.plist */,
 				FD3B642E2122A4FF003C1332 /* NMapViewResources.swift */,
 				FD3B642B2121C3FB003C1332 /* Header.h */,
+				FDB4BE28211D6BAE00D3B264 /* Assets.xcassets */,
 			);
 			path = MartHoliday;
 			sourceTree = "<group>";
@@ -434,10 +467,18 @@
 					};
 					FD859858214BE9FA00C1A3E2 = {
 						CreatedOnToolsVersion = 9.4.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					FDB4BE1D211D6BAD00D3B264 = {
 						CreatedOnToolsVersion = 9.4.1;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
@@ -480,6 +521,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDEECC31214D002400F6FF09 /* NanumSquareRoundOTFL.otf in Resources */,
+				FDEECC32214D002700F6FF09 /* NanumSquareRoundOTFR.otf in Resources */,
+				FDEECC30214D002100F6FF09 /* NanumSquareRoundOTFEB.otf in Resources */,
+				FDEECC2F214D001F00F6FF09 /* NanumSquareRoundOTFB.otf in Resources */,
 				FD859861214BE9FA00C1A3E2 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -602,7 +647,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDA311AE214C147900A7E94B /* SelectionTableViewCell.swift in Sources */,
+				FDA311B2214C14CA00A7E94B /* StarButton.swift in Sources */,
+				FDA311A9214C141800A7E94B /* BranchRawData.swift in Sources */,
+				FD859877214C005700C1A3E2 /* DataStorage.swift in Sources */,
+				FDA311A8214C141400A7E94B /* BranchList.swift in Sources */,
+				FDA311B0214C14B600A7E94B /* BranchTableViewCell.swift in Sources */,
 				FD85985E214BE9FA00C1A3E2 /* TodayViewController.swift in Sources */,
+				FD859876214C000500C1A3E2 /* FavoriteList.swift in Sources */,
+				FDA311B1214C14B900A7E94B /* SlideBackgroundView.swift in Sources */,
+				FDA311B5214C150100A7E94B /* Keywords.swift in Sources */,
+				FDA311AD214C147600A7E94B /* HolidaysCell.swift in Sources */,
+				FD85987A214C0D7D00C1A3E2 /* TodayExtensionTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -731,10 +787,12 @@
 		FD859866214BE9FA00C1A3E2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_ENTITLEMENTS = MartHolidayTodayExtension/MartHolidayTodayExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B3PWYBKFUK;
 				INFOPLIST_FILE = MartHolidayTodayExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -751,10 +809,12 @@
 		FD859867214BE9FA00C1A3E2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_ENTITLEMENTS = MartHolidayTodayExtension/MartHolidayTodayExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B3PWYBKFUK;
 				INFOPLIST_FILE = MartHolidayTodayExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
