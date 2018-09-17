@@ -25,7 +25,7 @@ class TodayExtensionTableViewCell: UITableViewCell {
 
     func setData(branch: Branch) {
         setDateButton()
-        self.branchTitle.text = branch.martType + branch.branchName + "의 휴무일"
+        self.branchTitle.text = branch.martType + " " + branch.branchName + "의 휴무일"
         self.dateButton.setTitle(branch.holidays[0], for: .normal)
     }
 
@@ -33,7 +33,7 @@ class TodayExtensionTableViewCell: UITableViewCell {
         dateButton.contentEdgeInsets = UIEdgeInsets(top: 3, left: 5, bottom: 3, right: 5)
         dateButton.layer.cornerRadius = 7.0
         dateButton.clipsToBounds = true
-        dateButton.backgroundColor = UIColor.lightGray
+        dateButton.backgroundColor = UIColor(named: "mh-navy")
         dateButton.titleLabel?.textColor = UIColor.white
         dateButton.isUserInteractionEnabled = false
     }

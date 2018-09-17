@@ -38,8 +38,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
 
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
         let expanded = (activeDisplayMode == .expanded)
-        print(maxSize)
-        preferredContentSize = expanded ? CGSize(width: maxSize.width, height: 200) : maxSize
+        preferredContentSize = expanded ? CGSize(width: maxSize.width, height: 150) : maxSize
     }
 
     // After updating the preferred size, you must reload the chart’s data so that it redraws based on the new layout.
@@ -49,9 +48,15 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     }
 
     var favoriteList = BranchList()
+    private let appGroup = UserDefaults.init(suiteName: "group.jinios.martholiday")
+
+    func getFavorites() -> [Int] {
+        guard let result = appGroup?.value(forKey: "favorites") as? [Int] else { return [1] }
+        return result
+    }
 
     func setFavoriteBranch(handler: @escaping (() -> Void)) {
-        let ids = [1,2,3]
+        let ids = getFavorites()
         let idstr = ids.map{String($0)}.joined(separator: ",")
         guard let baseURL = URL(string: "http://ec2-13-209-38-224.ap-northeast-2.compute.amazonaws.com/api/mart/branch") else { return }
         let url = baseURL.appendingPathComponent(idstr)
