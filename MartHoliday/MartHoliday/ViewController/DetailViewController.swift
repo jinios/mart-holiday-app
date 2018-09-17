@@ -33,6 +33,7 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate, NM
         setNavigationItem()
         setTitle()
         setAddress()
+        setBusinessHour()
         setPhoneNumber()
         setStarButton()
         setMapView()
@@ -70,6 +71,11 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate, NM
     private func setAddress() {
         guard let branchData = self.branchData else { return }
         address.text = branchData.address
+    }
+
+    private func setBusinessHour() {
+        guard let branchData = self.branchData else { return }
+        businessHour.text = branchData.openingHours
     }
 
     @objc func popToRoot() {

@@ -43,6 +43,7 @@ class Branch: NSObject, NSCoding, Comparable {
         aCoder.encode(region, forKey: "region")
         aCoder.encode(phoneNumber, forKey: "phoneNumber")
         aCoder.encode(address, forKey: "address")
+        aCoder.encode(openingHours, forKey: "openingHours")
         aCoder.encode(url, forKey: "url")
         aCoder.encode(holidays, forKey: "holidays")
         aCoder.encode(favorite, forKey: "favorite")
@@ -55,6 +56,7 @@ class Branch: NSObject, NSCoding, Comparable {
         region = aDecoder.decodeObject(forKey: "region") as! String
         phoneNumber = aDecoder.decodeObject(forKey: "phoneNumber") as! String
         address = aDecoder.decodeObject(forKey: "address") as! String
+        openingHours = aDecoder.decodeObject(forKey: "openingHours") as! String
         url = aDecoder.decodeObject(forKey: "url") as! String
         holidays = aDecoder.decodeObject(forKey: "holidays") as! [String]
         favorite = aDecoder.decodeBool(forKey: "favorite")
@@ -80,6 +82,7 @@ class Branch: NSObject, NSCoding, Comparable {
     var region: String
     var phoneNumber: String
     var address: String
+    var openingHours: String
     var url: String
     var holidays: [String]
     var favorite: Bool
@@ -91,6 +94,7 @@ class Branch: NSObject, NSCoding, Comparable {
         self.region = branch.region
         self.phoneNumber = branch.phoneNumber
         self.address = branch.address
+        self.openingHours = branch.openingHours
         self.url = branch.url
         self.holidays = branch.holidays
         self.favorite = FavoriteList.shared().isFavorite(branchId: id)
