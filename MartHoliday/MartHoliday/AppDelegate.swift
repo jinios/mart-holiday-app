@@ -14,6 +14,7 @@ import UserNotifications
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, MessagingDelegate {
 
     var window: UIWindow?
+    private let appGroup = UserDefaults.init(suiteName: "group.jinios.martholiday")
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
@@ -38,6 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
         guard let loadedData = DataStorage<FavoriteList>.load() else { return true }
         FavoriteList.loadSavedData(loadedData)
+        appGroup?.setValue(FavoriteList.shared().martList(), forKey: "favorites")
         return true
     }
 
@@ -72,6 +74,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     func applicationDidEnterBackground(_ application: UIApplication) {
         DataStorage<FavoriteList>.save(data: FavoriteList.shared())
+        appGroup?.setValue(FavoriteList.shared().martList(), forKey: "favorites")
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -89,6 +92,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     func applicationWillTerminate(_ application: UIApplication) {
         DataStorage<FavoriteList>.save(data: FavoriteList.shared())
+        appGroup?.setValue(FavoriteList.shared().martList(), forKey: "favorites")
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 

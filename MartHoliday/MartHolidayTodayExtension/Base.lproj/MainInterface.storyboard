@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="NanumSquareRoundOTFB.otf">
+            <string>NanumSquareRoundOTFB</string>
+        </array>
+        <array key="NanumSquareRoundOTFR.otf">
+            <string>NanumSquareRoundOTFR</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Today View Controller-->
+        <scene sceneID="cwh-vc-ff4">
+            <objects>
+                <viewController id="M4Y-Lb-cyx" customClass="TodayViewController" customModule="MartHolidayTodayExtension" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" simulatedAppContext="notificationCenter" id="S3S-Oj-5AN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2WP-eG-rcc">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="todayExCell" id="iHc-O2-fPe" customClass="TodayExtensionTableViewCell" customModule="MartHolidayTodayExtension" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iHc-O2-fPe" id="Ed5-yR-DQO">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bLm-Qf-uvi">
+                                                    <rect key="frame" x="15" y="15" width="165" height="14.5"/>
+                                                    <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rzl-2q-KzR">
+                                                    <rect key="frame" x="200" y="8.5" width="105" height="27"/>
+                                                    <fontDescription key="fontDescription" name="NanumSquareRoundOTFB" family="NanumSquareRoundOTF" pointSize="13"/>
+                                                    <state key="normal" title="Button">
+                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="bLm-Qf-uvi" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Ed5-yR-DQO" secondAttribute="trailing" priority="750" constant="-100" id="0EC-Ye-pc8"/>
+                                                <constraint firstItem="rzl-2q-KzR" firstAttribute="leading" secondItem="bLm-Qf-uvi" secondAttribute="trailing" constant="20" id="5rs-wb-yAD"/>
+                                                <constraint firstAttribute="trailing" secondItem="rzl-2q-KzR" secondAttribute="trailing" constant="15" id="IDs-cm-yG7"/>
+                                                <constraint firstItem="rzl-2q-KzR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ed5-yR-DQO" secondAttribute="leading" priority="750" constant="200" id="NlA-Pt-l39"/>
+                                                <constraint firstItem="rzl-2q-KzR" firstAttribute="centerY" secondItem="Ed5-yR-DQO" secondAttribute="centerY" id="Pfa-27-wvp"/>
+                                                <constraint firstItem="bLm-Qf-uvi" firstAttribute="leading" secondItem="Ed5-yR-DQO" secondAttribute="leadingMargin" id="lKa-KZ-lLl"/>
+                                                <constraint firstItem="bLm-Qf-uvi" firstAttribute="centerY" secondItem="Ed5-yR-DQO" secondAttribute="centerY" id="uDq-SF-aJz"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="branchTitle" destination="bLm-Qf-uvi" id="BHb-gd-nLn"/>
+                                            <outlet property="dateButton" destination="rzl-2q-KzR" id="r7H-XZ-VBd"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="ssy-KU-ocm" firstAttribute="trailing" secondItem="2WP-eG-rcc" secondAttribute="trailing" id="Git-Iu-ype"/>
+                            <constraint firstItem="2WP-eG-rcc" firstAttribute="top" secondItem="ssy-KU-ocm" secondAttribute="top" id="aoQ-bn-ZiY"/>
+                            <constraint firstItem="ssy-KU-ocm" firstAttribute="bottom" secondItem="2WP-eG-rcc" secondAttribute="bottom" id="v0T-8V-9Xh"/>
+                            <constraint firstItem="2WP-eG-rcc" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" id="zdz-aE-SuG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ssy-KU-ocm"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="150"/>
+                    <connections>
+                        <outlet property="tableView" destination="2WP-eG-rcc" id="Gmi-QE-nOL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="22.399999999999999" y="31.484257871064472"/>
+        </scene>
+    </scenes>
+</document>

@@ -15,6 +15,7 @@ struct BranchRawData: Codable {
     var region: String
     var phoneNumber: String
     var address: String
+    var openingHours: String
     var url: String
     var holidays: [String]
 }

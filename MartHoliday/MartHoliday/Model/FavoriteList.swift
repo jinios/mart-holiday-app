@@ -18,6 +18,8 @@ class FavoriteList: NSObject, NSCoding {
         martSet = aDecoder.decodeObject(forKey: String(describing: FavoriteList.self)) as! Set<Int>
     }
 
+    private let appGroup = UserDefaults.init(suiteName: "group.jinios.martholiday")
+
     private static var sharedFavorite = FavoriteList()
 
     private override init() {
@@ -39,6 +41,7 @@ class FavoriteList: NSObject, NSCoding {
     private var martSet: Set<Int> {
         didSet {
             DataStorage<FavoriteList>.save(data: self)
+            appGroup?.setValue(self.martList(), forKey: "favorites")
         }
     }
 
