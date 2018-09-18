@@ -10,6 +10,8 @@ import UIKit
 import SafariServices
 
 class DetailViewController: UIViewController, SFSafariViewControllerDelegate, NMapViewDelegate, NMapPOIdataOverlayDelegate {
+    @IBOutlet weak var detailScrollView: UIScrollView!
+    @IBOutlet weak var detailContentView: UIView!
 
     @IBOutlet weak var mockUpMapview: UIView!
     @IBOutlet weak var martTitle: UILabel!
@@ -17,17 +19,14 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate, NM
     @IBOutlet weak var phoneNumberLabel: UILabel!
     @IBOutlet weak var address: UILabel!
     @IBOutlet weak var starButton: StarButton!
-    @IBOutlet weak var holidaysCollectionView: UICollectionView!
+    @IBOutlet weak var tableView: UITableView!
 
     var branchData: Branch? {
         didSet {
             guard let branch = branchData else { return }
-            holidaysManager = HolidaysCollectionViewManager(dates: branch.holidays)
         }
     }
     var mapView : NMapView?
-    var holidaysManager: HolidaysCollectionViewManager!
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationItem()
@@ -37,14 +36,6 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate, NM
         setPhoneNumber()
         setStarButton()
         setMapView()
-        setHolidays()
-    }
-
-    private func setHolidays() {
-        holidaysCollectionView.contentInset = UIEdgeInsets(top: 7, left: 5, bottom: 7, right: 5)
-        holidaysCollectionView.scrollIndicatorInsets = holidaysCollectionView.contentInset
-        holidaysCollectionView.delegate = holidaysManager
-        holidaysCollectionView.dataSource = holidaysManager
     }
 
     override func didReceiveMemoryWarning() {

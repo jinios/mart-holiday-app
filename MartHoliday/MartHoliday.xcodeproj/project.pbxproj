@@ -81,6 +81,7 @@
 		FDEECC30214D002100F6FF09 /* NanumSquareRoundOTFEB.otf in Resources */ = {isa = PBXBuildFile; fileRef = FDAF601E21273E880006B68A /* NanumSquareRoundOTFEB.otf */; };
 		FDEECC31214D002400F6FF09 /* NanumSquareRoundOTFL.otf in Resources */ = {isa = PBXBuildFile; fileRef = FDAF601B21273E880006B68A /* NanumSquareRoundOTFL.otf */; };
 		FDEECC32214D002700F6FF09 /* NanumSquareRoundOTFR.otf in Resources */ = {isa = PBXBuildFile; fileRef = FDAF601D21273E880006B68A /* NanumSquareRoundOTFR.otf */; };
+		FDEECC33214D0C6500F6FF09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDB4BE28211D6BAE00D3B264 /* Assets.xcassets */; };
 		FDF8058321315DC200B22356 /* HolidaysCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF8058221315DC200B22356 /* HolidaysCell.swift */; };
 		FDFB0346212E930E0092411E /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFB0345212E930E0092411E /* FavoriteCell.swift */; };
 /* End PBXBuildFile section */
@@ -525,6 +526,7 @@
 				FDEECC32214D002700F6FF09 /* NanumSquareRoundOTFR.otf in Resources */,
 				FDEECC30214D002100F6FF09 /* NanumSquareRoundOTFEB.otf in Resources */,
 				FDEECC2F214D001F00F6FF09 /* NanumSquareRoundOTFB.otf in Resources */,
+				FDEECC33214D0C6500F6FF09 /* Assets.xcassets in Resources */,
 				FD859861214BE9FA00C1A3E2 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
