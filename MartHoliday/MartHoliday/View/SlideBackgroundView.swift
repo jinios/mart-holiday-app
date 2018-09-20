@@ -10,6 +10,10 @@ import UIKit
 
 class SlideBackgroundView: UIView {
 
+    convenience init() {
+        self.init(frame: UIScreen.main.bounds)
+    }
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.alpha = 0
