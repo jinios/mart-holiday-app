@@ -20,6 +20,13 @@ class StarButton: UIButton {
     }
 }
 
+class StarBarButton: StarButton {
+    override func setImage() {
+        self.setImage(UIImage(named: "emptyStarBarButton"), for: .normal)
+        self.setImage(UIImage(named: "yellowStarBarButton"), for: .selected)
+    }
+}
+
 protocol FavoriteTogglable {
     var starButton: StarButton! { get set }
     func toggleState()
