@@ -17,8 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     private let appGroup = UserDefaults.init(suiteName: "group.jinios.martholiday")
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        FirebaseApp.configure()
+        setNavigationBar()
 
+        FirebaseApp.configure()
         Messaging.messaging().delegate = self
 
         if #available(iOS 10.0, *) {
@@ -42,6 +43,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         appGroup?.setValue(FavoriteList.shared().martList(), forKey: "favorites")
         return true
     }
+
+    private func setNavigationBar() {
+        let fontAttributes = [
+            NSAttributedStringKey.foregroundColor: UIColor(named: AppColor.lightgray.description),
+            NSAttributedStringKey.font: UIFont(name: "NanumSquareRoundOTF", size: UIFont.labelFontSize)
+        ]
+
+        //To change Navigation Bar Background Color
+        UINavigationBar.appearance().barTintColor = UIColor(named: AppColor.nany.description)
+        //To change Back button title & icon color
+        UINavigationBar.appearance().tintColor = UIColor(named: AppColor.lightgray.description)
+        UINavigationBar.appearance().titleTextAttributes = fontAttributes
+        UIBarButtonItem.appearance().setTitleTextAttributes(fontAttributes, for: .normal)
+    }
+
 
     let gcmMessageIDKey = "gcm.message_id"
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],
