@@ -8,17 +8,32 @@
 
 import UIKit
 
+protocol HeaderDelegate {
+    func toggleHeader()
+}
+
 class HolidayTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    @IBOutlet weak var dateLabel: UILabel!
+
+    func setData(holiday: String) {
+        dateLabel.text = holiday
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+}
 
-        // Configure the view for the selected state
+
+class HolidayHeaderCell: UITableViewCell {
+
+    @IBOutlet weak var dateLabel: UILabel!
+    var delegate: HeaderDelegate?
+
+    @IBAction func moreButtonTapped(_ sender: Any) {
+        delegate?.toggleHeader()
+    }
+
+    func set(holiday: String) {
+        dateLabel.text = holiday
     }
 
 }

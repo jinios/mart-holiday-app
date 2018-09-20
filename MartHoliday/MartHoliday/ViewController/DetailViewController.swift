@@ -10,32 +10,39 @@ import UIKit
 import SafariServices
 
 class DetailViewController: UIViewController, SFSafariViewControllerDelegate, NMapViewDelegate, NMapPOIdataOverlayDelegate {
+
+    @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
+
     @IBOutlet weak var detailScrollView: UIScrollView!
     @IBOutlet weak var detailContentView: UIView!
 
     @IBOutlet weak var mockUpMapview: UIView!
-    @IBOutlet weak var martTitle: UILabel!
     @IBOutlet weak var businessHour: UILabel!
     @IBOutlet weak var phoneNumberLabel: UILabel!
     @IBOutlet weak var address: UILabel!
-    @IBOutlet weak var starButton: StarButton!
     @IBOutlet weak var tableView: UITableView!
-
-    var branchData: Branch? {
-        didSet {
-            guard let branch = branchData else { return }
-        }
-    }
+    var starButton: StarButton!
+    var isExpanded = false
+    var branchData: Branch?
     var mapView : NMapView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationItem()
-        setTitle()
         setAddress()
         setBusinessHour()
         setPhoneNumber()
         setStarButton()
         setMapView()
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.separatorStyle = .none
+    }
+
+    var navBarDefalutColor: UIColor?
+
+    override func viewDidLayoutSubviews() {
+        tableViewHeight.constant = tableView.contentSize.height
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,15 +51,43 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate, NM
     }
 
     private func setNavigationItem() {
+        self.navigationController?.navigationBar.isTranslucent = false
+
+        // 브랜치이름 Title 설정
         guard let branchData = self.branchData else { return }
+
         self.navigationItem.title = branchData.branchName
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "home-nav-button"), style: .plain, target: self, action: #selector(popToRoot))
+        self.navigationItem.largeTitleDisplayMode = .always
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationBar.largeTitleTextAttributes = makeTextWithAttributes(fontSize: 30)
+
+        starButton = StarBarButton()
+        starButton.setImage()
+        starButton.addTarget(self, action: #selector(starBarButtonTapped), for: .touchUpInside)
+        starButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        let starBarButton = UIBarButtonItem(customView: starButton)
+
+        let homeButton = UIButton(type: .custom)
+        homeButton.setImage(UIImage(named: "home-nav-button"), for: .normal)
+        homeButton.addTarget(self, action: #selector(popToRoot), for: .touchUpInside)
+        homeButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+
+        let homeBarButton = UIBarButtonItem(customView: homeButton)
+        homeBarButton.tintColor = UIColor(named: AppColor.lightgray.description)
+        self.navigationItem.setRightBarButtonItems([homeBarButton,starBarButton], animated: false)
+
     }
 
-    private func setTitle() {
-        guard let branchData = self.branchData else { return }
-        self.martTitle.text = branchData.branchName
+    private func makeTextWithAttributes(fontSize: CGFloat) -> [NSAttributedStringKey : NSObject?] {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = .center
+        let customAttributes = [NSAttributedStringKey.paragraphStyle: paragraphStyle,
+                                NSAttributedStringKey.font: UIFont(name: "NanumSquareRoundOTF", size: fontSize)?.bold(),
+                                NSAttributedStringKey.foregroundColor: UIColor(named: AppColor.lightgray.description),
+                                ]
+        return customAttributes
     }
+
 
     private func setPhoneNumber() {
         guard let branchData = self.branchData else { return }
@@ -97,6 +132,10 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate, NM
     }
 
     @IBAction func favoriteTapped(_ sender: Any) {
+        toggleState()
+    }
+
+    @objc func starBarButtonTapped() {
         toggleState()
     }
 
@@ -192,6 +231,53 @@ extension DetailViewController: FavoriteTogglable {
         guard let branchData = self.branchData else { return }
         starButton.isSelected = branchData.favorite
         starButton.setImage()
+    }
+
+}
+
+extension DetailViewController: UITableViewDelegate, UITableViewDataSource, HeaderDelegate {
+
+    func toggleHeader() {
+        self.isExpanded = !isExpanded
+        tableView.reloadSections([0], with: .fade)
+        tableView.reloadData()
+        tableViewHeight.constant = tableView.contentSize.height
+    }
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "dateCell", for: indexPath) as! HolidayTableViewCell
+        guard let branchData = branchData else { return UITableViewCell() }
+        cell.setData(holiday:branchData.holidays[indexPath.row+1])
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let branchData = branchData else { return 0 }
+        if isExpanded {
+            return branchData.holidays.count - 1
+        } else {
+            return 0
+        }
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 80
+    }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let branchData = branchData else { return UIView() }
+        let view = tableView.dequeueReusableCell(withIdentifier: "headerCell") as! HolidayHeaderCell
+        view.delegate = self
+        view.set(holiday: branchData.holidays[0])
+        return view
     }
 
 }
