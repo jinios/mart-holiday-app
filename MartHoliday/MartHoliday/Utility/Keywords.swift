@@ -8,6 +8,22 @@
 
 import Foundation
 
+protocol KoreanName {
+    var koreanName: String { get }
+}
+
+protocol JSONfile {
+    var JSONfile: String { get }
+}
+
+protocol URLHolder {
+    var url: URL? { get }
+}
+
+protocol CIImageHolder {
+    var imageName: String { get }
+}
+
 enum Mart: String, KoreanName, JSONfile, URLHolder, CIImageHolder {
 
     case emart
@@ -53,19 +69,23 @@ enum Mart: String, KoreanName, JSONfile, URLHolder, CIImageHolder {
     static let allValues: [Mart] = [emart, lottemart, homeplus, homeplusExpress]
 }
 
-protocol KoreanName {
-    var koreanName: String { get }
-}
+enum AppColor: CustomStringConvertible {
+    case lightgray
+    case midgray
+    case mint
+    case nany
+    case red
+    case yellow
 
-protocol JSONfile {
-    var JSONfile: String { get }
-}
-
-protocol URLHolder {
-    var url: URL? { get }
-}
-
-protocol CIImageHolder {
-    var imageName: String { get }
+    var description: String {
+        switch self {
+        case .lightgray: return "mh-lightgray"
+        case .midgray: return "mh-midgray"
+        case .mint: return "mh-mint"
+        case .nany: return "mh-navy"
+        case .red: return "mh-red"
+        case .yellow: return "mh-yellow"
+        }
+    }
 }
 
