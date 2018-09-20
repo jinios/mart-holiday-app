@@ -44,6 +44,8 @@ class MainViewController: UIViewController, FavoriteConvertible {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.prefersLargeTitles = false
+        self.navigationItem.title = "마트휴무알리미"
         loadFavoritesCollectionView()
     }
 
@@ -64,7 +66,6 @@ class MainViewController: UIViewController, FavoriteConvertible {
         let slideWidth = self.view.frame.width/2
         let slideHeight = (self.view.frame.height - topSafeArea - bottomSafeArea)
 
-        self.backgroundView.frame = self.view.frame
         self.slidetopView.frame = CGRect(x: -(slideWidth), y: topSafeArea, width: slideWidth, height: slideHeight/7)
         self.slideMenu.frame = CGRect(x: -(slideWidth), y: slidetopView.frame.maxY, width: slideWidth, height: (slideHeight*6)/7)
     }
