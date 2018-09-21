@@ -25,8 +25,12 @@ class TodayExtensionTableViewCell: UITableViewCell {
 
     func setData(branch: Branch) {
         setDateButton()
-        self.branchTitle.text = branch.martType + " " + branch.branchName + "의 휴무일"
-        self.dateButton.setTitle(branch.holidays[0], for: .normal)
+        self.branchTitle.text = branch.martName() + " " + branch.branchName
+        guard let holiday = branch.holidays.first else {
+            self.dateButton.setTitle("정보가 없습니다:(", for: .normal)
+            return
+        }
+        self.dateButton.setTitle(holiday, for: .normal)
     }
 
     func setDateButton() {
