@@ -18,30 +18,25 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         extensionContext?.widgetLargestAvailableDisplayMode = .expanded
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.rowHeight = 44.0
         setFavoriteBranch(handler: reloadTableView)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
-        // Perform any setup necessary in order to update the view.
-        
-        // If an error is encountered, use NCUpdateResult.Failed
-        // If there's no update required, use NCUpdateResult.NoData
-        // If there's an update, use NCUpdateResult.NewData
         self.tableView.reloadData()
         completionHandler(NCUpdateResult.newData)
     }
 
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
         let expanded = (activeDisplayMode == .expanded)
-        preferredContentSize = expanded ? CGSize(width: maxSize.width, height: 150) : maxSize
+        let count = CGFloat(favoriteList.count())
+        preferredContentSize = expanded ? CGSize(width: maxSize.width, height: (tableView.rowHeight * count)) : maxSize
     }
 
-    // After updating the preferred size, you must reload the chart’s data so that it redraws based on the new layout.
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         self.tableView.reloadData()
@@ -87,7 +82,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         return cell
     }
 
-
+    
     func reloadTableView() {
         DispatchQueue.main.async { [weak self] in
             self?.tableView.reloadData()
