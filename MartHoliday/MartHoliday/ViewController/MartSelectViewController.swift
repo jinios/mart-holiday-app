@@ -33,6 +33,11 @@ class MartSelectViewController: UIViewController {
         }
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.prefersLargeTitles = false
+    }
+
 }
 
 extension MartSelectViewController: UITableViewDataSource {
@@ -57,7 +62,7 @@ extension MartSelectViewController: UITableViewDelegate {
     }
 
 
-
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let marts = Mart.allValues
         DataSetter<Mart, BranchRawData>.goToSearchViewController(of: marts[indexPath.row], handler: pushViewController(mart:data:))

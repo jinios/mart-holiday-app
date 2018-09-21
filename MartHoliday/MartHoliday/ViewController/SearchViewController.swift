@@ -33,6 +33,7 @@ class SearchViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.prefersLargeTitles = false
         tableView.reloadData()
     }
 
@@ -78,9 +79,9 @@ class SearchViewController: UIViewController {
         guard let nextVC = segue.destination as? DetailViewController else { return }
         if let indexPath = tableView.indexPathForSelectedRow {
             if isFiltering() {
-                nextVC.branchData = filtered!.branches[indexPath.row]
+                nextVC.branchData = filtered![indexPath.row]
             } else {
-                nextVC.branchData = list!.branches[indexPath.row]
+                nextVC.branchData = list![indexPath.row]
             }
         }
     }
@@ -106,9 +107,9 @@ extension SearchViewController: UITableViewDataSource {
         guard let list = self.list else { return UITableViewCell() }
         guard let filtered = self.filtered else { return UITableViewCell() }
         if isFiltering() {
-            branchCell.branchData = filtered.branches[indexPath.row]
+            branchCell.branchData = filtered[indexPath.row]
         } else {
-            branchCell.branchData = list.branches[indexPath.row]
+            branchCell.branchData = list[indexPath.row]
         }
         return branchCell
     }

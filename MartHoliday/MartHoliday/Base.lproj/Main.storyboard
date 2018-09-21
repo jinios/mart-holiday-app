@@ -227,7 +227,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xvL-3C-bCy" userLabel="belowBar">
-                                                                    <rect key="frame" x="19" y="66" width="337" height="1"/>
+                                                                    <rect key="frame" x="19" y="71" width="337" height="1"/>
                                                                     <color key="backgroundColor" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="1" id="CCg-X1-iS3"/>
@@ -242,7 +242,7 @@
                                                                 <constraint firstAttribute="bottomMargin" secondItem="nFc-YE-hkV" secondAttribute="bottom" constant="18" id="N1K-w8-7Ny"/>
                                                                 <constraint firstItem="nFc-YE-hkV" firstAttribute="top" secondItem="YbA-af-8Kc" secondAttribute="topMargin" constant="18" id="OFD-Qd-G0g"/>
                                                                 <constraint firstItem="xvL-3C-bCy" firstAttribute="centerX" secondItem="YbA-af-8Kc" secondAttribute="centerX" id="Y49-F9-JuJ"/>
-                                                                <constraint firstItem="xvL-3C-bCy" firstAttribute="top" secondItem="ZoB-x9-mqp" secondAttribute="bottom" constant="3" id="hMe-ed-TqY"/>
+                                                                <constraint firstItem="xvL-3C-bCy" firstAttribute="top" secondItem="ZoB-x9-mqp" secondAttribute="bottom" constant="8" id="hMe-ed-TqY"/>
                                                                 <constraint firstItem="ZoB-x9-mqp" firstAttribute="leading" secondItem="YbA-af-8Kc" secondAttribute="leadingMargin" constant="5" id="kVC-u3-hPS"/>
                                                                 <constraint firstAttribute="trailingMargin" secondItem="nFc-YE-hkV" secondAttribute="trailing" constant="10" id="qxn-hN-agq"/>
                                                                 <constraint firstItem="dRF-S3-WpA" firstAttribute="leading" secondItem="YbA-af-8Kc" secondAttribute="leadingMargin" constant="5" id="wqw-xS-WeY"/>
@@ -253,15 +253,15 @@
                                                             <outlet property="dateLabel" destination="ZoB-x9-mqp" id="X7g-cN-C7m"/>
                                                         </connections>
                                                     </tableViewCell>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="dateCell" rowHeight="44" id="ppU-sH-JYg" customClass="HolidayTableViewCell" customModule="MartHoliday" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="108" width="374" height="44"/>
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="dateCell" rowHeight="35" id="ppU-sH-JYg" customClass="HolidayTableViewCell" customModule="MartHoliday" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="108" width="374" height="35"/>
                                                         <autoresizingMask key="autoresizingMask"/>
-                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ppU-sH-JYg" id="l3J-Mw-sST" customClass="HolidayTableViewCell" customModule="MartHoliday" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ppU-sH-JYg" id="l3J-Mw-sST">
+                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="34.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fM5-h6-WFW">
-                                                                    <rect key="frame" x="25" y="12.5" width="199" height="19"/>
+                                                                    <rect key="frame" x="25" y="8" width="199" height="19"/>
                                                                     <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="17"/>
                                                                     <color key="textColor" name="mh-navy"/>
                                                                     <nil key="highlightedColor"/>
