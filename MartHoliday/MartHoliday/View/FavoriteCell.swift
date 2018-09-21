@@ -33,7 +33,7 @@ class FavoriteCell: UICollectionViewCell, UICollectionViewDataSource, UICollecti
     var dateData: [String]!
 
     func setData(branch: Branch) {
-        title.text = "\(branch.martType) \(branch.branchName)"
+        title.text = "\(branch.martName()) \(branch.branchName)"
         self.dateData = branch.holidays
         holidaysCollectionView.delegate = self
         holidaysCollectionView.dataSource = self

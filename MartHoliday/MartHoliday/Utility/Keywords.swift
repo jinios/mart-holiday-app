@@ -36,7 +36,7 @@ enum Mart: String, KoreanName, JSONfile, URLHolder, CIImageHolder {
         case .emart: return "이마트"
         case .lottemart: return "롯데마트"
         case .homeplus: return "홈플러스"
-        case .homeplusExpress: return "홈플러스 익스프레스"
+        case .homeplusExpress: return "홈플러스EX"
         }
     }
 
