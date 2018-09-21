@@ -239,8 +239,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource, Head
 
     func toggleHeader() {
         self.isExpanded = !isExpanded
-        tableView.reloadSections([0], with: .fade)
-        tableView.reloadData()
+        tableView.reloadSections([0], with: .automatic)
         tableViewHeight.constant = tableView.contentSize.height
     }
 
@@ -256,7 +255,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource, Head
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        return 35
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -276,8 +275,14 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource, Head
         guard let branchData = branchData else { return UIView() }
         let view = tableView.dequeueReusableCell(withIdentifier: "headerCell") as! HolidayHeaderCell
         view.delegate = self
-        view.set(holiday: branchData.holidays[0])
-        return view
+        view.set(holiday: branchData.holidays.isEmpty ? nil:branchData.holidays[0])
+        let contentView = view.contentView
+        contentView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapHeader)))
+        return contentView
+    }
+
+    @objc func tapHeader() {
+        toggleHeader()
     }
 
 }
