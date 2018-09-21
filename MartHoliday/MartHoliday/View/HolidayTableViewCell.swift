@@ -32,8 +32,8 @@ class HolidayHeaderCell: UITableViewCell {
         delegate?.toggleHeader()
     }
 
-    func set(holiday: String) {
-        dateLabel.text = holiday
+    func set(holiday: String?) {
+        dateLabel.text = holiday ?? "정보가 없습니다 :("
     }
 
 }
