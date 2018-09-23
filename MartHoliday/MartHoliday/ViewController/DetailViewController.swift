@@ -39,6 +39,17 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate, NM
         tableView.separatorStyle = .none
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        mapView?.viewWillAppear()
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        mapView?.viewDidDisappear()
+    }
+
     var navBarDefalutColor: UIColor?
 
     override func viewDidLayoutSubviews() {
