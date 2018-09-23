@@ -25,7 +25,7 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate, NM
     var isExpanded = false
     var branchData: Branch?
     var mapView : NMapView?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationItem()
@@ -153,7 +153,15 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate, NM
 
             mockUpMapview.addSubview(mapView)
             mapView.frame = mockUpMapview.bounds
+            mapView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapMapView)))
         }
+    }
+
+    @objc func tapMapView() {
+        let nextVC = MapViewController()
+        guard let branchData = self.branchData else { return }
+        nextVC.addressToShow = branchData.address
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
 
     private func setMapCenter(point: GeoPoint) {

@@ -42,6 +42,7 @@
 		FD52566F21353C9C0014070E /* KeyInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD52566E21353C9C0014070E /* KeyInfo.plist */; };
 		FD5E63F92153C8F400DC082A /* HolidayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5E63F82153C8F400DC082A /* HolidayTableViewCell.swift */; };
 		FD780D77212F185600B569B3 /* SlideMenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD780D76212F185600B569B3 /* SlideMenuManager.swift */; };
+		FD7BC8D1215620FF002BE5EA /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7BC8D0215620FF002BE5EA /* MapViewController.swift */; };
 		FD7DA866214981DB0070B25B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD7DA865214981DA0070B25B /* GoogleService-Info.plist */; };
 		FD85985B214BE9FA00C1A3E2 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD85985A214BE9FA00C1A3E2 /* NotificationCenter.framework */; };
 		FD85985E214BE9FA00C1A3E2 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD85985D214BE9FA00C1A3E2 /* TodayViewController.swift */; };
@@ -52,6 +53,7 @@
 		FD859877214C005700C1A3E2 /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBF9A4721240911001C2DAA /* DataStorage.swift */; };
 		FD85987A214C0D7D00C1A3E2 /* TodayExtensionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD859879214C0D7D00C1A3E2 /* TodayExtensionTableViewCell.swift */; };
 		FD86712321458FCB00273B3C /* StarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD86712221458FCB00273B3C /* StarButton.swift */; };
+		FD91A1282154FB140073F4F7 /* MartMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD91A1272154FB140073F4F7 /* MartMapView.swift */; };
 		FD9F409C211EBFAF007D7F1B /* BranchRawData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409B211EBFAF007D7F1B /* BranchRawData.swift */; };
 		FD9F409E211EC0C8007D7F1B /* DataDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409D211EC0C8007D7F1B /* DataDecoder.swift */; };
 		FD9F40A0211EC5EA007D7F1B /* Keywords.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409F211EC5EA007D7F1B /* Keywords.swift */; };
@@ -160,6 +162,7 @@
 		FD52566E21353C9C0014070E /* KeyInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = KeyInfo.plist; sourceTree = "<group>"; };
 		FD5E63F82153C8F400DC082A /* HolidayTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayTableViewCell.swift; sourceTree = "<group>"; };
 		FD780D76212F185600B569B3 /* SlideMenuManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideMenuManager.swift; sourceTree = "<group>"; };
+		FD7BC8D0215620FF002BE5EA /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		FD7DA865214981DA0070B25B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FD859859214BE9FA00C1A3E2 /* MartHolidayTodayExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MartHolidayTodayExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD85985A214BE9FA00C1A3E2 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
@@ -174,6 +177,7 @@
 		FD859874214BFEF500C1A3E2 /* Protobuf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Protobuf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD859879214C0D7D00C1A3E2 /* TodayExtensionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayExtensionTableViewCell.swift; sourceTree = "<group>"; };
 		FD86712221458FCB00273B3C /* StarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarButton.swift; sourceTree = "<group>"; };
+		FD91A1272154FB140073F4F7 /* MartMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MartMapView.swift; sourceTree = "<group>"; };
 		FD9F409B211EBFAF007D7F1B /* BranchRawData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchRawData.swift; sourceTree = "<group>"; };
 		FD9F409D211EC0C8007D7F1B /* DataDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDecoder.swift; sourceTree = "<group>"; };
 		FD9F409F211EC5EA007D7F1B /* Keywords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keywords.swift; sourceTree = "<group>"; };
@@ -263,6 +267,7 @@
 				FDF8058221315DC200B22356 /* HolidaysCell.swift */,
 				FD4DDC8F21412294004E981F /* SelectionTableViewCell.swift */,
 				FD5E63F82153C8F400DC082A /* HolidayTableViewCell.swift */,
+				FD91A1272154FB140073F4F7 /* MartMapView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -275,6 +280,7 @@
 				FDB4BE23211D6BAD00D3B264 /* MartSelectViewController.swift */,
 				FD1CC4DE211DF10A00B21E09 /* SearchViewController.swift */,
 				FD780D76212F185600B569B3 /* SlideMenuManager.swift */,
+				FD7BC8D0215620FF002BE5EA /* MapViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -671,6 +677,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD7BC8D1215620FF002BE5EA /* MapViewController.swift in Sources */,
 				FD9F409E211EC0C8007D7F1B /* DataDecoder.swift in Sources */,
 				FD48E1BF212BF57B00FC05D9 /* MenuData.swift in Sources */,
 				FD1CC4DF211DF10A00B21E09 /* SearchViewController.swift in Sources */,
@@ -690,6 +697,7 @@
 				FD780D77212F185600B569B3 /* SlideMenuManager.swift in Sources */,
 				FD4850F4212869AF0064747A /* SlideMenuCell.swift in Sources */,
 				FDCB9E8B212566F1006281CB /* MainViewController.swift in Sources */,
+				FD91A1282154FB140073F4F7 /* MartMapView.swift in Sources */,
 				FD9F409C211EBFAF007D7F1B /* BranchRawData.swift in Sources */,
 				FDC2A942212458F400A1E2FF /* Extensions.swift in Sources */,
 				FDB4BE22211D6BAD00D3B264 /* AppDelegate.swift in Sources */,

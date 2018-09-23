@@ -10,11 +10,14 @@ import UIKit
 
 class MartMapDelegate: NSObject, NMapViewDelegate, NMapPOIdataOverlayDelegate {
 
-    var addressToShow: String?
+    var addressToShow: String
+
+    init(address: String) {
+        self.addressToShow = address
+    }
 
     func onMapView(_ mapView: NMapView!, initHandler error: NMapError!) {
         if (error == nil) {
-            guard let addressToShow = addressToShow else { return }
             MapSetter.tryGeoRequestTask(address: addressToShow) { geo in
                 DispatchQueue.main.async {
                     mapView.showMarker(at: geo)
