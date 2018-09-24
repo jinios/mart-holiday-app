@@ -32,7 +32,6 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate, NM
         setAddress()
         setBusinessHour()
         setPhoneNumber()
-        setStarButton()
         setMapView()
         tableView.delegate = self
         tableView.dataSource = self
@@ -73,7 +72,7 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate, NM
         self.navigationController?.navigationBar.largeTitleTextAttributes = makeTextWithAttributes(fontSize: 30)
 
         starButton = StarBarButton()
-        starButton.setImage()
+        setStarButton()
         starButton.addTarget(self, action: #selector(starBarButtonTapped), for: .touchUpInside)
         starButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
         let starBarButton = UIBarButtonItem(customView: starButton)
@@ -161,9 +160,10 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate, NM
             guard let id = keyInfo.id as? String else { return }
             mapView.setClientId(id)
             mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            view.addSubview(mapView)
+            mapView.frame = mockUpMapview.frame
 
-            mockUpMapview.addSubview(mapView)
-            mapView.frame = mockUpMapview.bounds
+            mapView.setMapGesture(enable: false)
             mapView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapMapView)))
         }
     }
