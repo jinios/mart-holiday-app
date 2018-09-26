@@ -7,3 +7,14 @@
 //
 
 import Foundation
+
+// dateCell
+class MainTableViewCell: UITableViewCell {
+
+    @IBOutlet weak var dateLabel: UILabel!
+
+    func setData(text: String) {
+        dateLabel.text = text
+    }
+
+}
