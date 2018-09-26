@@ -73,5 +73,9 @@ class FavoriteList: NSObject, NSCoding {
         return martSet.sorted()
     }
 
+    func isEmpty() -> Bool {
+        return martSet.isEmpty
+    }
+
 }
 
