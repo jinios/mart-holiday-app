@@ -8,19 +8,26 @@
 
 import UIKit
 
-class MainViewController: UIViewController, FavoriteConvertible {
-    @IBOutlet weak var favoritesCollectionView: UICollectionView!
+protocol FavoriteConvertible {
+    var favoriteList: BranchList { get set }
+    func fetchFavoriteBranch(handler: @escaping(()->Void))
+}
 
-    static let favoriteCellID = "favoriteCell"
+protocol FooterDelegate {
+    var favoriteData: [ExpandCollapseTogglable] { get set }
+    func toggleFooter(index: Int)
+}
 
+class MainViewController: UIViewController, FavoriteConvertible, FooterDelegate {
+
+    @IBOutlet weak var tableView: UITableView!
     let slideMenuManager = SlideMenuManager()
     var backgroundView: SlideBackgroundView!
     var slidetopView: SlideTopView!
     var slideMenu: SlideMenu!
-    var openFlag: Bool?
+    var slideOpenFlag: Bool?
     var favoriteList = BranchList()
-
-    let favoritesCollectionViewTag = 100
+    var favoriteData = [ExpandCollapseTogglable]()
 
     // MARK: override functions
 
@@ -31,22 +38,33 @@ class MainViewController: UIViewController, FavoriteConvertible {
         addSubViews()
         slideMenu.delegate = slideMenuManager
         slideMenu.dataSource = slideMenuManager
-
-        favoritesCollectionView.delegate = self
-        favoritesCollectionView.dataSource = self
-        favoritesCollectionView.tag = favoritesCollectionViewTag
-
-        openFlag = false
+        slideOpenFlag = false
 
         addGestures()
         NotificationCenter.default.addObserver(self, selector: #selector(detectSelectedMenu(_:)), name: .slideMenuTapped, object: nil)
+
+        self.view.backgroundColor = UIColor(named: AppColor.lightgray.description)
+    }
+
+    private func setNoDataView() {
+        let noDataView = UIView(frame: self.view.frame)
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: noDataView.frame.width, height: 50))
+        label.text = "즐겨찾는 마트를 추가해주세요!"
+        label.adjustsFontSizeToFitWidth = true
+        noDataView.addSubview(label)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.centerXAnchor.constraint(equalTo: noDataView.centerXAnchor).isActive = true
+        label.centerYAnchor.constraint(equalTo: noDataView.centerYAnchor).isActive = true
+        label.widthAnchor.constraint(equalTo: noDataView.widthAnchor, constant: 0.9).isActive = true
+        label.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        self.view.addSubview(noDataView)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.prefersLargeTitles = false
         self.navigationItem.title = "마트휴무알리미"
-        loadFavoritesCollectionView()
+        setTableView()
     }
 
     override func viewDidLayoutSubviews() {
@@ -75,7 +93,128 @@ class MainViewController: UIViewController, FavoriteConvertible {
         // Dispose of any resources that can be recreated.
     }
 
-    // MARK: private functions
+    private func setSlideBarNavigationButton() {
+        let searchImage = UIImage(named: "slidebar")
+        let searhButton = UIBarButtonItem(image: searchImage, style: .plain, target: self, action: #selector(toggleSlideMenu))
+        navigationItem.leftBarButtonItem = searhButton
+    }
+
+    private func setTableView() {
+        if FavoriteList.shared().isEmpty() {
+            setNoDataView()
+        } else {
+            tableView.delegate = self
+            tableView.dataSource = self
+            tableView.rowHeight = 44.0
+            tableView.backgroundColor = UIColor(named: AppColor.lightgray.description)
+            tableView.register(UINib(nibName: "MainHeaderView", bundle: nil),forHeaderFooterViewReuseIdentifier: "mainHeader")
+            loadFavoritesTableView()
+        }
+    }
+
+    func toggleFooter(index: Int) {
+        print("푸터 인덱스 번호: \(index)")
+        favoriteData[index].toggleExpand()
+        tableView.reloadSections([index], with: .automatic)
+    }
+
+    private func loadFavoritesTableView() {
+        fetchFavoriteBranch {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+
+    func fetchFavoriteBranch(handler: @escaping (() -> Void)) {
+        let ids = FavoriteList.shared().ids()
+        let idstr = ids.map{String($0)}.joined(separator: ",")
+        guard let baseURL = URL(string: "http://ec2-13-209-38-224.ap-northeast-2.compute.amazonaws.com/api/mart/branch") else { return }
+        let url = baseURL.appendingPathComponent(idstr)
+
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if let response = response as? HTTPURLResponse, 200...299 ~= response.statusCode, let data = data {
+                var branches = [BranchRawData]()
+                var mainFavorites = [FavoriteBranch]()
+                do {
+                    branches = try JSONDecoder().decode([BranchRawData].self, from: data)
+                    self.favoriteList = BranchList(branches: branches)
+
+                    for fav in self.favoriteList.branches {
+                        mainFavorites.append(FavoriteBranch(branch: fav))
+                        self.favoriteData = mainFavorites
+                    }
+                    handler()
+                } catch let error {
+                    print("Cannot make Data: \(error)")
+                }
+            } else {
+                print("Network error: \((response as? HTTPURLResponse)?.statusCode)")
+            }
+        }.resume()
+    }
+
+}
+
+    // MARK: TableView Related
+
+extension MainViewController: UITableViewDelegate, UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 59
+    }
+
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 30
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let branch = favoriteData[section] as? FavoriteBranch else { return 1 }
+        let countOfHoliday = branch.allHolidays().count
+        guard countOfHoliday != 0 else { return 1 }
+        if favoriteData[section].isExpanded {
+            return countOfHoliday
+        } else {
+            return 1
+        }
+    }
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return favoriteData.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "dateCell", for: indexPath) as! MainTableViewCell
+        if favoriteData.count == 0 {
+            return UITableViewCell()
+        } else {
+            guard let branch = favoriteData[indexPath.section] as? FavoriteBranch else { return UITableViewCell() }
+            cell.setData(text: branch.allHolidays()[indexPath.row])
+            return cell
+        }
+    }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "mainHeader") as? MainTableViewHeader else { return nil }
+        guard let branch = favoriteData[section] as? FavoriteBranch else { return nil }
+        headerView.name = branch.branchName()
+        return headerView
+    }
+
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let view = MainTableViewFooter(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 40))
+        view.delegate = self
+        view.sectionindex = section
+        let state = favoriteData[section].isExpanded
+        view.setExpand(state: state)
+        return view
+    }
+
+}
+
+    // MARK: SlideMenu Related
+
+extension MainViewController {
 
     private func addGestures() {
         backgroundView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(toggleSlideMenu)))
@@ -98,14 +237,8 @@ class MainViewController: UIViewController, FavoriteConvertible {
         view.addSubview(slideMenu)
     }
 
-    private func setSlideBarNavigationButton() {
-        let searchImage = UIImage(named: "slidebar")
-        let searhButton = UIBarButtonItem(image: searchImage, style: .plain, target: self, action: #selector(toggleSlideMenu))
-        navigationItem.leftBarButtonItem = searhButton
-    }
-
     @objc private func handleDismiss() {
-        guard let openFlag = self.openFlag else { return }
+        guard let openFlag = self.slideOpenFlag else { return }
         if openFlag == true {
             UIView.animate(
                 withDuration: 0.5, delay: 0, options: .curveEaseOut,
@@ -115,7 +248,7 @@ class MainViewController: UIViewController, FavoriteConvertible {
                     self.slideMenu.dismiss()
             }) { complete in
                 if complete {
-                    self.openFlag! = false
+                    self.slideOpenFlag! = false
                 } else {
                     return
                 }
@@ -124,12 +257,12 @@ class MainViewController: UIViewController, FavoriteConvertible {
     }
 
     @objc private func handleOpen() {
-        guard let openFlag = self.openFlag else { return }
+        guard let openFlag = self.slideOpenFlag else { return }
         if openFlag == false {
             backgroundView.show()
             slidetopView.show()
             slideMenu.show()
-            self.openFlag = true
+            self.slideOpenFlag = true
         }
     }
 
@@ -137,7 +270,7 @@ class MainViewController: UIViewController, FavoriteConvertible {
 
     @objc func toggleSlideMenu() {
         // open or dismiss
-        if self.openFlag == true {
+        if self.slideOpenFlag == true {
             handleDismiss()
         } else {
             handleOpen()
@@ -157,91 +290,4 @@ class MainViewController: UIViewController, FavoriteConvertible {
         }
     }
 
-    private func loadFavoritesCollectionView() {
-        setFavoriteBranch(handler: reloadCollectionView)
-    }
-
-    private func reloadCollectionView() {
-        DispatchQueue.main.async {
-            self.favoritesCollectionView.reloadData()
-        }
-    }
-
-    // MARK: FavoriteConvertible related
-
-    func setFavoriteBranch(handler: @escaping (() -> Void)) {
-        let ids = FavoriteList.shared().ids()
-        let idstr = ids.map{String($0)}.joined(separator: ",")
-        guard let baseURL = URL(string: "http://ec2-13-209-38-224.ap-northeast-2.compute.amazonaws.com/api/mart/branch") else { return }
-        let url = baseURL.appendingPathComponent(idstr)
-
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if let response = response as? HTTPURLResponse, 200...299 ~= response.statusCode, let data = data {
-                var branches = [BranchRawData]()
-                do {
-                    branches = try JSONDecoder().decode([BranchRawData].self, from: data)
-                    self.favoriteList = BranchList(branches: branches)
-                    handler()
-                } catch let error {
-                    print("Cannot make Data: \(error)")
-                }
-            } else {
-                print("Network error: \((response as? HTTPURLResponse)?.statusCode)")
-            }
-        }.resume()
-    }
-
-}
-
-// MARK: CollectionView related
-
-extension MainViewController: UICollectionViewDataSource {
-
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return favoriteList.count()
-    }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = favoritesCollectionView.dequeueReusableCell(withReuseIdentifier: MainViewController.favoriteCellID, for: indexPath) as! FavoriteCell
-//        let holidaysManager = HolidaysCollecionViewManager(dateData: martList[indexPath.row].holidays)
-        //        cell.setData(branch: martList[indexPath.row], holidaysManager: holidaysManager)
-        cell.setData(branch: favoriteList[indexPath.row])
-        cell.layer.cornerRadius = 10.0
-        cell.layer.borderWidth = 1.0
-        cell.layer.borderColor = UIColor.clear.cgColor
-        cell.clipsToBounds = true
-
-        cell.layer.shadowColor = UIColor.lightGray.cgColor
-        cell.layer.shadowOffset = CGSize(width:0,height: 2.0)
-        cell.layer.shadowRadius = 2.0
-        cell.layer.shadowOpacity = 1.0
-        cell.layer.masksToBounds = false
-        return cell
-
-    }
-
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "detailVC") as? DetailViewController else { return }
-        detailVC.branchData = favoriteList[indexPath.row]
-        self.navigationController?.pushViewController(detailVC, animated: true)
-    }
-
-}
-
-extension MainViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width - 10, height: 140)
-
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
-
-    }
-}
-
-protocol FavoriteConvertible {
-    var favoriteList: BranchList { get set }
-    func setFavoriteBranch(handler: @escaping(()->Void))
 }
