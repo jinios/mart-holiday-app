@@ -119,5 +119,9 @@ class Branch: NSObject, NSCoding, Comparable {
         }
     }
 
+    func displayName() -> String {
+        return "\(martName()) \(self.branchName)"
+    }
+
 }
 
