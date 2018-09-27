@@ -78,6 +78,7 @@
 		FDB4BE2C211D6BAE00D3B264 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDB4BE2A211D6BAE00D3B264 /* LaunchScreen.storyboard */; };
 		FDBF9A4821240911001C2DAA /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBF9A4721240911001C2DAA /* DataStorage.swift */; };
 		FDBF9A4A212414A9001C2DAA /* FavoriteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBF9A49212414A9001C2DAA /* FavoriteList.swift */; };
+		FDC19BAA215D2D54007D9A95 /* NoDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC19BA9215D2D54007D9A95 /* NoDataView.swift */; };
 		FDC2A942212458F400A1E2FF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC2A941212458F400A1E2FF /* Extensions.swift */; };
 		FDC3461B2136618E00F6D6FF /* MapSetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC3461A2136618E00F6D6FF /* MapSetter.swift */; };
 		FDC3461D2136708400F6D6FF /* AddressDatum.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC3461C2136708400F6D6FF /* AddressDatum.swift */; };
@@ -201,6 +202,7 @@
 		FDB4BE2D211D6BAE00D3B264 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FDBF9A4721240911001C2DAA /* DataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
 		FDBF9A49212414A9001C2DAA /* FavoriteList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteList.swift; sourceTree = "<group>"; };
+		FDC19BA9215D2D54007D9A95 /* NoDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoDataView.swift; sourceTree = "<group>"; };
 		FDC2A941212458F400A1E2FF /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		FDC3461A2136618E00F6D6FF /* MapSetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSetter.swift; sourceTree = "<group>"; };
 		FDC3461C2136708400F6D6FF /* AddressDatum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressDatum.swift; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 				FD66C2822158FD7700B4F823 /* MainTableViewFooter.swift */,
 				FDF8ABC3215B76B400DA74C9 /* MainTableViewHeader.swift */,
 				FDF8ABC5215B76FC00DA74C9 /* MainTableViewCell.swift */,
+				FDC19BA9215D2D54007D9A95 /* NoDataView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -718,6 +721,7 @@
 				FD91A1282154FB140073F4F7 /* MartMapView.swift in Sources */,
 				FD9F409C211EBFAF007D7F1B /* BranchRawData.swift in Sources */,
 				FDF8ABC6215B76FC00DA74C9 /* MainTableViewCell.swift in Sources */,
+				FDC19BAA215D2D54007D9A95 /* NoDataView.swift in Sources */,
 				FDC2A942212458F400A1E2FF /* Extensions.swift in Sources */,
 				FDB4BE22211D6BAD00D3B264 /* AppDelegate.swift in Sources */,
 				FDF8ABC2215B722800DA74C9 /* FavoriteBranch.swift in Sources */,
