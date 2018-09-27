@@ -83,7 +83,7 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate, NM
         homeButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
 
         let homeBarButton = UIBarButtonItem(customView: homeButton)
-        homeBarButton.tintColor = UIColor(named: AppColor.lightgray.description)
+        homeBarButton.tintColor = UIColor.appColor(color: .lightgray)
         self.navigationItem.setRightBarButtonItems([homeBarButton,starBarButton], animated: false)
 
     }
@@ -93,7 +93,7 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate, NM
         paragraphStyle.alignment = .center
         let customAttributes = [NSAttributedStringKey.paragraphStyle: paragraphStyle,
                                 NSAttributedStringKey.font: UIFont(name: "NanumSquareRoundOTF", size: fontSize)?.bold(),
-                                NSAttributedStringKey.foregroundColor: UIColor(named: AppColor.lightgray.description),
+                                NSAttributedStringKey.foregroundColor: UIColor.appColor(color: .lightgray),
                                 ]
         return customAttributes
     }

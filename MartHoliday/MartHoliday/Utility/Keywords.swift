@@ -68,24 +68,3 @@ enum Mart: String, KoreanName, JSONfile, URLHolder, CIImageHolder {
 
     static let allValues: [Mart] = [emart, lottemart, homeplus, homeplusExpress]
 }
-
-enum AppColor: CustomStringConvertible {
-    case lightgray
-    case midgray
-    case mint
-    case nany
-    case red
-    case yellow
-
-    var description: String {
-        switch self {
-        case .lightgray: return "mh-lightgray"
-        case .midgray: return "mh-midgray"
-        case .mint: return "mh-mint"
-        case .nany: return "mh-navy"
-        case .red: return "mh-red"
-        case .yellow: return "mh-yellow"
-        }
-    }
-}
-
