@@ -33,13 +33,14 @@ class MainViewController: UIViewController, FavoriteConvertible, HeaderDelegate,
     var slideOpenFlag: Bool?
     var favoriteList = BranchList()
     var favoriteData = [ExpandCollapseTogglable]()
+    var noDataView: UIView?
 
     // MARK: override functions
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setSlideBarNavigationButton()
-
+        setNoDataView()
         addSubViews()
         slideMenu.delegate = slideMenuManager
         slideMenu.dataSource = slideMenuManager
@@ -52,18 +53,18 @@ class MainViewController: UIViewController, FavoriteConvertible, HeaderDelegate,
     }
 
     private func setNoDataView() {
-        let noDataView = UIView(frame: self.view.frame)
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: noDataView.frame.width, height: 50))
+        noDataView = UIView(frame: self.view.frame)
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: noDataView!.frame.width, height: 50))
         label.text = "즐겨찾는 마트를 추가해주세요!"
         label.textAlignment = .center
         label.adjustsFontSizeToFitWidth = true
-        noDataView.addSubview(label)
+        noDataView!.addSubview(label)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.centerXAnchor.constraint(equalTo: noDataView.centerXAnchor).isActive = true
-        label.centerYAnchor.constraint(equalTo: noDataView.centerYAnchor).isActive = true
-        label.widthAnchor.constraint(equalTo: noDataView.widthAnchor, constant: 0.9).isActive = true
+        label.centerXAnchor.constraint(equalTo: noDataView!.centerXAnchor).isActive = true
+        label.centerYAnchor.constraint(equalTo: noDataView!.centerYAnchor).isActive = true
+        label.widthAnchor.constraint(equalTo: noDataView!.widthAnchor, constant: 0.9).isActive = true
         label.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        self.view.addSubview(noDataView)
+        self.view.addSubview(noDataView!)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -107,8 +108,11 @@ class MainViewController: UIViewController, FavoriteConvertible, HeaderDelegate,
 
     private func setTableView() {
         if FavoriteList.shared().isEmpty() {
-            setNoDataView()
+            tableView.alpha = 0
+            noDataView?.alpha = 1
         } else {
+            noDataView?.alpha = 0
+            tableView.alpha = 1
             tableView.delegate = self
             tableView.dataSource = self
             tableView.rowHeight = 44.0
