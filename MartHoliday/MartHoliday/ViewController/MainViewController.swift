@@ -13,12 +13,17 @@ protocol FavoriteConvertible {
     func fetchFavoriteBranch(handler: @escaping(()->Void))
 }
 
+protocol HeaderDelegate {
+    var favoriteData: [ExpandCollapseTogglable] { get set }
+    func selectHeader(index: Int)
+}
+
 protocol FooterDelegate {
     var favoriteData: [ExpandCollapseTogglable] { get set }
     func toggleFooter(index: Int)
 }
 
-class MainViewController: UIViewController, FavoriteConvertible, FooterDelegate {
+class MainViewController: UIViewController, FavoriteConvertible, HeaderDelegate, FooterDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     let slideMenuManager = SlideMenuManager()
@@ -50,6 +55,7 @@ class MainViewController: UIViewController, FavoriteConvertible, FooterDelegate 
         let noDataView = UIView(frame: self.view.frame)
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: noDataView.frame.width, height: 50))
         label.text = "즐겨찾는 마트를 추가해주세요!"
+        label.textAlignment = .center
         label.adjustsFontSizeToFitWidth = true
         noDataView.addSubview(label)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -118,6 +124,14 @@ class MainViewController: UIViewController, FavoriteConvertible, FooterDelegate 
         tableView.reloadSections([index], with: .automatic)
     }
 
+    func selectHeader(index: Int) {
+        guard let favorite = favoriteData[index] as? FavoriteBranch else { return }
+        let branch = favorite.branch
+        guard let nextVC = storyboard?.instantiateViewController(withIdentifier: "detailVC") as? DetailViewController else { return }
+        nextVC.branchData = branch
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
+
     private func loadFavoritesTableView() {
         fetchFavoriteBranch {
             DispatchQueue.main.async {
@@ -161,7 +175,7 @@ class MainViewController: UIViewController, FavoriteConvertible, FooterDelegate 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 59
+        return 50
     }
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -197,6 +211,8 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "mainHeader") as? MainTableViewHeader else { return nil }
         guard let branch = favoriteData[section] as? FavoriteBranch else { return nil }
+        headerView.sectionIndex = section
+        headerView.delegate = self
         headerView.name = branch.branchName()
         return headerView
     }

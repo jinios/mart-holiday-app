@@ -10,25 +10,19 @@ import UIKit
 
 class MainTableViewHeader: UITableViewHeaderFooterView {
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var arrowButton: UIButton!
+    @IBOutlet weak var containerView: UIView!
 
+    var sectionIndex: Int?
+    var delegate: HeaderDelegate?
+    
     var name: String! {
         didSet {
             self.nameLabel.text = name
         }
     }
 
-    var branch: Branch! {
-        didSet {
-            self.nameLabel.text = branch.displayName()
-        }
-    }
-
-    @IBOutlet weak var containerView: UIView!
-
     override func awakeFromNib() {
         super.awakeFromNib()
-        arrowButton.showsTouchWhenHighlighted = true
     }
 
     override init(reuseIdentifier: String?) {
@@ -41,11 +35,11 @@ class MainTableViewHeader: UITableViewHeaderFooterView {
 
     @IBAction func headerButtonTapped(_ sender: Any) {
         self.containerView.backgroundColor = UIColor(named: AppColor.mint.description)
+        delegate?.selectHeader(index: sectionIndex!)
     }
 
     override func prepareForReuse() {
         self.containerView.backgroundColor = UIColor.white
     }
-
 
 }
