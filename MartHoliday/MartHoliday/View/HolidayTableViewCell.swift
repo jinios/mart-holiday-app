@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol HeaderDelegate {
+protocol DetailHeaderDelegate {
     func toggleHeader()
 }
 
@@ -26,7 +26,7 @@ class HolidayTableViewCell: UITableViewCell {
 class HolidayHeaderCell: UITableViewCell {
 
     @IBOutlet weak var dateLabel: UILabel!
-    var delegate: HeaderDelegate?
+    var delegate: DetailHeaderDelegate?
 
     @IBAction func moreButtonTapped(_ sender: Any) {
         delegate?.toggleHeader()

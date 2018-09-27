@@ -254,7 +254,7 @@ extension DetailViewController: FavoriteTogglable {
 
 }
 
-extension DetailViewController: UITableViewDelegate, UITableViewDataSource, HeaderDelegate {
+extension DetailViewController: UITableViewDelegate, UITableViewDataSource, DetailHeaderDelegate {
 
     func toggleHeader() {
         self.isExpanded = !isExpanded
