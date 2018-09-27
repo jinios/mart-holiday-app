@@ -133,14 +133,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     private func setNavigationBar() {
         let fontAttributes = [
-            NSAttributedStringKey.foregroundColor: UIColor(named: AppColor.lightgray.description),
+            NSAttributedStringKey.foregroundColor: UIColor.appColor(color: .lightgray),
             NSAttributedStringKey.font: UIFont(name: "NanumSquareRoundOTF", size: UIFont.labelFontSize)
         ]
 
         //To change Navigation Bar Background Color
-        UINavigationBar.appearance().barTintColor = UIColor(named: AppColor.mint.description)
+        UINavigationBar.appearance().barTintColor = UIColor.appColor(color: .mint)
         //To change Back button title & icon color
-        UINavigationBar.appearance().tintColor = UIColor(named: AppColor.lightgray.description)
+        UINavigationBar.appearance().tintColor = UIColor.appColor(color: .lightgray)
         UINavigationBar.appearance().titleTextAttributes = fontAttributes
         UIBarButtonItem.appearance().setTitleTextAttributes(fontAttributes, for: .normal)
     }
