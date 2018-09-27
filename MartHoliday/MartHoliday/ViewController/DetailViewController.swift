@@ -69,7 +69,7 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate, NM
         self.navigationItem.title = branchData.branchName
         self.navigationItem.largeTitleDisplayMode = .always
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationController?.navigationBar.largeTitleTextAttributes = makeTextWithAttributes(fontSize: 30)
+        self.navigationController?.navigationBar.largeTitleTextAttributes = makeTextWithAttributes(fontSize: 29)
 
         starButton = StarBarButton()
         setStarButton()
@@ -83,7 +83,6 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate, NM
         homeButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
 
         let homeBarButton = UIBarButtonItem(customView: homeButton)
-        homeBarButton.tintColor = UIColor.appColor(color: .lightgray)
         self.navigationItem.setRightBarButtonItems([homeBarButton,starBarButton], animated: false)
 
     }
@@ -93,7 +92,7 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate, NM
         paragraphStyle.alignment = .center
         let customAttributes = [NSAttributedStringKey.paragraphStyle: paragraphStyle,
                                 NSAttributedStringKey.font: UIFont(name: "NanumSquareRoundOTF", size: fontSize)?.bold(),
-                                NSAttributedStringKey.foregroundColor: UIColor.appColor(color: .lightgray),
+                                NSAttributedStringKey.foregroundColor: UIColor.white,
                                 ]
         return customAttributes
     }
