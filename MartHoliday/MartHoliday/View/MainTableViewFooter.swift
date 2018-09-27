@@ -16,7 +16,6 @@ class MainTableViewFooter: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = UIColor(named: AppColor.lightgray.description)
         self.addSubview(button)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
