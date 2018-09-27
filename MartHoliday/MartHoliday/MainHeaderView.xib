@@ -33,7 +33,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PH3-da-0po">
-                            <rect key="frame" x="268" y="14" width="47" height="22"/>
+                            <rect key="frame" x="268" y="0.0" width="47" height="49"/>
                             <state key="normal" image="rightArrow"/>
                             <connections>
                                 <action selector="headerButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="Yo1-O4-gTf"/>
@@ -50,14 +50,15 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="PH3-da-0po" firstAttribute="width" secondItem="j33-Ac-cLU" secondAttribute="width" multiplier="0.15" id="1YW-nG-spX"/>
+                        <constraint firstItem="PH3-da-0po" firstAttribute="top" secondItem="j33-Ac-cLU" secondAttribute="top" id="9l3-IJ-c6t"/>
                         <constraint firstItem="jRe-ai-xlU" firstAttribute="width" secondItem="j33-Ac-cLU" secondAttribute="width" constant="0.90000000000000002" id="LRk-bR-jDo"/>
                         <constraint firstAttribute="trailing" secondItem="PH3-da-0po" secondAttribute="trailing" id="RhZ-Lm-cPL"/>
                         <constraint firstItem="d8a-ML-Bie" firstAttribute="centerY" secondItem="j33-Ac-cLU" secondAttribute="centerY" id="RjR-Zl-8HL"/>
                         <constraint firstAttribute="bottom" secondItem="jRe-ai-xlU" secondAttribute="bottom" id="SMY-tD-0Sb"/>
                         <constraint firstItem="PH3-da-0po" firstAttribute="leading" relation="lessThanOrEqual" secondItem="d8a-ML-Bie" secondAttribute="trailing" constant="10" id="sM8-kP-iWA"/>
-                        <constraint firstItem="PH3-da-0po" firstAttribute="top" secondItem="d8a-ML-Bie" secondAttribute="top" id="sjF-bC-Ucs"/>
                         <constraint firstItem="d8a-ML-Bie" firstAttribute="leading" secondItem="j33-Ac-cLU" secondAttribute="leading" constant="15" id="tfe-7w-f2s"/>
                         <constraint firstItem="jRe-ai-xlU" firstAttribute="centerX" secondItem="j33-Ac-cLU" secondAttribute="centerX" id="xhU-LO-E8Y"/>
+                        <constraint firstItem="jRe-ai-xlU" firstAttribute="top" secondItem="PH3-da-0po" secondAttribute="bottom" id="y7a-fG-ov8"/>
                     </constraints>
                 </view>
             </subviews>
@@ -71,7 +72,6 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
-                <outlet property="arrowButton" destination="PH3-da-0po" id="vrS-vg-sSe"/>
                 <outlet property="containerView" destination="j33-Ac-cLU" id="zic-ce-CBV"/>
                 <outlet property="nameLabel" destination="d8a-ML-Bie" id="lmV-8A-8gj"/>
             </connections>
