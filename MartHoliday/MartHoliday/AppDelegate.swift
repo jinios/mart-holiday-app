@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     private let appGroup = UserDefaults.init(suiteName: "group.jinios.martholiday")
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        window?.backgroundColor = .white
         setNavigationBar()
 
         FirebaseApp.configure()
