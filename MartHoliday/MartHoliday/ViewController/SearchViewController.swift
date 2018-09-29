@@ -40,7 +40,10 @@ class SearchViewController: UIViewController {
     private func setSearchController() {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "지점명을 입력하세요."
+        searchController.searchBar.searchBarStyle = .default
+
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = [NSAttributedStringKey.foregroundColor.rawValue: UIColor.white]
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).attributedPlaceholder = NSAttributedString(string: "지점명을 입력하세요.", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         definesPresentationContext = true
