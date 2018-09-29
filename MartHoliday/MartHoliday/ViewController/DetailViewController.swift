@@ -32,7 +32,7 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate, NM
         setAddress()
         setBusinessHour()
         setPhoneNumber()
-        setMapView()
+//        setMapView()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
@@ -51,7 +51,13 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate, NM
 
     var navBarDefalutColor: UIColor?
 
+    override func updateViewConstraints() {
+        super.updateViewConstraints()
+        tableViewHeight.constant = tableView.contentSize.height
+    }
+
     override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         tableViewHeight.constant = tableView.contentSize.height
     }
 
@@ -157,12 +163,18 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate, NM
             // set the application api key for Open MapViewer Library
             guard let keyInfo = MapSetter.loadNMapKeySet() else { return }
             guard let id = keyInfo.id as? String else { return }
-            mapView.setClientId(id)
-            mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            view.addSubview(mapView)
-            mapView.frame = mockUpMapview.frame
+//            mapView.setClientId(id)
+//            mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+//            mockUpMapview.addSubview(mapView)
+//            mapView.frame = mockUpMapview.bounds
 
-            mapView.setMapGesture(enable: false)
+//            mapView.setMapGesture(enable: false)
+//
+//            mapView.translatesAutoresizingMaskIntoConstraints = false
+//            mapView.topAnchor.constraint(equalTo: mockUpMapview.).
+
+
+
             mapView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapMapView)))
         }
     }
@@ -259,6 +271,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource, Deta
         self.isExpanded = !isExpanded
         tableView.reloadSections([0], with: .automatic)
         tableViewHeight.constant = tableView.contentSize.height
+        print(mockUpMapview.frame.height)
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
