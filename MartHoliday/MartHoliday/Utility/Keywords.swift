@@ -22,6 +22,7 @@ protocol URLHolder {
 
 protocol CIImageHolder {
     var imageName: String { get }
+    var grayImageName: String { get }
 }
 
 enum Mart: String, KoreanName, JSONfile, URLHolder, CIImageHolder {
@@ -63,6 +64,15 @@ enum Mart: String, KoreanName, JSONfile, URLHolder, CIImageHolder {
         case .lottemart: return "lottemart-ci"
         case .homeplus: return "homeplus-ci"
         case .homeplusExpress: return "homeplus-express-ci"
+        }
+    }
+
+    var grayImageName: String {
+        switch self {
+        case .emart: return "emart-ci-gray"
+        case .lottemart: return "lottemart-ci-gray"
+        case .homeplus: return "homeplus-ci-gray"
+        case .homeplusExpress: return "homeplus-express-ci-gray"
         }
     }
 
