@@ -14,10 +14,12 @@ class MartSelectViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor.appColor(color: .lightgray)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
-        self.navigationItem.title = "마트 선택"
+        tableView.backgroundColor = UIColor.appColor(color: .lightgray)
+        self.navigationItem.title = "마트 검색"
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,6 +38,9 @@ class MartSelectViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.prefersLargeTitles = false
+        if let indexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
     }
 
 }
@@ -45,7 +50,9 @@ extension MartSelectViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let marts = Mart.allValues
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "selectionCell", for: indexPath) as? SelectionTableViewCell else { return UITableViewCell() }
-        cell.selectionStyle = .none
+        let background = UIView()
+        background.backgroundColor = UIColor.appColor(color: .lightgray)
+        cell.selectedBackgroundView = background
         cell.data = marts[indexPath.row]
         cell.setImage()
         return cell

@@ -30,13 +30,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="검색할 마트를 선택하세요 :)" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oT5-EJ-aJk">
-                                <rect key="frame" x="91" y="50" width="193.5" height="19"/>
+                                <rect key="frame" x="91" y="45" width="193.5" height="19"/>
                                 <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IU9-qB-wNQ">
-                                <rect key="frame" x="0.0" y="99" width="375" height="568"/>
+                                <rect key="frame" x="0.0" y="84" width="375" height="583"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="selectionCell" rowHeight="150" id="ssu-MQ-wtR" customClass="SelectionTableViewCell" customModule="MartHoliday" customModuleProvider="target">
@@ -46,28 +46,19 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="149.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3sE-Z3-leP" userLabel="outerView">
-                                                    <rect key="frame" x="10" y="10" width="355" height="129"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </view>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="g76-Ld-He3">
-                                                    <rect key="frame" x="10" y="10" width="355" height="129.5"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="g76-Ld-He3">
+                                                    <rect key="frame" x="10" y="0.0" width="355" height="139.5"/>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="3sE-Z3-leP" secondAttribute="trailing" constant="10" id="1ia-4s-gt5"/>
                                                 <constraint firstAttribute="bottom" secondItem="g76-Ld-He3" secondAttribute="bottom" constant="10" id="4nC-vN-m2n"/>
-                                                <constraint firstItem="3sE-Z3-leP" firstAttribute="leading" secondItem="HBo-hr-gZ4" secondAttribute="leading" constant="10" id="AxO-Wj-FKk"/>
                                                 <constraint firstAttribute="trailing" secondItem="g76-Ld-He3" secondAttribute="trailing" constant="10" id="BSE-h4-1Sk"/>
                                                 <constraint firstItem="g76-Ld-He3" firstAttribute="leading" secondItem="HBo-hr-gZ4" secondAttribute="leading" constant="10" id="K2H-wS-zA8"/>
-                                                <constraint firstItem="g76-Ld-He3" firstAttribute="top" secondItem="HBo-hr-gZ4" secondAttribute="top" constant="10" id="M7h-r5-MBm"/>
-                                                <constraint firstAttribute="bottom" secondItem="3sE-Z3-leP" secondAttribute="bottom" constant="10" id="ZsV-fI-zsP"/>
-                                                <constraint firstItem="3sE-Z3-leP" firstAttribute="top" secondItem="HBo-hr-gZ4" secondAttribute="top" constant="10" id="kkr-O5-SqY"/>
+                                                <constraint firstItem="g76-Ld-He3" firstAttribute="top" secondItem="HBo-hr-gZ4" secondAttribute="top" id="M7h-r5-MBm"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="martImage" destination="g76-Ld-He3" id="cbB-Zp-S06"/>
-                                            <outlet property="outerView" destination="3sE-Z3-leP" id="Ifr-O3-MVl"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -77,10 +68,10 @@
                         <constraints>
                             <constraint firstItem="IU9-qB-wNQ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Dub-VB-za3"/>
                             <constraint firstItem="IU9-qB-wNQ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="FV8-zi-Xrt"/>
-                            <constraint firstItem="IU9-qB-wNQ" firstAttribute="top" secondItem="oT5-EJ-aJk" secondAttribute="bottom" constant="30" id="G3A-AP-rZK"/>
                             <constraint firstItem="oT5-EJ-aJk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="XZU-zi-fTt"/>
+                            <constraint firstItem="IU9-qB-wNQ" firstAttribute="top" secondItem="oT5-EJ-aJk" secondAttribute="bottom" constant="20" id="p4c-wJ-Pm4"/>
                             <constraint firstItem="IU9-qB-wNQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="pEy-7I-i1G"/>
-                            <constraint firstItem="oT5-EJ-aJk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="yfT-OB-cc7"/>
+                            <constraint firstItem="oT5-EJ-aJk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="yfT-OB-cc7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
