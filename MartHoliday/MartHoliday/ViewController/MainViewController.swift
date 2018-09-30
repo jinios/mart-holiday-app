@@ -61,7 +61,7 @@ class MainViewController: UIViewController, FavoriteConvertible, HeaderDelegate,
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.prefersLargeTitles = false
-        self.navigationItem.title = "마트휴무알리미"
+        self.navigationItem.title = "마트쉬는날"
         setTableView()
     }
 
@@ -80,7 +80,7 @@ class MainViewController: UIViewController, FavoriteConvertible, HeaderDelegate,
         }
 
         let slideWidth = self.view.frame.width/2
-        let slideHeight = (self.view.frame.height - topSafeArea - bottomSafeArea)
+        let slideHeight = (self.view.frame.height - topSafeArea)
 
         self.slidetopView.frame = CGRect(x: -(slideWidth), y: topSafeArea, width: slideWidth, height: slideHeight/7)
         self.slideMenu.frame = CGRect(x: -(slideWidth), y: slidetopView.frame.maxY, width: slideWidth, height: (slideHeight*6)/7)
