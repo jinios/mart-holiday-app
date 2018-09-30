@@ -19,6 +19,7 @@ class TodayExtensionTableViewCell: UITableViewCell {
 
     func setData(branch: Branch) {
         setDateButton()
+        branchTitle.adjustsFontSizeToFitWidth = true
         self.branchTitle.text = branch.displayName()
         guard let holiday = branch.holidays.first else {
             self.dateButton.setTitle("정보가 없습니다:(", for: .normal)
@@ -31,8 +32,8 @@ class TodayExtensionTableViewCell: UITableViewCell {
         dateButton.contentEdgeInsets = UIEdgeInsets(top: 3, left: 5, bottom: 3, right: 5)
         dateButton.layer.cornerRadius = 7.0
         dateButton.clipsToBounds = true
-        dateButton.backgroundColor = UIColor(named: "mh-navy")
-        dateButton.titleLabel?.textColor = UIColor.white
+        dateButton.backgroundColor = UIColor(named: "mh-mint")
+        dateButton.titleLabel?.textColor = UIColor.black
         dateButton.isUserInteractionEnabled = false
     }
 
