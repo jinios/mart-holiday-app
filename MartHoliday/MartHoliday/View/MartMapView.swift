@@ -11,15 +11,21 @@ import UIKit
 class MartMapDelegate: NSObject, NMapViewDelegate, NMapPOIdataOverlayDelegate {
 
     var addressToShow: String
+    var centerPoint: GeoPoint?
+    var mapView: NMapView?
 
     init(address: String) {
         self.addressToShow = address
     }
 
     func onMapView(_ mapView: NMapView!, initHandler error: NMapError!) {
+        print(mapView)
+        print(self)
         if (error == nil) {
             MapSetter.tryGeoRequestTask(address: addressToShow) { geo in
                 DispatchQueue.main.async {
+                    self.centerPoint = geo
+                    self.mapView = mapView
                     mapView.showMarker(at: geo)
                     mapView.setCenter(point: geo)
                     mapView.setMapEnlarged(true, mapHD: true)
@@ -29,6 +35,12 @@ class MartMapDelegate: NSObject, NMapViewDelegate, NMapPOIdataOverlayDelegate {
         } else { // fail
             print("onMapView:initHandler: \(error.description)")
         }
+    }
+
+    func setMapCenter() {
+        guard let mapView = mapView else { return }
+        guard let centerPoint = centerPoint else { return }
+        mapView.setCenter(point: centerPoint)
     }
 
 
@@ -55,22 +67,10 @@ class MartMapDelegate: NSObject, NMapViewDelegate, NMapPOIdataOverlayDelegate {
 
 extension NMapView {
 
-    convenience init(customFrame: CGRect) {
-        self.init(frame: customFrame)
-        guard let keyInfo = MapSetter.loadNMapKeySet() else { return }
-        guard let id = keyInfo.id as? String else { return }
-        self.setClientId(id)
-        self.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-    }
-
     func setMapGesture(enable: Bool) {
         self.setPanEnabled(enable)
         self.setZoomEnabled(enable)
         self.isMultipleTouchEnabled = enable
-    }
-
-    func setDelegate(_ customDelegate: NMapPOIdataOverlayDelegate & NMapViewDelegate) {
-        self.delegate = customDelegate
     }
 
     func setCenter(point: GeoPoint) {

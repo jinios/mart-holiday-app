@@ -9,7 +9,7 @@
 import UIKit
 import SafariServices
 
-class DetailViewController: UIViewController, SFSafariViewControllerDelegate, NMapViewDelegate, NMapPOIdataOverlayDelegate {
+class DetailViewController: UIViewController, SFSafariViewControllerDelegate, MartMapViewHolder {
 
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
 
@@ -25,14 +25,16 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate, NM
     var isExpanded = false
     var branchData: Branch?
     var mapView : NMapView?
+    var mapViewDelegate: MartMapDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        mapViewDelegate = MartMapDelegate(address: branchData!.address)
         setNavigationItem()
         setAddress()
         setBusinessHour()
         setPhoneNumber()
-//        setMapView()
+        setMapView()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
@@ -42,6 +44,7 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate, NM
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.prefersLargeTitles = true
         mapView?.viewWillAppear()
+        mapViewDelegate.setMapCenter()
     }
 
     override func viewDidDisappear(_ animated: Bool) {
@@ -49,15 +52,8 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate, NM
         mapView?.viewDidDisappear()
     }
 
-    var navBarDefalutColor: UIColor?
-
     override func updateViewConstraints() {
         super.updateViewConstraints()
-        tableViewHeight.constant = tableView.contentSize.height
-    }
-
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
         tableViewHeight.constant = tableView.contentSize.height
     }
 
@@ -156,25 +152,19 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate, NM
 
     private func setMapView() {
         mapView = NMapView()
+
         if let mapView = mapView {
             // set the delegate for map view
-            mapView.delegate = self
+            mapView.delegate = mapViewDelegate
 
             // set the application api key for Open MapViewer Library
             guard let keyInfo = MapSetter.loadNMapKeySet() else { return }
             guard let id = keyInfo.id as? String else { return }
-//            mapView.setClientId(id)
-//            mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-//            mockUpMapview.addSubview(mapView)
-//            mapView.frame = mockUpMapview.bounds
-
-//            mapView.setMapGesture(enable: false)
-//
-//            mapView.translatesAutoresizingMaskIntoConstraints = false
-//            mapView.topAnchor.constraint(equalTo: mockUpMapview.).
-
-
-
+            mapView.setClientId(id)
+            mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            mockUpMapview.addSubview(mapView)
+            mapView.frame = mockUpMapview.bounds
+            mapView.setMapGesture(enable: false)
             mapView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapMapView)))
         }
     }
@@ -184,67 +174,6 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate, NM
         guard let branchData = self.branchData else { return }
         nextVC.addressToShow = branchData.address
         self.navigationController?.pushViewController(nextVC, animated: true)
-    }
-
-    private func setMapCenter(point: GeoPoint) {
-        let x = point.x
-        let y = point.y
-        mapView!.setMapCenter(NGeoPoint(longitude:x, latitude:y), atLevel:12)
-    }
-
-    private func showMapMarker(point: GeoPoint) {
-        let x = point.x
-        let y = point.y
-
-        if let mapOverlayManager = mapView?.mapOverlayManager {
-
-            if let poiDataOverlay = mapOverlayManager.newPOIdataOverlay() {
-
-                poiDataOverlay.initPOIdata(1)
-
-                poiDataOverlay.addPOIitem(atLocation: NGeoPoint(longitude: x, latitude: y), title: branchData!.branchName, type: UserPOIflagTypeDefault, iconIndex: 0, with: nil)
-
-                poiDataOverlay.endPOIdata()
-                poiDataOverlay.showAllPOIdata()
-            }
-        }
-    }
-
-    // MARK: NMapViewDelegate
-
-    public func onMapView(_ mapView: NMapView!, initHandler error: NMapError!) {
-        if (error == nil) { // success
-            // set map center and level
-            guard let branchData = self.branchData else { return }
-            MapSetter.tryGeoRequestTask(address: branchData.address) { geo in
-                DispatchQueue.main.async {
-                    self.showMapMarker(point: geo)
-                    self.setMapCenter(point: geo)
-                    mapView.setMapEnlarged(true, mapHD: true)
-                    mapView.mapViewMode = .vector
-                }
-            }
-        } else { // fail
-            print("onMapView:initHandler: \(error.description)")
-        }
-    }
-
-    // MARK: NMapPOIdataOverlayDelegate
-
-    open func onMapOverlay(_ poiDataOverlay: NMapPOIdataOverlay!, imageForOverlayItem poiItem: NMapPOIitem!, selected: Bool) -> UIImage! {
-        return NMapViewResources.imageWithType(poiItem.poiFlagType, selected: selected)
-    }
-
-    open func onMapOverlay(_ poiDataOverlay: NMapPOIdataOverlay!, anchorPointWithType poiFlagType: NMapPOIflagType) -> CGPoint {
-        return NMapViewResources.anchorPoint(withType: poiFlagType)
-    }
-
-    open func onMapOverlay(_ poiDataOverlay: NMapPOIdataOverlay!, calloutOffsetWithType poiFlagType: NMapPOIflagType) -> CGPoint {
-        return CGPoint(x: 0, y: 0)
-    }
-
-    open func onMapOverlay(_ poiDataOverlay: NMapPOIdataOverlay!, imageForCalloutOverlayItem poiItem: NMapPOIitem!, constraintSize: CGSize, selected: Bool, imageForCalloutRightAccessory: UIImage!, calloutPosition: UnsafeMutablePointer<CGPoint>!, calloutHit calloutHitRect: UnsafeMutablePointer<CGRect>!) -> UIImage! {
-        return nil
     }
 
 }
@@ -271,7 +200,6 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource, Deta
         self.isExpanded = !isExpanded
         tableView.reloadSections([0], with: .automatic)
         tableViewHeight.constant = tableView.contentSize.height
-        print(mockUpMapview.frame.height)
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
