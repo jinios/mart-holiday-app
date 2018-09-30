@@ -8,14 +8,29 @@
 
 import UIKit
 
-class HolidayHeaderView: UIView {
+class HolidayHeaderView: UITableViewHeaderFooterView {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var dateLabel: UILabel!
+    var delegate: DetailHeaderDelegate?
+
+    func set(holiday: String?) {
+        dateLabel.text = holiday ?? "정보가 없습니다 :("
+        setButton()
     }
-    */
+
+    private func setButton() {
+        button.setImage(UIImage(named: "downArrow"), for: .normal)
+        button.setImage(UIImage(named: "upArrow"), for: .selected)
+    }
+
+    @IBAction func tapButton(_ sender: Any) {
+        delegate?.toggleHeader()
+    }
+
+    func setExpand(state: Bool) {
+        self.button.isSelected = state
+    }
 
 }
