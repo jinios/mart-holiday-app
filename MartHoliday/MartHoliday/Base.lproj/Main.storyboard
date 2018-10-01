@@ -223,7 +223,7 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="XxV-BH-eMm">
                                                                 <rect key="frame" x="0.0" y="0.0" width="41.5" height="60"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CLp-u5-Q4w">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CLp-u5-Q4w" customClass="StarCircleButton" customModule="MartHoliday" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="41.5" height="40.5"/>
                                                                         <state key="normal" image="star"/>
                                                                         <connections>
@@ -405,6 +405,7 @@
                         <outlet property="businessHour" destination="wf3-kj-MA8" id="7ET-Pm-dWm"/>
                         <outlet property="mockUpMapview" destination="EPP-nl-lMa" id="bYw-Ff-2OO"/>
                         <outlet property="phoneNumberLabel" destination="Cdv-Ua-B8c" id="5zc-7Z-MTg"/>
+                        <outlet property="starCircleButton" destination="CLp-u5-Q4w" id="kg7-W2-JL4"/>
                         <outlet property="tableView" destination="970-Km-ZJW" id="hhl-ld-Lvq"/>
                         <outlet property="tableViewHeight" destination="FKq-BY-EwQ" id="8Yv-op-wm0"/>
                     </connections>

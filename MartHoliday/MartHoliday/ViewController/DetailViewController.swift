@@ -17,6 +17,7 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate, Ma
     @IBOutlet weak var phoneNumberLabel: UILabel!
     @IBOutlet weak var address: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var starCircleButton: StarCircleButton!
     var starButton: StarButton!
     var mapView : NMapView?
     var mapViewDelegate: MartMapDelegate!
@@ -189,13 +190,16 @@ extension DetailViewController: FavoriteTogglable {
         guard let branchData = self.branchData else { return }
         guard branchData.toggleFavorite() else { return }
         starButton.toggleState()
+        starCircleButton.toggleState()
         hapticGenerator.impactOccurred()
     }
 
     func setStarButton() {
         guard let branchData = self.branchData else { return }
         starButton.isSelected = branchData.favorite
+        starCircleButton.isSelected = branchData.favorite
         starButton.setImage()
+        starCircleButton.setImage()
     }
 
 }
