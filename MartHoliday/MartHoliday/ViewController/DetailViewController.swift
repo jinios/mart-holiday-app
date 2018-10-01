@@ -28,6 +28,7 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate, Ma
         }
     }
     var holidayDatum: ExpandCollapseTogglable?
+    let hapticGenerator = UIImpactFeedbackGenerator(style: .medium)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -188,6 +189,7 @@ extension DetailViewController: FavoriteTogglable {
         guard let branchData = self.branchData else { return }
         guard branchData.toggleFavorite() else { return }
         starButton.toggleState()
+        hapticGenerator.impactOccurred()
     }
 
     func setStarButton() {

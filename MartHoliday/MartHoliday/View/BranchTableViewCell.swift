@@ -13,6 +13,7 @@ class BranchTableViewCell: UITableViewCell {
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var address: UILabel!
     @IBOutlet weak var starButton: StarButton!
+    let hapticGenerator = UIImpactFeedbackGenerator(style: .medium)
 
     var branchData: Branch? {
         didSet {
@@ -58,6 +59,7 @@ extension BranchTableViewCell: FavoriteTogglable {
         guard let branchData = self.branchData else { return }
         guard branchData.toggleFavorite() else { return }
         self.starButton.toggleState()
+        hapticGenerator.impactOccurred()
     }
 
     func setStarButton() {

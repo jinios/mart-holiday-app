@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17756F275E7B6ED3312453CE /* Pods_MartHoliday.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD85986A214BFAC400C1A3E2 /* Pods_MartHoliday.framework */; };
 		460B7E50883D5C58F79DDD97 /* Pods_MartHoliday.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 911AAA1B6BE368358930D098 /* Pods_MartHoliday.framework */; };
 		4D644265BB133FC0E727B5D4 /* Pods_MartHolidayTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A65D9831135D5A77156023F /* Pods_MartHolidayTests.framework */; };
 		FD0202852146559B0083BE22 /* DataDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409D211EC0C8007D7F1B /* DataDecoder.swift */; };
@@ -53,7 +54,6 @@
 		FD85985E214BE9FA00C1A3E2 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD85985D214BE9FA00C1A3E2 /* TodayViewController.swift */; };
 		FD859861214BE9FA00C1A3E2 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD85985F214BE9FA00C1A3E2 /* MainInterface.storyboard */; };
 		FD859865214BE9FA00C1A3E2 /* MartHolidayTodayExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = FD859859214BE9FA00C1A3E2 /* MartHolidayTodayExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		FD85986B214BFAC400C1A3E2 /* Pods_MartHoliday.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD85986A214BFAC400C1A3E2 /* Pods_MartHoliday.framework */; };
 		FD859876214C000500C1A3E2 /* FavoriteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBF9A49212414A9001C2DAA /* FavoriteList.swift */; };
 		FD859877214C005700C1A3E2 /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBF9A4721240911001C2DAA /* DataStorage.swift */; };
 		FD85987A214C0D7D00C1A3E2 /* TodayExtensionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD859879214C0D7D00C1A3E2 /* TodayExtensionTableViewCell.swift */; };
@@ -233,7 +233,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD85986B214BFAC400C1A3E2 /* Pods_MartHoliday.framework in Frameworks */,
 				FD85985B214BE9FA00C1A3E2 /* NotificationCenter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -245,6 +244,7 @@
 				FD3B64292121BEDD003C1332 /* NMapViewerSDK.framework in Frameworks */,
 				FD3B64242121BEAA003C1332 /* ApiGatewayMac.framework in Frameworks */,
 				460B7E50883D5C58F79DDD97 /* Pods_MartHoliday.framework in Frameworks */,
+				17756F275E7B6ED3312453CE /* Pods_MartHoliday.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
