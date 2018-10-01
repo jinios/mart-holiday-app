@@ -13,9 +13,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="NanumSquareRoundOTFB.otf">
-            <string>NanumSquareRoundOTFB</string>
-        </array>
         <array key="NanumSquareRoundOTFR.otf">
             <string>NanumSquareRoundOTFR</string>
         </array>
@@ -191,68 +188,15 @@
                                                     <constraint firstAttribute="height" constant="200" id="FKq-BY-EwQ"/>
                                                 </constraints>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="headerCell" rowHeight="80" id="wn9-Ah-iwn" customClass="HolidayHeaderCell" customModule="MartHoliday" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="28" width="375" height="80"/>
-                                                        <autoresizingMask key="autoresizingMask"/>
-                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wn9-Ah-iwn" id="YbA-af-8Kc">
-                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                            <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nFc-YE-hkV">
-                                                                    <rect key="frame" x="330" y="29" width="20" height="22"/>
-                                                                    <state key="normal" image="downArrow"/>
-                                                                    <connections>
-                                                                        <action selector="moreButtonTapped:" destination="wn9-Ah-iwn" eventType="touchUpInside" id="h2Q-DQ-d15"/>
-                                                                    </connections>
-                                                                </button>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZoB-x9-mqp">
-                                                                    <rect key="frame" x="20" y="40" width="205" height="21"/>
-                                                                    <fontDescription key="fontDescription" name="NanumSquareRoundOTFB" family="NanumSquareRoundOTF" pointSize="19"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="휴무일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dRF-S3-WpA">
-                                                                    <rect key="frame" x="20" y="11" width="90" height="18"/>
-                                                                    <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="16"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xvL-3C-bCy" userLabel="belowBar">
-                                                                    <rect key="frame" x="18.5" y="69" width="337" height="1"/>
-                                                                    <color key="backgroundColor" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="1" id="CCg-X1-iS3"/>
-                                                                    </constraints>
-                                                                </view>
-                                                            </subviews>
-                                                            <constraints>
-                                                                <constraint firstItem="dRF-S3-WpA" firstAttribute="top" secondItem="YbA-af-8Kc" secondAttribute="topMargin" id="0lk-Qj-LcE"/>
-                                                                <constraint firstItem="xvL-3C-bCy" firstAttribute="width" secondItem="YbA-af-8Kc" secondAttribute="width" multiplier="0.9" id="3ZP-yy-Qeg"/>
-                                                                <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="dRF-S3-WpA" secondAttribute="trailing" constant="250" id="DHQ-1R-ELl"/>
-                                                                <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="ZoB-x9-mqp" secondAttribute="trailing" constant="150" id="GFz-xn-zZi"/>
-                                                                <constraint firstAttribute="bottomMargin" secondItem="nFc-YE-hkV" secondAttribute="bottom" constant="18" id="N1K-w8-7Ny"/>
-                                                                <constraint firstItem="nFc-YE-hkV" firstAttribute="top" secondItem="YbA-af-8Kc" secondAttribute="topMargin" constant="18" id="OFD-Qd-G0g"/>
-                                                                <constraint firstItem="xvL-3C-bCy" firstAttribute="centerX" secondItem="YbA-af-8Kc" secondAttribute="centerX" id="Y49-F9-JuJ"/>
-                                                                <constraint firstItem="xvL-3C-bCy" firstAttribute="top" secondItem="ZoB-x9-mqp" secondAttribute="bottom" constant="8" id="hMe-ed-TqY"/>
-                                                                <constraint firstItem="ZoB-x9-mqp" firstAttribute="leading" secondItem="YbA-af-8Kc" secondAttribute="leadingMargin" constant="5" id="kVC-u3-hPS"/>
-                                                                <constraint firstAttribute="trailingMargin" secondItem="nFc-YE-hkV" secondAttribute="trailing" constant="10" id="qxn-hN-agq"/>
-                                                                <constraint firstItem="dRF-S3-WpA" firstAttribute="leading" secondItem="YbA-af-8Kc" secondAttribute="leadingMargin" constant="5" id="wqw-xS-WeY"/>
-                                                                <constraint firstItem="ZoB-x9-mqp" firstAttribute="top" secondItem="dRF-S3-WpA" secondAttribute="bottom" constant="11" id="yXJ-hH-UUg"/>
-                                                            </constraints>
-                                                        </tableViewCellContentView>
-                                                        <connections>
-                                                            <outlet property="dateLabel" destination="ZoB-x9-mqp" id="X7g-cN-C7m"/>
-                                                        </connections>
-                                                    </tableViewCell>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="dateCell" rowHeight="35" id="ppU-sH-JYg" customClass="HolidayTableViewCell" customModule="MartHoliday" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="108" width="375" height="35"/>
+                                                        <rect key="frame" x="0.0" y="28" width="375" height="35"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ppU-sH-JYg" id="l3J-Mw-sST">
                                                             <rect key="frame" x="0.0" y="0.0" width="375" height="34.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fM5-h6-WFW">
-                                                                    <rect key="frame" x="20" y="8" width="205" height="19"/>
+                                                                    <rect key="frame" x="30" y="8" width="195" height="19"/>
                                                                     <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -261,7 +205,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="fM5-h6-WFW" secondAttribute="trailing" constant="135" id="CNH-NB-3JJ"/>
                                                                 <constraint firstItem="fM5-h6-WFW" firstAttribute="centerY" secondItem="l3J-Mw-sST" secondAttribute="centerY" id="fc8-0o-tdQ"/>
-                                                                <constraint firstItem="fM5-h6-WFW" firstAttribute="leading" secondItem="l3J-Mw-sST" secondAttribute="leadingMargin" constant="5" id="jwa-qb-GAG"/>
+                                                                <constraint firstItem="fM5-h6-WFW" firstAttribute="leading" secondItem="l3J-Mw-sST" secondAttribute="leading" constant="30" id="jwa-qb-GAG"/>
                                                             </constraints>
                                                         </tableViewCellContentView>
                                                         <connections>
@@ -549,7 +493,6 @@
     </scenes>
     <resources>
         <image name="call-circle" width="40" height="40"/>
-        <image name="downArrow" width="20" height="20"/>
         <image name="emptyStar" width="64" height="64"/>
         <image name="safari-circle" width="40" height="40"/>
         <image name="star" width="40" height="40"/>

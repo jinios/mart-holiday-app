@@ -21,19 +21,3 @@ class HolidayTableViewCell: UITableViewCell {
     }
 
 }
-
-
-class HolidayHeaderCell: UITableViewCell {
-
-    @IBOutlet weak var dateLabel: UILabel!
-    var delegate: DetailHeaderDelegate?
-
-    @IBAction func moreButtonTapped(_ sender: Any) {
-        delegate?.toggleHeader()
-    }
-
-    func set(holiday: String?) {
-        dateLabel.text = holiday ?? "정보가 없습니다 :("
-    }
-
-}

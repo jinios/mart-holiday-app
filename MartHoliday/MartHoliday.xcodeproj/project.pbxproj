@@ -47,6 +47,8 @@
 		FD7BC8D1215620FF002BE5EA /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7BC8D0215620FF002BE5EA /* MapViewController.swift */; };
 		FD7DA866214981DB0070B25B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD7DA865214981DA0070B25B /* GoogleService-Info.plist */; };
 		FD80CE212160D70100C16150 /* MartMapDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD80CE202160D70100C16150 /* MartMapDelegate.swift */; };
+		FD80CE292161241D00C16150 /* DetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD80CE282161241D00C16150 /* DetailHeaderView.xib */; };
+		FD80CE2B21612BAE00C16150 /* HolidayHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD80CE2A21612BAE00C16150 /* HolidayHeaderView.swift */; };
 		FD85985B214BE9FA00C1A3E2 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD85985A214BE9FA00C1A3E2 /* NotificationCenter.framework */; };
 		FD85985E214BE9FA00C1A3E2 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD85985D214BE9FA00C1A3E2 /* TodayViewController.swift */; };
 		FD859861214BE9FA00C1A3E2 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD85985F214BE9FA00C1A3E2 /* MainInterface.storyboard */; };
@@ -173,6 +175,8 @@
 		FD7BC8D0215620FF002BE5EA /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		FD7DA865214981DA0070B25B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FD80CE202160D70100C16150 /* MartMapDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MartMapDelegate.swift; sourceTree = "<group>"; };
+		FD80CE282161241D00C16150 /* DetailHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailHeaderView.xib; sourceTree = "<group>"; };
+		FD80CE2A21612BAE00C16150 /* HolidayHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayHeaderView.swift; sourceTree = "<group>"; };
 		FD859859214BE9FA00C1A3E2 /* MartHolidayTodayExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MartHolidayTodayExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD85985A214BE9FA00C1A3E2 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		FD85985D214BE9FA00C1A3E2 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -279,6 +283,7 @@
 				FDF8058221315DC200B22356 /* HolidaysCell.swift */,
 				FD4DDC8F21412294004E981F /* SelectionTableViewCell.swift */,
 				FD5E63F82153C8F400DC082A /* HolidayTableViewCell.swift */,
+				FD80CE2A21612BAE00C16150 /* HolidayHeaderView.swift */,
 				FD66C2822158FD7700B4F823 /* MainTableViewFooter.swift */,
 				FDF8ABC3215B76B400DA74C9 /* MainTableViewHeader.swift */,
 				FDF8ABC5215B76FC00DA74C9 /* MainTableViewCell.swift */,
@@ -403,6 +408,7 @@
 				FD9F40A2211ECB26007D7F1B /* Utility */,
 				FDAF601A21273D9F0006B68A /* fonts */,
 				FDB4BE25211D6BAD00D3B264 /* Main.storyboard */,
+				FD80CE282161241D00C16150 /* DetailHeaderView.xib */,
 				FD4850F521287AFE0064747A /* SlideMenuCellView.xib */,
 				FD1B4F242126C0FA00946311 /* SlideMenuView.xib */,
 				FD66C2802158F6F800B4F823 /* MainHeaderView.xib */,
@@ -568,6 +574,7 @@
 				FDAF602121273E880006B68A /* NanumSquareRoundOTFR.otf in Resources */,
 				FDB4BE2C211D6BAE00D3B264 /* LaunchScreen.storyboard in Resources */,
 				FD52566F21353C9C0014070E /* KeyInfo.plist in Resources */,
+				FD80CE292161241D00C16150 /* DetailHeaderView.xib in Resources */,
 				FDAF601F21273E880006B68A /* NanumSquareRoundOTFL.otf in Resources */,
 				FDB4BE29211D6BAE00D3B264 /* Assets.xcassets in Resources */,
 				FDB4BE27211D6BAD00D3B264 /* Main.storyboard in Resources */,
@@ -703,6 +710,7 @@
 				FDBF9A4821240911001C2DAA /* DataStorage.swift in Sources */,
 				FD1B4F212126BB8B00946311 /* SlideBackgroundView.swift in Sources */,
 				FD9F40A0211EC5EA007D7F1B /* Keywords.swift in Sources */,
+				FD80CE2B21612BAE00C16150 /* HolidayHeaderView.swift in Sources */,
 				FDC3461D2136708400F6D6FF /* AddressDatum.swift in Sources */,
 				FDB4BE24211D6BAD00D3B264 /* MartSelectViewController.swift in Sources */,
 				FDF8ABC4215B76B400DA74C9 /* MainTableViewHeader.swift in Sources */,

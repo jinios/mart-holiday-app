@@ -38,6 +38,8 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate, Ma
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
+        tableView.register(UINib(nibName: "DetailHeaderView", bundle: nil),forHeaderFooterViewReuseIdentifier: "detailHeader")
+
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -231,13 +233,15 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource, Deta
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard let branchData = branchData else { return UIView() }
-        let view = tableView.dequeueReusableCell(withIdentifier: "headerCell") as! HolidayHeaderCell
+        guard let branchData = branchData else { return nil }
+        guard let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: "detailHeader") as? HolidayHeaderView else { return nil }
         view.delegate = self
         view.set(holiday: branchData.holidays.isEmpty ? nil:branchData.holidays[0])
-        let contentView = view.contentView
-        contentView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapHeader)))
-        return contentView
+
+        let state = self.isExpanded
+        view.setExpand(state: state)
+
+        return view
     }
 
     @objc func tapHeader() {

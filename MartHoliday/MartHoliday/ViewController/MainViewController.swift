@@ -16,6 +16,7 @@ protocol FavoriteConvertible {
 protocol HeaderDelegate {
     var favoriteData: [ExpandCollapseTogglable] { get set }
     func selectHeader(index: Int)
+
 }
 
 protocol FooterDelegate {
@@ -114,7 +115,6 @@ class MainViewController: UIViewController, FavoriteConvertible, HeaderDelegate,
     }
 
     func toggleFooter(index: Int) {
-        print("푸터 인덱스 번호: \(index)")
         favoriteData[index].toggleExpand()
         tableView.reloadSections([index], with: .automatic)
     }
