@@ -12,20 +12,22 @@ import SafariServices
 class DetailViewController: UIViewController, SFSafariViewControllerDelegate, MartMapViewHolder {
 
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
-
-    @IBOutlet weak var detailScrollView: UIScrollView!
-    @IBOutlet weak var detailContentView: UIView!
-
     @IBOutlet weak var mockUpMapview: UIView!
     @IBOutlet weak var businessHour: UILabel!
     @IBOutlet weak var phoneNumberLabel: UILabel!
     @IBOutlet weak var address: UILabel!
     @IBOutlet weak var tableView: UITableView!
     var starButton: StarButton!
-    var isExpanded = false
-    var branchData: Branch?
     var mapView : NMapView?
     var mapViewDelegate: MartMapDelegate!
+
+    var branchData: Branch? {
+        didSet {
+            guard let branchData = branchData else { return }
+            holidayDatum = FavoriteBranch(branch: branchData)
+        }
+    }
+    var holidayDatum: ExpandCollapseTogglable?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -196,11 +198,11 @@ extension DetailViewController: FavoriteTogglable {
 
 }
 
-extension DetailViewController: UITableViewDelegate, UITableViewDataSource, DetailHeaderDelegate {
+extension DetailViewController: UITableViewDelegate, UITableViewDataSource, HeaderDelegate {
 
-    func toggleHeader() {
-        self.isExpanded = !isExpanded
-        tableView.reloadSections([0], with: .automatic)
+    func selectHeader(index: Int) {
+        holidayDatum?.toggleExpand()
+        tableView.reloadSections([index], with: .automatic)
         tableViewHeight.constant = tableView.contentSize.height
     }
 
@@ -210,8 +212,8 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource, Deta
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "dateCell", for: indexPath) as! HolidayTableViewCell
-        guard let branchData = branchData else { return UITableViewCell() }
-        cell.setData(holiday:branchData.holidays[indexPath.row+1])
+        guard let holidayDatum = holidayDatum else { return UITableViewCell() }
+        cell.setData(holiday: holidayDatum.allHolidays()[indexPath.row + 1])
         return cell
     }
 
@@ -220,9 +222,9 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource, Deta
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let branchData = branchData else { return 0 }
-        if isExpanded {
-            return branchData.holidays.count - 1
+        guard let holidayDatum = holidayDatum else { return 0 }
+        if holidayDatum.isExpanded {
+            return holidayDatum.allHolidays().count - 1
         } else {
             return 0
         }
@@ -233,19 +235,13 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource, Deta
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard let branchData = branchData else { return nil }
+        guard let holidayDatum = holidayDatum else { return nil }
         guard let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: "detailHeader") as? HolidayHeaderView else { return nil }
         view.delegate = self
-        view.set(holiday: branchData.holidays.isEmpty ? nil:branchData.holidays[0])
-
-        let state = self.isExpanded
-        view.setExpand(state: state)
+        view.set(holiday: holidayDatum.firstHoliday())
+        view.setExpand(state: holidayDatum.isExpanded)
 
         return view
-    }
-
-    @objc func tapHeader() {
-        toggleHeader()
     }
 
 }

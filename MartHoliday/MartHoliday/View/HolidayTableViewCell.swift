@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol DetailHeaderDelegate {
-    func toggleHeader()
-}
-
 class HolidayTableViewCell: UITableViewCell {
 
     @IBOutlet weak var dateLabel: UILabel!

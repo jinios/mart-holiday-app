@@ -11,12 +11,18 @@ import Foundation
 protocol ExpandCollapseTogglable {
     var isExpanded: Bool { get set }
     func toggleExpand()
+    func firstHoliday() -> String
+    func allHolidays() -> [String]
+    func branchName() -> String
 }
 
 class FavoriteBranch: ExpandCollapseTogglable {
     var isExpanded: Bool
     var branch: Branch
     private var holidays: [String]
+    lazy var isEmpty: Bool = {
+        return holidays.isEmpty
+    }()
 
     init(branch: Branch) {
         self.branch = branch

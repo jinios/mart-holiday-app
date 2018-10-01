@@ -403,8 +403,6 @@
                     <connections>
                         <outlet property="address" destination="nFR-G1-Xtd" id="vOW-4w-DJJ"/>
                         <outlet property="businessHour" destination="wf3-kj-MA8" id="7ET-Pm-dWm"/>
-                        <outlet property="detailContentView" destination="ctw-dV-lwK" id="YrN-zc-Td6"/>
-                        <outlet property="detailScrollView" destination="ltX-Hb-Yau" id="fPq-qq-ULv"/>
                         <outlet property="mockUpMapview" destination="EPP-nl-lMa" id="bYw-Ff-2OO"/>
                         <outlet property="phoneNumberLabel" destination="Cdv-Ua-B8c" id="5zc-7Z-MTg"/>
                         <outlet property="tableView" destination="970-Km-ZJW" id="hhl-ld-Lvq"/>

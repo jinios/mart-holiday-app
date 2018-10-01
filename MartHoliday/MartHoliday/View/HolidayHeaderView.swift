@@ -13,7 +13,7 @@ class HolidayHeaderView: UITableViewHeaderFooterView {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var dateLabel: UILabel!
-    var delegate: DetailHeaderDelegate?
+    var delegate: HeaderDelegate?
 
     func set(holiday: String?) {
         dateLabel.text = holiday ?? "정보가 없습니다 :("
@@ -26,7 +26,7 @@ class HolidayHeaderView: UITableViewHeaderFooterView {
     }
 
     @IBAction func tapButton(_ sender: Any) {
-        delegate?.toggleHeader()
+        delegate?.selectHeader(index: 0)
     }
 
     func setExpand(state: Bool) {

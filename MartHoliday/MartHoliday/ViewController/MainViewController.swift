@@ -9,22 +9,20 @@
 import UIKit
 
 protocol FavoriteConvertible {
-    var favoriteList: BranchList { get set }
+    var holidayData: [ExpandCollapseTogglable] { get set }
     func fetchFavoriteBranch(handler: @escaping(()->Void))
 }
 
 protocol HeaderDelegate {
-    var favoriteData: [ExpandCollapseTogglable] { get set }
     func selectHeader(index: Int)
-
 }
 
 protocol FooterDelegate {
-    var favoriteData: [ExpandCollapseTogglable] { get set }
     func toggleFooter(index: Int)
 }
 
 class MainViewController: UIViewController, FavoriteConvertible, HeaderDelegate, FooterDelegate {
+    typealias HolidayData = [ExpandCollapseTogglable]
 
     @IBOutlet weak var tableView: UITableView!
     let slideMenuManager = SlideMenuManager()
@@ -32,8 +30,7 @@ class MainViewController: UIViewController, FavoriteConvertible, HeaderDelegate,
     var slidetopView: SlideTopView!
     var slideMenu: SlideMenu!
     var slideOpenFlag: Bool?
-    var favoriteList = BranchList()
-    var favoriteData = [ExpandCollapseTogglable]()
+    var holidayData = [ExpandCollapseTogglable]()
     var noDataView: NoDataView?
 
     // MARK: override functions
@@ -115,12 +112,12 @@ class MainViewController: UIViewController, FavoriteConvertible, HeaderDelegate,
     }
 
     func toggleFooter(index: Int) {
-        favoriteData[index].toggleExpand()
+        holidayData[index].toggleExpand()
         tableView.reloadSections([index], with: .automatic)
     }
 
     func selectHeader(index: Int) {
-        guard let favorite = favoriteData[index] as? FavoriteBranch else { return }
+        guard let favorite = holidayData[index] as? FavoriteBranch else { return }
         let branch = favorite.branch
         guard let nextVC = storyboard?.instantiateViewController(withIdentifier: "detailVC") as? DetailViewController else { return }
         nextVC.branchData = branch
@@ -144,14 +141,15 @@ class MainViewController: UIViewController, FavoriteConvertible, HeaderDelegate,
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let response = response as? HTTPURLResponse, 200...299 ~= response.statusCode, let data = data {
                 var branches = [BranchRawData]()
+                var favoriteList = BranchList()
                 var mainFavorites = [FavoriteBranch]()
                 do {
                     branches = try JSONDecoder().decode([BranchRawData].self, from: data)
-                    self.favoriteList = BranchList(branches: branches)
+                    favoriteList = BranchList(branches: branches)
 
-                    for fav in self.favoriteList.branches {
+                    for fav in favoriteList.branches {
                         mainFavorites.append(FavoriteBranch(branch: fav))
-                        self.favoriteData = mainFavorites
+                        self.holidayData = mainFavorites
                     }
                     handler()
                 } catch let error {
@@ -178,10 +176,9 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let branch = favoriteData[section] as? FavoriteBranch else { return 1 }
-        let countOfHoliday = branch.allHolidays().count
+        let countOfHoliday = holidayData[section].allHolidays().count
         guard countOfHoliday != 0 else { return 1 }
-        if favoriteData[section].isExpanded {
+        if holidayData[section].isExpanded {
             return countOfHoliday
         } else {
             return 1
@@ -189,26 +186,24 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return favoriteData.count
+        return holidayData.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "dateCell", for: indexPath) as! MainTableViewCell
-        if favoriteData.count == 0 {
+        if holidayData.isEmpty {
             return UITableViewCell()
         } else {
-            guard let branch = favoriteData[indexPath.section] as? FavoriteBranch else { return UITableViewCell() }
-            cell.setData(text: branch.allHolidays()[indexPath.row])
+            cell.setData(text: holidayData[indexPath.section].allHolidays()[indexPath.row])
             return cell
         }
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "mainHeader") as? MainTableViewHeader else { return nil }
-        guard let branch = favoriteData[section] as? FavoriteBranch else { return nil }
         headerView.sectionIndex = section
         headerView.delegate = self
-        headerView.name = branch.branchName()
+        headerView.name = holidayData[section].branchName()
         return headerView
     }
 
@@ -216,7 +211,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         let view = MainTableViewFooter(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 40))
         view.delegate = self
         view.sectionindex = section
-        let state = favoriteData[section].isExpanded
+        let state = holidayData[section].isExpanded
         view.setExpand(state: state)
         return view
     }
