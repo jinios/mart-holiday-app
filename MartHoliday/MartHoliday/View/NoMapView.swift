@@ -21,10 +21,12 @@ class NoMapView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        loadFromXib()
     }
 
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
+        loadFromXib()
     }
 
     private func loadFromXib() {
@@ -47,8 +49,7 @@ class NoMapView: UIView {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .center
         let customAttributes = [NSAttributedStringKey.paragraphStyle: paragraphStyle,
-                                NSAttributedStringKey.font: UIFont(name: "NanumSquareRoundOTF", size: self.frame.width * 0.05),
-//                                NSAttributedStringKey.foregroundColor: UIColor.appColor(color: .midgray),
+                                NSAttributedStringKey.font: UIFont(name: "NanumSquareRoundOTF", size: self.frame.width * 0.045),
                                 ]
         let customText = NSAttributedString(string: myText,
                                             attributes: customAttributes)

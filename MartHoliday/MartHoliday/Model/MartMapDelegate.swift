@@ -8,7 +8,12 @@
 
 import UIKit
 
-class MartMapDelegate: NSObject, NMapViewDelegate, NMapPOIdataOverlayDelegate {
+class MartMapDelegate: NSObject, NMapViewDelegate, NMapPOIdataOverlayDelegate, AddressCopiable {
+    var noMapView: UIView?
+
+    func copyAddress() {
+        UIPasteboard.general.string = addressToShow
+    }
 
     var addressToShow: String
     var centerPoint: GeoPoint?
@@ -19,17 +24,22 @@ class MartMapDelegate: NSObject, NMapViewDelegate, NMapPOIdataOverlayDelegate {
     }
 
     func onMapView(_ mapView: NMapView!, initHandler error: NMapError!) {
-        print(mapView)
-        print(self)
         if (error == nil) {
             MapSetter.tryGeoRequestTask(address: addressToShow) { geo in
                 DispatchQueue.main.async {
-                    self.centerPoint = geo
                     self.mapView = mapView
-                    mapView.showMarker(at: geo)
-                    mapView.setCenter(point: geo)
-                    mapView.setMapEnlarged(true, mapHD: true)
-                    mapView.mapViewMode = .vector
+                    if let geo = geo {
+                        self.centerPoint = geo
+                        mapView.showMarker(at: geo)
+                        mapView.setCenter(point: geo)
+                        mapView.setMapEnlarged(true, mapHD: true)
+                        mapView.mapViewMode = .vector
+                    } else {
+                        let errorView = NoMapView(frame: mapView.bounds)
+                        errorView.delegate = self
+                        self.noMapView = errorView
+                        mapView.addSubview(self.noMapView!)
+                    }
                 }
             }
         } else { // fail
