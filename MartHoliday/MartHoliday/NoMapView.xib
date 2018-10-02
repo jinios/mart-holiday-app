@@ -7,7 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -29,26 +28,26 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sad" translatesAutoresizingMaskIntoConstraints="NO" id="RoX-Nx-sQW">
-                    <rect key="frame" x="84" y="15" width="150" height="150"/>
+                    <rect key="frame" x="109" y="30" width="100" height="100"/>
                     <constraints>
+                        <constraint firstAttribute="width" constant="100" id="dww-qw-aEa"/>
                         <constraint firstAttribute="width" secondItem="RoX-Nx-sQW" secondAttribute="height" multiplier="1:1" id="gNS-LC-Lnz"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지도를 표시할 수 없습니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d2o-jg-CsL">
-                    <rect key="frame" x="65.5" y="195" width="187" height="19"/>
+                    <rect key="frame" x="65.5" y="169" width="187" height="19"/>
                     <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="죄송합니다!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AP8-B4-CCn">
-                    <rect key="frame" x="118.5" y="171" width="82.5" height="19"/>
+                    <rect key="frame" x="118.5" y="145" width="82.5" height="19"/>
                     <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yh5-DI-o0E">
-                    <rect key="frame" x="132" y="223" width="55" height="29"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yh5-DI-o0E">
+                    <rect key="frame" x="133.5" y="213" width="52" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <state key="normal" title="주소복사"/>
                     <connections>
@@ -58,13 +57,14 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="Yh5-DI-o0E" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Ay8-ZB-Ge9"/>
                 <constraint firstItem="d2o-jg-CsL" firstAttribute="top" secondItem="AP8-B4-CCn" secondAttribute="bottom" constant="5" id="DqT-r6-xsF"/>
-                <constraint firstItem="RoX-Nx-sQW" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="1:2" id="VCT-7e-RNx"/>
                 <constraint firstItem="d2o-jg-CsL" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ZqP-Vx-EWS"/>
                 <constraint firstItem="AP8-B4-CCn" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="b91-gi-00e"/>
-                <constraint firstItem="AP8-B4-CCn" firstAttribute="top" secondItem="RoX-Nx-sQW" secondAttribute="bottom" constant="6" id="m3Q-60-58u"/>
+                <constraint firstItem="Yh5-DI-o0E" firstAttribute="top" secondItem="d2o-jg-CsL" secondAttribute="bottom" constant="25" id="ebC-ZO-D9y"/>
+                <constraint firstItem="AP8-B4-CCn" firstAttribute="top" secondItem="RoX-Nx-sQW" secondAttribute="bottom" constant="15" id="m3Q-60-58u"/>
                 <constraint firstItem="RoX-Nx-sQW" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="nLx-AN-t7g"/>
-                <constraint firstItem="RoX-Nx-sQW" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="15" id="yCi-GT-rcV"/>
+                <constraint firstItem="RoX-Nx-sQW" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="30" id="yCi-GT-rcV"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
@@ -72,6 +72,6 @@
         </view>
     </objects>
     <resources>
-        <image name="sad" width="75" height="75"/>
+        <image name="sad" width="150" height="150"/>
     </resources>
 </document>
