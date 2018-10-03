@@ -26,8 +26,11 @@
                 <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j33-Ac-cLU">
                     <rect key="frame" x="0.0" y="0.0" width="315" height="50"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d8a-ML-Bie">
-                            <rect key="frame" x="15" y="14" width="243" height="23"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d8a-ML-Bie">
+                            <rect key="frame" x="15" y="14.5" width="243" height="22.5"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="22.5" id="ltZ-ZE-CxG"/>
+                            </constraints>
                             <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="20"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -55,7 +58,7 @@
                         <constraint firstAttribute="trailing" secondItem="PH3-da-0po" secondAttribute="trailing" id="RhZ-Lm-cPL"/>
                         <constraint firstItem="d8a-ML-Bie" firstAttribute="centerY" secondItem="j33-Ac-cLU" secondAttribute="centerY" id="RjR-Zl-8HL"/>
                         <constraint firstAttribute="bottom" secondItem="jRe-ai-xlU" secondAttribute="bottom" id="SMY-tD-0Sb"/>
-                        <constraint firstItem="PH3-da-0po" firstAttribute="leading" relation="lessThanOrEqual" secondItem="d8a-ML-Bie" secondAttribute="trailing" constant="10" id="sM8-kP-iWA"/>
+                        <constraint firstItem="PH3-da-0po" firstAttribute="leading" secondItem="d8a-ML-Bie" secondAttribute="trailing" constant="10" id="sM8-kP-iWA"/>
                         <constraint firstItem="d8a-ML-Bie" firstAttribute="leading" secondItem="j33-Ac-cLU" secondAttribute="leading" constant="15" id="tfe-7w-f2s"/>
                         <constraint firstItem="jRe-ai-xlU" firstAttribute="centerX" secondItem="j33-Ac-cLU" secondAttribute="centerX" id="xhU-LO-E8Y"/>
                         <constraint firstItem="jRe-ai-xlU" firstAttribute="top" secondItem="PH3-da-0po" secondAttribute="bottom" id="y7a-fG-ov8"/>

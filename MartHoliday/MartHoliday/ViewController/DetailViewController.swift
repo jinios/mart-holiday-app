@@ -77,7 +77,7 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate, Ma
         self.navigationItem.title = branchData.branchName
         self.navigationItem.largeTitleDisplayMode = .always
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationController?.navigationBar.largeTitleTextAttributes = makeTextWithAttributes(fontSize: 29)
+        self.navigationController?.navigationBar.largeTitleTextAttributes = makeTextWithAttributes(fontSize: 24)
 
         starButton = StarBarButton()
         setStarButton()
@@ -170,8 +170,9 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate, Ma
             mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             mockUpMapview.addSubview(mapView)
             mapView.frame = mockUpMapview.bounds
-            mapView.setMapGesture(enable: false)
-            mapView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapMapView)))
+//            mapView.setMapGesture(enable: false)
+//            mapView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapMapView)))
+            NotificationCenter.default.addObserver(self, selector: #selector(tapMapView), name: .mapViewTapped, object: nil)
         }
     }
 

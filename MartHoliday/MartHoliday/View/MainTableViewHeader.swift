@@ -18,6 +18,8 @@ class MainTableViewHeader: UITableViewHeaderFooterView {
     var name: String! {
         didSet {
             self.nameLabel.text = name
+            nameLabel.numberOfLines = 0
+            nameLabel.adjustsFontSizeToFitWidth = true
         }
     }
 
