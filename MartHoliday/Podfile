@@ -6,6 +6,7 @@ target 'MartHoliday' do
   use_frameworks!
 
   pod 'Firebase/Core'
+  pod 'Firebase/Database'
   pod 'Firebase/Messaging'
 
   # Pods for MartHoliday
