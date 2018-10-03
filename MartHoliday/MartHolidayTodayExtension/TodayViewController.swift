@@ -18,7 +18,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         extensionContext?.widgetLargestAvailableDisplayMode = .expanded
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = 44.0
+        tableView.rowHeight = 36.0
         setFavoriteBranch(handler: reloadTableView)
     }
     
@@ -82,6 +82,10 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         return cell
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let url = URL(string: "openApp:") else { return }
+        self.extensionContext?.open(url, completionHandler: nil)
+    }
     
     func reloadTableView() {
         DispatchQueue.main.async { [weak self] in
