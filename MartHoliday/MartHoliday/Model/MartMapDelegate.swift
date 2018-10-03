@@ -9,21 +9,19 @@
 import UIKit
 
 class MartMapDelegate: NSObject, NMapViewDelegate, NMapPOIdataOverlayDelegate, AddressCopiable {
-    var noMapView: UIView?
-
-    func copyAddress() {
-        UIPasteboard.general.string = addressToShow
-    }
 
     var addressToShow: String
     var centerPoint: GeoPoint?
     var mapView: NMapView?
+    var noMapView: UIView?
 
     init(address: String) {
         self.addressToShow = address
     }
 
     func onMapView(_ mapView: NMapView!, initHandler error: NMapError!) {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapMapView))
+        mapView.addGestureRecognizer(tapGesture)
         if (error == nil) {
             MapSetter.tryGeoRequestTask(address: addressToShow) { geo in
                 DispatchQueue.main.async {
@@ -39,6 +37,7 @@ class MartMapDelegate: NSObject, NMapViewDelegate, NMapPOIdataOverlayDelegate, A
                         errorView.delegate = self
                         self.noMapView = errorView
                         mapView.addSubview(self.noMapView!)
+                        mapView.removeGestureRecognizer(tapGesture)
                     }
                 }
             }
@@ -47,12 +46,19 @@ class MartMapDelegate: NSObject, NMapViewDelegate, NMapPOIdataOverlayDelegate, A
         }
     }
 
+    @objc func tapMapView() {
+        NotificationCenter.default.post(name: .mapViewTapped, object: nil)
+    }
+
     func setMapCenter() {
         guard let mapView = mapView else { return }
         guard let centerPoint = centerPoint else { return }
         mapView.setCenter(point: centerPoint)
     }
 
+    func copyAddress() {
+        UIPasteboard.general.string = addressToShow
+    }
 
     // MARK: NMapPOIdataOverlayDelegate
 

@@ -11,6 +11,7 @@ import UIKit
 extension Notification.Name {
     static let slideMenuClose = Notification.Name("slideMenuClose")
     static let slideMenuTapped = Notification.Name("slideMenuClose")
+    static let mapViewTapped = Notification.Name("mapViewTapped")
 }
 
 enum AppColor: CustomStringConvertible {
@@ -45,6 +46,7 @@ extension NMapView {
         self.setPanEnabled(enable)
         self.setZoomEnabled(enable)
         self.isMultipleTouchEnabled = enable
+        self.isUserInteractionEnabled = enable
     }
 
     func setCenter(point: GeoPoint) {
