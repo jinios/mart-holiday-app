@@ -10,6 +10,8 @@ import UIKit
 
 class MartMapDelegate: NSObject, NMapViewDelegate, NMapPOIdataOverlayDelegate, AddressCopiable {
 
+    static let superViewTag = "superViewTag"
+
     var addressToShow: String
     var centerPoint: GeoPoint?
     var mapView: NMapView?
@@ -47,7 +49,7 @@ class MartMapDelegate: NSObject, NMapViewDelegate, NMapPOIdataOverlayDelegate, A
     }
 
     @objc func tapMapView() {
-        NotificationCenter.default.post(name: .mapViewTapped, object: nil)
+        NotificationCenter.default.post(name: .mapViewTapped, object: nil, userInfo: [MartMapDelegate.superViewTag: mapView?.superview?.tag ?? -1])
     }
 
     func setMapCenter() {

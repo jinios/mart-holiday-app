@@ -21,6 +21,7 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate, Ma
     var starButton: StarButton!
     var mapView : NMapView?
     var mapViewDelegate: MartMapDelegate!
+    private var viewTag = 100
 
     var branchData: Branch? {
         didSet {
@@ -157,6 +158,7 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate, Ma
     }
 
     private func setMapView() {
+        self.mockUpMapview.tag = viewTag
         mapView = NMapView()
 
         if let mapView = mapView {
@@ -170,13 +172,16 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate, Ma
             mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             mockUpMapview.addSubview(mapView)
             mapView.frame = mockUpMapview.bounds
-//            mapView.setMapGesture(enable: false)
-//            mapView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapMapView)))
-            NotificationCenter.default.addObserver(self, selector: #selector(tapMapView), name: .mapViewTapped, object: nil)
+            mapView.setMapGesture(enable: false)
+            NotificationCenter.default.addObserver(self, selector: #selector(tapMapView(notification:)), name: .mapViewTapped, object: nil)
         }
     }
 
-    @objc func tapMapView() {
+    @objc func tapMapView(notification: Notification) {
+        guard let userInfo = notification.userInfo else { return }
+        guard let viewTag = userInfo[MartMapDelegate.superViewTag] else { return }
+        guard let superViewTag = viewTag as? Int else { return }
+        guard superViewTag == self.viewTag else { return }
         let nextVC = MapViewController()
         guard let branchData = self.branchData else { return }
         nextVC.addressToShow = branchData.address
