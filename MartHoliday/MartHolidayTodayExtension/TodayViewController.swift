@@ -43,7 +43,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     }
 
     var favoriteList = BranchList()
-    private let appGroup = UserDefaults.init(suiteName: "group.jinios.martholiday")
+    private let appGroup = UserDefaults.init(suiteName: "group.martHoliday.com")
 
     func getFavorites() -> [Int] {
         guard let result = appGroup?.value(forKey: "favorites") as? [Int] else { return [1] }
