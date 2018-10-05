@@ -18,7 +18,7 @@ class FavoriteList: NSObject, NSCoding {
         martSet = aDecoder.decodeObject(forKey: String(describing: FavoriteList.self)) as! Set<Int>
     }
 
-    private let appGroup = UserDefaults.init(suiteName: "group.jinios.martholiday")
+    private let appGroup = UserDefaults.init(suiteName: "group.martHoliday.com")
 
     private static var sharedFavorite = FavoriteList()
 
