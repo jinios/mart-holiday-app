@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "lottemart-ci.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "lottemart.png",
       "scale" : "2x"
     },
     {

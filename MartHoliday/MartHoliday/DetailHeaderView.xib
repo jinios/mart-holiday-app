@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="NanumSquareRoundOTFB.otf">
+            <string>NanumSquareRoundOTFB</string>
+        </array>
+        <array key="NanumSquareRoundOTFR.otf">
+            <string>NanumSquareRoundOTFR</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="HolidayHeaderView" customModule="MartHoliday" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="413" height="80"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ETb-7L-en4" userLabel="containerView">
+                    <rect key="frame" x="0.0" y="0.0" width="413" height="80"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wU0-pw-D97">
+                            <rect key="frame" x="30" y="43" width="49" height="21"/>
+                            <fontDescription key="fontDescription" name="NanumSquareRoundOTFB" family="NanumSquareRoundOTF" pointSize="19"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="휴무일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bD7-fa-bHO">
+                            <rect key="frame" x="30" y="10" width="44" height="18"/>
+                            <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="16"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qde-rR-3lz">
+                            <rect key="frame" x="333" y="0.0" width="80" height="80"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="qde-rR-3lz" secondAttribute="height" multiplier="1:1" id="WG4-ul-YMS"/>
+                            </constraints>
+                            <state key="normal" image="downArrow"/>
+                            <connections>
+                                <action selector="tapButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="zep-41-DCJ"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="wU0-pw-D97" firstAttribute="top" secondItem="bD7-fa-bHO" secondAttribute="bottom" constant="15" id="1SB-OQ-3Pr"/>
+                        <constraint firstItem="wU0-pw-D97" firstAttribute="leading" secondItem="ETb-7L-en4" secondAttribute="leading" constant="30" id="Cci-Pd-Jq9"/>
+                        <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="wU0-pw-D97" secondAttribute="trailing" constant="334" id="G5P-gE-6aZ"/>
+                        <constraint firstItem="qde-rR-3lz" firstAttribute="centerY" secondItem="ETb-7L-en4" secondAttribute="centerY" id="M3x-ZR-bI0"/>
+                        <constraint firstAttribute="bottom" secondItem="qde-rR-3lz" secondAttribute="bottom" id="QDP-nR-Bxb"/>
+                        <constraint firstItem="bD7-fa-bHO" firstAttribute="leading" secondItem="ETb-7L-en4" secondAttribute="leading" constant="30" id="TH1-wI-WeO"/>
+                        <constraint firstItem="qde-rR-3lz" firstAttribute="top" secondItem="ETb-7L-en4" secondAttribute="top" id="bQT-KH-BcA"/>
+                        <constraint firstAttribute="trailing" secondItem="qde-rR-3lz" secondAttribute="trailing" id="deC-dg-bug"/>
+                        <constraint firstItem="bD7-fa-bHO" firstAttribute="top" secondItem="ETb-7L-en4" secondAttribute="top" constant="10" id="g5t-Vn-Fut"/>
+                        <constraint firstItem="qde-rR-3lz" firstAttribute="height" secondItem="ETb-7L-en4" secondAttribute="height" id="iyF-Ix-rZV"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ETb-7L-en4" secondAttribute="bottom" id="7kf-wb-iWg"/>
+                <constraint firstItem="ETb-7L-en4" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="TRS-tN-Zgh"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ETb-7L-en4" secondAttribute="trailing" id="XFm-N0-etM"/>
+                <constraint firstItem="ETb-7L-en4" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="qEu-Es-gwr"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="button" destination="qde-rR-3lz" id="HZy-Hu-Um2"/>
+                <outlet property="containerView" destination="ETb-7L-en4" id="w6K-Wb-A3J"/>
+                <outlet property="dateLabel" destination="wU0-pw-D97" id="SFA-WK-4mL"/>
+            </connections>
+            <point key="canvasLocation" x="52.5" y="-230"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="downArrow" width="20" height="20"/>
+    </resources>
+</document>

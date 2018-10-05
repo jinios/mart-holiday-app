@@ -112,5 +112,16 @@ class Branch: NSObject, NSCoding, Comparable {
         return true
     }
 
+    func martName() -> String {
+        switch self.martType {
+        case "홈플러스 익스프레스": return "홈플러스EX"
+        default: return martType
+        }
+    }
+
+    func displayName() -> String {
+        return "\(martName()) \(self.branchName)"
+    }
+
 }
 

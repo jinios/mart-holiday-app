@@ -39,24 +39,25 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bLm-Qf-uvi">
-                                                    <rect key="frame" x="15" y="15" width="165" height="14.5"/>
+                                                    <rect key="frame" x="15" y="15" width="160" height="14.5"/>
                                                     <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rzl-2q-KzR">
-                                                    <rect key="frame" x="200" y="8.5" width="105" height="27"/>
+                                                    <rect key="frame" x="185" y="8.5" width="120" height="27"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="120" id="WAB-py-mqS"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="NanumSquareRoundOTFB" family="NanumSquareRoundOTF" pointSize="13"/>
-                                                    <state key="normal" title="Button">
-                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <state key="normal">
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="bLm-Qf-uvi" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Ed5-yR-DQO" secondAttribute="trailing" priority="750" constant="-100" id="0EC-Ye-pc8"/>
-                                                <constraint firstItem="rzl-2q-KzR" firstAttribute="leading" secondItem="bLm-Qf-uvi" secondAttribute="trailing" constant="20" id="5rs-wb-yAD"/>
+                                                <constraint firstItem="rzl-2q-KzR" firstAttribute="leading" secondItem="bLm-Qf-uvi" secondAttribute="trailing" constant="10" id="5rs-wb-yAD"/>
                                                 <constraint firstAttribute="trailing" secondItem="rzl-2q-KzR" secondAttribute="trailing" constant="15" id="IDs-cm-yG7"/>
-                                                <constraint firstItem="rzl-2q-KzR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ed5-yR-DQO" secondAttribute="leading" priority="750" constant="200" id="NlA-Pt-l39"/>
                                                 <constraint firstItem="rzl-2q-KzR" firstAttribute="centerY" secondItem="Ed5-yR-DQO" secondAttribute="centerY" id="Pfa-27-wvp"/>
                                                 <constraint firstItem="bLm-Qf-uvi" firstAttribute="leading" secondItem="Ed5-yR-DQO" secondAttribute="leadingMargin" id="lKa-KZ-lLl"/>
                                                 <constraint firstItem="bLm-Qf-uvi" firstAttribute="centerY" secondItem="Ed5-yR-DQO" secondAttribute="centerY" id="uDq-SF-aJz"/>

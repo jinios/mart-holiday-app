@@ -14,11 +14,13 @@ import UserNotifications
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, MessagingDelegate {
 
     var window: UIWindow?
-    private let appGroup = UserDefaults.init(suiteName: "group.jinios.martholiday")
+    private let appGroup = UserDefaults.init(suiteName: "group.martHoliday.com")
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        FirebaseApp.configure()
+        window?.backgroundColor = .white
+        setNavigationBar()
 
+        FirebaseApp.configure()
         Messaging.messaging().delegate = self
 
         if #available(iOS 10.0, *) {
@@ -44,9 +46,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
 
     let gcmMessageIDKey = "gcm.message_id"
+
+    // second trigger
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],
                      fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
 
+        if let messageID = userInfo[gcmMessageIDKey] {
+            print("Message ID: \(messageID)")
+        }
+        // Print full message.
+        print(userInfo)
+        completionHandler(UIBackgroundFetchResult.newData)
+    }
+
+    // first trigger
+    // Receive displayed notifications for iOS 10 devices.
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        let userInfo = notification.request.content.userInfo
+
+        // With swizzling disabled you must let Messaging know about the message, for Analytics
+        // Messaging.messaging().appDidReceiveMessage(userInfo)
+
+        // Print message ID.
         if let messageID = userInfo[gcmMessageIDKey] {
             print("Message ID: \(messageID)")
         }
@@ -54,22 +77,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // Print full message.
         print(userInfo)
 
-        completionHandler(UIBackgroundFetchResult.newData)
+        // Change this to your preferred presentation option
+        completionHandler([])
+    }
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                didReceive response: UNNotificationResponse,
+                                withCompletionHandler completionHandler: @escaping () -> Void) {
+        let userInfo = response.notification.request.content.userInfo
+        // Print message ID.
+        if let messageID = userInfo[gcmMessageIDKey] {
+            print("Message ID: \(messageID)")
+        }
+
+        // Print full message.
+        print(userInfo)
+
+        completionHandler()
     }
 
     // [START refresh_token]
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
         print("Firebase registration token: \(fcmToken)")
-
         // TODO: If necessary send token to application server.
         // Note: This callback is fired at each app startup and whenever a new token is generated.
     }
 
+    // MARK: Life Cycle functions
 
     func applicationWillResignActive(_ application: UIApplication) {
         DataStorage<FavoriteList>.save(data: FavoriteList.shared())
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
@@ -83,19 +120,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         if !FavoriteList.isSameData(loadedData) {
             FavoriteList.loadSavedData(loadedData)
         }
-        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
         DataStorage<FavoriteList>.save(data: FavoriteList.shared())
         appGroup?.setValue(FavoriteList.shared().martList(), forKey: "favorites")
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    // MARK: Private functions
 
+    private func setNavigationBar() {
+        let fontAttributes = [
+            NSAttributedStringKey.foregroundColor: UIColor.white,
+            NSAttributedStringKey.font: UIFont(name: "NanumSquareRoundOTF", size: UIFont.labelFontSize)?.bold()
+        ]
+
+        //To change Navigation Bar Background Color
+        UINavigationBar.appearance().barTintColor = UIColor.appColor(color: .mint)
+        //To change Back button title & icon color
+        UINavigationBar.appearance().tintColor = UIColor.white
+        UINavigationBar.appearance().titleTextAttributes = fontAttributes
+        UIBarButtonItem.appearance().setTitleTextAttributes(fontAttributes, for: .normal)
+    }
+
+}
+
+extension Messaging {
+    func subscribe(multipleBranchIds ids: [Int]) {
+        for id in ids {
+            Messaging.messaging().subscribe(toTopic: "\(id)")
+        }
+    }
 }
 

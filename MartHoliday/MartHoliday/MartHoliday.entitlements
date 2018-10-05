@@ -6,7 +6,7 @@
 	<string>development</string>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>group.jinios.martholiday</string>
+		<string>group.martHoliday.com</string>
 	</array>
 </dict>
 </plist>

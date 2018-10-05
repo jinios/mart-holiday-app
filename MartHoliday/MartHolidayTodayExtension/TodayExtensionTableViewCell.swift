@@ -14,27 +14,26 @@ class TodayExtensionTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        self.selectionStyle = .none
     }
 
     func setData(branch: Branch) {
         setDateButton()
-        self.branchTitle.text = branch.martType + " " + branch.branchName + "의 휴무일"
-        self.dateButton.setTitle(branch.holidays[0], for: .normal)
+        branchTitle.adjustsFontSizeToFitWidth = true
+        self.branchTitle.text = branch.displayName()
+        guard let holiday = branch.holidays.first else {
+            self.dateButton.setTitle("정보가 없습니다:(", for: .normal)
+            return
+        }
+        self.dateButton.setTitle(holiday, for: .normal)
     }
 
     func setDateButton() {
         dateButton.contentEdgeInsets = UIEdgeInsets(top: 3, left: 5, bottom: 3, right: 5)
         dateButton.layer.cornerRadius = 7.0
         dateButton.clipsToBounds = true
-        dateButton.backgroundColor = UIColor(named: "mh-navy")
-        dateButton.titleLabel?.textColor = UIColor.white
+        dateButton.backgroundColor = UIColor(named: "mh-mint")
+        dateButton.titleLabel?.textColor = UIColor.black
         dateButton.isUserInteractionEnabled = false
     }
 

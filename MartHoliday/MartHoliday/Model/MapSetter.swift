@@ -10,7 +10,7 @@ import Foundation
 
 class MapSetter {
 
-    class func tryGeoRequestTask(address: String, handler: @escaping((GeoPoint) -> Void)) {
+    class func tryGeoRequestTask(address: String, handler: @escaping((GeoPoint?) -> Void)) {
         let geoCodeURL = "https://openapi.naver.com/v1/map/geocode"
 
         // append queryItem to url
@@ -36,10 +36,10 @@ class MapSetter {
                     let geoPoint = result.geoPoint()
                     handler(geoPoint)
                 } catch let decodeErr {
-                    print(decodeErr)
+                    handler(nil)
                 }
             } else {
-                print(error)
+                handler(nil)
             }
             }.resume()
     }
