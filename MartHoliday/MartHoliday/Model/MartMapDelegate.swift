@@ -23,7 +23,6 @@ class MartMapDelegate: NSObject, NMapViewDelegate, NMapPOIdataOverlayDelegate, A
 
     func onMapView(_ mapView: NMapView!, initHandler error: NMapError!) {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapMapView))
-        mapView.addGestureRecognizer(tapGesture)
         if (error == nil) {
             MapSetter.tryGeoRequestTask(address: addressToShow) { geo in
                 DispatchQueue.main.async {
@@ -34,6 +33,7 @@ class MartMapDelegate: NSObject, NMapViewDelegate, NMapPOIdataOverlayDelegate, A
                         mapView.setCenter(point: geo)
                         mapView.setMapEnlarged(true, mapHD: true)
                         mapView.mapViewMode = .vector
+                        mapView.addGestureRecognizer(tapGesture)
                     } else {
                         let errorView = NoMapView(frame: mapView.bounds)
                         errorView.delegate = self

@@ -46,7 +46,6 @@ extension NMapView {
         self.setPanEnabled(enable)
         self.setZoomEnabled(enable)
         self.isMultipleTouchEnabled = enable
-        self.isUserInteractionEnabled = enable
     }
 
     func setCenter(point: GeoPoint) {

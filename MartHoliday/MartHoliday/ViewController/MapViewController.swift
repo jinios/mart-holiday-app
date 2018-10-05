@@ -9,8 +9,8 @@
 import UIKit
 
 protocol MartMapViewHolder {
-    var mapView: NMapView? { get set }
-    var mapViewDelegate: MartMapDelegate! { get set }
+    var mapView: NMapView? { get }
+    var mapViewDelegate: MartMapDelegate! { get }
 }
 
 class MapViewController: UIViewController, MartMapViewHolder {
@@ -21,6 +21,7 @@ class MapViewController: UIViewController, MartMapViewHolder {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "위치 보기"
         mapViewDelegate = MartMapDelegate(address: addressToShow!)
 
         mapView = NMapView()
@@ -32,6 +33,7 @@ class MapViewController: UIViewController, MartMapViewHolder {
             mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             self.view.addSubview(mapView)
             mapView.frame = self.view.frame
+            mapView.setMapGesture(enable: true)
         }
     }
 
