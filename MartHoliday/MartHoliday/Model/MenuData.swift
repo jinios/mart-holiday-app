@@ -21,6 +21,7 @@ class MenuData {
         switch self.title {
         case "메인으로": return .main
         case "마트검색": return .select
+        case "문의하기": return .sendMail
         default: return .main
         }
     }
@@ -29,4 +30,5 @@ class MenuData {
 enum SelectedSlideMenu {
     case main
     case select
+    case sendMail
 }
