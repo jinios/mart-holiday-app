@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MessageUI
 
 protocol FavoriteConvertible {
     var holidayData: [ExpandCollapseTogglable] { get set }
@@ -220,7 +221,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
 
     // MARK: SlideMenu Related
 
-extension MainViewController {
+extension MainViewController: MFMailComposeViewControllerDelegate {
 
     private func addGestures() {
         backgroundView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(toggleSlideMenu)))
@@ -284,7 +285,7 @@ extension MainViewController {
     }
 
     @objc func detectSelectedMenu(_ notification: Notification) {
-        guard let userInfo = notification.userInfo else {return}
+        guard let userInfo = notification.userInfo else { return }
         guard let destination = userInfo["next"] as? SelectedSlideMenu else {return}
         switch destination {
         case .main:
@@ -293,7 +294,67 @@ extension MainViewController {
             handleDismiss()
             guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "martSelectVC") as? MartSelectViewController else { return }
             self.navigationController?.pushViewController(nextVC, animated: true)
+        case .sendMail:
+            var email: String
+            if let path = Bundle.main.path(forResource: "KeyInfo", ofType: "plist"){
+                guard let myDict = NSDictionary(contentsOfFile: path) else { return }
+                email = myDict["InquiryEmail"] as! String
+            } else {
+                mailAlert(alert: .failure)
+                return
+            }
+
+            if MFMailComposeViewController.canSendMail() {
+                let composeVC = MFMailComposeViewController()
+                composeVC.mailComposeDelegate = self
+                composeVC.setToRecipients([email])
+                composeVC.setSubject("[마트쉬는날] 문의")
+                composeVC.setMessageBody("<p>문의사항을 기재해주세요:)</p>", isHTML: true)
+
+                present(composeVC, animated: true)
+            } else {
+                mailAlert(alert: .failure)
+            }
         }
     }
 
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+        mailAlert(alert: .success)
+    }
+
+    private func mailAlert(alert: MailAlert) {
+        let alertController = alert.controller
+        alertController.addAction(UIAlertAction(title: "Done", style: .default, handler: nil))
+        self.present(alertController, animated: true, completion: nil)
+    }
+
+
 }
+
+enum MailAlert: MailFeedbackAlert {
+    case success
+    case failure
+
+    var controller: UIAlertController {
+        switch self {
+        case .failure:
+            let alert = UIAlertController(title: "메일 전송 실패😢",
+                                          message: "아이폰 기본 '메일'앱에서 계정을 추가해주세요!",
+                                          preferredStyle: .alert)
+            return alert
+        case .success:
+            let alert = UIAlertController(title: "감사합니다❤️",
+                                          message: "소중한 의견 감사합니다 :)",
+                                          preferredStyle: .alert)
+            return alert
+        }
+    }
+}
+
+protocol MailFeedbackAlert {
+    var controller: UIAlertController { get }
+}
+
+
+
