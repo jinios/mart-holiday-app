@@ -26,11 +26,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         if #available(iOS 10.0, *) {
             // For iOS 10 display notification (sent via APNS)
             UNUserNotificationCenter.current().delegate = self
-
             let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
             UNUserNotificationCenter.current().requestAuthorization(
                 options: authOptions,
-                completionHandler: {_, _ in })
+                completionHandler: { granted, error in
+            })
         } else {
             let settings: UIUserNotificationSettings =
                 UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
@@ -42,7 +42,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         guard let loadedData = DataStorage<FavoriteList>.load() else { return true }
         FavoriteList.loadSavedData(loadedData)
         appGroup?.setValue(FavoriteList.shared().martList(), forKey: "favorites")
+
         return true
+    }
+
+    // [START refresh_token]
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+        // TODO: If necessary send token to application server.
+        // Note: This callback is fired at each app startup and whenever a new token is generated.
+        print("Firebase registration token: \(fcmToken)")
+        FavoriteAPI.shared.configure(token: fcmToken)
+    }
+
+    private func setFavorite() {
+        FavoriteAPI.shared.fetch(handler: FavoriteList.loadSavedData(_:))
     }
 
     let gcmMessageIDKey = "gcm.message_id"
@@ -96,22 +109,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         completionHandler()
     }
 
-    // [START refresh_token]
-    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
-        print("Firebase registration token: \(fcmToken)")
-        // TODO: If necessary send token to application server.
-        // Note: This callback is fired at each app startup and whenever a new token is generated.
-    }
-
     // MARK: Life Cycle functions
 
     func applicationWillResignActive(_ application: UIApplication) {
-        DataStorage<FavoriteList>.save(data: FavoriteList.shared())
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
         DataStorage<FavoriteList>.save(data: FavoriteList.shared())
         appGroup?.setValue(FavoriteList.shared().martList(), forKey: "favorites")
+        FavoriteAPI.shared.save()
+        Messaging.subscribeAll(favorites: FavoriteList.shared())
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -128,6 +135,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func applicationWillTerminate(_ application: UIApplication) {
         DataStorage<FavoriteList>.save(data: FavoriteList.shared())
         appGroup?.setValue(FavoriteList.shared().martList(), forKey: "favorites")
+        FavoriteAPI.shared.save()
+        Messaging.subscribeAll(favorites: FavoriteList.shared())
     }
 
     // MARK: Private functions
@@ -149,8 +158,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 }
 
 extension Messaging {
-    func subscribe(multipleBranchIds ids: [Int]) {
-        for id in ids {
+    class func subscribeAll(favorites: FavoriteList) {
+        for id in favorites.ids() {
             Messaging.messaging().subscribe(toTopic: "\(id)")
         }
     }
