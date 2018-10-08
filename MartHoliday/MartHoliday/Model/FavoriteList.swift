@@ -26,6 +26,15 @@ class FavoriteList: NSObject, NSCoding {
         self.martSet = Set<Int>()
     }
 
+    private init(ids: [Int]) {
+        self.martSet = Set(ids)
+    }
+
+    static func sharedIdsFromDB(_ ids: [Int]) -> FavoriteList {
+        sharedFavorite = FavoriteList(ids: ids)
+        return sharedFavorite
+    }
+    
     static func shared() -> FavoriteList {
         return sharedFavorite
     }
