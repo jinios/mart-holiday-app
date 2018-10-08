@@ -8,6 +8,7 @@
 
 import XCTest
 
+
 class MartHolidayTests: XCTestCase {
 
     func testDeletedFavorite() {
@@ -16,6 +17,14 @@ class MartHolidayTests: XCTestCase {
         favorite.push(id: 40)
         favorite.push(id: 323)
         XCTAssertEqual([1,40,323], favorite.ids())
+    }
+
+    func testFavoriteAPIInstance() {
+        let tempToken = "foo"
+        let instance = FavoriteAPI.shared()
+        instance.configure(token: tempToken)
+        let result = FavoriteAPI.deviceToken
+        XCTAssertEqual(tempToken, result!)
     }
     
 }
