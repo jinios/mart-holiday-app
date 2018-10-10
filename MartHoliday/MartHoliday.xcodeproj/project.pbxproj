@@ -16,7 +16,7 @@
 		FD02028B2146559B0083BE22 /* SlideMenuData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD48E1BE212BF57B00FC05D9 /* SlideMenuData.swift */; };
 		FD02028C2146559B0083BE22 /* MapSetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC3461A2136618E00F6D6FF /* MapSetter.swift */; };
 		FD02028E2146559B0083BE22 /* DataSetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4DDC8D21411236004E981F /* DataSetter.swift */; };
-		FD02028F2146559B0083BE22 /* Keywords.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409F211EC5EA007D7F1B /* Keywords.swift */; };
+		FD02028F2146559B0083BE22 /* Mart.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409F211EC5EA007D7F1B /* Mart.swift */; };
 		FD0202902146559B0083BE22 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC2A941212458F400A1E2FF /* Extensions.swift */; };
 		FD0202912146565C0083BE22 /* MartHolidayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0202612146517B0083BE22 /* MartHolidayTests.swift */; };
 		FD11EAE321203A4C003EB3E9 /* BranchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD11EAE221203A4C003EB3E9 /* BranchTableViewCell.swift */; };
@@ -62,12 +62,12 @@
 		FD86712321458FCB00273B3C /* StarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD86712221458FCB00273B3C /* StarButton.swift */; };
 		FD89F7C5216A66D500C8556C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD89F7C4216A66D400C8556C /* GoogleService-Info.plist */; };
 		FD9F409C211EBFAF007D7F1B /* BranchRawData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409B211EBFAF007D7F1B /* BranchRawData.swift */; };
-		FD9F40A0211EC5EA007D7F1B /* Keywords.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409F211EC5EA007D7F1B /* Keywords.swift */; };
+		FD9F40A0211EC5EA007D7F1B /* Mart.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409F211EC5EA007D7F1B /* Mart.swift */; };
 		FDA311A9214C141800A7E94B /* BranchRawData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409B211EBFAF007D7F1B /* BranchRawData.swift */; };
 		FDA311AE214C147900A7E94B /* SelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4DDC8F21412294004E981F /* SelectionTableViewCell.swift */; };
 		FDA311B1214C14B900A7E94B /* SlideBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1B4F202126BB8B00946311 /* SlideBackgroundView.swift */; };
 		FDA311B2214C14CA00A7E94B /* StarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD86712221458FCB00273B3C /* StarButton.swift */; };
-		FDA311B5214C150100A7E94B /* Keywords.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409F211EC5EA007D7F1B /* Keywords.swift */; };
+		FDA311B5214C150100A7E94B /* Mart.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409F211EC5EA007D7F1B /* Mart.swift */; };
 		FDAF601F21273E880006B68A /* NanumSquareRoundOTFL.otf in Resources */ = {isa = PBXBuildFile; fileRef = FDAF601B21273E880006B68A /* NanumSquareRoundOTFL.otf */; };
 		FDAF602021273E880006B68A /* NanumSquareRoundOTFB.otf in Resources */ = {isa = PBXBuildFile; fileRef = FDAF601C21273E880006B68A /* NanumSquareRoundOTFB.otf */; };
 		FDAF602121273E880006B68A /* NanumSquareRoundOTFR.otf in Resources */ = {isa = PBXBuildFile; fileRef = FDAF601D21273E880006B68A /* NanumSquareRoundOTFR.otf */; };
@@ -201,7 +201,7 @@
 		FD86712221458FCB00273B3C /* StarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarButton.swift; sourceTree = "<group>"; };
 		FD89F7C4216A66D400C8556C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FD9F409B211EBFAF007D7F1B /* BranchRawData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchRawData.swift; sourceTree = "<group>"; };
-		FD9F409F211EC5EA007D7F1B /* Keywords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keywords.swift; sourceTree = "<group>"; };
+		FD9F409F211EC5EA007D7F1B /* Mart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mart.swift; sourceTree = "<group>"; };
 		FDAF601B21273E880006B68A /* NanumSquareRoundOTFL.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundOTFL.otf; sourceTree = "<group>"; };
 		FDAF601C21273E880006B68A /* NanumSquareRoundOTFB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundOTFB.otf; sourceTree = "<group>"; };
 		FDAF601D21273E880006B68A /* NanumSquareRoundOTFR.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundOTFR.otf; sourceTree = "<group>"; };
@@ -372,7 +372,7 @@
 		FD9F40A2211ECB26007D7F1B /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				FD9F409F211EC5EA007D7F1B /* Keywords.swift */,
+				FD9F409F211EC5EA007D7F1B /* Mart.swift */,
 				FDC2A941212458F400A1E2FF /* Extensions.swift */,
 			);
 			path = Utility;
@@ -689,7 +689,7 @@
 				FD02028C2146559B0083BE22 /* MapSetter.swift in Sources */,
 				FD02028E2146559B0083BE22 /* DataSetter.swift in Sources */,
 				FD7FC0DC216E29450022094F /* KeyInfoLoader.swift in Sources */,
-				FD02028F2146559B0083BE22 /* Keywords.swift in Sources */,
+				FD02028F2146559B0083BE22 /* Mart.swift in Sources */,
 				FD0202902146559B0083BE22 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -708,7 +708,7 @@
 				FDA311B1214C14B900A7E94B /* SlideBackgroundView.swift in Sources */,
 				FDC5A7452167D7C1009F0B0C /* FavoriteList.swift in Sources */,
 				FDC5A7472167D90B009F0B0C /* TodayExtensionTableViewCell.swift in Sources */,
-				FDA311B5214C150100A7E94B /* Keywords.swift in Sources */,
+				FDA311B5214C150100A7E94B /* Mart.swift in Sources */,
 				FD7087DD216B384200A2A16F /* FavoriteAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -722,7 +722,7 @@
 				FD1CC4DF211DF10A00B21E09 /* SearchViewController.swift in Sources */,
 				FDBF9A4821240911001C2DAA /* DataStorage.swift in Sources */,
 				FD1B4F212126BB8B00946311 /* SlideBackgroundView.swift in Sources */,
-				FD9F40A0211EC5EA007D7F1B /* Keywords.swift in Sources */,
+				FD9F40A0211EC5EA007D7F1B /* Mart.swift in Sources */,
 				FD80CE2B21612BAE00C16150 /* HolidayHeaderView.swift in Sources */,
 				FDC3461D2136708400F6D6FF /* AddressDatum.swift in Sources */,
 				FD7087DF216B427700A2A16F /* FavoriteData.swift in Sources */,
