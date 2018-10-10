@@ -5,6 +5,7 @@ def shared_pods
   pod 'Firebase/Core'
   pod 'Firebase/Database'
   pod 'Firebase/Messaging'
+  pod 'NVActivityIndicatorView'
 end
 
 target 'MartHoliday' do

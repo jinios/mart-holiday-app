@@ -17,6 +17,7 @@ extension Notification.Name {
 enum AppColor: CustomStringConvertible {
     case lightgray
     case midgray
+    case lightmint
     case mint
     case navy
     case red
@@ -26,6 +27,7 @@ enum AppColor: CustomStringConvertible {
         switch self {
         case .lightgray: return "mh-lightgray"
         case .midgray: return "mh-midgray"
+        case .lightmint: return "mh-lightmint"
         case .mint: return "mh-mint"
         case .navy: return "mh-navy"
         case .red: return "mh-red"
