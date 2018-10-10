@@ -48,6 +48,7 @@ class MainViewController: UIViewController, FavoriteConvertible, HeaderDelegate,
         slideMenu.delegate = slideMenuManager
         slideMenu.dataSource = slideMenuManager
         slideOpenFlag = false
+        tableView.delaysContentTouches = false
 
         addGestures()
         NotificationCenter.default.addObserver(self, selector: #selector(detectSelectedMenu(_:)), name: .slideMenuTapped, object: nil)

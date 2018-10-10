@@ -284,6 +284,7 @@
 		FD1B4F1F2126BB4900946311 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FD86712221458FCB00273B3C /* StarButton.swift */,
 				FD11EAE221203A4C003EB3E9 /* BranchTableViewCell.swift */,
 				FD1B4F202126BB8B00946311 /* SlideBackgroundView.swift */,
 				FD1B4F222126BBD200946311 /* SlideTopView.swift */,
@@ -411,7 +412,6 @@
 			children = (
 				FDFB0344212E7AF10092411E /* MartHoliday.entitlements */,
 				FDB4BE21211D6BAD00D3B264 /* AppDelegate.swift */,
-				FD86712221458FCB00273B3C /* StarButton.swift */,
 				FD1B4F1F2126BB4900946311 /* View */,
 				FD391C51212025DB004C4A65 /* ViewController */,
 				FD9F40A1211ECAE2007D7F1B /* Model */,
