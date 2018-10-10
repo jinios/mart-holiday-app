@@ -301,6 +301,7 @@ extension MainViewController: MFMailComposeViewControllerDelegate {
             guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "martSelectVC") as? MartSelectViewController else { return }
             self.navigationController?.pushViewController(nextVC, animated: true)
         case .sendMail:
+            handleDismiss()
             var email: String
             if let path = Bundle.main.path(forResource: "KeyInfo", ofType: "plist"){
                 guard let myDict = NSDictionary(contentsOfFile: path) else { return }
@@ -309,14 +310,12 @@ extension MainViewController: MFMailComposeViewControllerDelegate {
                 mailAlert(alert: .failure)
                 return
             }
-
             if MFMailComposeViewController.canSendMail() {
                 let composeVC = MFMailComposeViewController()
                 composeVC.mailComposeDelegate = self
                 composeVC.setToRecipients([email])
                 composeVC.setSubject(ProgramDescription.MailTitle.rawValue)
                 composeVC.setMessageBody(ProgramDescription.MailBody.rawValue, isHTML: true)
-
                 present(composeVC, animated: true)
             } else {
                 mailAlert(alert: .failure)
@@ -326,8 +325,7 @@ extension MainViewController: MFMailComposeViewControllerDelegate {
 
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true, completion: nil)
-        backgroundView.dismiss()
-        mailAlert(alert: .success)
+        feedbackToMailAction(result: result)
     }
 
     private func mailAlert(alert: MailAlert) {
@@ -336,6 +334,12 @@ extension MainViewController: MFMailComposeViewControllerDelegate {
         self.present(alertController, animated: true, completion: nil)
     }
 
+    private func feedbackToMailAction(result: MFMailComposeResult) {
+        switch result {
+            case .sent: mailAlert(alert: .success)
+            default: return
+        }
+    }
 
 }
 
