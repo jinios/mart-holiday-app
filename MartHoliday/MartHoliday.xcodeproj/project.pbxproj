@@ -52,6 +52,9 @@
 		FD7FC0DA216E23CA0022094F /* KeyInfoLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7FC0D9216E23CA0022094F /* KeyInfoLoader.swift */; };
 		FD7FC0DB216E29450022094F /* KeyInfoLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7FC0D9216E23CA0022094F /* KeyInfoLoader.swift */; };
 		FD7FC0DC216E29450022094F /* KeyInfoLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7FC0D9216E23CA0022094F /* KeyInfoLoader.swift */; };
+		FD7FC0DE216E62A70022094F /* Keywords.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7FC0DD216E62A70022094F /* Keywords.swift */; };
+		FD7FC0DF216E63750022094F /* SelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4DDC8F21412294004E981F /* SelectionTableViewCell.swift */; };
+		FD7FC0E1216E65290022094F /* SelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4DDC8F21412294004E981F /* SelectionTableViewCell.swift */; };
 		FD80CE212160D70100C16150 /* MartMapDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD80CE202160D70100C16150 /* MartMapDelegate.swift */; };
 		FD80CE292161241D00C16150 /* DetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD80CE282161241D00C16150 /* DetailHeaderView.xib */; };
 		FD80CE2B21612BAE00C16150 /* HolidayHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD80CE2A21612BAE00C16150 /* HolidayHeaderView.swift */; };
@@ -64,7 +67,6 @@
 		FD9F409C211EBFAF007D7F1B /* BranchRawData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409B211EBFAF007D7F1B /* BranchRawData.swift */; };
 		FD9F40A0211EC5EA007D7F1B /* Mart.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409F211EC5EA007D7F1B /* Mart.swift */; };
 		FDA311A9214C141800A7E94B /* BranchRawData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409B211EBFAF007D7F1B /* BranchRawData.swift */; };
-		FDA311AE214C147900A7E94B /* SelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4DDC8F21412294004E981F /* SelectionTableViewCell.swift */; };
 		FDA311B1214C14B900A7E94B /* SlideBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1B4F202126BB8B00946311 /* SlideBackgroundView.swift */; };
 		FDA311B2214C14CA00A7E94B /* StarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD86712221458FCB00273B3C /* StarButton.swift */; };
 		FDA311B5214C150100A7E94B /* Mart.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409F211EC5EA007D7F1B /* Mart.swift */; };
@@ -184,6 +186,7 @@
 		FD780D76212F185600B569B3 /* SlideMenuManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideMenuManager.swift; sourceTree = "<group>"; };
 		FD7BC8D0215620FF002BE5EA /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		FD7FC0D9216E23CA0022094F /* KeyInfoLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyInfoLoader.swift; sourceTree = "<group>"; };
+		FD7FC0DD216E62A70022094F /* Keywords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keywords.swift; sourceTree = "<group>"; };
 		FD80CE202160D70100C16150 /* MartMapDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MartMapDelegate.swift; sourceTree = "<group>"; };
 		FD80CE282161241D00C16150 /* DetailHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailHeaderView.xib; sourceTree = "<group>"; };
 		FD80CE2A21612BAE00C16150 /* HolidayHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayHeaderView.swift; sourceTree = "<group>"; };
@@ -351,6 +354,7 @@
 		FD9F40A1211ECAE2007D7F1B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FD9F409F211EC5EA007D7F1B /* Mart.swift */,
 				FD780D76212F185600B569B3 /* SlideMenuManager.swift */,
 				FD228F372142EB1A0062B75F /* BranchList.swift */,
 				FD9F409B211EBFAF007D7F1B /* BranchRawData.swift */,
@@ -372,8 +376,8 @@
 		FD9F40A2211ECB26007D7F1B /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				FD9F409F211EC5EA007D7F1B /* Mart.swift */,
 				FDC2A941212458F400A1E2FF /* Extensions.swift */,
+				FD7FC0DD216E62A70022094F /* Keywords.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -688,6 +692,7 @@
 				FD59D2D32164C57D009B7FDF /* FavoriteList.swift in Sources */,
 				FD02028C2146559B0083BE22 /* MapSetter.swift in Sources */,
 				FD02028E2146559B0083BE22 /* DataSetter.swift in Sources */,
+				FD7FC0DF216E63750022094F /* SelectionTableViewCell.swift in Sources */,
 				FD7FC0DC216E29450022094F /* KeyInfoLoader.swift in Sources */,
 				FD02028F2146559B0083BE22 /* Mart.swift in Sources */,
 				FD0202902146559B0083BE22 /* Extensions.swift in Sources */,
@@ -698,8 +703,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD7FC0E1216E65290022094F /* SelectionTableViewCell.swift in Sources */,
 				FDC5A7482167D921009F0B0C /* BranchList.swift in Sources */,
-				FDA311AE214C147900A7E94B /* SelectionTableViewCell.swift in Sources */,
 				FD7FC0DB216E29450022094F /* KeyInfoLoader.swift in Sources */,
 				FDA311B2214C14CA00A7E94B /* StarButton.swift in Sources */,
 				FDC5A7462167D7DB009F0B0C /* DataStorage.swift in Sources */,
@@ -750,6 +755,7 @@
 				FDB4BE22211D6BAD00D3B264 /* AppDelegate.swift in Sources */,
 				FDF8ABC2215B722800DA74C9 /* FavoriteBranch.swift in Sources */,
 				FDBF9A4A212414A9001C2DAA /* FavoriteList.swift in Sources */,
+				FD7FC0DE216E62A70022094F /* Keywords.swift in Sources */,
 				FD5E63F92153C8F400DC082A /* HolidayTableViewCell.swift in Sources */,
 				FD4DDC9021412294004E981F /* SelectionTableViewCell.swift in Sources */,
 				FD80CE212160D70100C16150 /* MartMapDelegate.swift in Sources */,

@@ -49,6 +49,13 @@ extension UIFont {
     }
 }
 
+extension UIButton {
+    func setArrowImage() {
+        self.setImage(UIImage(named: "downArrow"), for: .normal)
+        self.setImage(UIImage(named: "upArrow"), for: .selected)
+    }
+}
+
 extension NMapView {
 
     func setMapGesture(enable: Bool) {

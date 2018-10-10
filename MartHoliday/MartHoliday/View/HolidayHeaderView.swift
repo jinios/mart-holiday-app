@@ -17,8 +17,9 @@ class HolidayHeaderView: UITableViewHeaderFooterView {
     var delegate: HeaderDelegate?
 
     func set(holiday: String?) {
-        dateLabel.text = holiday ?? "정보가 없습니다 :("
-        setButton()
+        dateLabel.text = holiday ?? ProgramDescription.NoHolidayData.rawValue
+//        setButton()
+        button.setArrowImage()
     }
 
     private func setButton() {

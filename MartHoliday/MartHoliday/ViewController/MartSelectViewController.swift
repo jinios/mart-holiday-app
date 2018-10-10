@@ -23,7 +23,7 @@ class MartSelectViewController: UIViewController {
         tableView.separatorStyle = .none
         tableView.backgroundColor = UIColor.appColor(color: .lightgray)
         tableView.delaysContentTouches = false
-        self.navigationItem.title = "마트 검색"
+        self.navigationItem.title = ProgramDescription.SeachingMart.rawValue
         setIndicator()
     }
 

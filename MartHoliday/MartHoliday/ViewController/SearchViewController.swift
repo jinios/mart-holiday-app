@@ -43,7 +43,7 @@ class SearchViewController: UIViewController {
         searchController.searchBar.searchBarStyle = .default
 
         UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = [NSAttributedStringKey.foregroundColor.rawValue: UIColor.white]
-        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).attributedPlaceholder = NSAttributedString(string: "지점명을 입력하세요.", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).attributedPlaceholder = NSAttributedString(string: ProgramDescription.TypeBranchName.rawValue, attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         definesPresentationContext = true

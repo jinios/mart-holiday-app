@@ -23,7 +23,7 @@ protocol FooterDelegate {
 }
 
 protocol MailFeedbackAlert {
-    var controller: UIAlertController { get }
+    var controller: UIAlertController? { get }
 }
 
 class MainViewController: UIViewController, FavoriteConvertible, HeaderDelegate, FooterDelegate {
@@ -58,14 +58,14 @@ class MainViewController: UIViewController, FavoriteConvertible, HeaderDelegate,
 
     private func setNoDataView() {
         noDataView = NoDataView(frame: self.view.frame)
-        noDataView?.setLabel(text: "즐겨찾는 마트를 추가해주세요!")
+        noDataView?.setLabel(text: ProgramDescription.AddMartRequest.rawValue)
         self.view.addSubview(noDataView!)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.prefersLargeTitles = false
-        self.navigationItem.title = "마트쉬는날"
+        self.navigationItem.title = ProgramDescription.MartHoliday.rawValue
         setTableView()
     }
 
@@ -314,8 +314,8 @@ extension MainViewController: MFMailComposeViewControllerDelegate {
                 let composeVC = MFMailComposeViewController()
                 composeVC.mailComposeDelegate = self
                 composeVC.setToRecipients([email])
-                composeVC.setSubject("[마트쉬는날] 문의")
-                composeVC.setMessageBody("<p>문의사항을 기재해주세요:)</p>", isHTML: true)
+                composeVC.setSubject(ProgramDescription.MailTitle.rawValue)
+                composeVC.setMessageBody(ProgramDescription.MailBody.rawValue, isHTML: true)
 
                 present(composeVC, animated: true)
             } else {
@@ -326,11 +326,12 @@ extension MainViewController: MFMailComposeViewControllerDelegate {
 
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true, completion: nil)
+        backgroundView.dismiss()
         mailAlert(alert: .success)
     }
 
     private func mailAlert(alert: MailAlert) {
-        let alertController = alert.controller
+        guard let alertController = alert.controller else {return}
         alertController.addAction(UIAlertAction(title: "Done", style: .default, handler: nil))
         self.present(alertController, animated: true, completion: nil)
     }
@@ -341,19 +342,21 @@ extension MainViewController: MFMailComposeViewControllerDelegate {
 enum MailAlert: MailFeedbackAlert {
     case success
     case failure
+    case none
 
-    var controller: UIAlertController {
+    var controller: UIAlertController? {
         switch self {
         case .failure:
-            let alert = UIAlertController(title: "메일 전송 실패😢",
-                                          message: "아이폰 기본 '메일'앱에서 계정을 추가해주세요!",
+            let alert = UIAlertController(title: ProgramDescription.FailureSendingMailTitle.rawValue,
+                                          message: ProgramDescription.FailureSendingMailBody.rawValue,
                                           preferredStyle: .alert)
             return alert
         case .success:
-            let alert = UIAlertController(title: "감사합니다❤️",
-                                          message: "소중한 의견 감사합니다 :)",
+            let alert = UIAlertController(title: ProgramDescription.SuccessSendingMailTitle.rawValue,
+                                          message: ProgramDescription.SuccessSendingMailBody.rawValue,
                                           preferredStyle: .alert)
             return alert
+        case .none: return nil
         }
     }
 }

@@ -29,7 +29,7 @@ class FavoriteBranch: ExpandCollapseTogglable {
         isExpanded = false
         self.holidays = branch.holidays
         if self.holidays.isEmpty {
-            self.holidays.append("휴무일 정보가 없습니다 :(")
+            self.holidays.append(ProgramDescription.NoDateData.rawValue)
         }
     }
 
@@ -39,7 +39,7 @@ class FavoriteBranch: ExpandCollapseTogglable {
 
     func firstHoliday() -> String {
         guard holidays.isEmpty else { return holidays[0] }
-        return "휴무일 정보가 없습니다 :("
+        return ProgramDescription.NoDateData.rawValue
     }
 
     func allHolidays() -> [String] {
