@@ -51,11 +51,16 @@ enum Mart: String, KoreanName, JSONfile, URLHolder, CIImageHolder {
 
     var url: URL? {
         switch self {
-        case .emart: return URL(string: "http://ec2-13-209-38-224.ap-northeast-2.compute.amazonaws.com/api/mart/EMART/list")
-        case .lottemart: return URL(string: "http://ec2-13-209-38-224.ap-northeast-2.compute.amazonaws.com/api/mart/LOTTEMART/list")
-        case .homeplus: return URL(string: "http://ec2-13-209-38-224.ap-northeast-2.compute.amazonaws.com/api/mart/HOMEPLUS/list")
-        case .homeplusExpress: return URL(string: "http://ec2-13-209-38-224.ap-northeast-2.compute.amazonaws.com/api/mart/HOMEPLUS_EXPRESS/list")
+        case .emart: return loadURL(.EmartList)
+        case .lottemart: return loadURL(.LottemartList)
+        case .homeplus: return loadURL(.HomeplusList)
+        case .homeplusExpress: return loadURL(.HomeplusExpressList)
         }
+    }
+
+    func loadURL(_ keyInfoType: KeyInfo) -> URL? {
+        guard let urlStr = KeyInfoLoader.loadValue(of: keyInfoType) else { return nil }
+        return URL(string: urlStr)
     }
 
     var imageName: String {

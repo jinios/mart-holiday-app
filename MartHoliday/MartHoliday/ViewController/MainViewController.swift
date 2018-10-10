@@ -141,7 +141,8 @@ class MainViewController: UIViewController, FavoriteConvertible, HeaderDelegate,
     func fetchFavoriteBranch(handler: @escaping (() -> Void)) {
         let ids = FavoriteList.shared().ids()
         let idstr = ids.map{String($0)}.joined(separator: ",")
-        guard let baseURL = URL(string: "http://ec2-13-209-38-224.ap-northeast-2.compute.amazonaws.com/api/mart/branch") else { return }
+        guard let urlstr = KeyInfoLoader.loadValue(of: .FavoriteBranchesURL) else { return }
+        guard let baseURL = URL(string: urlstr) else { return }
         let url = baseURL.appendingPathComponent(idstr)
 
         URLSession.shared.dataTask(with: url) { (data, response, error) in

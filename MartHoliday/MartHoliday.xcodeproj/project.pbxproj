@@ -49,6 +49,9 @@
 		FD7087DF216B427700A2A16F /* FavoriteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7087DE216B427700A2A16F /* FavoriteData.swift */; };
 		FD780D77212F185600B569B3 /* SlideMenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD780D76212F185600B569B3 /* SlideMenuManager.swift */; };
 		FD7BC8D1215620FF002BE5EA /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7BC8D0215620FF002BE5EA /* MapViewController.swift */; };
+		FD7FC0DA216E23CA0022094F /* KeyInfoLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7FC0D9216E23CA0022094F /* KeyInfoLoader.swift */; };
+		FD7FC0DB216E29450022094F /* KeyInfoLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7FC0D9216E23CA0022094F /* KeyInfoLoader.swift */; };
+		FD7FC0DC216E29450022094F /* KeyInfoLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7FC0D9216E23CA0022094F /* KeyInfoLoader.swift */; };
 		FD80CE212160D70100C16150 /* MartMapDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD80CE202160D70100C16150 /* MartMapDelegate.swift */; };
 		FD80CE292161241D00C16150 /* DetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD80CE282161241D00C16150 /* DetailHeaderView.xib */; };
 		FD80CE2B21612BAE00C16150 /* HolidayHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD80CE2A21612BAE00C16150 /* HolidayHeaderView.swift */; };
@@ -180,6 +183,7 @@
 		FD7087DE216B427700A2A16F /* FavoriteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteData.swift; sourceTree = "<group>"; };
 		FD780D76212F185600B569B3 /* SlideMenuManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideMenuManager.swift; sourceTree = "<group>"; };
 		FD7BC8D0215620FF002BE5EA /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		FD7FC0D9216E23CA0022094F /* KeyInfoLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyInfoLoader.swift; sourceTree = "<group>"; };
 		FD80CE202160D70100C16150 /* MartMapDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MartMapDelegate.swift; sourceTree = "<group>"; };
 		FD80CE282161241D00C16150 /* DetailHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailHeaderView.xib; sourceTree = "<group>"; };
 		FD80CE2A21612BAE00C16150 /* HolidayHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayHeaderView.swift; sourceTree = "<group>"; };
@@ -360,6 +364,7 @@
 				FD80CE202160D70100C16150 /* MartMapDelegate.swift */,
 				FDC5A7492167DA4D009F0B0C /* FavoriteAPI.swift */,
 				FD7087DE216B427700A2A16F /* FavoriteData.swift */,
+				FD7FC0D9216E23CA0022094F /* KeyInfoLoader.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -683,6 +688,7 @@
 				FD59D2D32164C57D009B7FDF /* FavoriteList.swift in Sources */,
 				FD02028C2146559B0083BE22 /* MapSetter.swift in Sources */,
 				FD02028E2146559B0083BE22 /* DataSetter.swift in Sources */,
+				FD7FC0DC216E29450022094F /* KeyInfoLoader.swift in Sources */,
 				FD02028F2146559B0083BE22 /* Keywords.swift in Sources */,
 				FD0202902146559B0083BE22 /* Extensions.swift in Sources */,
 			);
@@ -694,6 +700,7 @@
 			files = (
 				FDC5A7482167D921009F0B0C /* BranchList.swift in Sources */,
 				FDA311AE214C147900A7E94B /* SelectionTableViewCell.swift in Sources */,
+				FD7FC0DB216E29450022094F /* KeyInfoLoader.swift in Sources */,
 				FDA311B2214C14CA00A7E94B /* StarButton.swift in Sources */,
 				FDC5A7462167D7DB009F0B0C /* DataStorage.swift in Sources */,
 				FDA311A9214C141800A7E94B /* BranchRawData.swift in Sources */,
@@ -733,6 +740,7 @@
 				FD780D77212F185600B569B3 /* SlideMenuManager.swift in Sources */,
 				FDC5A74A2167DA4D009F0B0C /* FavoriteAPI.swift in Sources */,
 				FD4850F4212869AF0064747A /* SlideMenuCell.swift in Sources */,
+				FD7FC0DA216E23CA0022094F /* KeyInfoLoader.swift in Sources */,
 				FDCB9E8B212566F1006281CB /* MainViewController.swift in Sources */,
 				FD9F409C211EBFAF007D7F1B /* BranchRawData.swift in Sources */,
 				FDC5A7422167CD50009F0B0C /* TodayExtensionTableViewCell.swift in Sources */,

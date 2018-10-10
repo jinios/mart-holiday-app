@@ -42,9 +42,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         guard let loadedData = DataStorage<FavoriteList>.load() else { return true }
         FavoriteList.loadSavedData(loadedData)
         appGroup?.setValue(FavoriteList.shared().martList(), forKey: "favorites")
-
+        setFavoritesURLTodayExtension()
         return true
     }
+
+    private func setFavoritesURLTodayExtension() {
+        guard let value = KeyInfoLoader.loadValue(of: .FavoriteBranchesURL) else { return }
+        appGroup?.setValue(value, forKey: KeyInfo.FavoriteBranchesURL.rawValue)
+    }
+
 
     // [START refresh_token]
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
