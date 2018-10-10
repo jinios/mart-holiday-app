@@ -22,6 +22,10 @@ protocol FooterDelegate {
     func toggleFooter(index: Int)
 }
 
+protocol MailFeedbackAlert {
+    var controller: UIAlertController { get }
+}
+
 class MainViewController: UIViewController, FavoriteConvertible, HeaderDelegate, FooterDelegate {
     typealias HolidayData = [ExpandCollapseTogglable]
 
@@ -351,10 +355,5 @@ enum MailAlert: MailFeedbackAlert {
         }
     }
 }
-
-protocol MailFeedbackAlert {
-    var controller: UIAlertController { get }
-}
-
 
 

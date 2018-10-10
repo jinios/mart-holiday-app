@@ -42,6 +42,13 @@ extension UIColor {
     }
 }
 
+extension UIFont {
+    func bold() -> UIFont {
+        let desc = self.fontDescriptor.withSymbolicTraits(.traitBold)
+        return UIFont(descriptor: desc!, size: self.pointSize)
+    }
+}
+
 extension NMapView {
 
     func setMapGesture(enable: Bool) {
