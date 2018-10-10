@@ -8,7 +8,13 @@
 
 import Foundation
 
-class MenuData {
+enum SelectedSlideMenu {
+    case main
+    case select
+    case sendMail
+}
+
+class SlideMenuData {
     var title: String
     var imageName: String
 
@@ -25,10 +31,4 @@ class MenuData {
         default: return .main
         }
     }
-}
-
-enum SelectedSlideMenu {
-    case main
-    case select
-    case sendMail
 }
