@@ -320,6 +320,10 @@ extension MainViewController: MFMailComposeViewControllerDelegate {
             } else {
                 mailAlert(alert: .failure)
             }
+        case .appInfo:
+            handleDismiss()
+            guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "appInfoVC") as? AppInfoViewController else { return }
+            self.navigationController?.pushViewController(nextVC, animated: true)
         }
     }
 
