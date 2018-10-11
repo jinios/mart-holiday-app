@@ -25,13 +25,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="검색할 마트를 선택하세요 :)" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oT5-EJ-aJk">
-                                <rect key="frame" x="95" y="45" width="185.5" height="20"/>
+                                <rect key="frame" x="91" y="45" width="193.5" height="19"/>
                                 <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IU9-qB-wNQ">
-                                <rect key="frame" x="0.0" y="85" width="375" height="582"/>
+                                <rect key="frame" x="0.0" y="84" width="375" height="583"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="selectionCell" rowHeight="150" id="ssu-MQ-wtR" customClass="SelectionTableViewCell" customModule="MartHoliday" customModuleProvider="target">
@@ -194,7 +194,7 @@
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fM5-h6-WFW">
-                                                                    <rect key="frame" x="30" y="8" width="195" height="19"/>
+                                                                    <rect key="frame" x="30" y="7.5" width="195" height="20"/>
                                                                     <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -216,20 +216,20 @@
                                                 <rect key="frame" x="0.0" y="200" width="375" height="174"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="70" translatesAutoresizingMaskIntoConstraints="NO" id="sZs-yg-EWe" userLabel="buttons">
-                                                        <rect key="frame" x="56" y="10" width="263" height="59.5"/>
+                                                        <rect key="frame" x="21.5" y="10" width="332" height="59.5"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="XxV-BH-eMm">
-                                                                <rect key="frame" x="0.0" y="0.0" width="40.5" height="59.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="64" height="59.5"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CLp-u5-Q4w" customClass="StarCircleButton" customModule="MartHoliday" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="40.5" height="40"/>
+                                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CLp-u5-Q4w" customClass="StarCircleButton" customModule="MartHoliday" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="64" height="52.5"/>
                                                                         <state key="normal" image="star"/>
                                                                         <connections>
                                                                             <action selector="favoriteTapped:" destination="zW4-f6-rWz" eventType="touchUpInside" id="mdU-ZQ-Nta"/>
                                                                         </connections>
                                                                     </button>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="즐겨찾기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="doB-Y5-fPo">
-                                                                        <rect key="frame" x="0.0" y="47" width="40.5" height="12.5"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="즐겨찾기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="doB-Y5-fPo">
+                                                                        <rect key="frame" x="0.0" y="59.5" width="64" height="0.0"/>
                                                                         <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="11"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -237,17 +237,17 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="cug-7W-2MM">
-                                                                <rect key="frame" x="111.5" y="0.0" width="40.5" height="59.5"/>
+                                                                <rect key="frame" x="134" y="0.0" width="64" height="59.5"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="75m-MT-bXp">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="40.5" height="40"/>
+                                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="75m-MT-bXp">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="64" height="39.5"/>
                                                                         <state key="normal" image="call-circle"/>
                                                                         <connections>
                                                                             <action selector="phoneCallTapped:" destination="zW4-f6-rWz" eventType="touchUpInside" id="ocE-aD-MTx"/>
                                                                         </connections>
                                                                     </button>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="전화하기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2jB-oG-CMN">
-                                                                        <rect key="frame" x="0.0" y="47" width="40.5" height="12.5"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="전화하기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2jB-oG-CMN">
+                                                                        <rect key="frame" x="0.0" y="46.5" width="64" height="13"/>
                                                                         <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="11"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -255,10 +255,10 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="xbp-TZ-vPm">
-                                                                <rect key="frame" x="222.5" y="0.0" width="40.5" height="59.5"/>
+                                                                <rect key="frame" x="268" y="0.0" width="64" height="59.5"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQ2-qS-Vfd">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="40.5" height="42"/>
+                                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQ2-qS-Vfd">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="64" height="54.5"/>
                                                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="12"/>
                                                                         <inset key="titleEdgeInsets" minX="0.0" minY="60" maxX="0.0" maxY="0.0"/>
                                                                         <state key="normal" image="safari-circle">
@@ -268,8 +268,8 @@
                                                                             <action selector="goToWebPage:" destination="zW4-f6-rWz" eventType="touchUpInside" id="Ozj-q2-RhN"/>
                                                                         </connections>
                                                                     </button>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="홈페이지" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oy8-ua-pMX">
-                                                                        <rect key="frame" x="0.0" y="47" width="40.5" height="12.5"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="홈페이지" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oy8-ua-pMX">
+                                                                        <rect key="frame" x="0.0" y="59.5" width="64" height="0.0"/>
                                                                         <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="11"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -289,23 +289,23 @@
                                                             <constraint firstAttribute="height" constant="1" id="z7N-qQ-BXh"/>
                                                         </constraints>
                                                     </view>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="guY-aq-IUi" userLabel="infoStackView">
-                                                        <rect key="frame" x="20" y="96" width="55" height="71.5"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="guY-aq-IUi" userLabel="infoStackView">
+                                                        <rect key="frame" x="20" y="95.5" width="52" height="72.5"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="영업시간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jz8-Kg-hmQ">
-                                                                <rect key="frame" x="0.0" y="0.0" width="55" height="17.5"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="영업시간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jz8-Kg-hmQ">
+                                                                <rect key="frame" x="0.0" y="0.0" width="52" height="17.5"/>
                                                                 <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="15"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="전화번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2XA-B2-zJG">
-                                                                <rect key="frame" x="0.0" y="27.5" width="55" height="17"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="전화번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2XA-B2-zJG">
+                                                                <rect key="frame" x="0.0" y="27.5" width="52" height="17.5"/>
                                                                 <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="15"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="위치정보" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vQc-kI-Tdm">
-                                                                <rect key="frame" x="0.0" y="54.5" width="55" height="17"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="위치정보" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vQc-kI-Tdm">
+                                                                <rect key="frame" x="0.0" y="55" width="52" height="17.5"/>
                                                                 <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="15"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -313,22 +313,22 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="bottom" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="AFX-0R-lWo" userLabel="info detail stack view">
-                                                        <rect key="frame" x="317" y="95.5" width="38" height="71.5"/>
+                                                        <rect key="frame" x="318" y="95.5" width="37" height="71.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wf3-kj-MA8">
-                                                                <rect key="frame" x="0.0" y="0.0" width="38" height="17"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="37" height="17.5"/>
                                                                 <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="15"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cdv-Ua-B8c">
-                                                                <rect key="frame" x="0.0" y="27.5" width="38" height="17"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cdv-Ua-B8c">
+                                                                <rect key="frame" x="0.0" y="27.5" width="37" height="17.5"/>
                                                                 <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="15"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="right" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nFR-G1-Xtd">
-                                                                <rect key="frame" x="0.0" y="54.5" width="38" height="17"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nFR-G1-Xtd">
+                                                                <rect key="frame" x="0.0" y="55" width="37" height="16.5"/>
                                                                 <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="15"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -429,27 +429,9 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ig2-fw-Apt">
                                 <rect key="frame" x="19" y="83" width="337.5" height="564"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <mutableString key="text">#Acknowledgements
+                                <string key="text">#Acknowledgements
 
-This application makes use of the following third party libraries:
-
-
-## NVActivityIndicatorView
-  https://github.com/ninjaprox/NVActivityIndicatorView
-  - The MIT License (MIT)
-  - Copyright (c) 2016 Vinh Nguyen @ninjaprox
-
-
-## Firebase
-  https://firebase.google.com/terms/
-  - Apache 2.0 License
-  - Copyright 2017 Google
-
-
-## Naver OpenAPI(네이버 오픈API)
-  http://developers.naver.com
-
-</mutableString>
+</string>
                                 <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
@@ -496,7 +478,7 @@ This application makes use of the following third party libraries:
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3YZ-PZ-Ksq">
-                                                    <rect key="frame" x="30" y="13" width="200" height="18"/>
+                                                    <rect key="frame" x="30" y="12.5" width="200" height="19"/>
                                                     <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>

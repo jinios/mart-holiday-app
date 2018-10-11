@@ -64,6 +64,7 @@
 		FD859865214BE9FA00C1A3E2 /* MartHolidayTodayExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = FD859859214BE9FA00C1A3E2 /* MartHolidayTodayExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		FD86712321458FCB00273B3C /* StarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD86712221458FCB00273B3C /* StarButton.swift */; };
 		FD89F7C5216A66D500C8556C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD89F7C4216A66D400C8556C /* GoogleService-Info.plist */; };
+		FD91364E216EF70B001A21DF /* AppInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD91364D216EF70B001A21DF /* AppInfoViewController.swift */; };
 		FD9F409C211EBFAF007D7F1B /* BranchRawData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409B211EBFAF007D7F1B /* BranchRawData.swift */; };
 		FD9F40A0211EC5EA007D7F1B /* Mart.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409F211EC5EA007D7F1B /* Mart.swift */; };
 		FDA311A9214C141800A7E94B /* BranchRawData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409B211EBFAF007D7F1B /* BranchRawData.swift */; };
@@ -203,6 +204,7 @@
 		FD859879214C0D7D00C1A3E2 /* TodayExtensionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayExtensionTableViewCell.swift; sourceTree = "<group>"; };
 		FD86712221458FCB00273B3C /* StarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarButton.swift; sourceTree = "<group>"; };
 		FD89F7C4216A66D400C8556C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FD91364D216EF70B001A21DF /* AppInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoViewController.swift; sourceTree = "<group>"; };
 		FD9F409B211EBFAF007D7F1B /* BranchRawData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchRawData.swift; sourceTree = "<group>"; };
 		FD9F409F211EC5EA007D7F1B /* Mart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mart.swift; sourceTree = "<group>"; };
 		FDAF601B21273E880006B68A /* NanumSquareRoundOTFL.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundOTFL.otf; sourceTree = "<group>"; };
@@ -317,6 +319,7 @@
 				FDB4BE23211D6BAD00D3B264 /* MartSelectViewController.swift */,
 				FD1CC4DE211DF10A00B21E09 /* SearchViewController.swift */,
 				FD7BC8D0215620FF002BE5EA /* MapViewController.swift */,
+				FD91364D216EF70B001A21DF /* AppInfoViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -750,6 +753,7 @@
 				FD9F409C211EBFAF007D7F1B /* BranchRawData.swift in Sources */,
 				FDC5A7422167CD50009F0B0C /* TodayExtensionTableViewCell.swift in Sources */,
 				FDF8ABC6215B76FC00DA74C9 /* MainTableViewCell.swift in Sources */,
+				FD91364E216EF70B001A21DF /* AppInfoViewController.swift in Sources */,
 				FDC19BAA215D2D54007D9A95 /* NoDataView.swift in Sources */,
 				FDC2A942212458F400A1E2FF /* Extensions.swift in Sources */,
 				FDB4BE22211D6BAD00D3B264 /* AppDelegate.swift in Sources */,

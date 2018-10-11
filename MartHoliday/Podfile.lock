@@ -10,6 +10,9 @@ PODS:
   - Firebase/Messaging (5.2.0):
     - Firebase/CoreOnly
     - FirebaseMessaging (= 3.0.2)
+  - Firebase/Storage (5.2.0):
+    - Firebase/CoreOnly
+    - FirebaseStorage (= 3.0.0)
   - FirebaseAnalytics (5.0.1):
     - FirebaseCore (~> 5.0)
     - FirebaseInstanceID (~> 3.0)
@@ -27,11 +30,15 @@ PODS:
     - FirebaseInstanceID (~> 3.0)
     - GoogleToolboxForMac/Logger (~> 2.1)
     - Protobuf (~> 3.1)
+  - FirebaseStorage (3.0.0):
+    - FirebaseCore (~> 5.0)
+    - GTMSessionFetcher/Core (~> 1.1)
   - GoogleToolboxForMac/Defines (2.1.4)
   - GoogleToolboxForMac/Logger (2.1.4):
     - GoogleToolboxForMac/Defines (= 2.1.4)
   - "GoogleToolboxForMac/NSData+zlib (2.1.4)":
     - GoogleToolboxForMac/Defines (= 2.1.4)
+  - GTMSessionFetcher/Core (1.1.15)
   - leveldb-library (1.20)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
@@ -47,6 +54,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - Firebase/Messaging
+  - Firebase/Storage
   - NVActivityIndicatorView
 
 SPEC REPOS:
@@ -57,7 +65,9 @@ SPEC REPOS:
     - FirebaseDatabase
     - FirebaseInstanceID
     - FirebaseMessaging
+    - FirebaseStorage
     - GoogleToolboxForMac
+    - GTMSessionFetcher
     - leveldb-library
     - nanopb
     - NVActivityIndicatorView
@@ -70,12 +80,14 @@ SPEC CHECKSUMS:
   FirebaseDatabase: 482bad9c2abd422bb2321194fb8c937e67426a89
   FirebaseInstanceID: 05d779cbb97bd5bd5c51a38a903fc9cfe1b2454a
   FirebaseMessaging: 6894b8fe0a0cf26c3b13dad729f1131654ae0bdb
+  FirebaseStorage: 7ca4bb7b58a25fa647b04f524033fc7cb7eb272b
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
+  GTMSessionFetcher: 5fa5b80fd20e439ef5f545fb2cb3ca6c6714caa2
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   NVActivityIndicatorView: 8068ba3ad39cb44cbaab25d89ff2546b3f092681
   Protobuf: 0fc0ad8bec688b2a3017a139953e01374fedbd5f
 
-PODFILE CHECKSUM: 8b25aa511324964590263a6debb46ed11991038b
+PODFILE CHECKSUM: a0efe8a4a762df1b26b2fb37d35a0e4a899db2b4
 
 COCOAPODS: 1.5.3

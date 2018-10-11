@@ -30,5 +30,6 @@ enum KeyInfo: String {
     case HomeplusExpressList
     case NMapSecretKey
     case NMapClientID
+    case AcknowledgementsURL
 }
 
