@@ -14,8 +14,8 @@ class SlideMenuManager: NSObject, UICollectionViewDataSource, UICollectionViewDe
 
     let menuData = [SlideMenuData(title: "메인으로", imageName: "home"),
                     SlideMenuData(title: "마트검색", imageName: "search-2"),
-                    SlideMenuData(title: "문의하기", imageName: "mail")]
-
+                    SlideMenuData(title: "문의하기", imageName: "mail"),
+                    SlideMenuData(title: "앱 정보", imageName: "appinfo")]
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
             return CGSize(width: collectionView.frame.width, height: 70)
