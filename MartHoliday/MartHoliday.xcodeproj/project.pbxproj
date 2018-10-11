@@ -75,6 +75,7 @@
 		FDAF602021273E880006B68A /* NanumSquareRoundOTFB.otf in Resources */ = {isa = PBXBuildFile; fileRef = FDAF601C21273E880006B68A /* NanumSquareRoundOTFB.otf */; };
 		FDAF602121273E880006B68A /* NanumSquareRoundOTFR.otf in Resources */ = {isa = PBXBuildFile; fileRef = FDAF601D21273E880006B68A /* NanumSquareRoundOTFR.otf */; };
 		FDAF602221273E880006B68A /* NanumSquareRoundOTFEB.otf in Resources */ = {isa = PBXBuildFile; fileRef = FDAF601E21273E880006B68A /* NanumSquareRoundOTFEB.otf */; };
+		FDB3AD67216F94FD002209A2 /* StorageAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB3AD66216F94FD002209A2 /* StorageAPI.swift */; };
 		FDB4BE22211D6BAD00D3B264 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB4BE21211D6BAD00D3B264 /* AppDelegate.swift */; };
 		FDB4BE24211D6BAD00D3B264 /* MartSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB4BE23211D6BAD00D3B264 /* MartSelectViewController.swift */; };
 		FDB4BE27211D6BAD00D3B264 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDB4BE25211D6BAD00D3B264 /* Main.storyboard */; };
@@ -211,6 +212,7 @@
 		FDAF601C21273E880006B68A /* NanumSquareRoundOTFB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundOTFB.otf; sourceTree = "<group>"; };
 		FDAF601D21273E880006B68A /* NanumSquareRoundOTFR.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundOTFR.otf; sourceTree = "<group>"; };
 		FDAF601E21273E880006B68A /* NanumSquareRoundOTFEB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundOTFEB.otf; sourceTree = "<group>"; };
+		FDB3AD66216F94FD002209A2 /* StorageAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageAPI.swift; sourceTree = "<group>"; };
 		FDB4BE1E211D6BAD00D3B264 /* MartHoliday.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MartHoliday.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDB4BE21211D6BAD00D3B264 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FDB4BE23211D6BAD00D3B264 /* MartSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MartSelectViewController.swift; sourceTree = "<group>"; };
@@ -372,6 +374,7 @@
 				FDC5A7492167DA4D009F0B0C /* FavoriteAPI.swift */,
 				FD7087DE216B427700A2A16F /* FavoriteData.swift */,
 				FD7FC0D9216E23CA0022094F /* KeyInfoLoader.swift */,
+				FDB3AD66216F94FD002209A2 /* StorageAPI.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -753,6 +756,7 @@
 				FD9F409C211EBFAF007D7F1B /* BranchRawData.swift in Sources */,
 				FDC5A7422167CD50009F0B0C /* TodayExtensionTableViewCell.swift in Sources */,
 				FDF8ABC6215B76FC00DA74C9 /* MainTableViewCell.swift in Sources */,
+				FDB3AD67216F94FD002209A2 /* StorageAPI.swift in Sources */,
 				FD91364E216EF70B001A21DF /* AppInfoViewController.swift in Sources */,
 				FDC19BAA215D2D54007D9A95 /* NoDataView.swift in Sources */,
 				FDC2A942212458F400A1E2FF /* Extensions.swift in Sources */,

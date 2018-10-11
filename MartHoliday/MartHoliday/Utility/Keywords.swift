@@ -23,4 +23,6 @@ enum ProgramDescription: String {
     case TypeBranchName = "지점명을 입력하세요."
     case MartLocation = "위치 보기"
     case NoDateData = "휴무일 정보가 없습니다 :("
+    case DefaultVersion = "ⓥ 1.0.0"
+    case AppInfo = "앱 정보"
 }
