@@ -49,6 +49,7 @@ PODS:
     - NVActivityIndicatorView/Presenter (= 4.2.1)
   - NVActivityIndicatorView/Presenter (4.2.1)
   - Protobuf (3.6.0)
+  - ReachabilitySwift (4.1.0)
 
 DEPENDENCIES:
   - Firebase/Core
@@ -56,6 +57,7 @@ DEPENDENCIES:
   - Firebase/Messaging
   - Firebase/Storage
   - NVActivityIndicatorView
+  - ReachabilitySwift
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -72,6 +74,7 @@ SPEC REPOS:
     - nanopb
     - NVActivityIndicatorView
     - Protobuf
+    - ReachabilitySwift
 
 SPEC CHECKSUMS:
   Firebase: 25ed0412036d7d008568d1fb4d2e9d81ea8a0a2c
@@ -87,7 +90,8 @@ SPEC CHECKSUMS:
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   NVActivityIndicatorView: 8068ba3ad39cb44cbaab25d89ff2546b3f092681
   Protobuf: 0fc0ad8bec688b2a3017a139953e01374fedbd5f
+  ReachabilitySwift: 6849231cd4e06559f3b9ef4a97a0a0f96d41e09f
 
-PODFILE CHECKSUM: a0efe8a4a762df1b26b2fb37d35a0e4a899db2b4
+PODFILE CHECKSUM: ace5c7eb10de9f64934d5c74f415840d4ce68db5
 
 COCOAPODS: 1.5.3

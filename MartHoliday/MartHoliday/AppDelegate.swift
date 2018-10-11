@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import UserNotifications
+import Reachability
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, MessagingDelegate {
@@ -19,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         window?.backgroundColor = .white
         setNavigationBar()
-
+        NotificationCenter.default.addObserver(self, selector: #selector(reachabilityAlert(notification:)), name: .connectionStatus, object: nil)
         FirebaseApp.configure()
         Messaging.messaging().delegate = self
 
@@ -46,11 +47,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         return true
     }
 
+    @objc func reachabilityAlert(notification: Notification) {
+        guard let userInfo = notification.userInfo else { return }
+        guard let connection = userInfo["connectionStatus"] as? Reachability.Connection else { return }
+        switch connection {
+        case .wifi, .cellular:
+            print("connected alert")
+        case .none:
+            print("no network alert")
+        }
+    }
+
     private func setFavoritesURLTodayExtension() {
         guard let value = KeyInfoLoader.loadValue(of: .FavoriteBranchesURL) else { return }
         appGroup?.setValue(value, forKey: KeyInfo.FavoriteBranchesURL.rawValue)
     }
-
 
     // [START refresh_token]
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
@@ -117,9 +128,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     // MARK: Life Cycle functions
 
-    func applicationWillResignActive(_ application: UIApplication) {
-    }
-
     func applicationDidEnterBackground(_ application: UIApplication) {
         DataStorage<FavoriteList>.save(data: FavoriteList.shared())
         appGroup?.setValue(FavoriteList.shared().martList(), forKey: "favorites")
@@ -133,9 +141,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         if !FavoriteList.isSameData(loadedData) {
             FavoriteList.loadSavedData(loadedData)
         }
-    }
-
-    func applicationDidBecomeActive(_ application: UIApplication) {
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
