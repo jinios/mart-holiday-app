@@ -34,7 +34,7 @@ class NoMapView: UIView {
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        setButtonTextAttributes(text: "주소복사하기 ✏️")
+        setButtonTextAttributes(text: ProgramDescription.CopyAddress.rawValue)
     }
 
     private func setButtonTextAttributes(text: String) {

@@ -12,11 +12,13 @@ extension Notification.Name {
     static let slideMenuClose = Notification.Name("slideMenuClose")
     static let slideMenuTapped = Notification.Name("slideMenuClose")
     static let mapViewTapped = Notification.Name("mapViewTapped")
+    static let connectionStatus = Notification.Name("connectionStatus")
 }
 
 enum AppColor: CustomStringConvertible {
     case lightgray
     case midgray
+    case lightmint
     case mint
     case navy
     case red
@@ -26,6 +28,7 @@ enum AppColor: CustomStringConvertible {
         switch self {
         case .lightgray: return "mh-lightgray"
         case .midgray: return "mh-midgray"
+        case .lightmint: return "mh-lightmint"
         case .mint: return "mh-mint"
         case .navy: return "mh-navy"
         case .red: return "mh-red"
@@ -37,6 +40,20 @@ enum AppColor: CustomStringConvertible {
 extension UIColor {
     class func appColor(color: AppColor) -> UIColor {
         return UIColor(named: color.description)!
+    }
+}
+
+extension UIFont {
+    func bold() -> UIFont {
+        let desc = self.fontDescriptor.withSymbolicTraits(.traitBold)
+        return UIFont(descriptor: desc!, size: self.pointSize)
+    }
+}
+
+extension UIButton {
+    func setArrowImage() {
+        self.setImage(UIImage(named: "downArrow"), for: .normal)
+        self.setImage(UIImage(named: "upArrow"), for: .selected)
     }
 }
 

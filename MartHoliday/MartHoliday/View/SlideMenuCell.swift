@@ -29,7 +29,7 @@ class SlideMenuCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func setData(menu: MenuData) {
+    func setData(menu: SlideMenuData) {
         self.titleLabel.text = menu.title
         self.imageView.image = UIImage(named: menu.imageName)
     }

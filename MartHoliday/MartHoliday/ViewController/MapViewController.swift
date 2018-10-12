@@ -21,7 +21,7 @@ class MapViewController: UIViewController, MartMapViewHolder {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "위치 보기"
+        self.navigationItem.title = ProgramDescription.MartLocation.rawValue
         mapViewDelegate = MartMapDelegate(address: addressToShow!)
 
         mapView = NMapView()

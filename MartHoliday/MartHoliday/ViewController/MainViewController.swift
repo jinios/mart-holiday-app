@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import MessageUI
+import Reachability
 
 protocol FavoriteConvertible {
     var holidayData: [ExpandCollapseTogglable] { get set }
@@ -19,6 +21,20 @@ protocol HeaderDelegate {
 
 protocol FooterDelegate {
     func toggleFooter(index: Int)
+}
+
+protocol MailFeedbackAlert {
+    var controller: UIAlertController? { get }
+}
+
+extension UIViewController {
+    func noNetworkAlert() {
+        let alert = UIAlertController(title: "에러!💥",
+                                      message: "네트워크를 찾을 수 없습니다.\n앱을 구동하기위해 인터넷을 연결해주세요.",
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Done", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
 class MainViewController: UIViewController, FavoriteConvertible, HeaderDelegate, FooterDelegate {
@@ -43,23 +59,35 @@ class MainViewController: UIViewController, FavoriteConvertible, HeaderDelegate,
         slideMenu.delegate = slideMenuManager
         slideMenu.dataSource = slideMenuManager
         slideOpenFlag = false
+        tableView.delaysContentTouches = false
 
         addGestures()
         NotificationCenter.default.addObserver(self, selector: #selector(detectSelectedMenu(_:)), name: .slideMenuTapped, object: nil)
-
+        NotificationCenter.default.addObserver(self, selector: #selector(reachabilityAlert(notification:)), name: .connectionStatus, object: nil)
         self.view.backgroundColor = UIColor.appColor(color: .lightgray)
+    }
+
+    @objc func reachabilityAlert(notification: Notification) {
+        guard let userInfo = notification.userInfo else { return }
+        guard let connection = userInfo["status"] as? Reachability.Connection else { return }
+        switch connection {
+        case .none:
+            noNetworkAlert()
+        default:
+            tableView.reloadData()
+        }
     }
 
     private func setNoDataView() {
         noDataView = NoDataView(frame: self.view.frame)
-        noDataView?.setLabel(text: "즐겨찾는 마트를 추가해주세요!")
+        noDataView?.setLabel(text: ProgramDescription.AddMartRequest.rawValue)
         self.view.addSubview(noDataView!)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.prefersLargeTitles = false
-        self.navigationItem.title = "마트쉬는날"
+        self.navigationItem.title = ProgramDescription.MartHoliday.rawValue
         setTableView()
     }
 
@@ -135,7 +163,8 @@ class MainViewController: UIViewController, FavoriteConvertible, HeaderDelegate,
     func fetchFavoriteBranch(handler: @escaping (() -> Void)) {
         let ids = FavoriteList.shared().ids()
         let idstr = ids.map{String($0)}.joined(separator: ",")
-        guard let baseURL = URL(string: "http://ec2-13-209-38-224.ap-northeast-2.compute.amazonaws.com/api/mart/branch") else { return }
+        guard let urlstr = KeyInfoLoader.loadValue(of: .FavoriteBranchesURL) else { return }
+        guard let baseURL = URL(string: urlstr) else { return }
         let url = baseURL.appendingPathComponent(idstr)
 
         URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -220,7 +249,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
 
     // MARK: SlideMenu Related
 
-extension MainViewController {
+extension MainViewController: MFMailComposeViewControllerDelegate {
 
     private func addGestures() {
         backgroundView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(toggleSlideMenu)))
@@ -284,7 +313,7 @@ extension MainViewController {
     }
 
     @objc func detectSelectedMenu(_ notification: Notification) {
-        guard let userInfo = notification.userInfo else {return}
+        guard let userInfo = notification.userInfo else { return }
         guard let destination = userInfo["next"] as? SelectedSlideMenu else {return}
         switch destination {
         case .main:
@@ -293,7 +322,73 @@ extension MainViewController {
             handleDismiss()
             guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "martSelectVC") as? MartSelectViewController else { return }
             self.navigationController?.pushViewController(nextVC, animated: true)
+        case .sendMail:
+            handleDismiss()
+            var email: String
+            if let path = Bundle.main.path(forResource: "KeyInfo", ofType: "plist"){
+                guard let myDict = NSDictionary(contentsOfFile: path) else { return }
+                email = myDict["InquiryEmail"] as! String
+            } else {
+                mailAlert(alert: .failure)
+                return
+            }
+            if MFMailComposeViewController.canSendMail() {
+                let composeVC = MFMailComposeViewController()
+                composeVC.mailComposeDelegate = self
+                composeVC.setToRecipients([email])
+                composeVC.setSubject(ProgramDescription.MailTitle.rawValue)
+                composeVC.setMessageBody(ProgramDescription.MailBody.rawValue, isHTML: true)
+                present(composeVC, animated: true)
+            } else {
+                mailAlert(alert: .failure)
+            }
+        case .appInfo:
+            handleDismiss()
+            guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "appInfoVC") as? AppInfoViewController else { return }
+            self.navigationController?.pushViewController(nextVC, animated: true)
+        }
+    }
+
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+        feedbackToMailAction(result: result)
+    }
+
+    private func mailAlert(alert: MailAlert) {
+        guard let alertController = alert.controller else {return}
+        alertController.addAction(UIAlertAction(title: "Done", style: .default, handler: nil))
+        self.present(alertController, animated: true, completion: nil)
+    }
+
+    private func feedbackToMailAction(result: MFMailComposeResult) {
+        switch result {
+            case .sent: mailAlert(alert: .success)
+            default: return
         }
     }
 
 }
+
+enum MailAlert: MailFeedbackAlert {
+    case success
+    case failure
+    case none
+
+    var controller: UIAlertController? {
+        switch self {
+        case .failure:
+            let alert = UIAlertController(title: ProgramDescription.FailureSendingMailTitle.rawValue,
+                                          message: ProgramDescription.FailureSendingMailBody.rawValue,
+                                          preferredStyle: .alert)
+            return alert
+        case .success:
+            let alert = UIAlertController(title: ProgramDescription.SuccessSendingMailTitle.rawValue,
+                                          message: ProgramDescription.SuccessSendingMailBody.rawValue,
+                                          preferredStyle: .alert)
+            return alert
+        case .none: return nil
+        }
+    }
+}
+
+

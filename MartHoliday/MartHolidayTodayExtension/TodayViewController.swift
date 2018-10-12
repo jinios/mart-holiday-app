@@ -53,7 +53,10 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     func setFavoriteBranch(handler: @escaping (() -> Void)) {
         let ids = getFavorites()
         let idstr = ids.map{String($0)}.joined(separator: ",")
-        guard let baseURL = URL(string: "http://ec2-13-209-38-224.ap-northeast-2.compute.amazonaws.com/api/mart/branch") else { return }
+//        guard let urlstr = KeyInfoLoader.loadValue(of: .FavoriteBranchesURL) else { return }
+//        guard let baseURL = URL(string: urlstr) else { return }
+        guard let urlStr = appGroup?.value(forKey: KeyInfo.FavoriteBranchesURL.rawValue) as? String else { return }
+        guard let baseURL = URL(string: urlStr) else { return }
         let url = baseURL.appendingPathComponent(idstr)
 
         URLSession.shared.dataTask(with: url) { (data, response, error) in

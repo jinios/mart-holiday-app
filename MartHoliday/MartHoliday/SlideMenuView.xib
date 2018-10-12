@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,18 +25,27 @@
             <rect key="frame" x="0.0" y="0.0" width="170" height="170"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="마트쉬는날 : )" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5oH-NE-tVe">
-                    <rect key="frame" x="15" y="29.5" width="105" height="16"/>
-                    <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="14"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="즐겨찾는 마트의🛒" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5oH-NE-tVe">
+                    <rect key="frame" x="15" y="35" width="125" height="14"/>
+                    <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="13"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="휴무일 알림을 받아보세요:)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1a5-eK-YJb">
+                    <rect key="frame" x="15" y="51.5" width="134" height="14"/>
+                    <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="13"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="1a5-eK-YJb" firstAttribute="top" secondItem="5oH-NE-tVe" secondAttribute="bottom" constant="2.5" id="9HH-a6-4LQ"/>
                 <constraint firstItem="5oH-NE-tVe" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="T8a-Wb-xfU"/>
-                <constraint firstItem="5oH-NE-tVe" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="29.5" id="gnK-K1-bCX"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="5oH-NE-tVe" secondAttribute="trailing" constant="50" id="gwf-32-VUQ"/>
+                <constraint firstItem="5oH-NE-tVe" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="35" id="gnK-K1-bCX"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="5oH-NE-tVe" secondAttribute="trailing" constant="30" id="gwf-32-VUQ"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="1a5-eK-YJb" secondAttribute="trailing" constant="21" id="kVY-dk-rRq"/>
+                <constraint firstItem="1a5-eK-YJb" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="xa9-v6-oZK"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

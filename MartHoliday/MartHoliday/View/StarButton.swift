@@ -8,6 +8,12 @@
 
 import UIKit
 
+protocol FavoriteTogglable {
+    var starButton: StarButton! { get set }
+    func toggleState()
+    func setStarButton()
+}
+
 class StarButton: UIButton {
 
     func setImage() {
@@ -34,8 +40,3 @@ class StarCircleButton: StarButton {
     }
 }
 
-protocol FavoriteTogglable {
-    var starButton: StarButton! { get set }
-    func toggleState()
-    func setStarButton()
-}

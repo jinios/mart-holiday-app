@@ -7,20 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		17756F275E7B6ED3312453CE /* Pods_MartHoliday.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD85986A214BFAC400C1A3E2 /* Pods_MartHoliday.framework */; };
-		460B7E50883D5C58F79DDD97 /* Pods_MartHoliday.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 911AAA1B6BE368358930D098 /* Pods_MartHoliday.framework */; };
-		4D644265BB133FC0E727B5D4 /* Pods_MartHolidayTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A65D9831135D5A77156023F /* Pods_MartHolidayTests.framework */; };
-		FD0202852146559B0083BE22 /* DataDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409D211EC0C8007D7F1B /* DataDecoder.swift */; };
+		3CD99075A953B07608DD5E0E /* libPods-MartHolidayTodayExtension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DF1DFBEB692192F40872023 /* libPods-MartHolidayTodayExtension.a */; };
+		766CB2B86F45F2938F8FDCF6 /* libPods-MartHolidayTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 42F6804FCF1F510418159C1C /* libPods-MartHolidayTests.a */; };
+		AE07B189863AD44433F30745 /* libPods-MartHoliday.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C434A270151837976EE66374 /* libPods-MartHoliday.a */; };
 		FD0202862146559B0083BE22 /* BranchList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD228F372142EB1A0062B75F /* BranchList.swift */; };
 		FD0202872146559B0083BE22 /* BranchRawData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409B211EBFAF007D7F1B /* BranchRawData.swift */; };
 		FD0202882146559B0083BE22 /* AddressDatum.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC3461C2136708400F6D6FF /* AddressDatum.swift */; };
-		FD02028B2146559B0083BE22 /* MenuData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD48E1BE212BF57B00FC05D9 /* MenuData.swift */; };
+		FD02028B2146559B0083BE22 /* SlideMenuData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD48E1BE212BF57B00FC05D9 /* SlideMenuData.swift */; };
 		FD02028C2146559B0083BE22 /* MapSetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC3461A2136618E00F6D6FF /* MapSetter.swift */; };
 		FD02028E2146559B0083BE22 /* DataSetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4DDC8D21411236004E981F /* DataSetter.swift */; };
-		FD02028F2146559B0083BE22 /* Keywords.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409F211EC5EA007D7F1B /* Keywords.swift */; };
+		FD02028F2146559B0083BE22 /* Mart.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409F211EC5EA007D7F1B /* Mart.swift */; };
 		FD0202902146559B0083BE22 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC2A941212458F400A1E2FF /* Extensions.swift */; };
 		FD0202912146565C0083BE22 /* MartHolidayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0202612146517B0083BE22 /* MartHolidayTests.swift */; };
-		FD020295214658EA0083BE22 /* HolidaysCollectionViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD37C0A5213BEC52007E6E7A /* HolidaysCollectionViewManager.swift */; };
 		FD11EAE321203A4C003EB3E9 /* BranchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD11EAE221203A4C003EB3E9 /* BranchTableViewCell.swift */; };
 		FD1B4F212126BB8B00946311 /* SlideBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1B4F202126BB8B00946311 /* SlideBackgroundView.swift */; };
 		FD1B4F232126BBD200946311 /* SlideTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1B4F222126BBD200946311 /* SlideTopView.swift */; };
@@ -35,20 +33,28 @@
 		FD4850F2212843FB0064747A /* SlideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4850F1212843FB0064747A /* SlideMenu.swift */; };
 		FD4850F4212869AF0064747A /* SlideMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4850F3212869AF0064747A /* SlideMenuCell.swift */; };
 		FD4850F621287AFE0064747A /* SlideMenuCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD4850F521287AFE0064747A /* SlideMenuCellView.xib */; };
-		FD48E1BF212BF57B00FC05D9 /* MenuData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD48E1BE212BF57B00FC05D9 /* MenuData.swift */; };
+		FD48E1BF212BF57B00FC05D9 /* SlideMenuData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD48E1BE212BF57B00FC05D9 /* SlideMenuData.swift */; };
 		FD4DDC8E21411236004E981F /* DataSetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4DDC8D21411236004E981F /* DataSetter.swift */; };
 		FD4DDC9021412294004E981F /* SelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4DDC8F21412294004E981F /* SelectionTableViewCell.swift */; };
 		FD52566F21353C9C0014070E /* KeyInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD52566E21353C9C0014070E /* KeyInfo.plist */; };
 		FD59D2D32164C57D009B7FDF /* FavoriteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBF9A49212414A9001C2DAA /* FavoriteList.swift */; };
-		FD59D2D42164C57D009B7FDF /* FavoriteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBF9A49212414A9001C2DAA /* FavoriteList.swift */; };
 		FD59D2D52164C597009B7FDF /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBF9A4721240911001C2DAA /* DataStorage.swift */; };
-		FD59D2D62164C597009B7FDF /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBF9A4721240911001C2DAA /* DataStorage.swift */; };
 		FD5E63F92153C8F400DC082A /* HolidayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5E63F82153C8F400DC082A /* HolidayTableViewCell.swift */; };
 		FD66C2812158F6F800B4F823 /* MainHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD66C2802158F6F800B4F823 /* MainHeaderView.xib */; };
 		FD66C2832158FD7700B4F823 /* MainTableViewFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD66C2822158FD7700B4F823 /* MainTableViewFooter.swift */; };
+		FD7087D7216B206F00A2A16F /* NMapViewerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3B64282121BEDD003C1332 /* NMapViewerSDK.framework */; };
+		FD7087D9216B206F00A2A16F /* ApiGatewayMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7087D8216B206F00A2A16F /* ApiGatewayMac.framework */; };
+		FD7087DC216B383D00A2A16F /* FavoriteAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC5A7492167DA4D009F0B0C /* FavoriteAPI.swift */; };
+		FD7087DD216B384200A2A16F /* FavoriteAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC5A7492167DA4D009F0B0C /* FavoriteAPI.swift */; };
+		FD7087DF216B427700A2A16F /* FavoriteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7087DE216B427700A2A16F /* FavoriteData.swift */; };
 		FD780D77212F185600B569B3 /* SlideMenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD780D76212F185600B569B3 /* SlideMenuManager.swift */; };
 		FD7BC8D1215620FF002BE5EA /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7BC8D0215620FF002BE5EA /* MapViewController.swift */; };
-		FD7DA866214981DB0070B25B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD7DA865214981DA0070B25B /* GoogleService-Info.plist */; };
+		FD7FC0DA216E23CA0022094F /* KeyInfoLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7FC0D9216E23CA0022094F /* KeyInfoLoader.swift */; };
+		FD7FC0DB216E29450022094F /* KeyInfoLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7FC0D9216E23CA0022094F /* KeyInfoLoader.swift */; };
+		FD7FC0DC216E29450022094F /* KeyInfoLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7FC0D9216E23CA0022094F /* KeyInfoLoader.swift */; };
+		FD7FC0DE216E62A70022094F /* Keywords.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7FC0DD216E62A70022094F /* Keywords.swift */; };
+		FD7FC0DF216E63750022094F /* SelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4DDC8F21412294004E981F /* SelectionTableViewCell.swift */; };
+		FD7FC0E1216E65290022094F /* SelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4DDC8F21412294004E981F /* SelectionTableViewCell.swift */; };
 		FD80CE212160D70100C16150 /* MartMapDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD80CE202160D70100C16150 /* MartMapDelegate.swift */; };
 		FD80CE292161241D00C16150 /* DetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD80CE282161241D00C16150 /* DetailHeaderView.xib */; };
 		FD80CE2B21612BAE00C16150 /* HolidayHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD80CE2A21612BAE00C16150 /* HolidayHeaderView.swift */; };
@@ -56,23 +62,21 @@
 		FD85985E214BE9FA00C1A3E2 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD85985D214BE9FA00C1A3E2 /* TodayViewController.swift */; };
 		FD859861214BE9FA00C1A3E2 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD85985F214BE9FA00C1A3E2 /* MainInterface.storyboard */; };
 		FD859865214BE9FA00C1A3E2 /* MartHolidayTodayExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = FD859859214BE9FA00C1A3E2 /* MartHolidayTodayExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		FD85987A214C0D7D00C1A3E2 /* TodayExtensionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD859879214C0D7D00C1A3E2 /* TodayExtensionTableViewCell.swift */; };
 		FD86712321458FCB00273B3C /* StarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD86712221458FCB00273B3C /* StarButton.swift */; };
+		FD89F7C5216A66D500C8556C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD89F7C4216A66D400C8556C /* GoogleService-Info.plist */; };
+		FD91364E216EF70B001A21DF /* AppInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD91364D216EF70B001A21DF /* AppInfoViewController.swift */; };
 		FD9F409C211EBFAF007D7F1B /* BranchRawData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409B211EBFAF007D7F1B /* BranchRawData.swift */; };
-		FD9F409E211EC0C8007D7F1B /* DataDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409D211EC0C8007D7F1B /* DataDecoder.swift */; };
-		FD9F40A0211EC5EA007D7F1B /* Keywords.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409F211EC5EA007D7F1B /* Keywords.swift */; };
-		FDA311A8214C141400A7E94B /* BranchList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD228F372142EB1A0062B75F /* BranchList.swift */; };
+		FD9F40A0211EC5EA007D7F1B /* Mart.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409F211EC5EA007D7F1B /* Mart.swift */; };
 		FDA311A9214C141800A7E94B /* BranchRawData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409B211EBFAF007D7F1B /* BranchRawData.swift */; };
-		FDA311AD214C147600A7E94B /* HolidaysCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF8058221315DC200B22356 /* HolidaysCell.swift */; };
-		FDA311AE214C147900A7E94B /* SelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4DDC8F21412294004E981F /* SelectionTableViewCell.swift */; };
-		FDA311B0214C14B600A7E94B /* BranchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD11EAE221203A4C003EB3E9 /* BranchTableViewCell.swift */; };
 		FDA311B1214C14B900A7E94B /* SlideBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1B4F202126BB8B00946311 /* SlideBackgroundView.swift */; };
 		FDA311B2214C14CA00A7E94B /* StarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD86712221458FCB00273B3C /* StarButton.swift */; };
-		FDA311B5214C150100A7E94B /* Keywords.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409F211EC5EA007D7F1B /* Keywords.swift */; };
+		FDA311B5214C150100A7E94B /* Mart.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409F211EC5EA007D7F1B /* Mart.swift */; };
 		FDAF601F21273E880006B68A /* NanumSquareRoundOTFL.otf in Resources */ = {isa = PBXBuildFile; fileRef = FDAF601B21273E880006B68A /* NanumSquareRoundOTFL.otf */; };
 		FDAF602021273E880006B68A /* NanumSquareRoundOTFB.otf in Resources */ = {isa = PBXBuildFile; fileRef = FDAF601C21273E880006B68A /* NanumSquareRoundOTFB.otf */; };
 		FDAF602121273E880006B68A /* NanumSquareRoundOTFR.otf in Resources */ = {isa = PBXBuildFile; fileRef = FDAF601D21273E880006B68A /* NanumSquareRoundOTFR.otf */; };
 		FDAF602221273E880006B68A /* NanumSquareRoundOTFEB.otf in Resources */ = {isa = PBXBuildFile; fileRef = FDAF601E21273E880006B68A /* NanumSquareRoundOTFEB.otf */; };
+		FDB3AD67216F94FD002209A2 /* StorageAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB3AD66216F94FD002209A2 /* StorageAPI.swift */; };
+		FDB3AD69216FBA7F002209A2 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB3AD68216FBA7F002209A2 /* NetworkManager.swift */; };
 		FDB4BE22211D6BAD00D3B264 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB4BE21211D6BAD00D3B264 /* AppDelegate.swift */; };
 		FDB4BE24211D6BAD00D3B264 /* MartSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB4BE23211D6BAD00D3B264 /* MartSelectViewController.swift */; };
 		FDB4BE27211D6BAD00D3B264 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDB4BE25211D6BAD00D3B264 /* Main.storyboard */; };
@@ -84,6 +88,13 @@
 		FDC2A942212458F400A1E2FF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC2A941212458F400A1E2FF /* Extensions.swift */; };
 		FDC3461B2136618E00F6D6FF /* MapSetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC3461A2136618E00F6D6FF /* MapSetter.swift */; };
 		FDC3461D2136708400F6D6FF /* AddressDatum.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC3461C2136708400F6D6FF /* AddressDatum.swift */; };
+		FDC5A7422167CD50009F0B0C /* TodayExtensionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD859879214C0D7D00C1A3E2 /* TodayExtensionTableViewCell.swift */; };
+		FDC5A7432167CD66009F0B0C /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD85985D214BE9FA00C1A3E2 /* TodayViewController.swift */; };
+		FDC5A7452167D7C1009F0B0C /* FavoriteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBF9A49212414A9001C2DAA /* FavoriteList.swift */; };
+		FDC5A7462167D7DB009F0B0C /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBF9A4721240911001C2DAA /* DataStorage.swift */; };
+		FDC5A7472167D90B009F0B0C /* TodayExtensionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD859879214C0D7D00C1A3E2 /* TodayExtensionTableViewCell.swift */; };
+		FDC5A7482167D921009F0B0C /* BranchList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD228F372142EB1A0062B75F /* BranchList.swift */; };
+		FDC5A74A2167DA4D009F0B0C /* FavoriteAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC5A7492167DA4D009F0B0C /* FavoriteAPI.swift */; };
 		FDCB9E8B212566F1006281CB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCB9E8A212566F1006281CB /* MainViewController.swift */; };
 		FDE2542E21627303008B25C8 /* NoMapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDE2542D21627303008B25C8 /* NoMapView.xib */; };
 		FDEECC2F214D001F00F6FF09 /* NanumSquareRoundOTFB.otf in Resources */ = {isa = PBXBuildFile; fileRef = FDAF601C21273E880006B68A /* NanumSquareRoundOTFB.otf */; };
@@ -92,11 +103,9 @@
 		FDEECC32214D002700F6FF09 /* NanumSquareRoundOTFR.otf in Resources */ = {isa = PBXBuildFile; fileRef = FDAF601D21273E880006B68A /* NanumSquareRoundOTFR.otf */; };
 		FDEECC33214D0C6500F6FF09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDB4BE28211D6BAE00D3B264 /* Assets.xcassets */; };
 		FDEEE8E82163B5BD00E63733 /* NoMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEEE8E72163B5BD00E63733 /* NoMapView.swift */; };
-		FDF8058321315DC200B22356 /* HolidaysCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF8058221315DC200B22356 /* HolidaysCell.swift */; };
 		FDF8ABC2215B722800DA74C9 /* FavoriteBranch.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF8ABC1215B722800DA74C9 /* FavoriteBranch.swift */; };
 		FDF8ABC4215B76B400DA74C9 /* MainTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF8ABC3215B76B400DA74C9 /* MainTableViewHeader.swift */; };
 		FDF8ABC6215B76FC00DA74C9 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF8ABC5215B76FC00DA74C9 /* MainTableViewCell.swift */; };
-		FDFB0346212E930E0092411E /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFB0345212E930E0092411E /* FavoriteCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,11 +151,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1A65D9831135D5A77156023F /* Pods_MartHolidayTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MartHolidayTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		42BB0559CA154986E3EBAD98 /* Pods-MartHoliday.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MartHoliday.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MartHoliday/Pods-MartHoliday.debug.xcconfig"; sourceTree = "<group>"; };
+		42F6804FCF1F510418159C1C /* libPods-MartHolidayTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MartHolidayTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		63985991677D1CC39462408B /* Pods-MartHoliday.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MartHoliday.release.xcconfig"; path = "Pods/Target Support Files/Pods-MartHoliday/Pods-MartHoliday.release.xcconfig"; sourceTree = "<group>"; };
-		911AAA1B6BE368358930D098 /* Pods_MartHoliday.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MartHoliday.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6EBEE4712F4B6A690FFE5F6D /* Pods-MartHolidayTodayExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MartHolidayTodayExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MartHolidayTodayExtension/Pods-MartHolidayTodayExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		7DF1DFBEB692192F40872023 /* libPods-MartHolidayTodayExtension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MartHolidayTodayExtension.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A952FB47A8AE1C6D4170F2F3 /* Pods-MartHolidayTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MartHolidayTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MartHolidayTests/Pods-MartHolidayTests.release.xcconfig"; sourceTree = "<group>"; };
+		B70A7CC45A22E2B6C19210CB /* Pods-MartHolidayTodayExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MartHolidayTodayExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-MartHolidayTodayExtension/Pods-MartHolidayTodayExtension.release.xcconfig"; sourceTree = "<group>"; };
+		C434A270151837976EE66374 /* libPods-MartHoliday.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MartHoliday.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2A84150BED7895841275DB5 /* Pods-MartHolidayTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MartHolidayTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MartHolidayTests/Pods-MartHolidayTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FD02025F2146517B0083BE22 /* MartHolidayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MartHolidayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD0202612146517B0083BE22 /* MartHolidayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MartHolidayTests.swift; sourceTree = "<group>"; };
@@ -158,7 +170,6 @@
 		FD1CC4DE211DF10A00B21E09 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		FD1CC4E0211DF76300B21E09 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		FD228F372142EB1A0062B75F /* BranchList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchList.swift; sourceTree = "<group>"; };
-		FD37C0A5213BEC52007E6E7A /* HolidaysCollectionViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidaysCollectionViewManager.swift; sourceTree = "<group>"; };
 		FD3B64232121BEAA003C1332 /* ApiGatewayMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ApiGatewayMac.framework; sourceTree = "<group>"; };
 		FD3B64282121BEDD003C1332 /* NMapViewerSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NMapViewerSDK.framework; path = "../../../../../Desktop/maps.ios-master/Frameworks/NMapViewerSDK.framework"; sourceTree = "<group>"; };
 		FD3B642B2121C3FB003C1332 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
@@ -166,16 +177,19 @@
 		FD4850F1212843FB0064747A /* SlideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideMenu.swift; sourceTree = "<group>"; };
 		FD4850F3212869AF0064747A /* SlideMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideMenuCell.swift; sourceTree = "<group>"; };
 		FD4850F521287AFE0064747A /* SlideMenuCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SlideMenuCellView.xib; path = MartHoliday/SlideMenuCellView.xib; sourceTree = SOURCE_ROOT; };
-		FD48E1BE212BF57B00FC05D9 /* MenuData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuData.swift; sourceTree = "<group>"; };
+		FD48E1BE212BF57B00FC05D9 /* SlideMenuData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideMenuData.swift; sourceTree = "<group>"; };
 		FD4DDC8D21411236004E981F /* DataSetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSetter.swift; sourceTree = "<group>"; };
 		FD4DDC8F21412294004E981F /* SelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionTableViewCell.swift; sourceTree = "<group>"; };
 		FD52566E21353C9C0014070E /* KeyInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = KeyInfo.plist; sourceTree = "<group>"; };
 		FD5E63F82153C8F400DC082A /* HolidayTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayTableViewCell.swift; sourceTree = "<group>"; };
 		FD66C2802158F6F800B4F823 /* MainHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainHeaderView.xib; sourceTree = "<group>"; };
 		FD66C2822158FD7700B4F823 /* MainTableViewFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewFooter.swift; sourceTree = "<group>"; };
+		FD7087D8216B206F00A2A16F /* ApiGatewayMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApiGatewayMac.framework; path = "../../../../../Desktop/maps.ios-master/Frameworks/ApiGatewayMac.framework"; sourceTree = "<group>"; };
+		FD7087DE216B427700A2A16F /* FavoriteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteData.swift; sourceTree = "<group>"; };
 		FD780D76212F185600B569B3 /* SlideMenuManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideMenuManager.swift; sourceTree = "<group>"; };
 		FD7BC8D0215620FF002BE5EA /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		FD7DA865214981DA0070B25B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FD7FC0D9216E23CA0022094F /* KeyInfoLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyInfoLoader.swift; sourceTree = "<group>"; };
+		FD7FC0DD216E62A70022094F /* Keywords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keywords.swift; sourceTree = "<group>"; };
 		FD80CE202160D70100C16150 /* MartMapDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MartMapDelegate.swift; sourceTree = "<group>"; };
 		FD80CE282161241D00C16150 /* DetailHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailHeaderView.xib; sourceTree = "<group>"; };
 		FD80CE2A21612BAE00C16150 /* HolidayHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayHeaderView.swift; sourceTree = "<group>"; };
@@ -184,7 +198,6 @@
 		FD85985D214BE9FA00C1A3E2 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		FD859860214BE9FA00C1A3E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		FD859862214BE9FA00C1A3E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FD85986A214BFAC400C1A3E2 /* Pods_MartHoliday.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_MartHoliday.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD85986C214BFEF500C1A3E2 /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD85986E214BFEF500C1A3E2 /* FirebaseMessaging.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseMessaging.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD859870214BFEF500C1A3E2 /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleToolboxForMac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -192,13 +205,16 @@
 		FD859874214BFEF500C1A3E2 /* Protobuf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Protobuf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD859879214C0D7D00C1A3E2 /* TodayExtensionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayExtensionTableViewCell.swift; sourceTree = "<group>"; };
 		FD86712221458FCB00273B3C /* StarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarButton.swift; sourceTree = "<group>"; };
+		FD89F7C4216A66D400C8556C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FD91364D216EF70B001A21DF /* AppInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoViewController.swift; sourceTree = "<group>"; };
 		FD9F409B211EBFAF007D7F1B /* BranchRawData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchRawData.swift; sourceTree = "<group>"; };
-		FD9F409D211EC0C8007D7F1B /* DataDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDecoder.swift; sourceTree = "<group>"; };
-		FD9F409F211EC5EA007D7F1B /* Keywords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keywords.swift; sourceTree = "<group>"; };
+		FD9F409F211EC5EA007D7F1B /* Mart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mart.swift; sourceTree = "<group>"; };
 		FDAF601B21273E880006B68A /* NanumSquareRoundOTFL.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundOTFL.otf; sourceTree = "<group>"; };
 		FDAF601C21273E880006B68A /* NanumSquareRoundOTFB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundOTFB.otf; sourceTree = "<group>"; };
 		FDAF601D21273E880006B68A /* NanumSquareRoundOTFR.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundOTFR.otf; sourceTree = "<group>"; };
 		FDAF601E21273E880006B68A /* NanumSquareRoundOTFEB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundOTFEB.otf; sourceTree = "<group>"; };
+		FDB3AD66216F94FD002209A2 /* StorageAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageAPI.swift; sourceTree = "<group>"; };
+		FDB3AD68216FBA7F002209A2 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		FDB4BE1E211D6BAD00D3B264 /* MartHoliday.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MartHoliday.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDB4BE21211D6BAD00D3B264 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FDB4BE23211D6BAD00D3B264 /* MartSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MartSelectViewController.swift; sourceTree = "<group>"; };
@@ -212,16 +228,15 @@
 		FDC2A941212458F400A1E2FF /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		FDC3461A2136618E00F6D6FF /* MapSetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSetter.swift; sourceTree = "<group>"; };
 		FDC3461C2136708400F6D6FF /* AddressDatum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressDatum.swift; sourceTree = "<group>"; };
+		FDC5A7492167DA4D009F0B0C /* FavoriteAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteAPI.swift; sourceTree = "<group>"; };
 		FDCB9E8A212566F1006281CB /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		FDE2542D21627303008B25C8 /* NoMapView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoMapView.xib; sourceTree = "<group>"; };
 		FDEECC2C214CD3BD00F6FF09 /* MartHolidayTodayExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MartHolidayTodayExtension.entitlements; sourceTree = "<group>"; };
 		FDEEE8E72163B5BD00E63733 /* NoMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoMapView.swift; sourceTree = "<group>"; };
-		FDF8058221315DC200B22356 /* HolidaysCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidaysCell.swift; sourceTree = "<group>"; };
 		FDF8ABC1215B722800DA74C9 /* FavoriteBranch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteBranch.swift; sourceTree = "<group>"; };
 		FDF8ABC3215B76B400DA74C9 /* MainTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewHeader.swift; sourceTree = "<group>"; };
 		FDF8ABC5215B76FC00DA74C9 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		FDFB0344212E7AF10092411E /* MartHoliday.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MartHoliday.entitlements; sourceTree = "<group>"; };
-		FDFB0345212E930E0092411E /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,7 +244,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D644265BB133FC0E727B5D4 /* Pods_MartHolidayTests.framework in Frameworks */,
+				FD7087D9216B206F00A2A16F /* ApiGatewayMac.framework in Frameworks */,
+				FD7087D7216B206F00A2A16F /* NMapViewerSDK.framework in Frameworks */,
+				766CB2B86F45F2938F8FDCF6 /* libPods-MartHolidayTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,6 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD85985B214BE9FA00C1A3E2 /* NotificationCenter.framework in Frameworks */,
+				3CD99075A953B07608DD5E0E /* libPods-MartHolidayTodayExtension.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,8 +265,7 @@
 			files = (
 				FD3B64292121BEDD003C1332 /* NMapViewerSDK.framework in Frameworks */,
 				FD3B64242121BEAA003C1332 /* ApiGatewayMac.framework in Frameworks */,
-				460B7E50883D5C58F79DDD97 /* Pods_MartHoliday.framework in Frameworks */,
-				17756F275E7B6ED3312453CE /* Pods_MartHoliday.framework in Frameworks */,
+				AE07B189863AD44433F30745 /* libPods-MartHoliday.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,6 +279,8 @@
 				63985991677D1CC39462408B /* Pods-MartHoliday.release.xcconfig */,
 				D2A84150BED7895841275DB5 /* Pods-MartHolidayTests.debug.xcconfig */,
 				A952FB47A8AE1C6D4170F2F3 /* Pods-MartHolidayTests.release.xcconfig */,
+				6EBEE4712F4B6A690FFE5F6D /* Pods-MartHolidayTodayExtension.debug.xcconfig */,
+				B70A7CC45A22E2B6C19210CB /* Pods-MartHolidayTodayExtension.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -278,13 +297,12 @@
 		FD1B4F1F2126BB4900946311 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FD86712221458FCB00273B3C /* StarButton.swift */,
 				FD11EAE221203A4C003EB3E9 /* BranchTableViewCell.swift */,
 				FD1B4F202126BB8B00946311 /* SlideBackgroundView.swift */,
 				FD1B4F222126BBD200946311 /* SlideTopView.swift */,
 				FD4850F1212843FB0064747A /* SlideMenu.swift */,
 				FD4850F3212869AF0064747A /* SlideMenuCell.swift */,
-				FDFB0345212E930E0092411E /* FavoriteCell.swift */,
-				FDF8058221315DC200B22356 /* HolidaysCell.swift */,
 				FD4DDC8F21412294004E981F /* SelectionTableViewCell.swift */,
 				FD5E63F82153C8F400DC082A /* HolidayTableViewCell.swift */,
 				FD80CE2A21612BAE00C16150 /* HolidayHeaderView.swift */,
@@ -304,8 +322,8 @@
 				FD1CC4E0211DF76300B21E09 /* DetailViewController.swift */,
 				FDB4BE23211D6BAD00D3B264 /* MartSelectViewController.swift */,
 				FD1CC4DE211DF10A00B21E09 /* SearchViewController.swift */,
-				FD780D76212F185600B569B3 /* SlideMenuManager.swift */,
 				FD7BC8D0215620FF002BE5EA /* MapViewController.swift */,
+				FD91364D216EF70B001A21DF /* AppInfoViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -313,16 +331,17 @@
 		FD3B64272121BEDD003C1332 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FD7087D8216B206F00A2A16F /* ApiGatewayMac.framework */,
 				FD85986C214BFEF500C1A3E2 /* FirebaseCore.framework */,
 				FD85986E214BFEF500C1A3E2 /* FirebaseMessaging.framework */,
 				FD859870214BFEF500C1A3E2 /* GoogleToolboxForMac.framework */,
 				FD859872214BFEF500C1A3E2 /* nanopb.framework */,
 				FD859874214BFEF500C1A3E2 /* Protobuf.framework */,
-				FD85986A214BFAC400C1A3E2 /* Pods_MartHoliday.framework */,
 				FD3B64282121BEDD003C1332 /* NMapViewerSDK.framework */,
-				911AAA1B6BE368358930D098 /* Pods_MartHoliday.framework */,
-				1A65D9831135D5A77156023F /* Pods_MartHolidayTests.framework */,
 				FD85985A214BE9FA00C1A3E2 /* NotificationCenter.framework */,
+				C434A270151837976EE66374 /* libPods-MartHoliday.a */,
+				42F6804FCF1F510418159C1C /* libPods-MartHolidayTests.a */,
+				7DF1DFBEB692192F40872023 /* libPods-MartHolidayTodayExtension.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -342,18 +361,23 @@
 		FD9F40A1211ECAE2007D7F1B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				FD9F409D211EC0C8007D7F1B /* DataDecoder.swift */,
+				FD9F409F211EC5EA007D7F1B /* Mart.swift */,
+				FD780D76212F185600B569B3 /* SlideMenuManager.swift */,
 				FD228F372142EB1A0062B75F /* BranchList.swift */,
 				FD9F409B211EBFAF007D7F1B /* BranchRawData.swift */,
 				FDC3461C2136708400F6D6FF /* AddressDatum.swift */,
 				FDBF9A4721240911001C2DAA /* DataStorage.swift */,
 				FDF8ABC1215B722800DA74C9 /* FavoriteBranch.swift */,
 				FDBF9A49212414A9001C2DAA /* FavoriteList.swift */,
-				FD48E1BE212BF57B00FC05D9 /* MenuData.swift */,
+				FD48E1BE212BF57B00FC05D9 /* SlideMenuData.swift */,
 				FDC3461A2136618E00F6D6FF /* MapSetter.swift */,
-				FD37C0A5213BEC52007E6E7A /* HolidaysCollectionViewManager.swift */,
 				FD4DDC8D21411236004E981F /* DataSetter.swift */,
 				FD80CE202160D70100C16150 /* MartMapDelegate.swift */,
+				FDC5A7492167DA4D009F0B0C /* FavoriteAPI.swift */,
+				FD7087DE216B427700A2A16F /* FavoriteData.swift */,
+				FD7FC0D9216E23CA0022094F /* KeyInfoLoader.swift */,
+				FDB3AD66216F94FD002209A2 /* StorageAPI.swift */,
+				FDB3AD68216FBA7F002209A2 /* NetworkManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -361,8 +385,8 @@
 		FD9F40A2211ECB26007D7F1B /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				FD9F409F211EC5EA007D7F1B /* Keywords.swift */,
 				FDC2A941212458F400A1E2FF /* Extensions.swift */,
+				FD7FC0DD216E62A70022094F /* Keywords.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -406,7 +430,6 @@
 			children = (
 				FDFB0344212E7AF10092411E /* MartHoliday.entitlements */,
 				FDB4BE21211D6BAD00D3B264 /* AppDelegate.swift */,
-				FD86712221458FCB00273B3C /* StarButton.swift */,
 				FD1B4F1F2126BB4900946311 /* View */,
 				FD391C51212025DB004C4A65 /* ViewController */,
 				FD9F40A1211ECAE2007D7F1B /* Model */,
@@ -420,7 +443,7 @@
 				FD66C2802158F6F800B4F823 /* MainHeaderView.xib */,
 				FDB4BE2A211D6BAE00D3B264 /* LaunchScreen.storyboard */,
 				FDB4BE2D211D6BAE00D3B264 /* Info.plist */,
-				FD7DA865214981DA0070B25B /* GoogleService-Info.plist */,
+				FD89F7C4216A66D400C8556C /* GoogleService-Info.plist */,
 				FD52566E21353C9C0014070E /* KeyInfo.plist */,
 				FD3B642E2122A4FF003C1332 /* NMapViewResources.swift */,
 				FD3B642B2121C3FB003C1332 /* Header.h */,
@@ -455,6 +478,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FD859868214BE9FA00C1A3E2 /* Build configuration list for PBXNativeTarget "MartHolidayTodayExtension" */;
 			buildPhases = (
+				34252A886F45670876CBDE52 /* [CP] Check Pods Manifest.lock */,
 				FD859855214BE9FA00C1A3E2 /* Sources */,
 				FD859856214BE9FA00C1A3E2 /* Frameworks */,
 				FD859857214BE9FA00C1A3E2 /* Resources */,
@@ -478,7 +502,6 @@
 				FDB4BE1C211D6BAD00D3B264 /* Resources */,
 				FD3B64262121BEAA003C1332 /* Embed Frameworks */,
 				FD3B642A2121C316003C1332 /* ShellScript */,
-				78728324D64945C492FCEA92 /* [CP] Embed Pods Frameworks */,
 				FD859869214BE9FA00C1A3E2 /* Embed App Extensions */,
 			);
 			buildRules = (
@@ -585,9 +608,9 @@
 				FDE2542E21627303008B25C8 /* NoMapView.xib in Resources */,
 				FDB4BE29211D6BAE00D3B264 /* Assets.xcassets in Resources */,
 				FDB4BE27211D6BAD00D3B264 /* Main.storyboard in Resources */,
-				FD7DA866214981DB0070B25B /* GoogleService-Info.plist in Resources */,
 				FD1B4F252126C0FA00946311 /* SlideMenuView.xib in Resources */,
 				FD4850F621287AFE0064747A /* SlideMenuCellView.xib in Resources */,
+				FD89F7C5216A66D500C8556C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -612,28 +635,22 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		78728324D64945C492FCEA92 /* [CP] Embed Pods Frameworks */ = {
+		34252A886F45670876CBDE52 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-MartHoliday/Pods-MartHoliday-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"$(DERIVED_FILE_DIR)/Pods-MartHolidayTodayExtension-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MartHoliday/Pods-MartHoliday-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A2941B5A4530CD89F3490E62 /* [CP] Check Pods Manifest.lock */ = {
@@ -674,17 +691,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD0202852146559B0083BE22 /* DataDecoder.swift in Sources */,
 				FD0202862146559B0083BE22 /* BranchList.swift in Sources */,
 				FD0202872146559B0083BE22 /* BranchRawData.swift in Sources */,
 				FD59D2D52164C597009B7FDF /* DataStorage.swift in Sources */,
 				FD0202912146565C0083BE22 /* MartHolidayTests.swift in Sources */,
 				FD0202882146559B0083BE22 /* AddressDatum.swift in Sources */,
-				FD02028B2146559B0083BE22 /* MenuData.swift in Sources */,
+				FD02028B2146559B0083BE22 /* SlideMenuData.swift in Sources */,
+				FD7087DC216B383D00A2A16F /* FavoriteAPI.swift in Sources */,
 				FD59D2D32164C57D009B7FDF /* FavoriteList.swift in Sources */,
 				FD02028C2146559B0083BE22 /* MapSetter.swift in Sources */,
 				FD02028E2146559B0083BE22 /* DataSetter.swift in Sources */,
-				FD02028F2146559B0083BE22 /* Keywords.swift in Sources */,
+				FD7FC0DF216E63750022094F /* SelectionTableViewCell.swift in Sources */,
+				FD7FC0DC216E29450022094F /* KeyInfoLoader.swift in Sources */,
+				FD02028F2146559B0083BE22 /* Mart.swift in Sources */,
 				FD0202902146559B0083BE22 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -693,18 +712,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FDA311AE214C147900A7E94B /* SelectionTableViewCell.swift in Sources */,
+				FD7FC0E1216E65290022094F /* SelectionTableViewCell.swift in Sources */,
+				FDC5A7482167D921009F0B0C /* BranchList.swift in Sources */,
+				FD7FC0DB216E29450022094F /* KeyInfoLoader.swift in Sources */,
 				FDA311B2214C14CA00A7E94B /* StarButton.swift in Sources */,
+				FDC5A7462167D7DB009F0B0C /* DataStorage.swift in Sources */,
 				FDA311A9214C141800A7E94B /* BranchRawData.swift in Sources */,
-				FD59D2D62164C597009B7FDF /* DataStorage.swift in Sources */,
-				FDA311A8214C141400A7E94B /* BranchList.swift in Sources */,
-				FDA311B0214C14B600A7E94B /* BranchTableViewCell.swift in Sources */,
 				FD85985E214BE9FA00C1A3E2 /* TodayViewController.swift in Sources */,
-				FD59D2D42164C57D009B7FDF /* FavoriteList.swift in Sources */,
 				FDA311B1214C14B900A7E94B /* SlideBackgroundView.swift in Sources */,
-				FDA311B5214C150100A7E94B /* Keywords.swift in Sources */,
-				FDA311AD214C147600A7E94B /* HolidaysCell.swift in Sources */,
-				FD85987A214C0D7D00C1A3E2 /* TodayExtensionTableViewCell.swift in Sources */,
+				FDC5A7452167D7C1009F0B0C /* FavoriteList.swift in Sources */,
+				FDC5A7472167D90B009F0B0C /* TodayExtensionTableViewCell.swift in Sources */,
+				FDA311B5214C150100A7E94B /* Mart.swift in Sources */,
+				FD7087DD216B384200A2A16F /* FavoriteAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -713,42 +732,47 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD7BC8D1215620FF002BE5EA /* MapViewController.swift in Sources */,
-				FD9F409E211EC0C8007D7F1B /* DataDecoder.swift in Sources */,
-				FD48E1BF212BF57B00FC05D9 /* MenuData.swift in Sources */,
+				FD48E1BF212BF57B00FC05D9 /* SlideMenuData.swift in Sources */,
 				FD1CC4DF211DF10A00B21E09 /* SearchViewController.swift in Sources */,
 				FDBF9A4821240911001C2DAA /* DataStorage.swift in Sources */,
 				FD1B4F212126BB8B00946311 /* SlideBackgroundView.swift in Sources */,
-				FD9F40A0211EC5EA007D7F1B /* Keywords.swift in Sources */,
+				FD9F40A0211EC5EA007D7F1B /* Mart.swift in Sources */,
 				FD80CE2B21612BAE00C16150 /* HolidayHeaderView.swift in Sources */,
 				FDC3461D2136708400F6D6FF /* AddressDatum.swift in Sources */,
+				FD7087DF216B427700A2A16F /* FavoriteData.swift in Sources */,
 				FDB4BE24211D6BAD00D3B264 /* MartSelectViewController.swift in Sources */,
 				FDF8ABC4215B76B400DA74C9 /* MainTableViewHeader.swift in Sources */,
 				FD1B4F232126BBD200946311 /* SlideTopView.swift in Sources */,
+				FDC5A7432167CD66009F0B0C /* TodayViewController.swift in Sources */,
 				FD4DDC8E21411236004E981F /* DataSetter.swift in Sources */,
 				FD66C2832158FD7700B4F823 /* MainTableViewFooter.swift in Sources */,
-				FDF8058321315DC200B22356 /* HolidaysCell.swift in Sources */,
 				FD4850F2212843FB0064747A /* SlideMenu.swift in Sources */,
 				FD86712321458FCB00273B3C /* StarButton.swift in Sources */,
 				FD3B642F2122A4FF003C1332 /* NMapViewResources.swift in Sources */,
 				FDC3461B2136618E00F6D6FF /* MapSetter.swift in Sources */,
-				FD020295214658EA0083BE22 /* HolidaysCollectionViewManager.swift in Sources */,
 				FDEEE8E82163B5BD00E63733 /* NoMapView.swift in Sources */,
 				FD780D77212F185600B569B3 /* SlideMenuManager.swift in Sources */,
+				FDC5A74A2167DA4D009F0B0C /* FavoriteAPI.swift in Sources */,
 				FD4850F4212869AF0064747A /* SlideMenuCell.swift in Sources */,
+				FD7FC0DA216E23CA0022094F /* KeyInfoLoader.swift in Sources */,
 				FDCB9E8B212566F1006281CB /* MainViewController.swift in Sources */,
 				FD9F409C211EBFAF007D7F1B /* BranchRawData.swift in Sources */,
+				FDC5A7422167CD50009F0B0C /* TodayExtensionTableViewCell.swift in Sources */,
 				FDF8ABC6215B76FC00DA74C9 /* MainTableViewCell.swift in Sources */,
+				FDB3AD67216F94FD002209A2 /* StorageAPI.swift in Sources */,
+				FD91364E216EF70B001A21DF /* AppInfoViewController.swift in Sources */,
 				FDC19BAA215D2D54007D9A95 /* NoDataView.swift in Sources */,
 				FDC2A942212458F400A1E2FF /* Extensions.swift in Sources */,
 				FDB4BE22211D6BAD00D3B264 /* AppDelegate.swift in Sources */,
 				FDF8ABC2215B722800DA74C9 /* FavoriteBranch.swift in Sources */,
 				FDBF9A4A212414A9001C2DAA /* FavoriteList.swift in Sources */,
+				FD7FC0DE216E62A70022094F /* Keywords.swift in Sources */,
 				FD5E63F92153C8F400DC082A /* HolidayTableViewCell.swift in Sources */,
-				FDFB0346212E930E0092411E /* FavoriteCell.swift in Sources */,
 				FD4DDC9021412294004E981F /* SelectionTableViewCell.swift in Sources */,
 				FD80CE212160D70100C16150 /* MartMapDelegate.swift in Sources */,
 				FD228F382142EB1A0062B75F /* BranchList.swift in Sources */,
 				FD1CC4E1211DF76300B21E09 /* DetailViewController.swift in Sources */,
+				FDB3AD69216FBA7F002209A2 /* NetworkManager.swift in Sources */,
 				FD11EAE321203A4C003EB3E9 /* BranchTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -842,6 +866,7 @@
 		};
 		FD859866214BE9FA00C1A3E2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6EBEE4712F4B6A690FFE5F6D /* Pods-MartHolidayTodayExtension.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_ENTITLEMENTS = MartHolidayTodayExtension/MartHolidayTodayExtension.entitlements;
@@ -866,6 +891,7 @@
 		};
 		FD859867214BE9FA00C1A3E2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B70A7CC45A22E2B6C19210CB /* Pods-MartHolidayTodayExtension.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_ENTITLEMENTS = MartHolidayTodayExtension/MartHolidayTodayExtension.entitlements;
@@ -1020,7 +1046,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MartHoliday/MartHoliday.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 964726ULPQ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1035,8 +1061,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jinios.MartHoliday;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "ddcab98d-0f37-4b55-b8e3-d007d31351e8";
+				PROVISIONING_PROFILE_SPECIFIER = MartHoliday1008;
 				SWIFT_OBJC_BRIDGING_HEADER = /Users/jeonmijin/Documents/iOS/workspace/MartHoliday/MartHoliday/MartHoliday/Header.h;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1051,7 +1077,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MartHoliday/MartHoliday.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 964726ULPQ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1066,8 +1092,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jinios.MartHoliday;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "ddcab98d-0f37-4b55-b8e3-d007d31351e8";
+				PROVISIONING_PROFILE_SPECIFIER = MartHoliday1008;
 				SWIFT_OBJC_BRIDGING_HEADER = /Users/jeonmijin/Documents/iOS/workspace/MartHoliday/MartHoliday/MartHoliday/Header.h;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
