@@ -68,13 +68,13 @@
 		FD9F409C211EBFAF007D7F1B /* BranchRawData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409B211EBFAF007D7F1B /* BranchRawData.swift */; };
 		FD9F40A0211EC5EA007D7F1B /* Mart.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409F211EC5EA007D7F1B /* Mart.swift */; };
 		FDA311A9214C141800A7E94B /* BranchRawData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409B211EBFAF007D7F1B /* BranchRawData.swift */; };
-		FDA311B1214C14B900A7E94B /* SlideBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1B4F202126BB8B00946311 /* SlideBackgroundView.swift */; };
 		FDA311B2214C14CA00A7E94B /* StarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD86712221458FCB00273B3C /* StarButton.swift */; };
 		FDA311B5214C150100A7E94B /* Mart.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409F211EC5EA007D7F1B /* Mart.swift */; };
 		FDAF601F21273E880006B68A /* NanumSquareRoundOTFL.otf in Resources */ = {isa = PBXBuildFile; fileRef = FDAF601B21273E880006B68A /* NanumSquareRoundOTFL.otf */; };
 		FDAF602021273E880006B68A /* NanumSquareRoundOTFB.otf in Resources */ = {isa = PBXBuildFile; fileRef = FDAF601C21273E880006B68A /* NanumSquareRoundOTFB.otf */; };
 		FDAF602121273E880006B68A /* NanumSquareRoundOTFR.otf in Resources */ = {isa = PBXBuildFile; fileRef = FDAF601D21273E880006B68A /* NanumSquareRoundOTFR.otf */; };
 		FDAF602221273E880006B68A /* NanumSquareRoundOTFEB.otf in Resources */ = {isa = PBXBuildFile; fileRef = FDAF601E21273E880006B68A /* NanumSquareRoundOTFEB.otf */; };
+		FDB26C5B2170711400313A02 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FDB26C5D2170711400313A02 /* InfoPlist.strings */; };
 		FDB3AD67216F94FD002209A2 /* StorageAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB3AD66216F94FD002209A2 /* StorageAPI.swift */; };
 		FDB3AD69216FBA7F002209A2 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB3AD68216FBA7F002209A2 /* NetworkManager.swift */; };
 		FDB4BE22211D6BAD00D3B264 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB4BE21211D6BAD00D3B264 /* AppDelegate.swift */; };
@@ -213,6 +213,8 @@
 		FDAF601C21273E880006B68A /* NanumSquareRoundOTFB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundOTFB.otf; sourceTree = "<group>"; };
 		FDAF601D21273E880006B68A /* NanumSquareRoundOTFR.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundOTFR.otf; sourceTree = "<group>"; };
 		FDAF601E21273E880006B68A /* NanumSquareRoundOTFEB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundOTFEB.otf; sourceTree = "<group>"; };
+		FDB26C5C2170711400313A02 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FDB26C5E2170711F00313A02 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FDB3AD66216F94FD002209A2 /* StorageAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageAPI.swift; sourceTree = "<group>"; };
 		FDB3AD68216FBA7F002209A2 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		FDB4BE1E211D6BAD00D3B264 /* MartHoliday.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MartHoliday.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -443,6 +445,7 @@
 				FD66C2802158F6F800B4F823 /* MainHeaderView.xib */,
 				FDB4BE2A211D6BAE00D3B264 /* LaunchScreen.storyboard */,
 				FDB4BE2D211D6BAE00D3B264 /* Info.plist */,
+				FDB26C5D2170711400313A02 /* InfoPlist.strings */,
 				FD89F7C4216A66D400C8556C /* GoogleService-Info.plist */,
 				FD52566E21353C9C0014070E /* KeyInfo.plist */,
 				FD3B642E2122A4FF003C1332 /* NMapViewResources.swift */,
@@ -559,6 +562,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ko,
 			);
 			mainGroup = FDB4BE15211D6BAD00D3B264;
 			productRefGroup = FDB4BE1F211D6BAD00D3B264 /* Products */;
@@ -601,6 +605,7 @@
 				FDAF602221273E880006B68A /* NanumSquareRoundOTFEB.otf in Resources */,
 				FDAF602021273E880006B68A /* NanumSquareRoundOTFB.otf in Resources */,
 				FDAF602121273E880006B68A /* NanumSquareRoundOTFR.otf in Resources */,
+				FDB26C5B2170711400313A02 /* InfoPlist.strings in Resources */,
 				FDB4BE2C211D6BAE00D3B264 /* LaunchScreen.storyboard in Resources */,
 				FD52566F21353C9C0014070E /* KeyInfo.plist in Resources */,
 				FD80CE292161241D00C16150 /* DetailHeaderView.xib in Resources */,
@@ -719,7 +724,6 @@
 				FDC5A7462167D7DB009F0B0C /* DataStorage.swift in Sources */,
 				FDA311A9214C141800A7E94B /* BranchRawData.swift in Sources */,
 				FD85985E214BE9FA00C1A3E2 /* TodayViewController.swift in Sources */,
-				FDA311B1214C14B900A7E94B /* SlideBackgroundView.swift in Sources */,
 				FDC5A7452167D7C1009F0B0C /* FavoriteList.swift in Sources */,
 				FDC5A7472167D90B009F0B0C /* TodayExtensionTableViewCell.swift in Sources */,
 				FDA311B5214C150100A7E94B /* Mart.swift in Sources */,
@@ -799,6 +803,15 @@
 				FD859860214BE9FA00C1A3E2 /* Base */,
 			);
 			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+		FDB26C5D2170711400313A02 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FDB26C5C2170711400313A02 /* en */,
+				FDB26C5E2170711F00313A02 /* ko */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 		FDB4BE25211D6BAD00D3B264 /* Main.storyboard */ = {
@@ -919,6 +932,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -984,6 +998,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

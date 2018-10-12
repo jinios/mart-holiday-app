@@ -1,0 +1,11 @@
+/* 
+  InfoPlist.strings
+  MartHoliday
+
+  Created by YOUTH2 on 12/10/2018.
+  Copyright © 2018 JINiOS. All rights reserved.
+*/
+
+/* Localized Bundle Display Name */
+"CFBundleDisplayName" = "MartHoliday";
+
