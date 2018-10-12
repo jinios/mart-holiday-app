@@ -76,6 +76,7 @@
 		FDAF602121273E880006B68A /* NanumSquareRoundOTFR.otf in Resources */ = {isa = PBXBuildFile; fileRef = FDAF601D21273E880006B68A /* NanumSquareRoundOTFR.otf */; };
 		FDAF602221273E880006B68A /* NanumSquareRoundOTFEB.otf in Resources */ = {isa = PBXBuildFile; fileRef = FDAF601E21273E880006B68A /* NanumSquareRoundOTFEB.otf */; };
 		FDB3AD67216F94FD002209A2 /* StorageAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB3AD66216F94FD002209A2 /* StorageAPI.swift */; };
+		FDB3AD69216FBA7F002209A2 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB3AD68216FBA7F002209A2 /* NetworkManager.swift */; };
 		FDB4BE22211D6BAD00D3B264 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB4BE21211D6BAD00D3B264 /* AppDelegate.swift */; };
 		FDB4BE24211D6BAD00D3B264 /* MartSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB4BE23211D6BAD00D3B264 /* MartSelectViewController.swift */; };
 		FDB4BE27211D6BAD00D3B264 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDB4BE25211D6BAD00D3B264 /* Main.storyboard */; };
@@ -213,6 +214,7 @@
 		FDAF601D21273E880006B68A /* NanumSquareRoundOTFR.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundOTFR.otf; sourceTree = "<group>"; };
 		FDAF601E21273E880006B68A /* NanumSquareRoundOTFEB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundOTFEB.otf; sourceTree = "<group>"; };
 		FDB3AD66216F94FD002209A2 /* StorageAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageAPI.swift; sourceTree = "<group>"; };
+		FDB3AD68216FBA7F002209A2 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		FDB4BE1E211D6BAD00D3B264 /* MartHoliday.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MartHoliday.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDB4BE21211D6BAD00D3B264 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FDB4BE23211D6BAD00D3B264 /* MartSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MartSelectViewController.swift; sourceTree = "<group>"; };
@@ -375,6 +377,7 @@
 				FD7087DE216B427700A2A16F /* FavoriteData.swift */,
 				FD7FC0D9216E23CA0022094F /* KeyInfoLoader.swift */,
 				FDB3AD66216F94FD002209A2 /* StorageAPI.swift */,
+				FDB3AD68216FBA7F002209A2 /* NetworkManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -769,6 +772,7 @@
 				FD80CE212160D70100C16150 /* MartMapDelegate.swift in Sources */,
 				FD228F382142EB1A0062B75F /* BranchList.swift in Sources */,
 				FD1CC4E1211DF76300B21E09 /* DetailViewController.swift in Sources */,
+				FDB3AD69216FBA7F002209A2 /* NetworkManager.swift in Sources */,
 				FD11EAE321203A4C003EB3E9 /* BranchTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -16,11 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     var window: UIWindow?
     private let appGroup = UserDefaults.init(suiteName: "group.martHoliday.com")
+    var networkManager: NetworkManager?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         window?.backgroundColor = .white
+        // listener starts
+        networkManager = NetworkManager.shared
+
         setNavigationBar()
-        NotificationCenter.default.addObserver(self, selector: #selector(reachabilityAlert(notification:)), name: .connectionStatus, object: nil)
         FirebaseApp.configure()
         Messaging.messaging().delegate = self
 
@@ -45,17 +48,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         appGroup?.setValue(FavoriteList.shared().martList(), forKey: "favorites")
         setFavoritesURLTodayExtension()
         return true
-    }
-
-    @objc func reachabilityAlert(notification: Notification) {
-        guard let userInfo = notification.userInfo else { return }
-        guard let connection = userInfo["connectionStatus"] as? Reachability.Connection else { return }
-        switch connection {
-        case .wifi, .cellular:
-            print("connected alert")
-        case .none:
-            print("no network alert")
-        }
     }
 
     private func setFavoritesURLTodayExtension() {

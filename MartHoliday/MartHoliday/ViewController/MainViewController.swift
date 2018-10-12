@@ -8,6 +8,7 @@
 
 import UIKit
 import MessageUI
+import Reachability
 
 protocol FavoriteConvertible {
     var holidayData: [ExpandCollapseTogglable] { get set }
@@ -24,6 +25,16 @@ protocol FooterDelegate {
 
 protocol MailFeedbackAlert {
     var controller: UIAlertController? { get }
+}
+
+extension UIViewController {
+    func noNetworkAlert() {
+        let alert = UIAlertController(title: "에러!💥",
+                                      message: "네트워크를 찾을 수 없습니다.\n앱을 구동하기위해 인터넷을 연결해주세요.",
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Done", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
 class MainViewController: UIViewController, FavoriteConvertible, HeaderDelegate, FooterDelegate {
@@ -52,8 +63,19 @@ class MainViewController: UIViewController, FavoriteConvertible, HeaderDelegate,
 
         addGestures()
         NotificationCenter.default.addObserver(self, selector: #selector(detectSelectedMenu(_:)), name: .slideMenuTapped, object: nil)
-
+        NotificationCenter.default.addObserver(self, selector: #selector(reachabilityAlert(notification:)), name: .connectionStatus, object: nil)
         self.view.backgroundColor = UIColor.appColor(color: .lightgray)
+    }
+
+    @objc func reachabilityAlert(notification: Notification) {
+        guard let userInfo = notification.userInfo else { return }
+        guard let connection = userInfo["status"] as? Reachability.Connection else { return }
+        switch connection {
+        case .none:
+            noNetworkAlert()
+        default:
+            tableView.reloadData()
+        }
     }
 
     private func setNoDataView() {
