@@ -20,6 +20,6 @@ target 'MartHolidayTests' do
 end
 
 target 'MartHolidayTodayExtension' do
-    pod 'Firebase/Core'
-    pod 'Firebase/Database'
+#    pod 'Firebase/Core'
+#    pod 'Firebase/Database'
 end
