@@ -37,6 +37,23 @@ enum AppColor: CustomStringConvertible {
     }
 }
 
+extension UIAlertController {
+    class func noNetworkAlert() -> UIAlertController {
+        let alert = UIAlertController(title: ProgramDescription.networkErrorTitle.rawValue,
+                                      message: ProgramDescription.noNetworkErrorMsg.rawValue,
+                                      preferredStyle: .alert)
+        return alert
+    }
+
+    class func networkTimeOutAlert() -> UIAlertController {
+        let alert = UIAlertController(title: ProgramDescription.sorryErrorTitle.rawValue,
+                                      message: ProgramDescription.networkTimeoutMsg.rawValue,
+                                      preferredStyle: .alert)
+        return alert
+    }
+
+}
+
 extension UIColor {
     class func appColor(color: AppColor) -> UIColor {
         return UIColor(named: color.description)!
