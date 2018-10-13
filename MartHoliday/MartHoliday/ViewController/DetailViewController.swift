@@ -9,7 +9,7 @@
 import UIKit
 import SafariServices
 
-class DetailViewController: UIViewController, SFSafariViewControllerDelegate, MartMapViewHolder {
+class DetailViewController: RechabilityDetectViewController, SFSafariViewControllerDelegate, MartMapViewHolder {
 
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
     @IBOutlet weak var mockUpMapview: UIView!
@@ -40,11 +40,11 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate, Ma
         setBusinessHour()
         setPhoneNumber()
         setMapView()
+        setNetworkConnectionObserver()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
         tableView.register(UINib(nibName: "DetailHeaderView", bundle: nil),forHeaderFooterViewReuseIdentifier: "detailHeader")
-
     }
 
     override func viewWillAppear(_ animated: Bool) {

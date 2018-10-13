@@ -9,12 +9,14 @@
 import UIKit
 import Firebase
 
-class AppInfoViewController: UIViewController {
+class AppInfoViewController: IndicatorViewController {
 
     @IBOutlet weak var versionLabel: UILabel!
     @IBOutlet weak var acknowledgementsTextView: UITextView!
 
     override func viewDidLoad() {
+        setIndicator()
+        startIndicator()
         self.versionLabel.text = setVersionLabel()
         setTextView()
         self.navigationItem.title = ProgramDescription.AppInfo.rawValue
@@ -30,6 +32,7 @@ class AppInfoViewController: UIViewController {
         acknowledgementsTextView.layer.borderColor = (UIColor.appColor(color: .midgray)).cgColor
         StorageAPI.downloadFile(keyInfo: .AcknowledgementsURL) { (content) in
             self.acknowledgementsTextView.text = String(content)
+            self.finishIndicator()
         }
     }
 
