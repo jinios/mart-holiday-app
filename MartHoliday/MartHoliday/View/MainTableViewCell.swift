@@ -14,6 +14,7 @@ class MainTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
 
     func setData(text: String) {
+        self.selectionStyle = .none
         dateLabel.text = text
     }
 

@@ -26,6 +26,7 @@
 		FD1CC4DF211DF10A00B21E09 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1CC4DE211DF10A00B21E09 /* SearchViewController.swift */; };
 		FD1CC4E1211DF76300B21E09 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1CC4E0211DF76300B21E09 /* DetailViewController.swift */; };
 		FD228F382142EB1A0062B75F /* BranchList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD228F372142EB1A0062B75F /* BranchList.swift */; };
+		FD2E513B2171E059006E15A6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FDB26C5D2170711400313A02 /* InfoPlist.strings */; };
 		FD3B64242121BEAA003C1332 /* ApiGatewayMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3B64232121BEAA003C1332 /* ApiGatewayMac.framework */; };
 		FD3B64252121BEAA003C1332 /* ApiGatewayMac.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD3B64232121BEAA003C1332 /* ApiGatewayMac.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FD3B64292121BEDD003C1332 /* NMapViewerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3B64282121BEDD003C1332 /* NMapViewerSDK.framework */; };
@@ -588,6 +589,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FDEECC31214D002400F6FF09 /* NanumSquareRoundOTFL.otf in Resources */,
+				FD2E513B2171E059006E15A6 /* InfoPlist.strings in Resources */,
 				FDEECC32214D002700F6FF09 /* NanumSquareRoundOTFR.otf in Resources */,
 				FDEECC30214D002100F6FF09 /* NanumSquareRoundOTFEB.otf in Resources */,
 				FDEECC2F214D001F00F6FF09 /* NanumSquareRoundOTFB.otf in Resources */,

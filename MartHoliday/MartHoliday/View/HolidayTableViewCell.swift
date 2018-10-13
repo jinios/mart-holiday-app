@@ -13,6 +13,7 @@ class HolidayTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
 
     func setData(holiday: String) {
+        self.selectionStyle = .none
         dateLabel.text = holiday
     }
 
