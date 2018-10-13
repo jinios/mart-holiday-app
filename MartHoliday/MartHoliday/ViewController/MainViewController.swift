@@ -155,7 +155,7 @@ class MainViewController: RechabilityDetectViewController, FavoriteConvertible, 
         configure.timeoutIntervalForRequest = 3
         let session = URLSession(configuration: configure)
 
-        session.dataTask(with: url) { (data, response, error) in
+        session.dataTask(with: url) { [weak self] (data, response, error) in
             if let response = response as? HTTPURLResponse, 200...299 ~= response.statusCode, let data = data {
                 var branches = [BranchRawData]()
                 var favoriteList = BranchList()
@@ -166,14 +166,14 @@ class MainViewController: RechabilityDetectViewController, FavoriteConvertible, 
 
                     for fav in favoriteList.branches {
                         mainFavorites.append(FavoriteBranch(branch: fav))
-                        self.holidayData = mainFavorites
+                        self?.holidayData = mainFavorites
                     }
                     handler()
                 } catch {
-                    self.presentErrorAlert()
+                    self?.presentErrorAlert()
                 }
             } else {
-                self.presentErrorAlert()
+                self?.presentErrorAlert()
             }
         }.resume()
     }
