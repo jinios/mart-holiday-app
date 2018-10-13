@@ -196,7 +196,7 @@
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fM5-h6-WFW">
                                                                     <rect key="frame" x="30" y="-12" width="195" height="58.5"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" constant="195" id="gWS-Aj-xua"/>
+                                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="195" id="gWS-Aj-xua"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="17"/>
                                                                     <nil key="textColor"/>
@@ -440,8 +440,8 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ig2-fw-Apt">
                                 <rect key="frame" x="19" y="83" width="337.5" height="564"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <string key="text">#Acknowledgements
-
+                                <string key="text" base64-UTF8="YES">
+Cgo
 </string>
                                 <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
