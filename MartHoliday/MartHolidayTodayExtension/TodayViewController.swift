@@ -61,14 +61,18 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         guard let baseURL = URL(string: urlStr) else { return }
         let url = baseURL.appendingPathComponent(idstr)
 
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
+        let configure = URLSessionConfiguration.default
+        configure.timeoutIntervalForRequest = 3
+        let session = URLSession(configuration: configure)
+
+        session.dataTask(with: url) { [weak self] (data, response, error) in
             if let response = response as? HTTPURLResponse, 200...299 ~= response.statusCode, let data = data {
                 var branches = [BranchRawData]()
                 do {
                     branches = try JSONDecoder().decode([BranchRawData].self, from: data)
-                    self.favoriteList = BranchList(branches: branches)
+                    self?.favoriteList = BranchList(branches: branches)
                     handler(true)
-                } catch let error {
+                } catch {
                     handler(false)
                 }
             } else {
