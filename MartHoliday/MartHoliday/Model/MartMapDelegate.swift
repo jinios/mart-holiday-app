@@ -44,7 +44,11 @@ class MartMapDelegate: NSObject, NMapViewDelegate, NMapPOIdataOverlayDelegate, A
                 }
             }
         } else { // fail
-            print("onMapView:initHandler: \(error.description)")
+            let errorView = NoMapView(frame: mapView.bounds)
+            errorView.delegate = self
+            self.noMapView = errorView
+            mapView.addSubview(self.noMapView!)
+            mapView.removeGestureRecognizer(tapGesture)
         }
     }
 
