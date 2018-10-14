@@ -27,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         setNavigationBar()
         FirebaseApp.configure()
         Messaging.messaging().delegate = self
+        application.applicationIconBadgeNumber = 0
 
         if #available(iOS 10.0, *) {
             // For iOS 10 display notification (sent via APNS)
