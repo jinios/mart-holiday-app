@@ -325,7 +325,13 @@ extension MainViewController: MFMailComposeViewControllerDelegate {
                 composeVC.mailComposeDelegate = self
                 composeVC.setToRecipients([email])
                 composeVC.setSubject(ProgramDescription.MailTitle.rawValue)
-                composeVC.setMessageBody(ProgramDescription.MailBody.rawValue, isHTML: true)
+                composeVC.setMessageBody("""
+                        ====================<br/>
+                        * Device Token:\(FavoriteAPI.shared.deviceToken ?? "no_token")<br/>
+                        ====================<br/>
+                        \(ProgramDescription.MailBody.rawValue)
+                        """,
+                    isHTML: true)
                 present(composeVC, animated: true)
             } else {
                 mailAlert(alert: .failure)
