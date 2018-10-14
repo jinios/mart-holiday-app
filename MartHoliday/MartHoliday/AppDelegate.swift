@@ -15,8 +15,9 @@ import Reachability
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, MessagingDelegate {
 
     var window: UIWindow?
-    private let appGroup = UserDefaults.init(suiteName: "group.martHoliday.com")
     var networkManager: NetworkManager?
+    let gcmMessageIDKey = "gcm.message_id"
+    private let appGroup = UserDefaults.init(suiteName: "group.martHoliday.com")
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         window?.backgroundColor = .white
@@ -45,15 +46,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
         guard let loadedData = DataStorage<FavoriteList>.load() else { return true }
         FavoriteList.loadSavedData(loadedData)
-        appGroup?.setValue(FavoriteList.shared().martList(), forKey: "favorites")
         setFavoritesURLTodayExtension()
         return true
     }
 
-    private func setFavoritesURLTodayExtension() {
-        guard let value = KeyInfoLoader.loadValue(of: .FavoriteBranchesURL) else { return }
-        appGroup?.setValue(value, forKey: KeyInfo.FavoriteBranchesURL.rawValue)
-    }
 
     // [START refresh_token]
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
@@ -63,66 +59,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         FavoriteAPI.shared.configure(token: fcmToken)
     }
 
-    private func setFavorite() {
-        FavoriteAPI.shared.fetch(handler: FavoriteList.loadSavedData(_:))
-    }
-
-    let gcmMessageIDKey = "gcm.message_id"
-
-    // second trigger
-    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],
-                     fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-
-        if let messageID = userInfo[gcmMessageIDKey] {
-            print("Message ID: \(messageID)")
-        }
-        // Print full message.
-        print(userInfo)
-        completionHandler(UIBackgroundFetchResult.newData)
-    }
-
-    // first trigger
-    // Receive displayed notifications for iOS 10 devices.
-    func userNotificationCenter(_ center: UNUserNotificationCenter,
-                                willPresent notification: UNNotification,
-                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        let userInfo = notification.request.content.userInfo
-
-        // With swizzling disabled you must let Messaging know about the message, for Analytics
-        // Messaging.messaging().appDidReceiveMessage(userInfo)
-
-        // Print message ID.
-        if let messageID = userInfo[gcmMessageIDKey] {
-            print("Message ID: \(messageID)")
-        }
-
-        // Print full message.
-        print(userInfo)
-
-        // Change this to your preferred presentation option
-        completionHandler([])
-    }
-
-    func userNotificationCenter(_ center: UNUserNotificationCenter,
-                                didReceive response: UNNotificationResponse,
-                                withCompletionHandler completionHandler: @escaping () -> Void) {
-        let userInfo = response.notification.request.content.userInfo
-        // Print message ID.
-        if let messageID = userInfo[gcmMessageIDKey] {
-            print("Message ID: \(messageID)")
-        }
-
-        // Print full message.
-        print(userInfo)
-
-        completionHandler()
-    }
 
     // MARK: Life Cycle functions
 
     func applicationDidEnterBackground(_ application: UIApplication) {
         DataStorage<FavoriteList>.save(data: FavoriteList.shared())
-        appGroup?.setValue(FavoriteList.shared().martList(), forKey: "favorites")
+        setFavoritesURLTodayExtension()
         FavoriteAPI.shared.save()
         Messaging.subscribeAll(favorites: FavoriteList.shared())
     }
@@ -137,12 +79,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     func applicationWillTerminate(_ application: UIApplication) {
         DataStorage<FavoriteList>.save(data: FavoriteList.shared())
-        appGroup?.setValue(FavoriteList.shared().martList(), forKey: "favorites")
+        setFavoritesURLTodayExtension()
         FavoriteAPI.shared.save()
         Messaging.subscribeAll(favorites: FavoriteList.shared())
     }
 
     // MARK: Private functions
+
+    private func setFavoritesURLTodayExtension() {
+        guard let value = KeyInfoLoader.loadValue(of: .FavoriteBranchesURL) else { return }
+        appGroup?.setValue(value, forKey: KeyInfo.FavoriteBranchesURL.rawValue)
+        appGroup?.setValue(FavoriteList.shared().ids(), forKey: "favorites")
+    }
 
     private func setNavigationBar() {
         let fontAttributes = [
