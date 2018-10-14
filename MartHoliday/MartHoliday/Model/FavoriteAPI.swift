@@ -42,7 +42,7 @@ class FavoriteAPI {
     func save() {
         guard let deviceToken = deviceToken else { return }
         let ref = Database.database().reference()
-        ref.child("users").child(deviceToken).setValue(["favorites": FavoriteList.shared().martList()])
+        ref.child("users").child(deviceToken).setValue(["favorites": FavoriteList.shared().ids()])
     }
 
 }

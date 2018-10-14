@@ -50,7 +50,7 @@ class FavoriteList: NSObject, NSCoding {
     private var martSet: Set<Int> {
         didSet {
             DataStorage<FavoriteList>.save(data: self)
-            appGroup?.setValue(self.martList(), forKey: "favorites")
+            appGroup?.setValue(self.ids(), forKey: "favorites")
         }
     }
 
@@ -72,10 +72,6 @@ class FavoriteList: NSObject, NSCoding {
     func isFavorite(branchId: Int) -> Bool {
         guard martSet.count > 0 else { return false }
         return martSet.contains(branchId)
-    }
-
-    func martList() -> [Int] {
-        return martSet.sorted { $0 > $1 }
     }
 
     func ids() -> [Int] {
