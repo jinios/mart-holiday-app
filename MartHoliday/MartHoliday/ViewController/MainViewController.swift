@@ -327,7 +327,8 @@ extension MainViewController: MFMailComposeViewControllerDelegate {
                 composeVC.setSubject(ProgramDescription.MailTitle.rawValue)
                 composeVC.setMessageBody("""
                         ====================<br/>
-                        * Device Token:\(FavoriteAPI.shared.deviceToken ?? "no_token")<br/>
+                        * Device Token:\(FavoriteAPIInfo.token.description)<br/>
+                        * Push granted:\(FavoriteAPIInfo.pushAllow.description)<br/>
                         ====================<br/>
                         \(ProgramDescription.MailBody.rawValue)
                         """,
