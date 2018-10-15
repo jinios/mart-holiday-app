@@ -10,6 +10,8 @@ import UIKit
 
 class NoDataView: UIView {
 
+    let hapticGenerator = UIImpactFeedbackGenerator(style: .medium)
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.frame = frame
@@ -20,16 +22,21 @@ class NoDataView: UIView {
     }
 
     func setLabel(text: String) {
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: 50))
-        label.attributedText = makeTextWithAttributes(of: text)
-        label.textAlignment = .center
-        label.adjustsFontSizeToFitWidth = true
-        self.addSubview(label)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        label.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        label.widthAnchor.constraint(equalTo: self.widthAnchor, constant: 0.9).isActive = true
-        label.heightAnchor.constraint(equalToConstant: 50).isActive = true
+
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: 50))
+        button.addTarget(self, action: #selector(searchButtonTapped), for: .touchUpInside)
+        button.setAttributedTitle(makeTextWithAttributes(of: text), for: .normal)
+        self.addSubview(button)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        button.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        button.widthAnchor.constraint(equalTo: self.widthAnchor, constant: 0.9).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 50).isActive = true
+    }
+
+    @objc func searchButtonTapped() {
+        hapticGenerator.impactOccurred()
+        NotificationCenter.default.post(name: .slideMenuTapped, object: nil, userInfo: ["next": SelectedSlideMenu.select])
     }
 
     private func makeTextWithAttributes(of myText: String) -> NSAttributedString {

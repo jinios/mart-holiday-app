@@ -11,7 +11,8 @@ import Firebase
 
 class FavoriteAPI {
     private static var sharedInstance = FavoriteAPI()
-    var deviceToken: String?
+    fileprivate var deviceToken: String?
+    fileprivate var isPushAllowed: Bool?
 
     static var shared: FavoriteAPI {
         return sharedInstance
@@ -19,8 +20,9 @@ class FavoriteAPI {
 
     private init() { }
 
-    func configure(token: String) {
-        deviceToken = token
+    func configure(token: String, isPushAllowed: Bool) {
+        self.deviceToken = token
+        self.isPushAllowed = isPushAllowed
     }
 
     func fetch(handler: @escaping(FavoriteList) -> Void) {
@@ -42,8 +44,26 @@ class FavoriteAPI {
     func save() {
         guard let deviceToken = deviceToken else { return }
         let ref = Database.database().reference()
-        ref.child("users").child(deviceToken).setValue(["favorites": FavoriteList.shared().martList()])
+        ref.child("users").child(deviceToken).setValue(["favorites": FavoriteList.shared().ids()])
     }
 
 }
 
+enum FavoriteAPIInfo: CustomStringConvertible {
+    case token
+    case pushAllow
+
+    var description: String {
+        switch self {
+        case .token: return FavoriteAPI.shared.deviceToken ?? "no_token"
+        case .pushAllow:
+            guard let isPushAllowed = FavoriteAPI.shared.isPushAllowed else { return "no_allowed_info" }
+            if isPushAllowed {
+                return "true"
+            } else {
+                return "false"
+            }
+        }
+    }
+
+}

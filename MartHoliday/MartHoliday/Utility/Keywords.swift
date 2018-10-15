@@ -25,4 +25,8 @@ enum ProgramDescription: String {
     case NoDateData = "휴무일 정보가 없습니다 :("
     case DefaultVersion = "ⓥ 1.0.0"
     case AppInfo = "앱 정보"
+    case networkErrorTitle = "에러!💥"
+    case noNetworkErrorMsg = "네트워크를 찾을 수 없습니다.\n앱을 구동하기위해 인터넷 연결을 확인해주세요."
+    case sorryErrorTitle = "죄송합니다😰"
+    case networkTimeoutMsg = "서버에 문제가 발생했습니다.\n잠시 후 다시 시도해주세요."
 }

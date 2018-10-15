@@ -31,7 +31,11 @@ class MapSetter {
         request.addValue(keyInfoID, forHTTPHeaderField: "X-Naver-Client-Id")
         request.addValue(keyInfoSecretKey, forHTTPHeaderField: "X-Naver-Client-Secret")
 
-        URLSession.shared.dataTask(with: request){(data, response, error) in
+        let configure = URLSessionConfiguration.default
+        configure.timeoutIntervalForRequest = 5
+        let session = URLSession(configuration: configure)
+
+        session.dataTask(with: request){(data, response, error) in
             if let response = response as? HTTPURLResponse, 200...299 ~= response.statusCode, let data = data {
                 do {
                     let result = try JSONDecoder().decode(AddressDatum.self, from: data)

@@ -11,21 +11,24 @@ import NotificationCenter
 
 class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var networkErrorView: UIView!
     @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         extensionContext?.widgetLargestAvailableDisplayMode = .expanded
+        networkErrorView.isHidden = true
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = 36.0
-        setFavoriteBranch(handler: reloadTableView)
+        tableView.layer.zPosition = 1
+        setFavoriteBranch(handler: reloadTableView(enable:))
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
+
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
         self.tableView.reloadData()
         completionHandler(NCUpdateResult.newData)
@@ -50,27 +53,30 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         return result
     }
 
-    func setFavoriteBranch(handler: @escaping (() -> Void)) {
+    func setFavoriteBranch(handler: @escaping ((Bool) -> Void)) {
         let ids = getFavorites()
         let idstr = ids.map{String($0)}.joined(separator: ",")
-//        guard let urlstr = KeyInfoLoader.loadValue(of: .FavoriteBranchesURL) else { return }
-//        guard let baseURL = URL(string: urlstr) else { return }
+
         guard let urlStr = appGroup?.value(forKey: KeyInfo.FavoriteBranchesURL.rawValue) as? String else { return }
         guard let baseURL = URL(string: urlStr) else { return }
         let url = baseURL.appendingPathComponent(idstr)
 
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
+        let configure = URLSessionConfiguration.default
+        configure.timeoutIntervalForRequest = 3
+        let session = URLSession(configuration: configure)
+
+        session.dataTask(with: url) { [weak self] (data, response, error) in
             if let response = response as? HTTPURLResponse, 200...299 ~= response.statusCode, let data = data {
                 var branches = [BranchRawData]()
                 do {
                     branches = try JSONDecoder().decode([BranchRawData].self, from: data)
-                    self.favoriteList = BranchList(branches: branches)
-                    handler()
-                } catch let error {
-                    print("Cannot make Data: \(error)")
+                    self?.favoriteList = BranchList(branches: branches)
+                    handler(true)
+                } catch {
+                    handler(false)
                 }
             } else {
-                print("Network error: \((response as? HTTPURLResponse)?.statusCode)")
+                handler(false)
             }
             }.resume()
     }
@@ -89,10 +95,18 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         guard let url = URL(string: "openApp:") else { return }
         self.extensionContext?.open(url, completionHandler: nil)
     }
+
+    func toggleSubViews(flag: Bool) {
+        self.tableView.isHidden = !flag
+        self.networkErrorView.isHidden = flag
+    }
     
-    func reloadTableView() {
+    func reloadTableView(enable: Bool) {
         DispatchQueue.main.async { [weak self] in
-            self?.tableView.reloadData()
+            self?.toggleSubViews(flag: enable)
+            if enable {
+                self?.tableView.reloadData()
+            }
         }
     }
 

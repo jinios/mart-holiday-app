@@ -8,4 +8,4 @@
 
 /* Localized Bundle Display Name */
 "CFBundleDisplayName" = "MartHoliday";
-
+"CFBundleName" = "MartHoliday";

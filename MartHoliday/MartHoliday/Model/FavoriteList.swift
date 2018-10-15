@@ -50,12 +50,14 @@ class FavoriteList: NSObject, NSCoding {
     private var martSet: Set<Int> {
         didSet {
             DataStorage<FavoriteList>.save(data: self)
-            appGroup?.setValue(self.martList(), forKey: "favorites")
+            appGroup?.setValue(self.ids(), forKey: "favorites")
         }
     }
 
     func push(id: Int) -> Bool {
-        return self.martSet.insert(id).inserted
+        let isPushed = self.martSet.insert(id).inserted
+        guard isPushed else { return false }
+        return isPushed
     }
 
     func pop(id: Int) -> Bool {
@@ -74,10 +76,6 @@ class FavoriteList: NSObject, NSCoding {
         return martSet.contains(branchId)
     }
 
-    func martList() -> [Int] {
-        return martSet.sorted { $0 > $1 }
-    }
-
     func ids() -> [Int] {
         return martSet.sorted()
     }
@@ -87,4 +85,3 @@ class FavoriteList: NSObject, NSCoding {
     }
 
 }
-

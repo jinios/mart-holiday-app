@@ -8,7 +8,6 @@
 
 import UIKit
 import MessageUI
-import Reachability
 
 protocol FavoriteConvertible {
     var holidayData: [ExpandCollapseTogglable] { get set }
@@ -27,17 +26,7 @@ protocol MailFeedbackAlert {
     var controller: UIAlertController? { get }
 }
 
-extension UIViewController {
-    func noNetworkAlert() {
-        let alert = UIAlertController(title: "에러!💥",
-                                      message: "네트워크를 찾을 수 없습니다.\n앱을 구동하기위해 인터넷을 연결해주세요.",
-                                      preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Done", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-    }
-}
-
-class MainViewController: UIViewController, FavoriteConvertible, HeaderDelegate, FooterDelegate {
+class MainViewController: RechabilityDetectViewController, FavoriteConvertible, HeaderDelegate, FooterDelegate {
     typealias HolidayData = [ExpandCollapseTogglable]
 
     @IBOutlet weak var tableView: UITableView!
@@ -63,19 +52,8 @@ class MainViewController: UIViewController, FavoriteConvertible, HeaderDelegate,
 
         addGestures()
         NotificationCenter.default.addObserver(self, selector: #selector(detectSelectedMenu(_:)), name: .slideMenuTapped, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(reachabilityAlert(notification:)), name: .connectionStatus, object: nil)
+        setNetworkConnectionObserver()
         self.view.backgroundColor = UIColor.appColor(color: .lightgray)
-    }
-
-    @objc func reachabilityAlert(notification: Notification) {
-        guard let userInfo = notification.userInfo else { return }
-        guard let connection = userInfo["status"] as? Reachability.Connection else { return }
-        switch connection {
-        case .none:
-            noNetworkAlert()
-        default:
-            tableView.reloadData()
-        }
     }
 
     private func setNoDataView() {
@@ -160,6 +138,12 @@ class MainViewController: UIViewController, FavoriteConvertible, HeaderDelegate,
         }
     }
 
+    private func presentErrorAlert() {
+        DispatchQueue.main.async {
+            self.networkTimeOutAlert()
+        }
+    }
+
     func fetchFavoriteBranch(handler: @escaping (() -> Void)) {
         let ids = FavoriteList.shared().ids()
         let idstr = ids.map{String($0)}.joined(separator: ",")
@@ -167,7 +151,11 @@ class MainViewController: UIViewController, FavoriteConvertible, HeaderDelegate,
         guard let baseURL = URL(string: urlstr) else { return }
         let url = baseURL.appendingPathComponent(idstr)
 
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
+        let configure = URLSessionConfiguration.default
+        configure.timeoutIntervalForRequest = 3
+        let session = URLSession(configuration: configure)
+
+        session.dataTask(with: url) { [weak self] (data, response, error) in
             if let response = response as? HTTPURLResponse, 200...299 ~= response.statusCode, let data = data {
                 var branches = [BranchRawData]()
                 var favoriteList = BranchList()
@@ -178,14 +166,14 @@ class MainViewController: UIViewController, FavoriteConvertible, HeaderDelegate,
 
                     for fav in favoriteList.branches {
                         mainFavorites.append(FavoriteBranch(branch: fav))
-                        self.holidayData = mainFavorites
+                        self?.holidayData = mainFavorites
                     }
                     handler()
-                } catch let error {
-                    print("Cannot make Data: \(error)")
+                } catch {
+                    self?.presentErrorAlert()
                 }
             } else {
-                print("Network error: \((response as? HTTPURLResponse)?.statusCode)")
+                self?.presentErrorAlert()
             }
         }.resume()
     }
@@ -337,7 +325,14 @@ extension MainViewController: MFMailComposeViewControllerDelegate {
                 composeVC.mailComposeDelegate = self
                 composeVC.setToRecipients([email])
                 composeVC.setSubject(ProgramDescription.MailTitle.rawValue)
-                composeVC.setMessageBody(ProgramDescription.MailBody.rawValue, isHTML: true)
+                composeVC.setMessageBody("""
+                        ====================<br/>
+                        * Device Token:\(FavoriteAPIInfo.token.description)<br/>
+                        * Push granted:\(FavoriteAPIInfo.pushAllow.description)<br/>
+                        ====================<br/>
+                        \(ProgramDescription.MailBody.rawValue)
+                        """,
+                    isHTML: true)
                 present(composeVC, animated: true)
             } else {
                 mailAlert(alert: .failure)
