@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     var networkManager: NetworkManager?
     let gcmMessageIDKey = "gcm.message_id"
     private let appGroup = UserDefaults.init(suiteName: "group.martHoliday.com")
+    private var isPushAllowed: Bool!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         window?.backgroundColor = .white
@@ -36,6 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             UNUserNotificationCenter.current().requestAuthorization(
                 options: authOptions,
                 completionHandler: { granted, error in
+                    self.isPushAllowed = granted
             })
         } else {
             let settings: UIUserNotificationSettings =
@@ -45,18 +47,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
         application.registerForRemoteNotifications()
 
+
         guard let loadedData = DataStorage<FavoriteList>.load() else { return true }
         FavoriteList.loadSavedData(loadedData)
         setFavoritesURLTodayExtension()
-
-        NotificationCenter.default.addObserver(self, selector: #selector(subscribe(notification:)), name: .changeSubscribe, object: nil)
         return true
+    }
+
+    func application(_ application: UIApplication, didRegister notificationSettings: UIUserNotificationSettings) {
+        if notificationSettings.types == .none {
+            self.isPushAllowed = false
+        } else {
+            self.isPushAllowed = true
+        }
     }
 
     // [START refresh_token]
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
-        print("Firebase registration token: \(fcmToken)")
-        FavoriteAPI.shared.configure(token: fcmToken)
+        FavoriteAPI.shared.configure(token: fcmToken, isPushAllowed: self.isPushAllowed)
     }
 
     // MARK: Life Cycle functions
@@ -73,6 +81,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         if !FavoriteList.isSameData(loadedData) {
             FavoriteList.loadSavedData(loadedData)
         }
+    }
+
+    func applicationWillResignActive(_ application: UIApplication) {
+        DataStorage<FavoriteList>.save(data: FavoriteList.shared())
+        setFavoritesURLTodayExtension()
+        FavoriteAPI.shared.save()
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
@@ -101,20 +115,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         UINavigationBar.appearance().tintColor = UIColor.white
         UINavigationBar.appearance().titleTextAttributes = fontAttributes
         UIBarButtonItem.appearance().setTitleTextAttributes(fontAttributes, for: .normal)
-    }
-
-    @objc func subscribe(notification: Notification) {
-        guard let userInfo = notification.userInfo else { return }
-        guard let subscribeType = userInfo["subscribeType"] else { return }
-        guard let subscribe = subscribeType as? Bool else { return }
-        guard let idValue = userInfo["id"] else { return }
-        guard let id = idValue as? Int else { return }
-
-        if subscribe {
-            Messaging.messaging().subscribe(toTopic: "\(id)")
-        } else {
-            Messaging.messaging().unsubscribe(fromTopic: "\(id)")
-        }
     }
 
 }
