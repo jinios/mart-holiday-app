@@ -1,0 +1,48 @@
+
+/* Class = "UILabel"; text = "전화번호"; ObjectID = "2XA-B2-zJG"; */
+"2XA-B2-zJG.text" = "전화번호";
+
+/* Class = "UILabel"; text = "전화하기"; ObjectID = "2jB-oG-CMN"; */
+"2jB-oG-CMN.text" = "전화하기";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "3YZ-PZ-Ksq"; */
+"3YZ-PZ-Ksq.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Cdv-Ua-B8c"; */
+"Cdv-Ua-B8c.text" = "Label";
+
+/* Class = "UILabel"; text = "주소"; ObjectID = "CnI-W2-HP4"; */
+"CnI-W2-HP4.text" = "주소";
+
+/* Class = "UILabel"; text = "지점명"; ObjectID = "GZs-en-hg5"; */
+"GZs-en-hg5.text" = "지점명";
+
+/* Class = "UITextView"; text = "#Acknowledgements\n\n"; ObjectID = "Ig2-fw-Apt"; */
+"Ig2-fw-Apt.text" = "#Acknowledgements\n\n";
+
+/* Class = "UILabel"; text = "버전 정보"; ObjectID = "RpG-ai-1VI"; */
+"RpG-ai-1VI.text" = "버전 정보";
+
+/* Class = "UILabel"; text = "즐겨찾기"; ObjectID = "doB-Y5-fPo"; */
+"doB-Y5-fPo.text" = "즐겨찾기";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "fM5-h6-WFW"; */
+"fM5-h6-WFW.text" = "Label";
+
+/* Class = "UILabel"; text = "영업시간"; ObjectID = "jz8-Kg-hmQ"; */
+"jz8-Kg-hmQ.text" = "영업시간";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "nFR-G1-Xtd"; */
+"nFR-G1-Xtd.text" = "Label";
+
+/* Class = "UILabel"; text = "검색할 마트를 선택하세요 :)"; ObjectID = "oT5-EJ-aJk"; */
+"oT5-EJ-aJk.text" = "검색할 마트를 선택하세요 :)";
+
+/* Class = "UILabel"; text = "홈페이지"; ObjectID = "oy8-ua-pMX"; */
+"oy8-ua-pMX.text" = "홈페이지";
+
+/* Class = "UILabel"; text = "위치정보"; ObjectID = "vQc-kI-Tdm"; */
+"vQc-kI-Tdm.text" = "위치정보";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "wf3-kj-MA8"; */
+"wf3-kj-MA8.text" = "Label";

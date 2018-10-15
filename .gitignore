@@ -163,6 +163,9 @@ playground.xcworkspace
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
 ## User settings
+KeyInfo.plist
+GoogleService-Info.plist
+
 
 ## compatibility with Xcode 8 and earlier (ignoring not required starting Xcode 9)
 
