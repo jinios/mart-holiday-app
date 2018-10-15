@@ -48,18 +48,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         guard let loadedData = DataStorage<FavoriteList>.load() else { return true }
         FavoriteList.loadSavedData(loadedData)
         setFavoritesURLTodayExtension()
+
+        NotificationCenter.default.addObserver(self, selector: #selector(subscribe(notification:)), name: .changeSubscribe, object: nil)
         return true
     }
 
-
     // [START refresh_token]
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
-        // TODO: If necessary send token to application server.
-        // Note: This callback is fired at each app startup and whenever a new token is generated.
         print("Firebase registration token: \(fcmToken)")
         FavoriteAPI.shared.configure(token: fcmToken)
     }
-
 
     // MARK: Life Cycle functions
 
@@ -67,7 +65,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         DataStorage<FavoriteList>.save(data: FavoriteList.shared())
         setFavoritesURLTodayExtension()
         FavoriteAPI.shared.save()
-        Messaging.subscribeAll(favorites: FavoriteList.shared())
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -82,10 +79,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         DataStorage<FavoriteList>.save(data: FavoriteList.shared())
         setFavoritesURLTodayExtension()
         FavoriteAPI.shared.save()
-        Messaging.subscribeAll(favorites: FavoriteList.shared())
     }
 
-    // MARK: Private functions
+    // MARK: Private & @objc functions
 
     private func setFavoritesURLTodayExtension() {
         guard let value = KeyInfoLoader.loadValue(of: .FavoriteBranchesURL) else { return }
@@ -107,13 +103,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         UIBarButtonItem.appearance().setTitleTextAttributes(fontAttributes, for: .normal)
     }
 
-}
+    @objc func subscribe(notification: Notification) {
+        guard let userInfo = notification.userInfo else { return }
+        guard let subscribeType = userInfo["subscribeType"] else { return }
+        guard let subscribe = subscribeType as? Bool else { return }
+        guard let idValue = userInfo["id"] else { return }
+        guard let id = idValue as? Int else { return }
 
-extension Messaging {
-    class func subscribeAll(favorites: FavoriteList) {
-        for id in favorites.ids() {
+        if subscribe {
             Messaging.messaging().subscribe(toTopic: "\(id)")
+        } else {
+            Messaging.messaging().unsubscribe(fromTopic: "\(id)")
         }
     }
+
 }
 

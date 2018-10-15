@@ -55,7 +55,10 @@ class FavoriteList: NSObject, NSCoding {
     }
 
     func push(id: Int) -> Bool {
-        return self.martSet.insert(id).inserted
+        let isPushed = self.martSet.insert(id).inserted
+        guard isPushed else { return false }
+        NotificationCenter.default.post(name: .changeSubscribe, object: nil, userInfo: ["subscribeType": true, "id":id])
+        return isPushed
     }
 
     func pop(id: Int) -> Bool {
@@ -63,6 +66,7 @@ class FavoriteList: NSObject, NSCoding {
         let result = self.martSet.remove(id)
         if result != nil {
             popResult = true
+            NotificationCenter.default.post(name: .changeSubscribe, object: nil, userInfo: ["subscribeType": false, "id":id])
         } else {
             popResult = false
         }
@@ -84,3 +88,6 @@ class FavoriteList: NSObject, NSCoding {
 
 }
 
+extension Notification.Name {
+    static let changeSubscribe = Notification.Name("changeSubscribe")
+}
