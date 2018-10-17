@@ -18,9 +18,7 @@ class FavoriteAPI {
         return sharedInstance
     }
 
-    private init() { }
-
-    func configure(token: String, isPushAllowed: Bool) {
+    func configure(token: String?, isPushAllowed: Bool?) {
         self.deviceToken = token
         self.isPushAllowed = isPushAllowed
     }
@@ -42,7 +40,7 @@ class FavoriteAPI {
 
     // 파이어베이스에 값 저장/업데이트
     func save() {
-        guard let deviceToken = deviceToken else { return }
+        guard let deviceToken = self.deviceToken else { return }
         let ref = Database.database().reference()
         ref.child("users").child(deviceToken).setValue(["favorites": FavoriteList.shared().ids()])
     }
