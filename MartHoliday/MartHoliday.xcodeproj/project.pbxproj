@@ -1065,7 +1065,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = MartHoliday1008;
 				SWIFT_OBJC_BRIDGING_HEADER = /Users/jeonmijin/Documents/iOS/workspace/MartHoliday/MartHoliday/MartHoliday/Header.h;
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1096,7 +1096,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = MartHoliday1008;
 				SWIFT_OBJC_BRIDGING_HEADER = /Users/jeonmijin/Documents/iOS/workspace/MartHoliday/MartHoliday/MartHoliday/Header.h;
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

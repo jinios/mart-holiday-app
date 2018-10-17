@@ -29,20 +29,24 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gsH-7y-fUQ" userLabel="noNetworkView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="네트워크를 확인해주세요." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="gqo-YW-mGZ">
-                                        <rect key="frame" x="60" y="66" width="200" height="18"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cdq-Qb-67x">
+                                        <rect key="frame" x="25.5" y="61" width="269" height="28"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" priority="750" constant="200" id="omU-Kh-D1l"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" priority="750" constant="300" id="H4H-A1-caf"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="16"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                        <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="14"/>
+                                        <state key="normal" title="네트워크 확인 / 마트 즐겨찾기 추가를해주세요.">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="openAppTapped:" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="deV-Qy-aiQ"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="gqo-YW-mGZ" firstAttribute="centerY" secondItem="gsH-7y-fUQ" secondAttribute="centerY" id="ODz-k2-Jjq"/>
-                                    <constraint firstItem="gqo-YW-mGZ" firstAttribute="centerX" secondItem="gsH-7y-fUQ" secondAttribute="centerX" id="pTB-BZ-a4I"/>
+                                    <constraint firstItem="cdq-Qb-67x" firstAttribute="centerX" secondItem="gsH-7y-fUQ" secondAttribute="centerX" id="Vc6-xd-yP2"/>
+                                    <constraint firstItem="cdq-Qb-67x" firstAttribute="centerY" secondItem="gsH-7y-fUQ" secondAttribute="centerY" id="p83-DM-BpO"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2WP-eG-rcc">

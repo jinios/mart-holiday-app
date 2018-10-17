@@ -18,6 +18,7 @@ class DetailViewController: RechabilityDetectViewController, SFSafariViewControl
     @IBOutlet weak var address: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var starCircleButton: StarCircleButton!
+    @IBOutlet weak var scrollView: UIScrollView!
     var starButton: StarButton!
     var mapView : NMapView?
     var mapViewDelegate: MartMapDelegate!
@@ -41,6 +42,7 @@ class DetailViewController: RechabilityDetectViewController, SFSafariViewControl
         setPhoneNumber()
         setMapView()
         setNetworkConnectionObserver()
+        setScroll()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
@@ -93,7 +95,6 @@ class DetailViewController: RechabilityDetectViewController, SFSafariViewControl
 
         let homeBarButton = UIBarButtonItem(customView: homeButton)
         self.navigationItem.setRightBarButtonItems([homeBarButton,starBarButton], animated: false)
-
     }
 
     private func makeTextWithAttributes(fontSize: CGFloat) -> [NSAttributedStringKey : NSObject?] {
@@ -106,6 +107,17 @@ class DetailViewController: RechabilityDetectViewController, SFSafariViewControl
         return customAttributes
     }
 
+    private func setScroll() {
+        guard let holidayDatum = holidayDatum else { return }
+        let isMaxHeight = UIScreen.main.bounds.height > 820
+        if isMaxHeight { // if true
+            if holidayDatum.isExpanded {
+                scrollView.isScrollEnabled = isMaxHeight // true
+            } else {
+                scrollView.isScrollEnabled = !isMaxHeight // false
+            }
+        }
+    }
 
     private func setPhoneNumber() {
         guard let branchData = self.branchData else { return }
@@ -216,6 +228,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource, Head
         holidayDatum?.toggleExpand()
         tableView.reloadSections([index], with: .automatic)
         tableViewHeight.constant = tableView.contentSize.height
+        setScroll()
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
