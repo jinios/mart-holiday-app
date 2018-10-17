@@ -48,12 +48,12 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     var favoriteList = BranchList()
     private let appGroup = UserDefaults.init(suiteName: "group.martHoliday.com")
 
-    func getFavorites() -> [Int] {
+    private func getFavorites() -> [Int] {
         guard let result = appGroup?.value(forKey: "favorites") as? [Int] else { return [1] }
         return result
     }
 
-    func setFavoriteBranch(handler: @escaping ((Bool) -> Void)) {
+    private func setFavoriteBranch(handler: @escaping ((Bool) -> Void)) {
         let ids = getFavorites()
         let idstr = ids.map{String($0)}.joined(separator: ",")
 
@@ -92,20 +92,28 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.openHostApp()
+    }
+
+    @IBAction func openAppTapped(_ sender: Any) {
+        self.openHostApp()
+    }
+
+    private func openHostApp() {
         guard let url = URL(string: "openApp:") else { return }
         self.extensionContext?.open(url, completionHandler: nil)
     }
 
-    func toggleSubViews(flag: Bool) {
+    private func toggleSubViews(flag: Bool) {
         self.tableView.isHidden = !flag
         self.networkErrorView.isHidden = flag
     }
     
-    func reloadTableView(enable: Bool) {
-        DispatchQueue.main.async { [weak self] in
-            self?.toggleSubViews(flag: enable)
+    private func reloadTableView(enable: Bool) {
+        DispatchQueue.main.async {
+            self.toggleSubViews(flag: enable)
             if enable {
-                self?.tableView.reloadData()
+                self.tableView.reloadData()
             }
         }
     }
