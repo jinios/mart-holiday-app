@@ -12,8 +12,6 @@ import NVActivityIndicatorView
 class MartSelectViewController: IndicatorViewController {
 
     @IBOutlet weak var tableView: UITableView!
-//    var indicator: NVActivityIndicatorView!
-//    var indicatorBackgroundView: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()

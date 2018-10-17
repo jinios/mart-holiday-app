@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     var networkManager: NetworkManager?
     let gcmMessageIDKey = "gcm.message_id"
     private let appGroup = UserDefaults.init(suiteName: "group.martHoliday.com")
-    private var isPushAllowed: Bool!
+    private var isPushAllowed: Bool?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         window?.backgroundColor = .white
@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
         setNavigationBar()
         FirebaseApp.configure()
-        Messaging.messaging().delegate = self
+
         application.applicationIconBadgeNumber = 0
 
         if #available(iOS 10.0, *) {
@@ -45,8 +45,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             application.registerUserNotificationSettings(settings)
         }
 
+        Messaging.messaging().delegate = self
         application.registerForRemoteNotifications()
-
 
         guard let loadedData = DataStorage<FavoriteList>.load() else { return true }
         FavoriteList.loadSavedData(loadedData)
