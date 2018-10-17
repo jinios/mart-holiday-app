@@ -25,13 +25,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="검색할 마트를 선택하세요 :)" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oT5-EJ-aJk">
-                                <rect key="frame" x="95" y="45" width="185.5" height="20"/>
+                                <rect key="frame" x="91" y="45" width="193.5" height="19"/>
                                 <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IU9-qB-wNQ">
-                                <rect key="frame" x="0.0" y="85" width="375" height="582"/>
+                                <rect key="frame" x="0.0" y="84" width="375" height="583"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="selectionCell" rowHeight="150" id="ssu-MQ-wtR" customClass="SelectionTableViewCell" customModule="MartHoliday" customModuleProvider="target">
@@ -177,7 +177,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ctw-dV-lwK" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="762"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="794.5"/>
                                         <subviews>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="970-Km-ZJW">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
@@ -368,7 +368,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EPP-nl-lMa" userLabel="yellowView">
-                                                <rect key="frame" x="0.0" y="374" width="375" height="388"/>
+                                                <rect key="frame" x="0.0" y="374" width="375" height="420.5"/>
                                                 <color key="backgroundColor" red="0.99953407049999998" green="0.98835557699999999" blue="0.47265523669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </view>
                                         </subviews>
@@ -394,15 +394,15 @@
                                     <constraint firstAttribute="bottom" secondItem="ctw-dV-lwK" secondAttribute="bottom" id="Y4z-Qg-jfy"/>
                                     <constraint firstAttribute="trailing" secondItem="ctw-dV-lwK" secondAttribute="trailing" id="lPQ-Qf-QMp"/>
                                     <constraint firstItem="ctw-dV-lwK" firstAttribute="top" secondItem="ltX-Hb-Yau" secondAttribute="top" id="lsf-Px-MbQ"/>
-                                    <constraint firstAttribute="bottom" secondItem="EPP-nl-lMa" secondAttribute="bottom" id="mgg-YJ-3dr"/>
+                                    <constraint firstItem="ctw-dV-lwK" firstAttribute="bottom" secondItem="EPP-nl-lMa" secondAttribute="bottom" priority="750" id="mgg-YJ-3dr"/>
                                     <constraint firstItem="ctw-dV-lwK" firstAttribute="leading" secondItem="ltX-Hb-Yau" secondAttribute="leading" id="nOK-HU-3Vd"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="EPP-nl-lMa" firstAttribute="height" secondItem="dcD-h2-T35" secondAttribute="height" multiplier="0.6" id="4qU-3z-jPt"/>
                             <constraint firstItem="ltX-Hb-Yau" firstAttribute="bottom" secondItem="dcD-h2-T35" secondAttribute="bottom" id="IB8-oe-V9i"/>
+                            <constraint firstItem="EPP-nl-lMa" firstAttribute="height" secondItem="dcD-h2-T35" secondAttribute="height" multiplier="0.65" id="R7E-Ib-ln8"/>
                             <constraint firstItem="ltX-Hb-Yau" firstAttribute="leading" secondItem="dcD-h2-T35" secondAttribute="leading" id="c5P-1U-tC5"/>
                             <constraint firstItem="ltX-Hb-Yau" firstAttribute="top" secondItem="dcD-h2-T35" secondAttribute="top" id="fbg-Dh-xAF"/>
                             <constraint firstItem="ltX-Hb-Yau" firstAttribute="trailing" secondItem="dcD-h2-T35" secondAttribute="trailing" id="syY-b1-JjA"/>
@@ -414,6 +414,7 @@
                         <outlet property="businessHour" destination="wf3-kj-MA8" id="7ET-Pm-dWm"/>
                         <outlet property="mockUpMapview" destination="EPP-nl-lMa" id="bYw-Ff-2OO"/>
                         <outlet property="phoneNumberLabel" destination="Cdv-Ua-B8c" id="5zc-7Z-MTg"/>
+                        <outlet property="scrollView" destination="ltX-Hb-Yau" id="YeT-Ub-52J"/>
                         <outlet property="starCircleButton" destination="CLp-u5-Q4w" id="kg7-W2-JL4"/>
                         <outlet property="tableView" destination="970-Km-ZJW" id="hhl-ld-Lvq"/>
                         <outlet property="tableViewHeight" destination="FKq-BY-EwQ" id="8Yv-op-wm0"/>
@@ -432,13 +433,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="버전 정보" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RpG-ai-1VI">
-                                <rect key="frame" x="19" y="45" width="337.5" height="18"/>
+                                <rect key="frame" x="19" y="45" width="337.5" height="19"/>
                                 <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ig2-fw-Apt">
-                                <rect key="frame" x="19" y="83" width="337.5" height="564"/>
+                                <rect key="frame" x="19" y="84" width="337.5" height="563"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text" base64-UTF8="YES">
 Cgo
@@ -489,7 +490,7 @@ Cgo
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3YZ-PZ-Ksq">
-                                                    <rect key="frame" x="30" y="13" width="200" height="18"/>
+                                                    <rect key="frame" x="30" y="12.5" width="200" height="19"/>
                                                     <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
