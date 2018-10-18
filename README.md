@@ -63,5 +63,5 @@
 
 
 ## 스크린샷
-<img src="./screenshot/01.png" width="25%"><img src="./screenshot/03.png" width="25%"><img src="./screenshot/02.png" width="25%">
-<img src="./screenshot/04.png" width="25%"><img src="./screenshot/05.png" width="25%">
+<img src="./screenshot/01.png" width="28%"><img src="./screenshot/03.png" width="28%"><img src="./screenshot/02.png" width="28%">
+<img src="./screenshot/04.png" width="28%"><img src="./screenshot/05.png" width="28%">
