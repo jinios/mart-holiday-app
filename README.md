@@ -2,7 +2,7 @@
 > 마트 휴무일을 매번 검색하기 귀찮은 사람들을 위한 알리미 애플리케이션
 
 ## 앱스토어 링크
-- [App Store](https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=1438702208&mt=8)
+- [App Store](https://itunes.apple.com/kr/app/%EB%A7%88%ED%8A%B8%EC%89%AC%EB%8A%94%EB%82%A0-%ED%9C%B4%EB%AC%B4%EC%9D%BC-%EC%95%8C%EB%A6%AC%EB%AF%B8/id1438702208?mt=8)
 
 ## 주요 기능
 - 브랜드별 마트 검색, 상세정보 표시
@@ -10,19 +10,23 @@
 - 즐겨찾는 마트의 휴무일 하루 전, 유저에게 푸시로 휴무일 알림을 보낸다.
 
 ## 구현 기술
-- Network, Push Notification, Today Extension, UISearchController, Error handling, UserDefault, Codable, NSKeyedArchiver, Custom View(SlideMenu), Custom Delegate, Autolayout, xib
+- Network, Push Notification, Today Extension, UISearchController, Error handling, UserDefault, Codable, NSKeyedArchiver, Custom View(SlideMenu), Custom Delegate, Autolayout, xib 등
 
-## 아키텍쳐
-- Protocol지향, Delegate, Singleton
+### 아키텍쳐
+- MVC
 
-## 사용한 툴
+### 디자인 패턴
+- Delegate, Singleton, Protocol Oriented
+
+### 사용한 툴
 - TestFlight, Xcode9, Xcode10(프로젝트 진행 중 업데이트), GitHub(버전 및 이슈관리)
 
-## 사용한 라이브러리
+### 사용한 라이브러리
 - Firebase(FCM, Database, Storage) : 푸시기능을 구현하기위해 사용자 정보를 저장하고 클라우드 메시지를 전송하는데에 사용
 - 네이버지도(NMap) : 마트 위치 표시를 위해 사용. 구글지도나 애플지도보다 국내 점포의 위치 파악이 훨씬 잘되어있어 네이버지도 사용함
 - [Reachability.swift](https://github.com/ashleymills/Reachability.swift) : 네트워크 상태 변화 감지를 위해 사용
 - [NVActivityIndicatorView](https://github.com/ninjaprox/NVActivityIndicatorView) : 화면 로딩중임을 알리기위한 인디케이터를 표시하기 위해 사용
+
 
 ## 주요 구현사항
 
@@ -63,5 +67,5 @@
 
 
 ## 스크린샷
-<img src="./screenshot/01.png" width="28%"><img src="./screenshot/03.png" width="28%"><img src="./screenshot/02.png" width="28%">
-<img src="./screenshot/04.png" width="28%"><img src="./screenshot/05.png" width="28%">
+<img src="./screenshot/01.png" width="30%"><img src="./screenshot/03.png" width="30%"><img src="./screenshot/02.png" width="30%">
+<img src="./screenshot/04.png" width="30%"><img src="./screenshot/05.png" width="30%">
