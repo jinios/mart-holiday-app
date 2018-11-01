@@ -1062,7 +1062,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "ddcab98d-0f37-4b55-b8e3-d007d31351e8";
 				PROVISIONING_PROFILE_SPECIFIER = MartHoliday1008;
-				SWIFT_OBJC_BRIDGING_HEADER = /Users/jeonmijin/Documents/iOS/workspace/MartHoliday/MartHoliday/MartHoliday/Header.h;
+				SWIFT_OBJC_BRIDGING_HEADER = MartHoliday/Header.h;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1092,7 +1092,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "ddcab98d-0f37-4b55-b8e3-d007d31351e8";
 				PROVISIONING_PROFILE_SPECIFIER = MartHoliday1008;
-				SWIFT_OBJC_BRIDGING_HEADER = /Users/jeonmijin/Documents/iOS/workspace/MartHoliday/MartHoliday/MartHoliday/Header.h;
+				SWIFT_OBJC_BRIDGING_HEADER = MartHoliday/Header.h;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
