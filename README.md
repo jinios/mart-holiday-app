@@ -1,6 +1,6 @@
 # 마트쉬는날
 > - 마트 휴무일을 매번 검색하기 귀찮은 사람들을 위한 알리미 애플리케이션 [(앱 출시 후기 블로그 포스팅)](https://jinios.github.io/project/2018/10/26/martholidayfeedback/)
-> - 빌드 관련 이슈: 혹시 채용 관련하여 이 프로젝트를 빌드해보시는 분들께 미리 알려드립니다. 라이브러리 SSH키를 노출 할 수 없어서 해당 키 값이 기재된 plist파일은 현재 repository에 올라와있지 않습니다. 양해 부탁드리며, 필요하시다면 jinios.dev@gmail.com으로 메일을 보내주시면 plist파일을 보내드리겠습니다. 감사합니다:bow:
+> - 빌드 관련 이슈: 혹시 채용 관련하여 이 프로젝트를 빌드해보시는 분들께 미리 알려드립니다. 라이브러리 SSH키를 노출 할 수 없어서 해당 키 값이 기재된 plist파일은 현재 repository에 올라와있지 않습니다. 양해 부탁드리며, 필요하시다면 <jinios.dev@gmail.com>으로 메일을 보내주시면 plist파일을 보내드리겠습니다. 감사합니다:bow:
 
 ## 앱스토어 링크
 - [App Store](https://itunes.apple.com/kr/app/%EB%A7%88%ED%8A%B8%EC%89%AC%EB%8A%94%EB%82%A0-%ED%9C%B4%EB%AC%B4%EC%9D%BC-%EC%95%8C%EB%A6%AC%EB%AF%B8/id1438702208?mt=8)
