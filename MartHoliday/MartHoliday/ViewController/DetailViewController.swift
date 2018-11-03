@@ -216,8 +216,6 @@ extension DetailViewController: FavoriteTogglable {
         guard let branchData = self.branchData else { return }
         starButton.isSelected = branchData.favorite
         starCircleButton.isSelected = branchData.favorite
-        starButton.setImage()
-        starCircleButton.setImage()
     }
 
 }

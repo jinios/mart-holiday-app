@@ -51,7 +51,7 @@ class MartSelectViewController: IndicatorViewController {
                 return
             }
             nextVC.list = BranchList(branches: data)
-            nextVC.mart = mart.koreanName
+            nextVC.mart = mart.description
             self.navigationController?.pushViewController(nextVC, animated: true)
         }
     }

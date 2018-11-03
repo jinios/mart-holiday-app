@@ -65,7 +65,6 @@ extension BranchTableViewCell: FavoriteTogglable {
     func setStarButton() {
         guard let branchData = self.branchData else { return }
         starButton.isSelected = branchData.favorite
-        starButton.setImage()
     }
 
 }

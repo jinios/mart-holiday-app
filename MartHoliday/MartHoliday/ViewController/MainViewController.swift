@@ -27,7 +27,6 @@ protocol MailFeedbackAlert {
 }
 
 class MainViewController: RechabilityDetectViewController, FavoriteConvertible, HeaderDelegate, FooterDelegate {
-    typealias HolidayData = [ExpandCollapseTogglable]
 
     @IBOutlet weak var tableView: UITableView!
     let slideMenuManager = SlideMenuManager()

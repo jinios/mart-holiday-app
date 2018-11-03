@@ -8,7 +8,7 @@
 
 import Foundation
 
-class DataSetter<T: KoreanName & JSONfile & URLHolder, U: Codable> {
+class DataSetter<T: URLHolder, U: Codable> {
 
     class func goToSearchViewController(of mart: T, handler: @escaping((T,[U]?) -> Void)) {
         guard let url = mart.url else { return }
