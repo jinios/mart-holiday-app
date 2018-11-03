@@ -16,7 +16,14 @@ protocol FavoriteTogglable {
 
 class StarButton: UIButton {
 
-    func setImage() {
+    init() {
+        super.init(frame: .zero)
+        self.setImage(UIImage(named: "emptyStar"), for: .normal)
+        self.setImage(UIImage(named: "yellowStar"), for: .selected)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
         self.setImage(UIImage(named: "emptyStar"), for: .normal)
         self.setImage(UIImage(named: "yellowStar"), for: .selected)
     }
@@ -27,16 +34,34 @@ class StarButton: UIButton {
 }
 
 class StarBarButton: StarButton {
-    override func setImage() {
+
+    override init() {
+        super.init()
         self.setImage(UIImage(named: "emptyStarBarButton"), for: .normal)
         self.setImage(UIImage(named: "yellowStarBarButton"), for: .selected)
     }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.setImage(UIImage(named: "emptyStarBarButton"), for: .normal)
+        self.setImage(UIImage(named: "yellowStarBarButton"), for: .selected)
+    }
+
 }
 
 class StarCircleButton: StarButton {
-    override func setImage() {
+
+    override init() {
+        super.init()
         self.setImage(UIImage(named: "star"), for: .normal)
         self.setImage(UIImage(named: "yellowCircleStar"), for: .selected)
     }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.setImage(UIImage(named: "star"), for: .normal)
+        self.setImage(UIImage(named: "yellowCircleStar"), for: .selected)
+    }
+
 }
 

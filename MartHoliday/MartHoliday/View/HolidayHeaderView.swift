@@ -18,13 +18,7 @@ class HolidayHeaderView: UITableViewHeaderFooterView {
 
     func set(holiday: String?) {
         dateLabel.text = holiday ?? ProgramDescription.NoHolidayData.rawValue
-//        setButton()
         button.setArrowImage()
-    }
-
-    private func setButton() {
-        button.setImage(UIImage(named: "downArrow"), for: .normal)
-        button.setImage(UIImage(named: "upArrow"), for: .selected)
     }
 
     @IBAction func tapButton(_ sender: Any) {

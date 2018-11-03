@@ -14,7 +14,6 @@ class SlideMenuCell: UICollectionViewCell {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var imageView: UIImageView!
 
-
     override init(frame: CGRect) {
         super.init(frame: frame)
         Bundle.main.loadNibNamed("SlideMenuCellView", owner: self, options: nil)
@@ -26,7 +25,13 @@ class SlideMenuCell: UICollectionViewCell {
     }
 
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(frame: .zero)
+        Bundle.main.loadNibNamed("SlideMenuCellView", owner: self, options: nil)
+        addSubview(content)
+        content.frame = self.bounds
+        content.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        self.imageView.clipsToBounds = true
+        self.imageView.contentMode = .scaleAspectFit
     }
 
     func setData(menu: SlideMenuData) {
