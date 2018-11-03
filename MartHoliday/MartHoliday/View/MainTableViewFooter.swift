@@ -26,8 +26,6 @@ class MainTableViewFooter: UIView {
 
     lazy var button: UIButton = {
         let btn = UIButton(frame: CGRect(x: self.frame.origin.x, y: self.frame.origin.y, width: self.frame.width, height: self.frame.height))
-//        btn.setImage(UIImage(named: "downArrow"), for: .normal)
-//        btn.setImage(UIImage(named: "upArrow"), for: .selected)
         btn.setArrowImage()
         btn.addTarget(self, action: #selector(click), for: .touchUpInside)
         return btn
