@@ -48,8 +48,8 @@ class NoMapView: UIView {
     private func makeTextWithAttributes(of myText: String) -> NSAttributedString {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .center
-        let customAttributes = [NSAttributedStringKey.paragraphStyle: paragraphStyle,
-                                NSAttributedStringKey.font: UIFont(name: "NanumSquareRoundOTF", size: self.frame.width * 0.045),
+        let customAttributes = [NSAttributedString.Key.paragraphStyle: paragraphStyle,
+                                NSAttributedString.Key.font: UIFont(name: "NanumSquareRoundOTF", size: self.frame.width * 0.045),
                                 ]
         let customText = NSAttributedString(string: myText,
                                             attributes: customAttributes)
