@@ -17,7 +17,7 @@ protocol CIImageHolder {
     var grayImageName: String { get }
 }
 
-enum Mart: String, URLHolder, CIImageHolder, CustomStringConvertible {
+enum Mart: String, URLHolder, CIImageHolder, CustomStringConvertible, CaseIterable {
 
     case emart
     case lottemart
@@ -65,5 +65,4 @@ enum Mart: String, URLHolder, CIImageHolder, CustomStringConvertible {
         }
     }
 
-    static let allValues: [Mart] = [emart, lottemart, homeplus, homeplusExpress]
 }

@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     private let appGroup = UserDefaults.init(suiteName: "group.martHoliday.com")
     private var isPushAllowed: Bool?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window?.backgroundColor = .white
         // listener starts
         networkManager = NetworkManager.shared
@@ -105,8 +105,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     private func setNavigationBar() {
         let fontAttributes = [
-            NSAttributedStringKey.foregroundColor: UIColor.white,
-            NSAttributedStringKey.font: UIFont(name: "NanumSquareRoundOTF", size: UIFont.labelFontSize)?.bold()
+            NSAttributedString.Key.foregroundColor: UIColor.white,
+            NSAttributedString.Key.font: UIFont(name: "NanumSquareRoundOTF", size: UIFont.labelFontSize)?.bold()
         ]
 
         //To change Navigation Bar Background Color
