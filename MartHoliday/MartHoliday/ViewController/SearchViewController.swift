@@ -67,7 +67,7 @@ class SearchViewController: UIViewController {
 
     func filterContentForSearchText(_ searchText: String, scope: String = "All") {
         let filtered = list?.branches.filter({ (branch) -> Bool in
-            branch.branchName.contains(searchText)
+            branch.branchName.contains(searchText) || branch.address.contains(searchText)
         })
         self.filtered = BranchList(branchData: filtered!)
         tableView.reloadData()
