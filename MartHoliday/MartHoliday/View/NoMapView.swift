@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Toaster
 
 protocol AddressCopiable {
     var noMapView: UIView? { get }
@@ -42,7 +43,9 @@ class NoMapView: UIView {
     }
 
     @IBAction func copyButtonTapped(_ sender: Any) {
+        let toast = Toast(text: "주소가 복사되었습니다.", duration: Delay.long)
         delegate.copyAddress()
+        toast.show()
     }
 
     private func makeTextWithAttributes(of myText: String) -> NSAttributedString {
