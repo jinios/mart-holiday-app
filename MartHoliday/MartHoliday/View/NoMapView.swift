@@ -43,7 +43,7 @@ class NoMapView: UIView {
     }
 
     @IBAction func copyButtonTapped(_ sender: Any) {
-        let toast = Toast(text: "주소가 복사되었습니다.", duration: Delay.long)
+        let toast = Toast(text: ProgramDescription.AddressCopiedToastMessage.rawValue, duration: Delay.long)
         delegate.copyAddress()
         toast.show()
     }
