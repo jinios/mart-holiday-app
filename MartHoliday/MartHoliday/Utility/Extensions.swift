@@ -74,6 +74,16 @@ extension UIButton {
     }
 }
 
+extension UILabel {
+    func partialBackgroundChange(fullText : String , changeText : String ) {
+        let strNumber: NSString = fullText as NSString
+        let range = (strNumber).range(of: changeText)
+        let attribute = NSMutableAttributedString.init(string: fullText)
+        attribute.addAttribute(NSAttributedString.Key.backgroundColor, value: UIColor.appColor(color: .yellow) , range: range)
+        self.attributedText = attribute
+    }
+}
+
 extension NMapView {
 
     func setMapGesture(enable: Bool) {
