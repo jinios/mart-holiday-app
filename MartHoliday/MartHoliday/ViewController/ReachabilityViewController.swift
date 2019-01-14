@@ -57,12 +57,19 @@ class SlackWebhook {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue(SlackWebhook.Keyword.dataType.rawValue, forHTTPHeaderField: SlackWebhook.Keyword.headerField.rawValue)
+
         var payload: [String:String] = [:]
         payload["text"] = ">>>문제가 터졌다:bomb:\n얼른고쳐라 닝겐\nURL: \(brokenUrl?.absoluteString ?? "none")"
-            payload["icon_emoji"] = ":exploding_head:"
+        payload["icon_emoji"] = self.selectRandomEmoji()
+
         guard let httpBody = try? JSONSerialization.data(withJSONObject: payload, options: []) else { return }
         request.httpBody = httpBody
         URLSession.shared.dataTask(with: request).resume()
+    }
+
+    private class func selectRandomEmoji() -> String {
+        let emoji = [":smiling_imp:", ":hankey::ghost:", ":skull_and_crossbones:", ":scream_cat:", ":boom:", ":scream:", ":exploding_head:", ":face_with_symbols_on_mouth:"]
+        return emoji.randomElement() ?? ":exploding_head:"
     }
 
 }
