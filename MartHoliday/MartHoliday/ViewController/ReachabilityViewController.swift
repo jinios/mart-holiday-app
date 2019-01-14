@@ -43,3 +43,27 @@ class RechabilityDetectViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
 }
+
+class SlackWebhook {
+    enum Keyword: String {
+        case url = "https://hooks.slack.com/services/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"
+        case httpPostRequest = "POST"
+        case dataType = "application/json"
+        case headerField = "Content-Type"
+    }
+
+    class func fire(brokenUrl: URL?) {
+        guard let url = URL(string: SlackWebhook.Keyword.url.rawValue) else { return }
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue(SlackWebhook.Keyword.dataType.rawValue, forHTTPHeaderField: SlackWebhook.Keyword.headerField.rawValue)
+        var payload: [String:String] = [:]
+        payload["text"] = ">>>문제가 터졌다:bomb:\n얼른고쳐라 닝겐\nURL: \(brokenUrl?.absoluteString ?? "none")"
+            payload["icon_emoji"] = ":exploding_head:"
+        guard let httpBody = try? JSONSerialization.data(withJSONObject: payload, options: []) else { return }
+        request.httpBody = httpBody
+        URLSession.shared.dataTask(with: request).resume()
+    }
+
+}
+

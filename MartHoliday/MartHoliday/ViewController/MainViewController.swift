@@ -170,9 +170,11 @@ class MainViewController: RechabilityDetectViewController, FavoriteConvertible, 
                     handler()
                 } catch {
                     self?.presentErrorAlert()
+                    SlackWebhook.fire(brokenUrl: url)
                 }
             } else {
                 self?.presentErrorAlert()
+                SlackWebhook.fire(brokenUrl: url)
             }
         }.resume()
     }
