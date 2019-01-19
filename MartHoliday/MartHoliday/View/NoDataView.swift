@@ -36,7 +36,7 @@ class NoDataView: UIView {
 
     @objc func searchButtonTapped() {
         hapticGenerator.impactOccurred()
-        NotificationCenter.default.post(name: .slideMenuTapped, object: nil, userInfo: ["next": SelectedSlideMenu.select])
+        NotificationCenter.default.post(name: .slideMenuTapped, object: nil, userInfo: ["next": SlideMenu.select])
     }
 
     private func makeTextWithAttributes(of myText: String) -> NSAttributedString {

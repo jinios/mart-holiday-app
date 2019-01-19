@@ -12,10 +12,12 @@ class SlideMenuManager: NSObject, UICollectionViewDataSource, UICollectionViewDe
 
     static let cellID = "cellID"
 
-    let menuData = [SlideMenuData(title: "메인으로", imageName: "home"),
-                    SlideMenuData(title: "마트검색", imageName: "search-2"),
-                    SlideMenuData(title: "문의하기", imageName: "mail"),
-                    SlideMenuData(title: "앱 정보", imageName: "appinfo")]
+//    let menuData = [MenuDatum(title: "메인으로", imageName: "home"),
+//                    MenuDatum(title: "마트검색", imageName: "search-2"),
+//                    MenuDatum(title: "문의하기", imageName: "mail"),
+//                    MenuDatum(title: "앱 정보", imageName: "appinfo")]
+
+    let menuData = SlideMenu.allCases
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
             return CGSize(width: collectionView.frame.width, height: 70)
@@ -37,7 +39,7 @@ class SlideMenuManager: NSObject, UICollectionViewDataSource, UICollectionViewDe
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
             let menuData = self.menuData[indexPath.row]
-            NotificationCenter.default.post(name: .slideMenuTapped, object: nil, userInfo: ["next": menuData.destinationInfo()])
+            NotificationCenter.default.post(name: .slideMenuTapped, object: nil, userInfo: ["next": menuData])
     }
 
 }
