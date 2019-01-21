@@ -472,6 +472,21 @@ Cgo
             </objects>
             <point key="canvasLocation" x="648.79999999999995" y="157.87106446776613"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="U0x-QV-y44">
+            <objects>
+                <viewController id="0c7-x9-EAa" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iGd-SD-Jr7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="eFQ-Aq-t96"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z1Q-hG-VW4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1639" y="147"/>
+        </scene>
         <!--Main View Controller-->
         <scene sceneID="27w-gz-Gyf">
             <objects>
