@@ -472,10 +472,10 @@ Cgo
             </objects>
             <point key="canvasLocation" x="648.79999999999995" y="157.87106446776613"/>
         </scene>
-        <!--View Controller-->
+        <!--Location Search View Controller-->
         <scene sceneID="U0x-QV-y44">
             <objects>
-                <viewController id="0c7-x9-EAa" sceneMemberID="viewController">
+                <viewController id="0c7-x9-EAa" customClass="LocationSearchViewController" customModule="MartHoliday" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iGd-SD-Jr7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
