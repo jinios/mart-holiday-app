@@ -6,6 +6,8 @@ def shared_pods
   pod 'Firebase/Database'
   pod 'Firebase/Messaging'
   pod 'Firebase/Storage'
+  pod 'Firebase/RemoteConfig'
+
   pod 'ReachabilitySwift'
   pod 'NVActivityIndicatorView'
   pod 'Toaster'

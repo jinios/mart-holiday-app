@@ -52,14 +52,14 @@ class SlackWebhook {
         case headerField = "Content-Type"
     }
 
-    class func fire(brokenUrl: URL?) {
+    class func fire(brokenUrl: URL?, errorMessage: String? = nil) {
         guard let url = URL(string: SlackWebhook.Keyword.url.rawValue) else { return }
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue(SlackWebhook.Keyword.dataType.rawValue, forHTTPHeaderField: SlackWebhook.Keyword.headerField.rawValue)
 
         var payload: [String:String] = [:]
-        payload["text"] = ">>>문제가 터졌다:bomb:\n얼른고쳐라 닝겐\nURL: \(brokenUrl?.absoluteString ?? "none")"
+        payload["text"] = ">>>문제가 터졌다:bomb:\n얼른고쳐라 닝겐\nURL: \(brokenUrl?.absoluteString ?? "none")\n에러메시지: \(errorMessage ?? "none")"
         payload["icon_emoji"] = self.selectRandomEmoji()
 
         guard let httpBody = try? JSONSerialization.data(withJSONObject: payload, options: []) else { return }
