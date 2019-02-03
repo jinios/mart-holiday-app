@@ -313,7 +313,7 @@ extension MainViewController: MFMailComposeViewControllerDelegate {
             self.navigationController?.pushViewController(nextVC, animated: true)
         case .location:
             handleDismiss()
-            let nextVC = LocationSearchViewController()
+            guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "locationVC") as? LocationSearchViewController else { return }
             self.navigationController?.pushViewController(nextVC, animated: true)
         case .sendMail:
             handleDismiss()

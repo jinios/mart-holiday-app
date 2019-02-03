@@ -24,12 +24,13 @@ class LocationSearchViewController: UIViewController, NMapViewDelegate, NMapPOId
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        locationTrackingStateButton = setLocationTrackingButton()
+        self.setNavigationBar()
+
         // 위치서비스 허용했는지 검사 추가 / 안했으면 setting으로 넘김
         guard let locationManager = NMapLocationManager.getSharedInstance() else { return }
         self.locationManager = locationManager
 
-        mapView = NMapView(frame: self.view.frame)
+        mapView = NMapView(frame: CGRect(x: 0, y: 45, width: self.view.frame.width, height: self.view.frame.height-45))
 
         if let mapView = mapView {
 
@@ -45,15 +46,20 @@ class LocationSearchViewController: UIViewController, NMapViewDelegate, NMapPOId
             mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 
             currentState = .tracking
+            locationTrackingStateButton = setLocationTrackingButton()
             enableLocationUpdate()
 
             view.addSubview(mapView)
+            if let button = locationTrackingStateButton {
+                mapView.addSubview(button)
+            }
         }
 
-        if let button = locationTrackingStateButton {
-            self.view.addSubview(button)
-        }
+    }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.setNavigationBar()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -67,12 +73,26 @@ class LocationSearchViewController: UIViewController, NMapViewDelegate, NMapPOId
         disableLocationUpdate()
     }
 
+    private func setNavigationBar() {
+        navigationController?.navigationBar.barTintColor = UIColor.appColor(color: .mint)
+        navigationController?.navigationBar.isTranslucent = false
+        // To remove 1px line of under the navigationBar
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationItem.title = "내 주변 마트 검색"
+    }
 
     private func setLocationTrackingButton() -> UIButton {
         let button = UIButton(type: .custom)
 
         button.frame = CGRect(x: 15, y: 80, width: 36, height: 36)
-        button.setImage(UIImage(named: "v4_btn_navi_location_normal"), for: .normal)
+
+        switch currentState {
+        case .disabled:
+            locationTrackingStateButton?.setImage(UIImage(named: "v4_btn_navi_location_normal"), for: .normal)
+        case .tracking:
+            locationTrackingStateButton?.setImage(UIImage(named: "v4_btn_navi_location_selected"), for: .normal)
+        }
 
         button.addTarget(self, action: #selector(locationTrackingButtonTapped(_:)), for: .touchUpInside)
 
