@@ -1,4 +1,8 @@
 PODS:
+  - Alamofire (4.8.0)
+  - AlamofireObjectMapper (5.2.0):
+    - Alamofire (~> 4.7)
+    - ObjectMapper (~> 3.4)
   - Firebase/Core (5.2.0):
     - Firebase/CoreOnly
     - FirebaseAnalytics (= 5.0.1)
@@ -61,11 +65,13 @@ PODS:
   - NVActivityIndicatorView (4.5.1):
     - NVActivityIndicatorView/Presenter (= 4.5.1)
   - NVActivityIndicatorView/Presenter (4.5.1)
+  - ObjectMapper (3.4.2)
   - Protobuf (3.6.0)
   - ReachabilitySwift (4.1.0)
   - Toaster (2.1.1)
 
 DEPENDENCIES:
+  - AlamofireObjectMapper
   - Firebase/Core
   - Firebase/Database
   - Firebase/Messaging
@@ -77,6 +83,8 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - AlamofireObjectMapper
     - Firebase
     - FirebaseABTesting
     - FirebaseAnalytics
@@ -91,11 +99,14 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - NVActivityIndicatorView
+    - ObjectMapper
     - Protobuf
     - ReachabilitySwift
     - Toaster
 
 SPEC CHECKSUMS:
+  Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
+  AlamofireObjectMapper: 92b6ce2423a9d159e686f6a1d514a009bf903ddc
   Firebase: 25ed0412036d7d008568d1fb4d2e9d81ea8a0a2c
   FirebaseABTesting: 1f50b8d50f5e3469eea54e7463a7b7fe221d1f5e
   FirebaseAnalytics: b3628aea54c50464c32c393fb2ea032566e7ecc2
@@ -110,10 +121,11 @@ SPEC CHECKSUMS:
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   NVActivityIndicatorView: ec34a7b88c51fab270004a1a1f32116e711010cd
+  ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
   Protobuf: 0fc0ad8bec688b2a3017a139953e01374fedbd5f
   ReachabilitySwift: 6849231cd4e06559f3b9ef4a97a0a0f96d41e09f
   Toaster: a6c9532de1ded8105e77376f7dffeb2e12b46dbb
 
-PODFILE CHECKSUM: 5f58e9e21d7cd4a9eee7d79e964ed874290e1aea
+PODFILE CHECKSUM: 93591d1e5cd43d1088fc380cf5a253278e2af4f1
 
 COCOAPODS: 1.5.3
