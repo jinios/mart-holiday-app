@@ -11,6 +11,7 @@ def shared_pods
   pod 'ReachabilitySwift'
   pod 'NVActivityIndicatorView'
   pod 'Toaster'
+  pod 'AlamofireObjectMapper'
 end
 
 target 'MartHoliday' do
