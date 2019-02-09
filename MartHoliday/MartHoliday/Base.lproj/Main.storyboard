@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kQc-JJ-oq5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kQc-JJ-oq5">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,7 +16,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Mart Select View Controller-->
+        <!--Item-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="martSelectVC" id="BYZ-38-t0r" customClass="MartSelectViewController" customModule="MartHoliday" customModuleProvider="target" sceneMemberID="viewController">
@@ -70,6 +70,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="ycc-P3-iBs"/>
                     <navigationItem key="navigationItem" id="9vX-k6-Fkc"/>
                     <connections>
                         <outlet property="tableView" destination="IU9-qB-wNQ" id="EhN-sl-sEi"/>
@@ -77,7 +78,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="661.60000000000002" y="-564.46776611694156"/>
+            <point key="canvasLocation" x="2540" y="-564.46776611694156"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="s0c-5S-ZoM">
@@ -163,7 +164,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1464.8" y="-564.46776611694156"/>
+            <point key="canvasLocation" x="3343.1999999999998" y="-564.46776611694156"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="Uu8-vJ-l7x">
@@ -422,9 +423,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ttn-IL-WYn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2245.5999999999999" y="-564.46776611694156"/>
+            <point key="canvasLocation" x="4124" y="-564.46776611694156"/>
         </scene>
-        <!--App Info View Controller-->
+        <!--Item-->
         <scene sceneID="BLp-us-9Sr">
             <objects>
                 <viewController storyboardIdentifier="appInfoVC" id="2Sn-Ku-r1m" customClass="AppInfoViewController" customModule="MartHoliday" customModuleProvider="target" sceneMemberID="viewController">
@@ -433,13 +434,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="버전 정보" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RpG-ai-1VI">
-                                <rect key="frame" x="19" y="45" width="337.5" height="19"/>
+                                <rect key="frame" x="19" y="45" width="337.5" height="18"/>
                                 <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ig2-fw-Apt">
-                                <rect key="frame" x="19" y="84" width="337.5" height="563"/>
+                                <rect key="frame" x="19" y="83" width="337.5" height="564"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text" base64-UTF8="YES">
 Cgo
@@ -461,6 +462,7 @@ Cgo
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gof-ae-fsr"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="m9c-HW-XZO"/>
                     <connections>
                         <outlet property="acknowledgementsTextView" destination="Ig2-fw-Apt" id="Laz-ie-2Y0"/>
                         <outlet property="versionLabel" destination="RpG-ai-1VI" id="btZ-6E-OgR"/>
@@ -468,7 +470,22 @@ Cgo
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X5j-Z7-JYr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-290.39999999999998" y="157.87106446776613"/>
+            <point key="canvasLocation" x="648.79999999999995" y="157.87106446776613"/>
+        </scene>
+        <!--Location Search View Controller-->
+        <scene sceneID="U0x-QV-y44">
+            <objects>
+                <viewController id="0c7-x9-EAa" customClass="LocationSearchViewController" customModule="MartHoliday" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iGd-SD-Jr7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="eFQ-Aq-t96"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z1Q-hG-VW4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1639" y="147"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="27w-gz-Gyf">
@@ -490,7 +507,7 @@ Cgo
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3YZ-PZ-Ksq">
-                                                    <rect key="frame" x="30" y="12.5" width="200" height="19"/>
+                                                    <rect key="frame" x="30" y="13" width="200" height="18"/>
                                                     <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -525,12 +542,13 @@ Cgo
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Od-HW-B51" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-222" y="-564"/>
+            <point key="canvasLocation" x="1655.2" y="-564.46776611694156"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Item-->
         <scene sceneID="eUZ-GV-Ufb">
             <objects>
                 <navigationController storyboardIdentifier="nav" automaticallyAdjustsScrollViewInsets="NO" id="kQc-JJ-oq5" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="DWX-yk-eeI"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="VAb-4Y-dIh">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -543,7 +561,7 @@ Cgo
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LOI-cO-x34" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1113" y="-564"/>
+            <point key="canvasLocation" x="764" y="-564.46776611694156"/>
         </scene>
     </scenes>
     <resources>

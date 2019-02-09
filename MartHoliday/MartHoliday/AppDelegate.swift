@@ -28,6 +28,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         setNavigationBar()
         FirebaseApp.configure()
 
+        let remoteConfig = RemoteConfig.remoteConfig()
+        remoteConfig.configSettings = RemoteConfigSettings(developerModeEnabled: true)
+
+        remoteConfig.fetch(withExpirationDuration: TimeInterval(3600)) { (status, error) -> Void in
+            if status == .success {
+                remoteConfig.activateFetched()
+                // remoteConfig에서 강제업데이트 옵션 조회
+                if remoteConfig["forced_update"].boolValue {
+                    
+                }
+            } else {
+                // 슬랙에 웹훅으로 알림
+                SlackWebhook.fire(brokenUrl: nil, errorMessage: "[Firebase remote config] \(error?.localizedDescription ?? "No error available.")")
+            }
+        }
+
         application.applicationIconBadgeNumber = 0
 
         if #available(iOS 10.0, *) {

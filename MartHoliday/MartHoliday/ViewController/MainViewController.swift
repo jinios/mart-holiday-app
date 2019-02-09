@@ -32,7 +32,7 @@ class MainViewController: RechabilityDetectViewController, FavoriteConvertible, 
     let slideMenuManager = SlideMenuManager()
     var backgroundView: SlideBackgroundView!
     var slidetopView: SlideTopView!
-    var slideMenu: SlideMenu!
+    var slideMenu: SlideMenuView!
     var slideOpenFlag: Bool?
     var holidayData = [ExpandCollapseTogglable]()
     var noDataView: NoDataView?
@@ -170,9 +170,11 @@ class MainViewController: RechabilityDetectViewController, FavoriteConvertible, 
                     handler()
                 } catch {
                     self?.presentErrorAlert()
+                    SlackWebhook.fire(brokenUrl: url)
                 }
             } else {
                 self?.presentErrorAlert()
+                SlackWebhook.fire(brokenUrl: url)
             }
         }.resume()
     }
@@ -255,7 +257,7 @@ extension MainViewController: MFMailComposeViewControllerDelegate {
         slidetopView = SlideTopView()
         view.addSubview(slidetopView)
 
-        slideMenu = SlideMenu(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+        slideMenu = SlideMenuView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         view.addSubview(slideMenu)
     }
 
@@ -301,7 +303,7 @@ extension MainViewController: MFMailComposeViewControllerDelegate {
 
     @objc func detectSelectedMenu(_ notification: Notification) {
         guard let userInfo = notification.userInfo else { return }
-        guard let destination = userInfo["next"] as? SelectedSlideMenu else {return}
+        guard let destination = userInfo["next"] as? SlideMenu else {return}
         switch destination {
         case .main:
             handleDismiss()
@@ -309,6 +311,9 @@ extension MainViewController: MFMailComposeViewControllerDelegate {
             handleDismiss()
             guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "martSelectVC") as? MartSelectViewController else { return }
             self.navigationController?.pushViewController(nextVC, animated: true)
+        case .location:
+            handleDismiss()
+            print("위치검색 메뉴")
         case .sendMail:
             handleDismiss()
             var email: String

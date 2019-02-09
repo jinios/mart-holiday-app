@@ -8,7 +8,11 @@
 
 import UIKit
 
-class SearchViewController: UIViewController {
+protocol SearchTextHighlighterDelegate {
+    var text: String? { get }
+}
+
+class SearchViewController: UIViewController, SearchTextHighlighterDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     let searchController = UISearchController(searchResultsController: nil)
@@ -21,6 +25,7 @@ class SearchViewController: UIViewController {
     }
     var mart: String?
     var filtered: BranchList?
+    var text: String? // SearchTextHighlightDelegate
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,8 +63,6 @@ class SearchViewController: UIViewController {
         self.navigationItem.title = mart
     }
 
-    // MARK: - Private instance methods
-
     func searchBarIsEmpty() -> Bool {
         // Returns true if the text is empty or nil
         return searchController.searchBar.text?.isEmpty ?? true
@@ -67,8 +70,9 @@ class SearchViewController: UIViewController {
 
     func filterContentForSearchText(_ searchText: String, scope: String = "All") {
         let filtered = list?.branches.filter({ (branch) -> Bool in
-            branch.branchName.contains(searchText)
+            branch.branchName.contains(searchText) || branch.address.contains(searchText)
         })
+        self.text = searchText
         self.filtered = BranchList(branchData: filtered!)
         tableView.reloadData()
     }
@@ -109,11 +113,9 @@ extension SearchViewController: UITableViewDataSource {
         guard let branchCell = tableView.dequeueReusableCell(withIdentifier: "branchCell", for: indexPath) as? BranchTableViewCell else { return UITableViewCell() }
         guard let list = self.list else { return UITableViewCell() }
         guard let filtered = self.filtered else { return UITableViewCell() }
-        if isFiltering() {
-            branchCell.branchData = filtered[indexPath.row]
-        } else {
-            branchCell.branchData = list[indexPath.row]
-        }
+        branchCell.searchDelegate = self
+
+        isFiltering() ? (branchCell.branchData = filtered[indexPath.row]) : (branchCell.branchData = list[indexPath.row])
         return branchCell
     }
 

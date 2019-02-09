@@ -43,3 +43,34 @@ class RechabilityDetectViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
 }
+
+class SlackWebhook {
+    enum Keyword: String {
+        case url = "https://hooks.slack.com/services/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"
+        case httpPostRequest = "POST"
+        case dataType = "application/json"
+        case headerField = "Content-Type"
+    }
+
+    class func fire(brokenUrl: URL?, errorMessage: String? = nil) {
+        guard let url = URL(string: SlackWebhook.Keyword.url.rawValue) else { return }
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue(SlackWebhook.Keyword.dataType.rawValue, forHTTPHeaderField: SlackWebhook.Keyword.headerField.rawValue)
+
+        var payload: [String:String] = [:]
+        payload["text"] = ">>>문제가 터졌다:bomb:\n얼른고쳐라 닝겐\nURL: \(brokenUrl?.absoluteString ?? "none")\n에러메시지: \(errorMessage ?? "none")"
+        payload["icon_emoji"] = self.selectRandomEmoji()
+
+        guard let httpBody = try? JSONSerialization.data(withJSONObject: payload, options: []) else { return }
+        request.httpBody = httpBody
+        URLSession.shared.dataTask(with: request).resume()
+    }
+
+    private class func selectRandomEmoji() -> String {
+        let emoji = [":smiling_imp:", ":hankey::ghost:", ":skull_and_crossbones:", ":scream_cat:", ":boom:", ":scream:", ":exploding_head:", ":face_with_symbols_on_mouth:"]
+        return emoji.randomElement() ?? ":exploding_head:"
+    }
+
+}
+

@@ -10,9 +10,15 @@ PODS:
   - Firebase/Messaging (5.2.0):
     - Firebase/CoreOnly
     - FirebaseMessaging (= 3.0.2)
+  - Firebase/RemoteConfig (5.2.0):
+    - Firebase/Core
+    - FirebaseRemoteConfig (= 3.0.0)
   - Firebase/Storage (5.2.0):
     - Firebase/CoreOnly
     - FirebaseStorage (= 3.0.0)
+  - FirebaseABTesting (2.0.0):
+    - FirebaseCore (~> 5.0)
+    - Protobuf (~> 3.5)
   - FirebaseAnalytics (5.0.1):
     - FirebaseCore (~> 5.0)
     - FirebaseInstanceID (~> 3.0)
@@ -30,6 +36,13 @@ PODS:
     - FirebaseInstanceID (~> 3.0)
     - GoogleToolboxForMac/Logger (~> 2.1)
     - Protobuf (~> 3.1)
+  - FirebaseRemoteConfig (3.0.0):
+    - FirebaseABTesting (~> 2.0)
+    - FirebaseAnalytics (~> 5.0)
+    - FirebaseCore (~> 5.0)
+    - FirebaseInstanceID (~> 3.0)
+    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
+    - Protobuf (~> 3.5)
   - FirebaseStorage (3.0.0):
     - FirebaseCore (~> 5.0)
     - GTMSessionFetcher/Core (~> 1.1)
@@ -45,28 +58,33 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
-  - NVActivityIndicatorView (4.2.1):
-    - NVActivityIndicatorView/Presenter (= 4.2.1)
-  - NVActivityIndicatorView/Presenter (4.2.1)
+  - NVActivityIndicatorView (4.5.1):
+    - NVActivityIndicatorView/Presenter (= 4.5.1)
+  - NVActivityIndicatorView/Presenter (4.5.1)
   - Protobuf (3.6.0)
   - ReachabilitySwift (4.1.0)
+  - Toaster (2.1.1)
 
 DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - Firebase/Messaging
+  - Firebase/RemoteConfig
   - Firebase/Storage
   - NVActivityIndicatorView
   - ReachabilitySwift
+  - Toaster
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Firebase
+    - FirebaseABTesting
     - FirebaseAnalytics
     - FirebaseCore
     - FirebaseDatabase
     - FirebaseInstanceID
     - FirebaseMessaging
+    - FirebaseRemoteConfig
     - FirebaseStorage
     - GoogleToolboxForMac
     - GTMSessionFetcher
@@ -75,23 +93,27 @@ SPEC REPOS:
     - NVActivityIndicatorView
     - Protobuf
     - ReachabilitySwift
+    - Toaster
 
 SPEC CHECKSUMS:
   Firebase: 25ed0412036d7d008568d1fb4d2e9d81ea8a0a2c
+  FirebaseABTesting: 1f50b8d50f5e3469eea54e7463a7b7fe221d1f5e
   FirebaseAnalytics: b3628aea54c50464c32c393fb2ea032566e7ecc2
   FirebaseCore: a3c87242451633fff8490183898075ce77d168d2
   FirebaseDatabase: 482bad9c2abd422bb2321194fb8c937e67426a89
   FirebaseInstanceID: 05d779cbb97bd5bd5c51a38a903fc9cfe1b2454a
   FirebaseMessaging: 6894b8fe0a0cf26c3b13dad729f1131654ae0bdb
+  FirebaseRemoteConfig: 3c57e4644bd6976b671ae0b725cd709f198bd1f5
   FirebaseStorage: 7ca4bb7b58a25fa647b04f524033fc7cb7eb272b
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   GTMSessionFetcher: 5fa5b80fd20e439ef5f545fb2cb3ca6c6714caa2
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
-  NVActivityIndicatorView: 8068ba3ad39cb44cbaab25d89ff2546b3f092681
+  NVActivityIndicatorView: ec34a7b88c51fab270004a1a1f32116e711010cd
   Protobuf: 0fc0ad8bec688b2a3017a139953e01374fedbd5f
   ReachabilitySwift: 6849231cd4e06559f3b9ef4a97a0a0f96d41e09f
+  Toaster: a6c9532de1ded8105e77376f7dffeb2e12b46dbb
 
-PODFILE CHECKSUM: ace5c7eb10de9f64934d5c74f415840d4ce68db5
+PODFILE CHECKSUM: 5f58e9e21d7cd4a9eee7d79e964ed874290e1aea
 
 COCOAPODS: 1.5.3
