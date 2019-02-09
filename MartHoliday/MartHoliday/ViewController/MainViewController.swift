@@ -311,9 +311,6 @@ extension MainViewController: MFMailComposeViewControllerDelegate {
             handleDismiss()
             guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "martSelectVC") as? MartSelectViewController else { return }
             self.navigationController?.pushViewController(nextVC, animated: true)
-        case .location:
-            handleDismiss()
-            print("위치검색 메뉴")
         case .sendMail:
             handleDismiss()
             var email: String
@@ -331,8 +328,11 @@ extension MainViewController: MFMailComposeViewControllerDelegate {
                 composeVC.setSubject(ProgramDescription.MailTitle.rawValue)
                 composeVC.setMessageBody("""
                         ====================<br/>
-                        * Device Token:\(FavoriteAPIInfo.token.description)<br/>
-                        * Push granted:\(FavoriteAPIInfo.pushAllow.description)<br/>
+                        * Device Token: \(FavoriteAPIInfo.token.description)<br/>
+                        * Push granted: \(FavoriteAPIInfo.pushAllow.description)<br/>
+                        * iOS version: \(UIDevice.current.systemVersion)<br/>
+                        * Device model: \(UIDevice.deviceModelName())<br/>
+                        * APP version: \(Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "none")<br/>
                         ====================<br/>
                         \(ProgramDescription.MailBody.rawValue)
                         """,
