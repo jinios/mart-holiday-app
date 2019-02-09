@@ -11,7 +11,7 @@ import Foundation
 enum SlideMenu: CaseIterable {
     case main
     case select
-    case location
+//    case location
     case sendMail
     case appInfo
 
@@ -19,7 +19,7 @@ enum SlideMenu: CaseIterable {
         switch self {
         case .main: return MenuDatum(title: "메인으로", imageName: "home")
         case .select: return MenuDatum(title: "마트검색", imageName: "search-2")
-        case .location: return MenuDatum(title: "위치검색", imageName: "location-search")
+//        case .location: return MenuDatum(title: "위치검색", imageName: "location-search")
         case .sendMail: return MenuDatum(title: "문의하기", imageName: "mail")
         case .appInfo: return MenuDatum(title: "앱 정보", imageName: "appinfo")
         }
