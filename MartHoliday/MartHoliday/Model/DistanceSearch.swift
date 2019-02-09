@@ -13,7 +13,7 @@ import Alamofire
 
 class DistanceSearch {
 
-    class func fetch(geoPoint: NGeoPoint, distance: Int, handler: @escaping (() -> Void)) {
+    class func fetch(geoPoint: NGeoPoint, distance: Int, handler: @escaping ([TempBranchRaw]) -> Void) {
         guard let value = KeyInfoLoader.loadValue(of: .BaseURL) else { return }
         guard let baseURL = URL(string: value) else { return }
         let params: [String:Any] = ["latitude":geoPoint.latitude, "longitude":geoPoint.longitude, "distance":distance]

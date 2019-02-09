@@ -11,9 +11,14 @@ import UIKit
 class LocationSearchViewController: UIViewController, NMapViewDelegate, NMapPOIdataOverlayDelegate, NMapLocationManagerDelegate {
 
     var mapView: NMapView?
-    var userLocation: GeoPoint?
+    var userLocation: NGeoPoint?
     var locationTrackingStateButton: UIButton?
     var locationManager: NMapLocationManager?
+    var POIdata: POIData? {
+        didSet {
+            self.showMarkers()
+        }
+    }
 
     enum state {
         case disabled
@@ -32,13 +37,14 @@ class LocationSearchViewController: UIViewController, NMapViewDelegate, NMapPOId
 
         mapView = NMapView(frame: CGRect(x: 0, y: 45, width: self.view.frame.width, height: self.view.frame.height-45))
 
+        mapView?.delegate
+
         if let mapView = mapView {
 
             // set the delegate for map view
             mapView.delegate = self
 
             // set the application api key for Open MapViewer Library
-
             guard let keyInfo = MapSetter.loadNMapKeySet() else { return }
             guard let id = keyInfo.id as? String else { return }
             mapView.setClientId(id)
@@ -51,7 +57,8 @@ class LocationSearchViewController: UIViewController, NMapViewDelegate, NMapPOId
 
             view.addSubview(mapView)
             if let button = locationTrackingStateButton {
-                mapView.addSubview(button)
+                self.view.addSubview(button)
+
             }
         }
 
@@ -60,17 +67,65 @@ class LocationSearchViewController: UIViewController, NMapViewDelegate, NMapPOId
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.setNavigationBar()
+        mapView?.viewWillAppear()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         mapView?.viewDidAppear()
+        // showMarkers()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         mapView?.viewWillDisappear()
         disableLocationUpdate()
+    }
+
+    // MARK: - NMapViewDelegate Methods
+
+    open func onMapView(_ mapView: NMapView!, initHandler error: NMapError!) {
+        if (error == nil) { // success
+            mapView.setMapEnlarged(true, mapHD: true)
+            // set map mode : vector/satelite/hybrid
+            mapView.mapViewMode = .vector
+        } else { // fail
+            print("onMapView:initHandler: \(error.description)")
+        }
+    }
+
+    func fetchNearMarts() {
+//        DistanceSearch.fetch(geoPoint: userLocation!, distance: 3, handler: { self.setPOIdata(with:) })
+        DistanceSearch.fetch(geoPoint: userLocation!, distance: 3)
+                            { raw in self.setPOIdata(raw) }
+    }
+
+    func setPOIdata(_ rawData: [TempBranchRaw]) {
+        self.POIdata = POIData(for: rawData)
+    }
+
+    func showMarkers() {
+        if let mapOverlayManager = mapView?.mapOverlayManager {
+
+            // create POI data overlay
+            if let poiDataOverlay = mapOverlayManager.newPOIdataOverlay() {
+
+                poiDataOverlay.initPOIdata(3)
+
+                poiDataOverlay.addPOIitem(atLocation: NGeoPoint(longitude: 126.979, latitude: 37.567), title: "마커 1", type: UserPOIflagTypeDefault, iconIndex: 0, with: nil)
+
+                poiDataOverlay.addPOIitem(atLocation: NGeoPoint(longitude: 126.974, latitude: 37.566), title: "마커 2", type: UserPOIflagTypeDefault, iconIndex: 1, with: nil)
+
+                poiDataOverlay.addPOIitem(atLocation: NGeoPoint(longitude: 126.984, latitude: 37.565), title: "마커 3", type: UserPOIflagTypeInvisible, iconIndex: 2, with: nil)
+
+                poiDataOverlay.endPOIdata()
+
+                // show all POI data
+                poiDataOverlay.showAllPOIdata()
+
+                poiDataOverlay.selectPOIitem(at: 2, moveToCenter: false, focusedBySelectItem: true)
+            }
+        }
     }
 
     private func setNavigationBar() {
@@ -89,9 +144,9 @@ class LocationSearchViewController: UIViewController, NMapViewDelegate, NMapPOId
 
         switch currentState {
         case .disabled:
-            locationTrackingStateButton?.setImage(UIImage(named: "v4_btn_navi_location_normal"), for: .normal)
+            button.setImage(UIImage(named: "v4_btn_navi_location_normal"), for: .normal)
         case .tracking:
-            locationTrackingStateButton?.setImage(UIImage(named: "v4_btn_navi_location_selected"), for: .normal)
+            button.setImage(UIImage(named: "v4_btn_navi_location_selected"), for: .normal)
         }
 
         button.addTarget(self, action: #selector(locationTrackingButtonTapped(_:)), for: .touchUpInside)
@@ -100,6 +155,7 @@ class LocationSearchViewController: UIViewController, NMapViewDelegate, NMapPOId
     }
 
     @objc func locationTrackingButtonTapped(_ sender: UIButton!) {
+
         switch currentState {
         case .disabled:
             enableLocationUpdate()
@@ -129,6 +185,7 @@ class LocationSearchViewController: UIViewController, NMapViewDelegate, NMapPOId
 
         let myLocation = NGeoPoint(longitude: coordinate.longitude, latitude: coordinate.latitude)
         let locationAccuracy = Float(location.horizontalAccuracy)
+        self.userLocation = myLocation
 
         mapView?.mapOverlayManager.setMyLocation(myLocation, locationAccuracy: locationAccuracy)
         mapView?.setMapCenter(myLocation)
@@ -223,17 +280,58 @@ class LocationSearchViewController: UIViewController, NMapViewDelegate, NMapPOId
         return nil
     }
 
-    // MARK: - NMapViewDelegate Methods
-
-    open func onMapView(_ mapView: NMapView!, initHandler error: NMapError!) {
-        if (error == nil) { // success
-            mapView.setMapEnlarged(true, mapHD: true)
-            // set map mode : vector/satelite/hybrid
-            mapView.mapViewMode = .vector
-        } else { // fail
-            print("onMapView:initHandler: \(error.description)")
-        }
-    }
 }
 
 
+// To mark as a poi flag on a map
+class POIData {
+
+    var values: [POIDatum]
+
+    init(_ values: [TempBranchRaw]) {
+        self.values = values.map { POIDatum(rawData: $0) }
+    }
+
+    init(for values: [TempBranchRaw]) {
+        var data = [POIDatum]()
+        for i in 0..<values.count {
+            data.append(POIDatum(rawData: values[i], index: i))
+        }
+        self.values = data
+    }
+
+
+
+}
+
+class POIDatum {
+//    poiDataOverlay.addPOIitem(atLocation: NGeoPoint(longitude: 126.984, latitude: 37.565), title: "마커 3", type: UserPOIflagTypeDefault, iconIndex: 2, with: nil)
+
+    var title: String
+    var longitude: Double
+    var latitude: Double
+    var id: Int
+    var POIindex: Int?
+
+    init(title: String, longitude: Double, latitude: Double, id: Int) {
+        self.title = title
+        self.longitude = longitude
+        self.latitude = latitude
+        self.id = id
+    }
+
+    init(rawData: TempBranchRaw) {
+        self.title = "\(rawData.martType ?? "") \(rawData.branchName ?? "")"
+        self.longitude = rawData.longitude ?? 0
+        self.latitude = rawData.latitude ?? 0
+        self.id = rawData.id ?? 0
+    }
+
+    init(rawData: TempBranchRaw, index: Int) {
+        self.title = "\(rawData.martType ?? "") \(rawData.branchName ?? "")"
+        self.longitude = rawData.longitude ?? 0
+        self.latitude = rawData.latitude ?? 0
+        self.id = rawData.id ?? 0
+        self.POIindex = index
+    }
+}
