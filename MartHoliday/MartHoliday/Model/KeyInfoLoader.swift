@@ -25,6 +25,8 @@ enum KeyInfo: String {
     case FavoriteBranchesURL
     case NMapGeoCodeURL
     case EmartList
+    case TradersList
+    case CostcoList
     case LottemartList
     case HomeplusList
     case HomeplusExpressList
