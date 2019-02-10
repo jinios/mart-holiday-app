@@ -147,8 +147,9 @@ class MainViewController: RechabilityDetectViewController, FavoriteConvertible, 
         let ids = FavoriteList.shared().ids()
         let idstr = ids.map{String($0)}.joined(separator: ",")
         guard let urlstr = KeyInfoLoader.loadValue(of: .FavoriteBranchesURL) else { return }
-        guard let baseURL = URL(string: urlstr) else { return }
-        let url = baseURL.appendingPathComponent(idstr)
+        var urlComp = URLComponents(string: urlstr)
+        urlComp?.queryItems = [URLQueryItem(name: "ids", value: idstr)]
+        guard let url = urlComp?.url else {return}
 
         let configure = URLSessionConfiguration.default
         configure.timeoutIntervalForRequest = 3
@@ -160,7 +161,7 @@ class MainViewController: RechabilityDetectViewController, FavoriteConvertible, 
                 var favoriteList = BranchList()
                 var mainFavorites = [FavoriteBranch]()
                 do {
-                    branches = try JSONDecoder().decode([BranchRawData].self, from: data)
+                    branches = try JSONDecoder().decode([BranchRawData].self, from: data, keyPath: "data")
                     favoriteList = BranchList(branches: branches)
 
                     for fav in favoriteList.branches {
