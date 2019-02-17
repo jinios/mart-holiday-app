@@ -6,8 +6,12 @@ def shared_pods
   pod 'Firebase/Database'
   pod 'Firebase/Messaging'
   pod 'Firebase/Storage'
+  pod 'Firebase/RemoteConfig'
+
   pod 'ReachabilitySwift'
   pod 'NVActivityIndicatorView'
+  pod 'Toaster'
+  pod 'AlamofireObjectMapper'
 end
 
 target 'MartHoliday' do
@@ -16,7 +20,7 @@ end
 
 target 'MartHolidayTests' do
     # Pods for testing
-	shared_pods
+#shared_pods
 end
 
 target 'MartHolidayTodayExtension' do

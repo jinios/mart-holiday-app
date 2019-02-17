@@ -34,33 +34,7 @@ class BranchList {
     }
 }
 
-class Branch: NSObject, NSCoding, Comparable {
-
-    func encode(with aCoder: NSCoder) {
-        aCoder.encode(id, forKey: "branchId")
-        aCoder.encode(martType, forKey: "branchMartType")
-        aCoder.encode(branchName, forKey: "branchName")
-        aCoder.encode(region, forKey: "region")
-        aCoder.encode(phoneNumber, forKey: "phoneNumber")
-        aCoder.encode(address, forKey: "address")
-        aCoder.encode(openingHours, forKey: "openingHours")
-        aCoder.encode(url, forKey: "url")
-        aCoder.encode(holidays, forKey: "holidays")
-        aCoder.encode(favorite, forKey: "favorite")
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        id = aDecoder.decodeInteger(forKey: "branchId")
-        martType = aDecoder.decodeObject(forKey: "branchMartType") as! String
-        branchName = aDecoder.decodeObject(forKey: "branchName") as! String
-        region = aDecoder.decodeObject(forKey: "region") as! String
-        phoneNumber = aDecoder.decodeObject(forKey: "phoneNumber") as! String
-        address = aDecoder.decodeObject(forKey: "address") as! String
-        openingHours = aDecoder.decodeObject(forKey: "openingHours") as! String
-        url = aDecoder.decodeObject(forKey: "url") as! String
-        holidays = aDecoder.decodeObject(forKey: "holidays") as! [String]
-        favorite = aDecoder.decodeBool(forKey: "favorite")
-    }
+class Branch: NSObject, Comparable {
 
     override var hashValue: Int {
         return self.id

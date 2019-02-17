@@ -48,6 +48,7 @@ class MartSelectViewController: IndicatorViewController {
             guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "searchVC") as? SearchViewController else { return }
             guard let data = data else {
                 self.networkTimeOutAlert()
+                SlackWebhook.fire(brokenUrl: mart.url)
                 return
             }
             nextVC.list = BranchList(branches: data)
