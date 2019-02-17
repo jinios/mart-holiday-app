@@ -18,7 +18,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NoMapView" customModule="MartHoliday" customModuleProvider="target">
             <connections>
                 <outlet property="contentView" destination="iN0-l3-epB" id="VHM-cP-MH3"/>
-                <outlet property="copyButton" destination="Yh5-DI-o0E" id="1i7-ht-Dje"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -46,28 +45,40 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yh5-DI-o0E">
-                    <rect key="frame" x="133.5" y="213" width="52" height="30"/>
+                    <rect key="frame" x="80" y="203" width="159" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="DVH-x6-LM1"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <state key="normal" title="주소복사"/>
                     <connections>
                         <action selector="copyButtonTapped:" destination="-1" eventType="touchUpInside" id="hsr-XM-qpn"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="주소복사하기 ✏️" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6G7-Xo-74e">
+                    <rect key="frame" x="106.5" y="219" width="106" height="17"/>
+                    <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="15"/>
+                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Yh5-DI-o0E" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Ay8-ZB-Ge9"/>
                 <constraint firstItem="d2o-jg-CsL" firstAttribute="top" secondItem="AP8-B4-CCn" secondAttribute="bottom" constant="5" id="DqT-r6-xsF"/>
+                <constraint firstItem="Yh5-DI-o0E" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="80" id="Exx-7c-guU"/>
+                <constraint firstItem="6G7-Xo-74e" firstAttribute="top" secondItem="d2o-jg-CsL" secondAttribute="bottom" constant="31" id="GGI-2V-WmF"/>
+                <constraint firstItem="6G7-Xo-74e" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Ose-ff-bn8"/>
                 <constraint firstItem="d2o-jg-CsL" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ZqP-Vx-EWS"/>
                 <constraint firstItem="AP8-B4-CCn" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="b91-gi-00e"/>
-                <constraint firstItem="Yh5-DI-o0E" firstAttribute="top" secondItem="d2o-jg-CsL" secondAttribute="bottom" constant="25" id="ebC-ZO-D9y"/>
+                <constraint firstItem="Yh5-DI-o0E" firstAttribute="top" secondItem="d2o-jg-CsL" secondAttribute="bottom" constant="15" id="ebC-ZO-D9y"/>
                 <constraint firstItem="AP8-B4-CCn" firstAttribute="top" secondItem="RoX-Nx-sQW" secondAttribute="bottom" constant="15" id="m3Q-60-58u"/>
                 <constraint firstItem="RoX-Nx-sQW" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="nLx-AN-t7g"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Yh5-DI-o0E" secondAttribute="trailing" constant="80" id="qw9-3C-qAa"/>
                 <constraint firstItem="RoX-Nx-sQW" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="30" id="yCi-GT-rcV"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <point key="canvasLocation" x="5.5" y="-130"/>
+            <point key="canvasLocation" x="4" y="-130.43478260869566"/>
         </view>
     </objects>
     <resources>

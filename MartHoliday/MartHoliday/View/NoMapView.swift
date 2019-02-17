@@ -17,7 +17,6 @@ protocol AddressCopiable {
 class NoMapView: UIView {
 
     @IBOutlet var contentView: UIView!
-    @IBOutlet weak var copyButton: UIButton!
     var delegate: AddressCopiable!
 
     override init(frame: CGRect) {
@@ -35,28 +34,12 @@ class NoMapView: UIView {
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        setButtonTextAttributes(text: ProgramDescription.CopyAddress.rawValue)
-    }
-
-    private func setButtonTextAttributes(text: String) {
-        copyButton.setAttributedTitle(makeTextWithAttributes(of: text), for: .normal)
     }
 
     @IBAction func copyButtonTapped(_ sender: Any) {
         let toast = Toast(text: ProgramDescription.AddressCopiedToastMessage.rawValue, duration: Delay.long)
         delegate.copyAddress()
         toast.show()
-    }
-
-    private func makeTextWithAttributes(of myText: String) -> NSAttributedString {
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.alignment = .center
-        let customAttributes = [NSAttributedString.Key.paragraphStyle: paragraphStyle,
-                                NSAttributedString.Key.font: UIFont(name: "NanumSquareRoundOTF", size: self.frame.width * 0.045),
-                                ]
-        let customText = NSAttributedString(string: myText,
-                                            attributes: customAttributes)
-        return customText
     }
 
 }
