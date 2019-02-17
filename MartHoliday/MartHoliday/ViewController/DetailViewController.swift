@@ -97,12 +97,12 @@ class DetailViewController: RechabilityDetectViewController, SFSafariViewControl
         self.navigationItem.setRightBarButtonItems([homeBarButton,starBarButton], animated: false)
     }
 
-    private func makeTextWithAttributes(fontSize: CGFloat) -> [NSAttributedStringKey : NSObject?] {
+    private func makeTextWithAttributes(fontSize: CGFloat) -> [NSAttributedString.Key : NSObject?] {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .center
-        let customAttributes = [NSAttributedStringKey.paragraphStyle: paragraphStyle,
-                                NSAttributedStringKey.font: UIFont(name: "NanumSquareRoundOTF", size: fontSize)?.bold(),
-                                NSAttributedStringKey.foregroundColor: UIColor.white,
+        let customAttributes = [NSAttributedString.Key.paragraphStyle: paragraphStyle,
+                                NSAttributedString.Key.font: UIFont(name: "NanumSquareRoundOTF", size: fontSize)?.bold(),
+                                NSAttributedString.Key.foregroundColor: UIColor.white,
                                 ]
         return customAttributes
     }

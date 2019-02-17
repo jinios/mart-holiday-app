@@ -34,8 +34,9 @@ class SlideMenuCell: UICollectionViewCell {
         self.imageView.contentMode = .scaleAspectFit
     }
 
-    func setData(menu: SlideMenuData) {
-        self.titleLabel.text = menu.title
-        self.imageView.image = UIImage(named: menu.imageName)
+    func setData(menu: SlideMenu) {
+        let menuData = menu.value
+        self.titleLabel.text = menuData.title
+        self.imageView.image = UIImage(named: menuData.imageName)
     }
 }

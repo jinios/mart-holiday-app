@@ -10,7 +10,7 @@ import Foundation
 
 enum ProgramDescription: String {
     case NoHolidayData = "정보가 없습니다 :("
-    case CopyAddress = "주소복사하기 ✏️"
+    case AddressCopiedToastMessage = "주소가 클립보드에 복사되었습니다."
     case AddMartRequest = "즐겨찾는 마트를 추가해주세요!"
     case MartHoliday = "마트쉬는날"
     case MailTitle = "[마트쉬는날] 문의"

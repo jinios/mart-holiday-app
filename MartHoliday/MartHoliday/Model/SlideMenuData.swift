@@ -8,29 +8,31 @@
 
 import Foundation
 
-enum SelectedSlideMenu {
+enum SlideMenu: CaseIterable {
     case main
     case select
+//    case location
     case sendMail
     case appInfo
+
+    var value: MenuDatum {
+        switch self {
+        case .main: return MenuDatum(title: "메인으로", imageName: "home")
+        case .select: return MenuDatum(title: "마트검색", imageName: "search-2")
+//        case .location: return MenuDatum(title: "위치검색", imageName: "location-search")
+        case .sendMail: return MenuDatum(title: "문의하기", imageName: "mail")
+        case .appInfo: return MenuDatum(title: "앱 정보", imageName: "appinfo")
+        }
+    }
 }
 
-class SlideMenuData {
+
+struct MenuDatum {
     var title: String
     var imageName: String
 
     init(title: String, imageName: String) {
         self.title = title
         self.imageName = imageName
-    }
-
-    func destinationInfo() -> SelectedSlideMenu {
-        switch self.title {
-        case "메인으로": return .main
-        case "마트검색": return .select
-        case "문의하기": return .sendMail
-        case "앱 정보": return .appInfo
-        default: return .main
-        }
     }
 }

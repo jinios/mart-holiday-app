@@ -21,7 +21,7 @@ class DataSetter<T: URLHolder, U: Codable> {
             var branches = [U]()
             if let response = response as? HTTPURLResponse, 200...299 ~= response.statusCode, let data = data {
                 do {
-                    branches = try JSONDecoder().decode([U].self, from: data)
+                    branches = try JSONDecoder().decode([BranchRawData].self, from: data, keyPath: "data") as! [U]
                     handler(mart,branches)
                 } catch {
                     handler(mart,nil)

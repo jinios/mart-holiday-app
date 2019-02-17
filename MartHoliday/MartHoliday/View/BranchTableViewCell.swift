@@ -14,6 +14,7 @@ class BranchTableViewCell: UITableViewCell {
     @IBOutlet weak var address: UILabel!
     @IBOutlet weak var starButton: StarButton!
     let hapticGenerator = UIImpactFeedbackGenerator(style: .medium)
+    var searchDelegate: SearchTextHighlighterDelegate?
 
     var branchData: Branch? {
         didSet {
@@ -28,6 +29,7 @@ class BranchTableViewCell: UITableViewCell {
     }
 
     override func prepareForReuse() {
+        super.prepareForReuse()
         guard let branchData = self.branchData else { return }
         starButton.isSelected = branchData.favorite
     }
@@ -44,12 +46,12 @@ class BranchTableViewCell: UITableViewCell {
 
     private func setTitle() {
         guard let branchData = self.branchData else { return }
-        self.title.text = branchData.branchName
+        self.title.partialBackgroundChange(fullText: branchData.branchName, changeText: searchDelegate?.text ?? "")
     }
 
     private func setAddress() {
         guard let branchData = self.branchData else { return }
-        self.address.text = branchData.address
+        self.address.partialBackgroundChange(fullText: branchData.address, changeText: searchDelegate?.text ?? "")
     }
 
 }
@@ -68,3 +70,4 @@ extension BranchTableViewCell: FavoriteTogglable {
     }
 
 }
+

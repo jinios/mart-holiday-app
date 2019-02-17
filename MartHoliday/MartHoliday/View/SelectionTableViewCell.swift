@@ -17,7 +17,7 @@ class SelectionTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.backgroundColor = UIColor(named: "mh-lightgray")
-        martImage.contentMode = .scaleAspectFit
+        martImage.contentMode = .scaleAspectFill
         martImage.clipsToBounds = true
     }
 

@@ -48,6 +48,7 @@ class MartSelectViewController: IndicatorViewController {
             guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "searchVC") as? SearchViewController else { return }
             guard let data = data else {
                 self.networkTimeOutAlert()
+                SlackWebhook.fire(brokenUrl: mart.url)
                 return
             }
             nextVC.list = BranchList(branches: data)
@@ -61,7 +62,7 @@ class MartSelectViewController: IndicatorViewController {
 extension MartSelectViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let marts = Mart.allValues
+        let marts = Mart.allCases
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "selectionCell", for: indexPath) as? SelectionTableViewCell else { return UITableViewCell() }
         let background = UIView()
         background.backgroundColor = UIColor.appColor(color: .lightgray)
@@ -72,7 +73,7 @@ extension MartSelectViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Mart.allValues.count
+        return Mart.allCases.count
     }
 }
 
@@ -83,7 +84,7 @@ extension MartSelectViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         startIndicator()
-        let marts = Mart.allValues
+        let marts = Mart.allCases
         DataSetter<Mart, BranchRawData>.goToSearchViewController(of: marts[indexPath.row], handler: pushViewController(mart:data:))
     }
 
