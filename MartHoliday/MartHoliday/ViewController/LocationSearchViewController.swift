@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LocationSearchViewController: UIViewController {
+class LocationSearchViewController: UIViewController, NMapPOIdataOverlayDelegate, NMapViewDelegate, NMapLocationManagerDelegate {
 
     var mapView: NMapView?
     var userLocation: NGeoPoint?
