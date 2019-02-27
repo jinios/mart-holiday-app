@@ -33,5 +33,6 @@ enum KeyInfo: String {
     case NMapSecretKey
     case NMapClientID
     case AcknowledgementsURL
+    case BaseURL
 }
 
