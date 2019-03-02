@@ -116,6 +116,36 @@ extension NMapView {
         }
     }
 
+    func showMarkers(at poiData: POIData?) {
+
+        if let mapOverlayManager = self.mapOverlayManager {
+            guard let poiData = poiData else { return }
+
+            // create POI data overlay
+            if let poiDataOverlay = mapOverlayManager.newPOIdataOverlay() {
+
+                poiDataOverlay.initPOIdata(Int32(poiData.count))
+
+                for i in 0..<poiData.count {
+                    let poiDatum = poiData[i]
+                    poiDataOverlay.addPOIitem(
+                        atLocation: poiDatum.nGeoPoint,
+                        title: poiDatum.martName,
+                        type: UserPOIflagTypeDefault,
+                        iconIndex: Int32(i),
+                        with: nil)
+                }
+
+                poiDataOverlay.endPOIdata()
+
+                // show all POI data
+                poiDataOverlay.showAllPOIdata()
+
+                poiDataOverlay.selectPOIitem(at: 0, moveToCenter: false, focusedBySelectItem: true)
+            }
+        }
+    }
+
 }
 
 extension Collection where Index == Int {
