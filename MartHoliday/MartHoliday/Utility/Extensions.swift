@@ -130,7 +130,7 @@ extension NMapView {
                     let poiDatum = poiData[i]
                     poiDataOverlay.addPOIitem(
                         atLocation: poiDatum.nGeoPoint,
-                        title: poiDatum.martName,
+                        title: poiDatum.branch.displayName(),
                         type: UserPOIflagTypeDefault,
                         iconIndex: Int32(i),
                         with: nil)
