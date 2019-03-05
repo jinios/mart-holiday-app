@@ -11,14 +11,15 @@ import UIKit
 class LocationSearchViewController: IndicatorViewController, NMapPOIdataOverlayDelegate, NMapViewDelegate, NMapLocationManagerDelegate {
 
     var mapView: NMapView?
-    var userLocation: NGeoPoint?
-    var locationTrackingStateButton: UIButton?
-    var locationManager: NMapLocationManager?
-    var poiData: POIData? {
+    var userLocation: NGeoPoint? {
         didSet {
-            self.flag = false
+            guard let userLocation = self.userLocation else { return }
+            self.fetchNearMarts(from: userLocation)
         }
     }
+    var locationTrackingStateButton: UIButton?
+    var locationManager: NMapLocationManager?
+    var poiData: POIData?
     var flag: Bool = true
     var variableCenter: NGeoPoint?
     var searchDistance: Int?
@@ -90,7 +91,7 @@ class LocationSearchViewController: IndicatorViewController, NMapPOIdataOverlayD
 
     @IBAction func distanceSegmentedControlChanged(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
-            case 0: self.searchDistance = 3
+            case 0: self.searchDistance = 2
             case 1: self.searchDistance = 5
             case 2: self.searchDistance = 7
             default: break
@@ -111,12 +112,11 @@ class LocationSearchViewController: IndicatorViewController, NMapPOIdataOverlayD
 
     func onMapView(_ mapView: NMapView!, didChangeMapCenter location: NGeoPoint) {
         mapView.setMapCenter(location)
-        self.fetchNearMarts(from: location)
     }
 
 
     func fetchNearMarts(from geoPoint: NGeoPoint) {
-        let distance = self.searchDistance ?? 3
+        let distance = self.searchDistance ?? 2
         DistanceSearch.fetch(geoPoint: geoPoint,
                              distance: distance) { (branchRawData) in
                                 self.setPOIdata(branchRawData)
@@ -156,19 +156,21 @@ class LocationSearchViewController: IndicatorViewController, NMapPOIdataOverlayD
     }
 
     @objc func locationTrackingButtonTapped(_ sender: UIButton!) {
+        self.toggleTrackingMode()
+    }
 
+    private func toggleTrackingMode() {
         switch currentState {
         case .disabled:
             enableLocationUpdate()
-            updateState(.tracking)
+            updateTrackingState(.tracking)
         case .tracking:
             disableLocationUpdate()
-            updateState(.disabled)
+            updateTrackingState(.disabled)
         }
     }
 
-    func updateState(_ newState: state) {
-
+    private func updateTrackingState(_ newState: state) {
         currentState = newState
 
         switch currentState {
@@ -186,12 +188,13 @@ class LocationSearchViewController: IndicatorViewController, NMapPOIdataOverlayD
 
         let userLocation = NGeoPoint(longitude: coordinate.longitude, latitude: coordinate.latitude)
         let locationAccuracy = Float(location.horizontalAccuracy)
-        self.userLocation = userLocation
 
         mapView?.mapOverlayManager.setMyLocation(userLocation, locationAccuracy: locationAccuracy)
         mapView?.setMapCenter(userLocation)
-        self.fetchNearMarts(from: userLocation)
-        self.flag = false
+//        self.fetchNearMarts(from: userLocation)
+//        self.flag = false
+        self.toggleTrackingMode()
+        self.userLocation = userLocation
     }
 
 
@@ -285,51 +288,3 @@ class LocationSearchViewController: IndicatorViewController, NMapPOIdataOverlayD
 
 }
 
-
-// To mark as a poi flag on a map
-class POIData {
-
-    var values: [POIDatum]
-    var count: Int
-    subscript(index: Int) -> POIDatum {
-        return values[index]
-    }
-
-    init(rawData: [BranchRawData]) {
-        var data = [POIDatum]()
-        for i in 0..<rawData.count {
-            data.append(POIDatum(rawData: rawData[i], index: i))
-        }
-        self.values = data
-        self.count = rawData.count
-    }
-
-    init(list: BranchList) {
-        var data = [POIDatum]()
-        for i in 0..<list.count() {
-            data.append(POIDatum(branch: list[i], index: i))
-        }
-        self.values = data
-        self.count = list.count()
-    }
-
-}
-
-class POIDatum {
-
-    var branch: Branch
-    var POIindex: Int?
-    lazy var nGeoPoint: NGeoPoint = {
-        return NGeoPoint(longitude: self.branch.longitude, latitude: self.branch.latitude)
-    }()
-
-    init(rawData: BranchRawData, index: Int) {
-        self.branch = Branch(branch: rawData)
-        self.POIindex = index
-    }
-
-    init(branch: Branch, index: Int) {
-        self.branch = branch
-        self.POIindex = index
-    }
-}
