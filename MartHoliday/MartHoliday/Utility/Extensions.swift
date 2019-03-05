@@ -52,6 +52,13 @@ extension UIAlertController {
         return alert
     }
 
+    class func locationErrorAlert() -> UIAlertController {
+        let alert = UIAlertController(title: ErrorAlertMessage.disableNearbyMarts.title,
+                                      message: ErrorAlertMessage.disableNearbyMarts.body,
+                                      preferredStyle: .alert)
+        return alert
+    }
+
 }
 
 extension UIColor {

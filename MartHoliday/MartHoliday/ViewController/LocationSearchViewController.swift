@@ -60,7 +60,7 @@ class LocationSearchViewController: IndicatorViewController, NMapPOIdataOverlayD
 
             mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 
-            currentState = .tracking
+//            currentState = .tracking
             locationTrackingStateButton = setLocationTrackingButton()
             enableLocationUpdate()
 
@@ -193,7 +193,7 @@ class LocationSearchViewController: IndicatorViewController, NMapPOIdataOverlayD
         mapView?.setMapCenter(userLocation)
 //        self.fetchNearMarts(from: userLocation)
 //        self.flag = false
-        self.toggleTrackingMode()
+//        self.toggleTrackingMode()
         self.userLocation = userLocation
     }
 

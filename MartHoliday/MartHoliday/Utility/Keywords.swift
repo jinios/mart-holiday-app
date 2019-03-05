@@ -30,3 +30,7 @@ enum ProgramDescription: String {
     case sorryErrorTitle = "죄송합니다😰"
     case networkTimeoutMsg = "서버에 문제가 발생했습니다.\n잠시 후 다시 시도해주세요."
 }
+
+struct ErrorAlertMessage {
+   static let disableNearbyMarts = (title:"위치 검색", body: "마트 위치검색에 문제가 발생했습니다.\n잠시 후 다시 시도해주세요.")
+}
