@@ -73,8 +73,8 @@ class Branch: NSObject, Comparable {
         self.openingHours = branch.openingHours
         self.url = branch.url
         self.holidays = branch.holidays
-        self.latitude = branch.latitude
-        self.longitude = branch.longitude
+        self.latitude = branch.latitude ?? 0
+        self.longitude = branch.longitude ?? 0
         self.favorite = FavoriteList.shared().isFavorite(branchId: id)
     }
 

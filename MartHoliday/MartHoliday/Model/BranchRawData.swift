@@ -18,8 +18,8 @@ struct BranchRawData: Codable {
     var openingHours: String
     var url: String
     var holidays: [String]
-    var latitude: Double
-    var longitude: Double
+    var latitude: Double?
+    var longitude: Double?
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -50,8 +50,8 @@ struct BranchRawData: Codable {
         self.holidays = try container.decode([String].self, forKey: .holidays)
 
         let location = try container.nestedContainer(keyedBy: CodingKeys.self, forKey: .location)
-        self.latitude = try location.decode(Double.self, forKey: .latitude)
-        self.longitude = try location.decode(Double.self, forKey: .longitude)
+        self.latitude = try location.decode(Double?.self, forKey: .latitude)
+        self.longitude = try location.decode(Double?.self, forKey: .longitude)
     }
 
     func encode(to encoder: Encoder) throws {
