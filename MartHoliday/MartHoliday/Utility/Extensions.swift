@@ -122,15 +122,8 @@ extension NMapView {
         self.isMultipleTouchEnabled = enable
     }
 
-    func setCenter(point: GeoPoint) {
-        let x = point.x
-        let y = point.y
-        self.setMapCenter(NGeoPoint(longitude:x, latitude:y), atLevel:12)
-    }
 
-    func showMarker(at point: GeoPoint) {
-        let x = point.x
-        let y = point.y
+    func showMarker(at point: NGeoPoint) {
 
         if let mapOverlayManager = self.mapOverlayManager {
 
@@ -138,7 +131,7 @@ extension NMapView {
 
                 poiDataOverlay.initPOIdata(1)
 
-                poiDataOverlay.addPOIitem(atLocation: NGeoPoint(longitude: x, latitude: y), title: "", type: UserPOIflagTypeDefault, iconIndex: 0, with: nil)
+                poiDataOverlay.addPOIitem(atLocation: NGeoPoint(longitude: point.longitude, latitude: point.latitude), title: "", type: UserPOIflagTypeDefault, iconIndex: 0, with: nil)
 
                 poiDataOverlay.endPOIdata()
                 poiDataOverlay.showAllPOIdata()

@@ -12,38 +12,41 @@ class MartMapDelegate: NSObject, NMapViewDelegate, NMapPOIdataOverlayDelegate, A
 
     static let superViewTag = "superViewTag"
 
-    var addressToShow: String
-    var centerPoint: GeoPoint?
+    var addressToShow: String?
+    var centerPoint: NGeoPoint?
     var mapView: NMapView?
     var noMapView: UIView?
 
-    init(address: String) {
-        self.addressToShow = address
+    var geoPoint: NGeoPoint?
+
+    init(geoPoint: NGeoPoint) {
+        self.geoPoint = geoPoint
     }
 
     func onMapView(_ mapView: NMapView!, initHandler error: NMapError!) {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapMapView))
         if (error == nil) {
-            MapSetter.tryGeoRequestTask(address: addressToShow) { geo in
-                DispatchQueue.main.async {
-                    self.mapView = mapView
-                    if let geo = geo {
-                        self.centerPoint = geo
-                        mapView.showMarker(at: geo)
-                        mapView.setCenter(point: geo)
-                        mapView.setMapEnlarged(true, mapHD: true)
-                        mapView.mapViewMode = .vector
-                        mapView.addGestureRecognizer(tapGesture)
-                    } else {
-                        let errorView = NoMapView(frame: mapView.bounds)
-                        errorView.delegate = self
-                        self.noMapView = errorView
-                        mapView.addSubview(self.noMapView!)
-                        mapView.removeGestureRecognizer(tapGesture)
-                    }
+            DispatchQueue.main.async {
+                self.mapView = mapView
+                if let geo = self.geoPoint {
+                    self.centerPoint = geo
+                    mapView.showMarker(at: geo)
+                    mapView.setMapCenter(geo, atLevel:12)
+                    mapView.setMapEnlarged(true, mapHD: true)
+                    mapView.mapViewMode = .vector
+                    mapView.addGestureRecognizer(tapGesture)
+                } else {
+                    let errorView = NoMapView(frame: mapView.bounds)
+                    errorView.delegate = self
+                    self.noMapView = errorView
+                    mapView.addSubview(self.noMapView!)
+                    mapView.removeGestureRecognizer(tapGesture)
                 }
             }
         } else { // fail
+            print(error.code)
+            print(error)
+            print(error.debugDescription)
             let errorView = NoMapView(frame: mapView.bounds)
             errorView.delegate = self
             self.noMapView = errorView
@@ -59,7 +62,7 @@ class MartMapDelegate: NSObject, NMapViewDelegate, NMapPOIdataOverlayDelegate, A
     func setMapCenter() {
         guard let mapView = mapView else { return }
         guard let centerPoint = centerPoint else { return }
-        mapView.setCenter(point: centerPoint)
+        mapView.setMapCenter(centerPoint, atLevel:12)
     }
 
     func copyAddress() {

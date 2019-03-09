@@ -19,11 +19,20 @@ class KeyInfoLoader {
         return value
     }
 
+    class func loadNMapKeySet() -> (id: Any, secretKey: Any)? {
+        if let path = Bundle.main.path(forResource: "KeyInfo", ofType: "plist"){
+            guard let myDict = NSDictionary(contentsOfFile: path) else { return nil }
+            let appID = myDict["NMapClientID"]!
+            let secretKey = myDict["NMapSecretKey"]!
+            return (id: appID, secretKey: secretKey)
+        }
+        return nil
+    }
+
 }
 
 enum KeyInfo: String {
     case FavoriteBranchesURL
-    case NMapGeoCodeURL
     case EmartList
     case TradersList
     case CostcoList

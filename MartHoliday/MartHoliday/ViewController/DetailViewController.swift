@@ -35,7 +35,7 @@ class DetailViewController: RechabilityDetectViewController, SFSafariViewControl
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        mapViewDelegate = MartMapDelegate(address: branchData!.address)
+        mapViewDelegate = MartMapDelegate(geoPoint: NGeoPoint(longitude: branchData!.longitude, latitude: branchData!.latitude))
         setNavigationItem()
         setAddress()
         setBusinessHour()
@@ -178,7 +178,7 @@ class DetailViewController: RechabilityDetectViewController, SFSafariViewControl
             mapView.delegate = mapViewDelegate
 
             // set the application api key for Open MapViewer Library
-            guard let keyInfo = MapSetter.loadNMapKeySet() else { return }
+            guard let keyInfo = KeyInfoLoader.loadNMapKeySet() else { return }
             guard let id = keyInfo.id as? String else { return }
             mapView.setClientId(id)
             mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -196,7 +196,7 @@ class DetailViewController: RechabilityDetectViewController, SFSafariViewControl
         guard superViewTag == self.viewTag else { return }
         let nextVC = MapViewController()
         guard let branchData = self.branchData else { return }
-        nextVC.addressToShow = branchData.address
+//        nextVC.addressToShow = branchData.address
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
 

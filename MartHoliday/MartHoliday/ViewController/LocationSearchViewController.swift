@@ -54,7 +54,7 @@ class LocationSearchViewController: IndicatorViewController, NMapPOIdataOverlayD
             mapView.delegate = self
 
             // set the application api key for Open MapViewer Library
-            guard let keyInfo = MapSetter.loadNMapKeySet() else { return }
+            guard let keyInfo = KeyInfoLoader.loadNMapKeySet() else { return }
             guard let id = keyInfo.id as? String else { return }
             mapView.setClientId(id)
 

@@ -16,18 +16,16 @@ protocol MartMapViewHolder {
 class MapViewController: UIViewController, MartMapViewHolder {
 
     var mapView: NMapView?
-    var addressToShow: String?
     var mapViewDelegate: MartMapDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = ProgramDescription.MartLocation.rawValue
-        mapViewDelegate = MartMapDelegate(address: addressToShow!)
-
+        
         mapView = NMapView()
         if let mapView = mapView {
             mapView.delegate = mapViewDelegate
-            guard let keyInfo = MapSetter.loadNMapKeySet() else { return }
+            guard let keyInfo = KeyInfoLoader.loadNMapKeySet() else { return }
             guard let id = keyInfo.id as? String else { return }
             mapView.setClientId(id)
             mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
