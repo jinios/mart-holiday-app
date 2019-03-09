@@ -16,7 +16,7 @@ class RechabilityDetectViewController: UIViewController {
     }
 
     func networkErrorAlert() {
-        let alert = UIAlertController.noNetworkAlert()
+        let alert = UIAlertController.make(message: .NetworkError)
         alert.addAction(UIAlertAction(title: "Done", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
@@ -38,7 +38,7 @@ class RechabilityDetectViewController: UIViewController {
     }
 
     func networkTimeOutAlert() {
-        let alert = UIAlertController.networkTimeOutAlert()
+        let alert = UIAlertController.make(message: .NetworkTimeout)
         alert.addAction(UIAlertAction(title: "Done", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }

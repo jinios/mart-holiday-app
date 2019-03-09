@@ -381,15 +381,9 @@ enum MailAlert: MailFeedbackAlert {
     var controller: UIAlertController? {
         switch self {
         case .failure:
-            let alert = UIAlertController(title: ProgramDescription.FailureSendingMailTitle.rawValue,
-                                          message: ProgramDescription.FailureSendingMailBody.rawValue,
-                                          preferredStyle: .alert)
-            return alert
+            return UIAlertController.make(message: .FailureSendingMail)
         case .success:
-            let alert = UIAlertController(title: ProgramDescription.SuccessSendingMailTitle.rawValue,
-                                          message: ProgramDescription.SuccessSendingMailBody.rawValue,
-                                          preferredStyle: .alert)
-            return alert
+            return UIAlertController.make(message: .SuccessSendingMail)
         case .none: return nil
         }
     }
