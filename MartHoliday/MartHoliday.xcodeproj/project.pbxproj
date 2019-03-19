@@ -19,6 +19,7 @@
 		FD02028F2146559B0083BE22 /* Mart.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409F211EC5EA007D7F1B /* Mart.swift */; };
 		FD0202902146559B0083BE22 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC2A941212458F400A1E2FF /* Extensions.swift */; };
 		FD0202912146565C0083BE22 /* MartHolidayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0202612146517B0083BE22 /* MartHolidayTests.swift */; };
+		FD0371D82208121800B2055F /* DistanceSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0371D72208121800B2055F /* DistanceSearch.swift */; };
 		FD11EAE321203A4C003EB3E9 /* BranchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD11EAE221203A4C003EB3E9 /* BranchTableViewCell.swift */; };
 		FD15A11021F38DBB00B7276A /* LocationSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD15A10F21F38DBB00B7276A /* LocationSearchViewController.swift */; };
 		FD1B4F212126BB8B00946311 /* SlideBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1B4F202126BB8B00946311 /* SlideBackgroundView.swift */; };
@@ -164,6 +165,7 @@
 		FD02025F2146517B0083BE22 /* MartHolidayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MartHolidayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD0202612146517B0083BE22 /* MartHolidayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MartHolidayTests.swift; sourceTree = "<group>"; };
 		FD0202632146517B0083BE22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD0371D72208121800B2055F /* DistanceSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceSearch.swift; sourceTree = "<group>"; };
 		FD11EAE221203A4C003EB3E9 /* BranchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchTableViewCell.swift; sourceTree = "<group>"; };
 		FD15A10F21F38DBB00B7276A /* LocationSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchViewController.swift; sourceTree = "<group>"; };
 		FD1B4F202126BB8B00946311 /* SlideBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideBackgroundView.swift; sourceTree = "<group>"; };
@@ -388,6 +390,7 @@
 				FDB3AD66216F94FD002209A2 /* StorageAPI.swift */,
 				FDB3AD68216FBA7F002209A2 /* NetworkManager.swift */,
 				FD3B642E2122A4FF003C1332 /* NMapViewResources.swift */,
+				FD0371D72208121800B2055F /* DistanceSearch.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -783,6 +786,7 @@
 				FD80CE212160D70100C16150 /* MartMapDelegate.swift in Sources */,
 				FD228F382142EB1A0062B75F /* BranchList.swift in Sources */,
 				FD1CC4E1211DF76300B21E09 /* DetailViewController.swift in Sources */,
+				FD0371D82208121800B2055F /* DistanceSearch.swift in Sources */,
 				FD15A11021F38DBB00B7276A /* LocationSearchViewController.swift in Sources */,
 				FDB3AD69216FBA7F002209A2 /* NetworkManager.swift in Sources */,
 				FD11EAE321203A4C003EB3E9 /* BranchTableViewCell.swift in Sources */,
