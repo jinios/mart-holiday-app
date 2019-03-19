@@ -893,7 +893,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6EBEE4712F4B6A690FFE5F6D /* Pods-MartHolidayTodayExtension.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_ENTITLEMENTS = MartHolidayTodayExtension/MartHolidayTodayExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -918,7 +918,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B70A7CC45A22E2B6C19210CB /* Pods-MartHolidayTodayExtension.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_ENTITLEMENTS = MartHolidayTodayExtension/MartHolidayTodayExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -942,7 +942,7 @@
 		FDB4BE2E211D6BAE00D3B264 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1008,7 +1008,7 @@
 		FDB4BE2F211D6BAE00D3B264 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1069,7 +1069,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 42BB0559CA154986E3EBAD98 /* Pods-MartHoliday.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MartHoliday/MartHoliday.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1099,7 +1099,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 63985991677D1CC39462408B /* Pods-MartHoliday.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MartHoliday/MartHoliday.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
