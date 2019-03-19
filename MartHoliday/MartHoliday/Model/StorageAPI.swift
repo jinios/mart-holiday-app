@@ -18,7 +18,7 @@ class StorageAPI {
         let pathReference = storage.reference(forURL: urlStr)
 
         // Download in memory with a maximum allowed size of 1KB (1 * 1024 bytes)
-        pathReference.getData(maxSize: 1 * 1024) { data, _ in
+        pathReference.getData(maxSize: 30 * 1024) { data, _ in
             guard let data = data else { return }
             guard let content = NSString(data: data, encoding: String.Encoding.utf8.rawValue) else { return }
             handler(content)
