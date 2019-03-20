@@ -58,6 +58,7 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - NMapsMap (3.0.0)
   - NVActivityIndicatorView (4.5.1):
     - NVActivityIndicatorView/Presenter (= 4.5.1)
   - NVActivityIndicatorView/Presenter (4.5.1)
@@ -71,6 +72,7 @@ DEPENDENCIES:
   - Firebase/Messaging
   - Firebase/RemoteConfig
   - Firebase/Storage
+  - NMapsMap
   - NVActivityIndicatorView
   - ReachabilitySwift
   - Toaster
@@ -90,6 +92,7 @@ SPEC REPOS:
     - GTMSessionFetcher
     - leveldb-library
     - nanopb
+    - NMapsMap
     - NVActivityIndicatorView
     - Protobuf
     - ReachabilitySwift
@@ -109,11 +112,12 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 5fa5b80fd20e439ef5f545fb2cb3ca6c6714caa2
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  NMapsMap: 1745a9a8d2dc31fb78a97f0925617d46aa658841
   NVActivityIndicatorView: ec34a7b88c51fab270004a1a1f32116e711010cd
   Protobuf: 0fc0ad8bec688b2a3017a139953e01374fedbd5f
   ReachabilitySwift: 6849231cd4e06559f3b9ef4a97a0a0f96d41e09f
   Toaster: a6c9532de1ded8105e77376f7dffeb2e12b46dbb
 
-PODFILE CHECKSUM: 5f58e9e21d7cd4a9eee7d79e964ed874290e1aea
+PODFILE CHECKSUM: d5220380a23871a19f5869dbf7aecc713a9c7673
 
 COCOAPODS: 1.5.3

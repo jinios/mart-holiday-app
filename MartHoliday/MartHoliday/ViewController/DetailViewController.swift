@@ -8,11 +8,12 @@
 
 import UIKit
 import SafariServices
+import NMapsMap
 
-class DetailViewController: RechabilityDetectViewController, SFSafariViewControllerDelegate, MartMapViewHolder {
+class DetailViewController: RechabilityDetectViewController, SFSafariViewControllerDelegate {
 
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
-    @IBOutlet weak var mockUpMapview: UIView!
+    @IBOutlet weak var mapView: NMFMapView!
     @IBOutlet weak var businessHour: UILabel!
     @IBOutlet weak var phoneNumberLabel: UILabel!
     @IBOutlet weak var address: UILabel!
@@ -20,8 +21,6 @@ class DetailViewController: RechabilityDetectViewController, SFSafariViewControl
     @IBOutlet weak var starCircleButton: StarCircleButton!
     @IBOutlet weak var scrollView: UIScrollView!
     var starButton: StarButton!
-    var mapView : NMapView?
-    var mapViewDelegate: MartMapDelegate!
     private var viewTag = 100
 
     var branchData: Branch? {
@@ -35,7 +34,6 @@ class DetailViewController: RechabilityDetectViewController, SFSafariViewControl
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        mapViewDelegate = MartMapDelegate(geoPoint: NGeoPoint(longitude: branchData!.longitude, latitude: branchData!.latitude))
         setNavigationItem()
         setAddress()
         setBusinessHour()
@@ -52,13 +50,10 @@ class DetailViewController: RechabilityDetectViewController, SFSafariViewControl
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        mapView?.viewWillAppear()
-        mapViewDelegate.setMapCenter()
     }
 
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        mapView?.viewDidDisappear()
     }
 
     override func updateViewConstraints() {
@@ -119,6 +114,20 @@ class DetailViewController: RechabilityDetectViewController, SFSafariViewControl
         }
     }
 
+    private func setMapView() {
+        let centerPoint = NMFCameraPosition(NMGLatLng(lat: branchData?.latitude ?? 0, lng: branchData?.longitude ?? 0), zoom: DEFAULT_MAP_ZOOM)
+
+        DispatchQueue.main.async {
+            self.mapView.moveCamera(NMFCameraUpdate(position: centerPoint))
+            let marker = NMFMarker(position: self.mapView.cameraPosition.target)
+            marker.iconImage = NMF_MARKER_IMAGE_LIGHTBLUE
+            marker.mapView = self.mapView
+        }
+
+        let ges = UITapGestureRecognizer(target: self, action: #selector(tapMapView))
+        mapView.addGestureRecognizer(ges)
+    }
+
     private func setPhoneNumber() {
         guard let branchData = self.branchData else { return }
         self.phoneNumberLabel.text = branchData.phoneNumber
@@ -169,34 +178,9 @@ class DetailViewController: RechabilityDetectViewController, SFSafariViewControl
         toggleState()
     }
 
-    private func setMapView() {
-        self.mockUpMapview.tag = viewTag
-        mapView = NMapView()
-
-        if let mapView = mapView {
-            // set the delegate for map view
-            mapView.delegate = mapViewDelegate
-
-            // set the application api key for Open MapViewer Library
-            guard let keyInfo = KeyInfoLoader.loadNMapKeySet() else { return }
-            guard let id = keyInfo.id as? String else { return }
-            mapView.setClientId(id)
-            mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            mockUpMapview.addSubview(mapView)
-            mapView.frame = mockUpMapview.bounds
-            mapView.setMapGesture(enable: false)
-            NotificationCenter.default.addObserver(self, selector: #selector(tapMapView(notification:)), name: .mapViewTapped, object: nil)
-        }
-    }
-
-    @objc func tapMapView(notification: Notification) {
-        guard let userInfo = notification.userInfo else { return }
-        guard let viewTag = userInfo[MartMapDelegate.superViewTag] else { return }
-        guard let superViewTag = viewTag as? Int else { return }
-        guard superViewTag == self.viewTag else { return }
+    @objc func tapMapView() {
         let nextVC = MapViewController()
-        guard let branchData = self.branchData else { return }
-//        nextVC.addressToShow = branchData.address
+        nextVC.centerPoint = (lat: branchData?.latitude ?? 0, lng: branchData?.longitude ?? 0)
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
 
