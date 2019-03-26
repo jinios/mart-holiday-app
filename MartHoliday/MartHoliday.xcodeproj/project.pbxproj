@@ -53,7 +53,6 @@
 		FD7FC0DE216E62A70022094F /* Keywords.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7FC0DD216E62A70022094F /* Keywords.swift */; };
 		FD7FC0DF216E63750022094F /* SelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4DDC8F21412294004E981F /* SelectionTableViewCell.swift */; };
 		FD7FC0E1216E65290022094F /* SelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4DDC8F21412294004E981F /* SelectionTableViewCell.swift */; };
-		FD80CE212160D70100C16150 /* MartMapDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD80CE202160D70100C16150 /* MartMapDelegate.swift */; };
 		FD80CE292161241D00C16150 /* DetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD80CE282161241D00C16150 /* DetailHeaderView.xib */; };
 		FD80CE2B21612BAE00C16150 /* HolidayHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD80CE2A21612BAE00C16150 /* HolidayHeaderView.swift */; };
 		FD85985B214BE9FA00C1A3E2 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD85985A214BE9FA00C1A3E2 /* NotificationCenter.framework */; };
@@ -191,7 +190,6 @@
 		FD7BC8D0215620FF002BE5EA /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		FD7FC0D9216E23CA0022094F /* KeyInfoLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyInfoLoader.swift; sourceTree = "<group>"; };
 		FD7FC0DD216E62A70022094F /* Keywords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keywords.swift; sourceTree = "<group>"; };
-		FD80CE202160D70100C16150 /* MartMapDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MartMapDelegate.swift; sourceTree = "<group>"; };
 		FD80CE282161241D00C16150 /* DetailHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailHeaderView.xib; sourceTree = "<group>"; };
 		FD80CE2A21612BAE00C16150 /* HolidayHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayHeaderView.swift; sourceTree = "<group>"; };
 		FD859859214BE9FA00C1A3E2 /* MartHolidayTodayExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MartHolidayTodayExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -381,7 +379,6 @@
 				FD48E1BE212BF57B00FC05D9 /* SlideMenuData.swift */,
 				FD7FC0D9216E23CA0022094F /* KeyInfoLoader.swift */,
 				FD4DDC8D21411236004E981F /* DataSetter.swift */,
-				FD80CE202160D70100C16150 /* MartMapDelegate.swift */,
 				FDC5A7492167DA4D009F0B0C /* FavoriteAPI.swift */,
 				FD7087DE216B427700A2A16F /* FavoriteData.swift */,
 				FDB3AD66216F94FD002209A2 /* StorageAPI.swift */,
@@ -513,6 +510,7 @@
 				FD3B64262121BEAA003C1332 /* Embed Frameworks */,
 				FD3B642A2121C316003C1332 /* ShellScript */,
 				FD859869214BE9FA00C1A3E2 /* Embed App Extensions */,
+				29CE85A4F13D65ACAAEA4B3F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -648,6 +646,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		29CE85A4F13D65ACAAEA4B3F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MartHoliday/Pods-MartHoliday-frameworks.sh",
+				"${PODS_ROOT}/NMapsMap/framework/NMapsMap.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NMapsMap.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MartHoliday/Pods-MartHoliday-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		A2941B5A4530CD89F3490E62 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -777,7 +793,6 @@
 				FD5E63F92153C8F400DC082A /* HolidayTableViewCell.swift in Sources */,
 				FD4DDC9021412294004E981F /* SelectionTableViewCell.swift in Sources */,
 				FD9654CF2172593B00C17D76 /* ReachabilityViewController.swift in Sources */,
-				FD80CE212160D70100C16150 /* MartMapDelegate.swift in Sources */,
 				FD228F382142EB1A0062B75F /* BranchList.swift in Sources */,
 				FD1CC4E1211DF76300B21E09 /* DetailViewController.swift in Sources */,
 				FD0371D82208121800B2055F /* DistanceSearch.swift in Sources */,
@@ -843,6 +858,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D2A84150BED7895841275DB5 /* Pods-MartHolidayTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B3PWYBKFUK;
@@ -865,6 +881,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A952FB47A8AE1C6D4170F2F3 /* Pods-MartHolidayTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B3PWYBKFUK;
@@ -887,7 +904,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6EBEE4712F4B6A690FFE5F6D /* Pods-MartHolidayTodayExtension.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_ENTITLEMENTS = MartHolidayTodayExtension/MartHolidayTodayExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -912,7 +929,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B70A7CC45A22E2B6C19210CB /* Pods-MartHolidayTodayExtension.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_ENTITLEMENTS = MartHolidayTodayExtension/MartHolidayTodayExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -1063,12 +1080,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 42BB0559CA154986E3EBAD98 /* Pods-MartHoliday.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MartHoliday/MartHoliday.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 964726ULPQ;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1093,12 +1111,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 63985991677D1CC39462408B /* Pods-MartHoliday.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MartHoliday/MartHoliday.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 964726ULPQ;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

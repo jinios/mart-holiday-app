@@ -43,5 +43,6 @@ enum KeyInfo: String {
     case NMapClientID
     case AcknowledgementsURL
     case BaseURL
+    case NMFMapViewKey
 }
 

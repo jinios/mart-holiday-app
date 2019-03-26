@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import UserNotifications
 import Reachability
+import NMapsMap
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, MessagingDelegate {
@@ -27,6 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
         setNavigationBar()
         FirebaseApp.configure()
+        setNMFMapViewKey()
 
         application.applicationIconBadgeNumber = 0
 
@@ -53,6 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         setFavoritesURLTodayExtension()
         return true
     }
+
 
     func application(_ application: UIApplication, didRegister notificationSettings: UIUserNotificationSettings) {
         if notificationSettings.types == .none {
@@ -115,6 +118,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         UINavigationBar.appearance().tintColor = UIColor.white
         UINavigationBar.appearance().titleTextAttributes = fontAttributes
         UIBarButtonItem.appearance().setTitleTextAttributes(fontAttributes, for: .normal)
+    }
+
+    private func setNMFMapViewKey() {
+        guard let value = KeyInfoLoader.loadValue(of: .NMFMapViewKey) else { return }
+        NMFAuthManager.shared().clientId = value
     }
 
 }
