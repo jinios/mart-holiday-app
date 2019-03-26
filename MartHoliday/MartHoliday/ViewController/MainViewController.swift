@@ -152,7 +152,7 @@ class MainViewController: RechabilityDetectViewController, FavoriteConvertible, 
         guard let url = urlComp?.url else {return}
 
         let configure = URLSessionConfiguration.default
-        configure.timeoutIntervalForRequest = 3
+        configure.timeoutIntervalForRequest = 5
         let session = URLSession(configuration: configure)
 
         session.dataTask(with: url) { [weak self] (data, response, error) in
@@ -312,10 +312,10 @@ extension MainViewController: MFMailComposeViewControllerDelegate {
             handleDismiss()
             guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "martSelectVC") as? MartSelectViewController else { return }
             self.navigationController?.pushViewController(nextVC, animated: true)
-        case .location:
-            handleDismiss()
-            guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "locationVC") as? LocationSearchViewController else { return }
-            self.navigationController?.pushViewController(nextVC, animated: true)
+//        case .location:
+//            handleDismiss()
+//            guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "locationVC") as? LocationSearchViewController else { return }
+//            self.navigationController?.pushViewController(nextVC, animated: true)
         case .sendMail:
             handleDismiss()
             var email: String
