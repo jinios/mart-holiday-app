@@ -44,5 +44,6 @@ enum KeyInfo: String {
     case AcknowledgementsURL
     case BaseURL
     case NMFMapViewKey
+    case AppStoreScheme
 }
 

@@ -65,6 +65,7 @@
 		FD91364E216EF70B001A21DF /* AppInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD91364D216EF70B001A21DF /* AppInfoViewController.swift */; };
 		FD9654CF2172593B00C17D76 /* ReachabilityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9654CE2172593B00C17D76 /* ReachabilityViewController.swift */; };
 		FD9654D1217259D800C17D76 /* IndicatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9654D0217259D800C17D76 /* IndicatorViewController.swift */; };
+		FD9B94BA224B2EA800303C37 /* RemoteConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9B94B9224B2EA800303C37 /* RemoteConfigManager.swift */; };
 		FD9F409C211EBFAF007D7F1B /* BranchRawData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409B211EBFAF007D7F1B /* BranchRawData.swift */; };
 		FD9F40A0211EC5EA007D7F1B /* Mart.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409F211EC5EA007D7F1B /* Mart.swift */; };
 		FDA27AF3222E624800610B09 /* POIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA27AF2222E624800610B09 /* POIData.swift */; };
@@ -209,6 +210,7 @@
 		FD91364D216EF70B001A21DF /* AppInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoViewController.swift; sourceTree = "<group>"; };
 		FD9654CE2172593B00C17D76 /* ReachabilityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityViewController.swift; sourceTree = "<group>"; };
 		FD9654D0217259D800C17D76 /* IndicatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorViewController.swift; sourceTree = "<group>"; };
+		FD9B94B9224B2EA800303C37 /* RemoteConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigManager.swift; sourceTree = "<group>"; };
 		FD9F409B211EBFAF007D7F1B /* BranchRawData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchRawData.swift; sourceTree = "<group>"; };
 		FD9F409F211EC5EA007D7F1B /* Mart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mart.swift; sourceTree = "<group>"; };
 		FDA27AF2222E624800610B09 /* POIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POIData.swift; sourceTree = "<group>"; };
@@ -368,6 +370,7 @@
 		FD9F40A1211ECAE2007D7F1B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FD9B94B9224B2EA800303C37 /* RemoteConfigManager.swift */,
 				FDA27AF2222E624800610B09 /* POIData.swift */,
 				FD9F409F211EC5EA007D7F1B /* Mart.swift */,
 				FD780D76212F185600B569B3 /* SlideMenuManager.swift */,
@@ -791,6 +794,7 @@
 				FDBF9A4A212414A9001C2DAA /* FavoriteList.swift in Sources */,
 				FD7FC0DE216E62A70022094F /* Keywords.swift in Sources */,
 				FD5E63F92153C8F400DC082A /* HolidayTableViewCell.swift in Sources */,
+				FD9B94BA224B2EA800303C37 /* RemoteConfigManager.swift in Sources */,
 				FD4DDC9021412294004E981F /* SelectionTableViewCell.swift in Sources */,
 				FD9654CF2172593B00C17D76 /* ReachabilityViewController.swift in Sources */,
 				FD228F382142EB1A0062B75F /* BranchList.swift in Sources */,

@@ -23,6 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window?.backgroundColor = .white
+        window?.rootViewController = UIStoryboard.init(name: "LaunchScreen", bundle: nil).instantiateInitialViewController()
+        RemoteConfigManager.shared().launch(handler: self.executeAppUpdate)
+
         // listener starts
         networkManager = NetworkManager.shared
 
@@ -125,5 +128,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         NMFAuthManager.shared().clientId = value
     }
 
+    private func executeAppUpdate(_ result: ConfigResult) {
+        var alert = UIAlertController()
+
+        switch result {
+        case .forcedUpdate:
+            let forcedUpdateAction = UIAlertAction(title: "업데이트", style: .default) { (action) in
+                self.openAppStore()
+            }
+            alert = UIAlertController.make(message: .ForcedUpdate)
+            alert.addAction(forcedUpdateAction)
+
+        case .optionalUpdate:
+            let allowUpdateAction = UIAlertAction(title: "네", style: .default) { (action) in
+                self.openAppStore()
+            }
+            let denyUpdateAction = UIAlertAction(title: "아니요", style: .default) { (action) in
+                // execute app & change root viewcontroller
+            }
+            alert = UIAlertController.make(message: .OptionalUpdate)
+            alert.addAction(allowUpdateAction)
+            alert.addAction(denyUpdateAction)
+        default:
+            // execute app & change root viewcontroller
+            return
+        }
+        self.window?.rootViewController?.present(alert, animated: true, completion: nil)
+    }
+
+    private func openAppStore() {
+        guard let appStoreURLRawValue = KeyInfoLoader.loadValue(of: .AppStoreScheme) else { return }
+        if let appstoreScheme = URL(string: appStoreURLRawValue), UIApplication.shared.canOpenURL(appstoreScheme) {
+                UIApplication.shared.open(appstoreScheme, options: [:], completionHandler: nil)
+            }
+
+        }
 }
 

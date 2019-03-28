@@ -52,6 +52,8 @@ extension UIAlertController {
         case NetworkTimeout
         case SuccessSendingMail
         case FailureSendingMail
+        case ForcedUpdate
+        case OptionalUpdate
 
         var rawValue: (title: String, body: String) {
             switch self {
@@ -65,6 +67,10 @@ extension UIAlertController {
                 return (title: "감사합니다❤️", body:"소중한 의견 감사합니다 :)")
             case .FailureSendingMail:
                 return (title: "메일 전송 실패😢", body:"아이폰 기본 '메일'앱에서 계정을 추가해주세요!")
+            case .ForcedUpdate:
+                return (title: "업데이트", body: "필수 업데이트가 있습니다.\n앱을 구동하기위해 업데이트해주세요.😍")
+            case .OptionalUpdate:
+                return (title: "업데이트", body: "새 버전이 출시됐습니다.\n업데이트 하러 갈래요?😆")
             }
 
         }
