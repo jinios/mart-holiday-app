@@ -14,7 +14,7 @@ class DataSetter<T: URLHolder, U: Codable> {
         guard let url = mart.url else { return }
 
         let configure = URLSessionConfiguration.default
-        configure.timeoutIntervalForRequest = 3
+        configure.timeoutIntervalForRequest = 15
         let session = URLSession(configuration: configure)
 
         session.dataTask(with: url) { (data, response, error) in

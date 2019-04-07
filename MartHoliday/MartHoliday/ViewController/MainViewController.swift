@@ -152,30 +152,48 @@ class MainViewController: RechabilityDetectViewController, FavoriteConvertible, 
         guard let url = urlComp?.url else {return}
 
         let configure = URLSessionConfiguration.default
-        configure.timeoutIntervalForRequest = 3
+        configure.timeoutIntervalForRequest = 15
         let session = URLSession(configuration: configure)
 
         session.dataTask(with: url) { [weak self] (data, response, error) in
-            if let response = response as? HTTPURLResponse, 200...299 ~= response.statusCode, let data = data {
-                var branches = [BranchRawData]()
-                var favoriteList = BranchList()
-                var mainFavorites = [FavoriteBranch]()
-                do {
-                    branches = try JSONDecoder().decode([BranchRawData].self, from: data, keyPath: "data")
-                    favoriteList = BranchList(branches: branches)
+            var apiResponse = APIResponse()
 
-                    for fav in favoriteList.branches {
-                        mainFavorites.append(FavoriteBranch(branch: fav))
-                        self?.holidayData = mainFavorites
+            if let httpResponse = response as? HTTPURLResponse, 200...299 ~= httpResponse.statusCode, let data = data {
+                var favoriteList = BranchList()
+
+                do {
+                    apiResponse = try JSONDecoder().decode(APIResponse.self, from: data)
+                    if let branches = apiResponse.branches {
+                        favoriteList = BranchList(branches: branches)
+                        self?.holidayData = favoriteList.branches.map{ FavoriteBranch(branch: $0) }
+                        handler()
+                    } else {
+                        self?.presentErrorAlert()
+                        let errorMessage = APIErrorMessage(brokenUrl: url,
+                                                           httpStatusCode: httpResponse.statusCode,
+                                                           apiResponse: apiResponse,
+                                                           type: .Parsing)
+                        SlackWebhook.fire(message: errorMessage.body())
                     }
-                    handler()
                 } catch {
                     self?.presentErrorAlert()
-                    SlackWebhook.fire(brokenUrl: url)
+                    let errorMessage = APIErrorMessage(brokenUrl: url,
+                                                       httpStatusCode: httpResponse.statusCode,
+                                                       apiResponse: apiResponse,
+                                                       type: .Parsing)
+                    SlackWebhook.fire(message: errorMessage.body())
                 }
             } else {
                 self?.presentErrorAlert()
-                SlackWebhook.fire(brokenUrl: url)
+                var responseCode = 0
+                if let httpResponse = response as? HTTPURLResponse {
+                    responseCode = httpResponse.statusCode
+                }
+                let errorMessage = APIErrorMessage(brokenUrl: url,
+                                                   httpStatusCode: responseCode,
+                                                   apiResponse: apiResponse,
+                                                   type: .Network)
+                SlackWebhook.fire(message: errorMessage.body())
             }
         }.resume()
     }
