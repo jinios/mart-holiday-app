@@ -12,9 +12,7 @@
 		AE07B189863AD44433F30745 /* libPods-MartHoliday.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C434A270151837976EE66374 /* libPods-MartHoliday.a */; };
 		FD0202862146559B0083BE22 /* BranchList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD228F372142EB1A0062B75F /* BranchList.swift */; };
 		FD0202872146559B0083BE22 /* BranchRawData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409B211EBFAF007D7F1B /* BranchRawData.swift */; };
-		FD0202882146559B0083BE22 /* AddressDatum.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC3461C2136708400F6D6FF /* AddressDatum.swift */; };
 		FD02028B2146559B0083BE22 /* SlideMenuData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD48E1BE212BF57B00FC05D9 /* SlideMenuData.swift */; };
-		FD02028C2146559B0083BE22 /* MapSetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC3461A2136618E00F6D6FF /* MapSetter.swift */; };
 		FD02028E2146559B0083BE22 /* DataSetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4DDC8D21411236004E981F /* DataSetter.swift */; };
 		FD02028F2146559B0083BE22 /* Mart.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409F211EC5EA007D7F1B /* Mart.swift */; };
 		FD0202902146559B0083BE22 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC2A941212458F400A1E2FF /* Extensions.swift */; };
@@ -31,7 +29,6 @@
 		FD2E513B2171E059006E15A6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FDB26C5D2170711400313A02 /* InfoPlist.strings */; };
 		FD3B64242121BEAA003C1332 /* ApiGatewayMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3B64232121BEAA003C1332 /* ApiGatewayMac.framework */; };
 		FD3B64252121BEAA003C1332 /* ApiGatewayMac.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD3B64232121BEAA003C1332 /* ApiGatewayMac.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FD3B64292121BEDD003C1332 /* NMapViewerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3B64282121BEDD003C1332 /* NMapViewerSDK.framework */; };
 		FD3B642F2122A4FF003C1332 /* NMapViewResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3B642E2122A4FF003C1332 /* NMapViewResources.swift */; };
 		FD4850F2212843FB0064747A /* SlideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4850F1212843FB0064747A /* SlideMenuView.swift */; };
 		FD4850F4212869AF0064747A /* SlideMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4850F3212869AF0064747A /* SlideMenuCell.swift */; };
@@ -56,7 +53,6 @@
 		FD7FC0DE216E62A70022094F /* Keywords.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7FC0DD216E62A70022094F /* Keywords.swift */; };
 		FD7FC0DF216E63750022094F /* SelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4DDC8F21412294004E981F /* SelectionTableViewCell.swift */; };
 		FD7FC0E1216E65290022094F /* SelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4DDC8F21412294004E981F /* SelectionTableViewCell.swift */; };
-		FD80CE212160D70100C16150 /* MartMapDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD80CE202160D70100C16150 /* MartMapDelegate.swift */; };
 		FD80CE292161241D00C16150 /* DetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD80CE282161241D00C16150 /* DetailHeaderView.xib */; };
 		FD80CE2B21612BAE00C16150 /* HolidayHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD80CE2A21612BAE00C16150 /* HolidayHeaderView.swift */; };
 		FD85985B214BE9FA00C1A3E2 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD85985A214BE9FA00C1A3E2 /* NotificationCenter.framework */; };
@@ -65,11 +61,15 @@
 		FD859865214BE9FA00C1A3E2 /* MartHolidayTodayExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = FD859859214BE9FA00C1A3E2 /* MartHolidayTodayExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		FD86712321458FCB00273B3C /* StarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD86712221458FCB00273B3C /* StarButton.swift */; };
 		FD89F7C5216A66D500C8556C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD89F7C4216A66D400C8556C /* GoogleService-Info.plist */; };
+		FD8E287A2233CC1700884EA1 /* NMapViewerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD8E28792233CC1700884EA1 /* NMapViewerSDK.framework */; };
 		FD91364E216EF70B001A21DF /* AppInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD91364D216EF70B001A21DF /* AppInfoViewController.swift */; };
+		FD93878E225A39420082CC71 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD93878D225A39420082CC71 /* APIResponse.swift */; };
 		FD9654CF2172593B00C17D76 /* ReachabilityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9654CE2172593B00C17D76 /* ReachabilityViewController.swift */; };
 		FD9654D1217259D800C17D76 /* IndicatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9654D0217259D800C17D76 /* IndicatorViewController.swift */; };
+		FD9B94BA224B2EA800303C37 /* RemoteConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9B94B9224B2EA800303C37 /* RemoteConfigManager.swift */; };
 		FD9F409C211EBFAF007D7F1B /* BranchRawData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409B211EBFAF007D7F1B /* BranchRawData.swift */; };
 		FD9F40A0211EC5EA007D7F1B /* Mart.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409F211EC5EA007D7F1B /* Mart.swift */; };
+		FDA27AF3222E624800610B09 /* POIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA27AF2222E624800610B09 /* POIData.swift */; };
 		FDA311A9214C141800A7E94B /* BranchRawData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409B211EBFAF007D7F1B /* BranchRawData.swift */; };
 		FDA311B2214C14CA00A7E94B /* StarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD86712221458FCB00273B3C /* StarButton.swift */; };
 		FDA311B5214C150100A7E94B /* Mart.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409F211EC5EA007D7F1B /* Mart.swift */; };
@@ -89,8 +89,6 @@
 		FDBF9A4A212414A9001C2DAA /* FavoriteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBF9A49212414A9001C2DAA /* FavoriteList.swift */; };
 		FDC19BAA215D2D54007D9A95 /* NoDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC19BA9215D2D54007D9A95 /* NoDataView.swift */; };
 		FDC2A942212458F400A1E2FF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC2A941212458F400A1E2FF /* Extensions.swift */; };
-		FDC3461B2136618E00F6D6FF /* MapSetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC3461A2136618E00F6D6FF /* MapSetter.swift */; };
-		FDC3461D2136708400F6D6FF /* AddressDatum.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC3461C2136708400F6D6FF /* AddressDatum.swift */; };
 		FDC5A7422167CD50009F0B0C /* TodayExtensionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD859879214C0D7D00C1A3E2 /* TodayExtensionTableViewCell.swift */; };
 		FDC5A7432167CD66009F0B0C /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD85985D214BE9FA00C1A3E2 /* TodayViewController.swift */; };
 		FDC5A7462167D7DB009F0B0C /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBF9A4721240911001C2DAA /* DataStorage.swift */; };
@@ -194,7 +192,6 @@
 		FD7BC8D0215620FF002BE5EA /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		FD7FC0D9216E23CA0022094F /* KeyInfoLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyInfoLoader.swift; sourceTree = "<group>"; };
 		FD7FC0DD216E62A70022094F /* Keywords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keywords.swift; sourceTree = "<group>"; };
-		FD80CE202160D70100C16150 /* MartMapDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MartMapDelegate.swift; sourceTree = "<group>"; };
 		FD80CE282161241D00C16150 /* DetailHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailHeaderView.xib; sourceTree = "<group>"; };
 		FD80CE2A21612BAE00C16150 /* HolidayHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayHeaderView.swift; sourceTree = "<group>"; };
 		FD859859214BE9FA00C1A3E2 /* MartHolidayTodayExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MartHolidayTodayExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -210,11 +207,15 @@
 		FD859879214C0D7D00C1A3E2 /* TodayExtensionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayExtensionTableViewCell.swift; sourceTree = "<group>"; };
 		FD86712221458FCB00273B3C /* StarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarButton.swift; sourceTree = "<group>"; };
 		FD89F7C4216A66D400C8556C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FD8E28792233CC1700884EA1 /* NMapViewerSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NMapViewerSDK.framework; path = "../../../../../Desktop/maps.ios-2.1.4/Frameworks/NMapViewerSDK.framework"; sourceTree = "<group>"; };
 		FD91364D216EF70B001A21DF /* AppInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoViewController.swift; sourceTree = "<group>"; };
+		FD93878D225A39420082CC71 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 		FD9654CE2172593B00C17D76 /* ReachabilityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityViewController.swift; sourceTree = "<group>"; };
 		FD9654D0217259D800C17D76 /* IndicatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorViewController.swift; sourceTree = "<group>"; };
+		FD9B94B9224B2EA800303C37 /* RemoteConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigManager.swift; sourceTree = "<group>"; };
 		FD9F409B211EBFAF007D7F1B /* BranchRawData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchRawData.swift; sourceTree = "<group>"; };
 		FD9F409F211EC5EA007D7F1B /* Mart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mart.swift; sourceTree = "<group>"; };
+		FDA27AF2222E624800610B09 /* POIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POIData.swift; sourceTree = "<group>"; };
 		FDAF601B21273E880006B68A /* NanumSquareRoundOTFL.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundOTFL.otf; sourceTree = "<group>"; };
 		FDAF601C21273E880006B68A /* NanumSquareRoundOTFB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundOTFB.otf; sourceTree = "<group>"; };
 		FDAF601D21273E880006B68A /* NanumSquareRoundOTFR.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundOTFR.otf; sourceTree = "<group>"; };
@@ -234,8 +235,6 @@
 		FDBF9A49212414A9001C2DAA /* FavoriteList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteList.swift; sourceTree = "<group>"; };
 		FDC19BA9215D2D54007D9A95 /* NoDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoDataView.swift; sourceTree = "<group>"; };
 		FDC2A941212458F400A1E2FF /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		FDC3461A2136618E00F6D6FF /* MapSetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSetter.swift; sourceTree = "<group>"; };
-		FDC3461C2136708400F6D6FF /* AddressDatum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressDatum.swift; sourceTree = "<group>"; };
 		FDC5A7492167DA4D009F0B0C /* FavoriteAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteAPI.swift; sourceTree = "<group>"; };
 		FDCB9E8A212566F1006281CB /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		FDE2542D21627303008B25C8 /* NoMapView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoMapView.xib; sourceTree = "<group>"; };
@@ -271,7 +270,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD3B64292121BEDD003C1332 /* NMapViewerSDK.framework in Frameworks */,
+				FD8E287A2233CC1700884EA1 /* NMapViewerSDK.framework in Frameworks */,
 				FD3B64242121BEAA003C1332 /* ApiGatewayMac.framework in Frameworks */,
 				AE07B189863AD44433F30745 /* libPods-MartHoliday.a in Frameworks */,
 			);
@@ -342,6 +341,7 @@
 		FD3B64272121BEDD003C1332 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FD8E28792233CC1700884EA1 /* NMapViewerSDK.framework */,
 				FD7087D8216B206F00A2A16F /* ApiGatewayMac.framework */,
 				FD85986C214BFEF500C1A3E2 /* FirebaseCore.framework */,
 				FD85986E214BFEF500C1A3E2 /* FirebaseMessaging.framework */,
@@ -372,25 +372,25 @@
 		FD9F40A1211ECAE2007D7F1B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FD9B94B9224B2EA800303C37 /* RemoteConfigManager.swift */,
+				FDA27AF2222E624800610B09 /* POIData.swift */,
 				FD9F409F211EC5EA007D7F1B /* Mart.swift */,
 				FD780D76212F185600B569B3 /* SlideMenuManager.swift */,
 				FD228F372142EB1A0062B75F /* BranchList.swift */,
 				FD9F409B211EBFAF007D7F1B /* BranchRawData.swift */,
-				FDC3461C2136708400F6D6FF /* AddressDatum.swift */,
 				FDBF9A4721240911001C2DAA /* DataStorage.swift */,
 				FDF8ABC1215B722800DA74C9 /* FavoriteBranch.swift */,
 				FDBF9A49212414A9001C2DAA /* FavoriteList.swift */,
 				FD48E1BE212BF57B00FC05D9 /* SlideMenuData.swift */,
-				FDC3461A2136618E00F6D6FF /* MapSetter.swift */,
 				FD7FC0D9216E23CA0022094F /* KeyInfoLoader.swift */,
 				FD4DDC8D21411236004E981F /* DataSetter.swift */,
-				FD80CE202160D70100C16150 /* MartMapDelegate.swift */,
 				FDC5A7492167DA4D009F0B0C /* FavoriteAPI.swift */,
 				FD7087DE216B427700A2A16F /* FavoriteData.swift */,
 				FDB3AD66216F94FD002209A2 /* StorageAPI.swift */,
 				FDB3AD68216FBA7F002209A2 /* NetworkManager.swift */,
 				FD3B642E2122A4FF003C1332 /* NMapViewResources.swift */,
 				FD0371D72208121800B2055F /* DistanceSearch.swift */,
+				FD93878D225A39420082CC71 /* APIResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -516,6 +516,7 @@
 				FD3B64262121BEAA003C1332 /* Embed Frameworks */,
 				FD3B642A2121C316003C1332 /* ShellScript */,
 				FD859869214BE9FA00C1A3E2 /* Embed App Extensions */,
+				29CE85A4F13D65ACAAEA4B3F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -651,6 +652,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		29CE85A4F13D65ACAAEA4B3F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MartHoliday/Pods-MartHoliday-frameworks.sh",
+				"${PODS_ROOT}/NMapsMap/framework/NMapsMap.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NMapsMap.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MartHoliday/Pods-MartHoliday-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		A2941B5A4530CD89F3490E62 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -711,9 +730,7 @@
 				FD0202872146559B0083BE22 /* BranchRawData.swift in Sources */,
 				FD59D2D52164C597009B7FDF /* DataStorage.swift in Sources */,
 				FD0202912146565C0083BE22 /* MartHolidayTests.swift in Sources */,
-				FD0202882146559B0083BE22 /* AddressDatum.swift in Sources */,
 				FD02028B2146559B0083BE22 /* SlideMenuData.swift in Sources */,
-				FD02028C2146559B0083BE22 /* MapSetter.swift in Sources */,
 				FD02028E2146559B0083BE22 /* DataSetter.swift in Sources */,
 				FD7FC0DF216E63750022094F /* SelectionTableViewCell.swift in Sources */,
 				FD7FC0DC216E29450022094F /* KeyInfoLoader.swift in Sources */,
@@ -750,9 +767,9 @@
 				FD1B4F212126BB8B00946311 /* SlideBackgroundView.swift in Sources */,
 				FD9F40A0211EC5EA007D7F1B /* Mart.swift in Sources */,
 				FD80CE2B21612BAE00C16150 /* HolidayHeaderView.swift in Sources */,
-				FDC3461D2136708400F6D6FF /* AddressDatum.swift in Sources */,
 				FD7087DF216B427700A2A16F /* FavoriteData.swift in Sources */,
 				FDB4BE24211D6BAD00D3B264 /* MartSelectViewController.swift in Sources */,
+				FDA27AF3222E624800610B09 /* POIData.swift in Sources */,
 				FDF8ABC4215B76B400DA74C9 /* MainTableViewHeader.swift in Sources */,
 				FD1B4F232126BBD200946311 /* SlideTopView.swift in Sources */,
 				FDC5A7432167CD66009F0B0C /* TodayViewController.swift in Sources */,
@@ -762,7 +779,6 @@
 				FD4850F2212843FB0064747A /* SlideMenuView.swift in Sources */,
 				FD86712321458FCB00273B3C /* StarButton.swift in Sources */,
 				FD3B642F2122A4FF003C1332 /* NMapViewResources.swift in Sources */,
-				FDC3461B2136618E00F6D6FF /* MapSetter.swift in Sources */,
 				FDEEE8E82163B5BD00E63733 /* NoMapView.swift in Sources */,
 				FD780D77212F185600B569B3 /* SlideMenuManager.swift in Sources */,
 				FDC5A74A2167DA4D009F0B0C /* FavoriteAPI.swift in Sources */,
@@ -781,12 +797,13 @@
 				FDBF9A4A212414A9001C2DAA /* FavoriteList.swift in Sources */,
 				FD7FC0DE216E62A70022094F /* Keywords.swift in Sources */,
 				FD5E63F92153C8F400DC082A /* HolidayTableViewCell.swift in Sources */,
+				FD9B94BA224B2EA800303C37 /* RemoteConfigManager.swift in Sources */,
 				FD4DDC9021412294004E981F /* SelectionTableViewCell.swift in Sources */,
 				FD9654CF2172593B00C17D76 /* ReachabilityViewController.swift in Sources */,
-				FD80CE212160D70100C16150 /* MartMapDelegate.swift in Sources */,
 				FD228F382142EB1A0062B75F /* BranchList.swift in Sources */,
 				FD1CC4E1211DF76300B21E09 /* DetailViewController.swift in Sources */,
 				FD0371D82208121800B2055F /* DistanceSearch.swift in Sources */,
+				FD93878E225A39420082CC71 /* APIResponse.swift in Sources */,
 				FD15A11021F38DBB00B7276A /* LocationSearchViewController.swift in Sources */,
 				FDB3AD69216FBA7F002209A2 /* NetworkManager.swift in Sources */,
 				FD11EAE321203A4C003EB3E9 /* BranchTableViewCell.swift in Sources */,
@@ -849,6 +866,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D2A84150BED7895841275DB5 /* Pods-MartHolidayTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B3PWYBKFUK;
@@ -871,6 +889,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A952FB47A8AE1C6D4170F2F3 /* Pods-MartHolidayTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B3PWYBKFUK;
@@ -1075,6 +1094,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 964726ULPQ;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1105,6 +1125,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 964726ULPQ;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

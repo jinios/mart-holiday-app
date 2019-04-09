@@ -7,45 +7,34 @@
 //
 
 import UIKit
+import NMapsMap
 
-protocol MartMapViewHolder {
-    var mapView: NMapView? { get }
-    var mapViewDelegate: MartMapDelegate! { get }
-}
+public let DEFAULT_MAP_ZOOM: Double = 15.0
+public let DEFAULT_MAP_MARKER_IMAGE: NMFOverlayImage = NMF_MARKER_IMAGE_LIGHTBLUE
 
-class MapViewController: UIViewController, MartMapViewHolder {
+class MapViewController: UIViewController {
 
-    var mapView: NMapView?
-    var addressToShow: String?
-    var mapViewDelegate: MartMapDelegate!
+    var mapView: MartMapView?
+    var centerPoint: GeoPoint? // 0일때 그냥 기본 맵뷰
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = ProgramDescription.MartLocation.rawValue
-        mapViewDelegate = MartMapDelegate(address: addressToShow!)
-
-        mapView = NMapView()
-        if let mapView = mapView {
-            mapView.delegate = mapViewDelegate
-            guard let keyInfo = MapSetter.loadNMapKeySet() else { return }
-            guard let id = keyInfo.id as? String else { return }
-            mapView.setClientId(id)
-            mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        guard let centerPoint = self.centerPoint else { return }
+        self.mapView = MartMapView(frame: self.view.frame, center: centerPoint)
+        if let mapView = self.mapView {
             self.view.addSubview(mapView)
-            mapView.frame = self.view.frame
-            mapView.setMapGesture(enable: true)
+            self.mapView?.addDefaultMarker()
         }
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.prefersLargeTitles = false
-        mapView?.viewWillAppear()
     }
 
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        mapView?.viewDidDisappear()
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,5 +43,101 @@ class MapViewController: UIViewController, MartMapViewHolder {
     }
 
 
+
+}
+
+class MartMapView: UIView {
+
+    var mapView = NMFMapView()
+
+    convenience init(frame: CGRect, center: GeoPoint) {
+        self.init(frame: frame)
+        /*
+         button.translatesAutoresizingMaskIntoConstraints = false
+         button.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+         button.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -5).isActive = true
+         button.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+         button.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        */
+
+        mapView.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(mapView)
+        
+        mapView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        mapView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        mapView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        mapView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+
+        let mapCenter = NMFCameraPosition(NMGLatLng(geoPoint: center), zoom: DEFAULT_MAP_ZOOM)
+        DispatchQueue.main.async {
+            self.mapView.moveCamera(NMFCameraUpdate(position: mapCenter))
+        }
+    }
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(frame: .zero)
+        self.addSubview(mapView)
+        mapView.frame = self.frame
+    }
+
+    func addDefaultMarker() {
+        DispatchQueue.main.async {
+            let marker = NMFMarker(position: self.mapView.cameraPosition.target)
+            marker.iconImage = DEFAULT_MAP_MARKER_IMAGE
+            marker.mapView = self.mapView
+        }
+    }
+
+    func setTapGesture() {
+        let ges = UITapGestureRecognizer(target: self, action: #selector(tapMapView))
+        mapView.addGestureRecognizer(ges)
+    }
+
+    func setUserGestureEnable(_ allow: Bool) {
+        self.mapView.isScrollGestureEnabled = allow
+        self.mapView.isZoomGestureEnabled = allow
+        self.mapView.isTiltGestureEnabled = allow
+        self.mapView.isRotateGestureEnabled = allow
+    }
+
+    func setPinchAndPanGesture() {
+        let pinchGes = UIPinchGestureRecognizer(target: self, action: #selector(pinchMapView))
+        let panGes = UIPanGestureRecognizer(target: self, action: #selector(pinchMapView))
+        mapView.addGestureRecognizer(pinchGes)
+        mapView.addGestureRecognizer(panGes)
+    }
+
+    @objc func pinchMapView() {
+        // 토스트 "지도를 탭하면 큰 지도가 표시됩니다"
+    }
+
+    @objc func tapMapView() {
+        // push to mapvc
+    }
+}
+
+extension NMGLatLng {
+    //NMGLatLng(lat: centerPoint.lat, lng: centerPoint.lng)
+    convenience init(geoPoint: GeoPoint) {
+        self.init(lat: geoPoint.latitude, lng: geoPoint.longitude)
+    }
+}
+
+class GeoPoint {
+    var latitude: Double
+    var longitude: Double
+
+    var NMapPoint: NMGLatLng {
+        return NMGLatLng(lat: self.latitude, lng: self.longitude)
+    }
+
+    init(lat: Double, lng: Double) {
+        self.latitude = lat
+        self.longitude = lng
+    }
 
 }

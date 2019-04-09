@@ -7,67 +7,32 @@
 //
 
 import Foundation
-import AlamofireObjectMapper
-import ObjectMapper
-import Alamofire
 
 class DistanceSearch {
 
-    class func fetch(geoPoint: NGeoPoint, distance: Int, handler: @escaping ([TempBranchRaw]) -> Void) {
+    class func fetch(geoPoint: NGeoPoint, distance: Int, handler: @escaping ([BranchRawData]) -> Void) {
         guard let value = KeyInfoLoader.loadValue(of: .BaseURL) else { return }
-        guard let baseURL = URL(string: value) else { return }
-        let params: [String:Any] = ["latitude":geoPoint.latitude, "longitude":geoPoint.longitude, "distance":distance]
+        var urlComponents = URLComponents(string: value)
 
-        Alamofire.request(baseURL, parameters: params).responseArray(keyPath: "data") { (response: DataResponse<[TempBranchRaw]>) in
+        urlComponents?.queryItems = [
+            URLQueryItem(name: "latitude", value: String(geoPoint.latitude)),
+            URLQueryItem(name: "longitude", value: String(geoPoint.longitude)),
+            URLQueryItem(name: "distance", value: String(distance))
+        ]
+        guard let url = urlComponents?.url else { return }
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            var branches = [BranchRawData]()
+            if let response = response as? HTTPURLResponse, 200...299 ~= response.statusCode, let data = data {
+                do {
+                    branches = try JSONDecoder().decode([BranchRawData].self, from: data, keyPath: "data")
+                    handler(branches)
+                } catch {
 
-            if let statusCode = response.response?.statusCode, 200...299 ~= statusCode {
-                if response.result.isSuccess {
-                    // fetch branch
                 }
             } else {
-                // error
+
             }
-        }
+        }.resume()
     }
 
 }
-
-
-
-
-// keyPath: "data"
-class TempBranchRaw: Mappable {
-
-    var id: Int?
-    var martType: String?
-    var branchName: String?
-    var region: String?
-    var phoneNumber: String?
-    var address: String?
-    var openingHours: String?
-    var url: String?
-    var holidays: [String]?
-    var latitude: Double?
-    var longitude: Double?
-
-    required init?(map: Map) {
-
-    }
-
-    func mapping(map: Map) {
-        id <- map["id"]
-        martType <- map["martType"]
-        branchName <- map["branchName"]
-        region <- map["region"]
-        phoneNumber <- map["phoneNumber"]
-        address <- map["address"]
-        openingHours <- map["openingHours"]
-        url <- map["url"]
-        holidays <- map["holidays"]
-        // nested keyPath: "location"
-        latitude <- map["location.latitude"]
-        longitude <- map["location.longitude"]
-    }
-
-}
-

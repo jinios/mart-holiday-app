@@ -8,17 +8,27 @@
 
 import UIKit
 
-class LocationSearchViewController: UIViewController, NMapPOIdataOverlayDelegate, NMapViewDelegate, NMapLocationManagerDelegate {
+class LocationSearchViewController: IndicatorViewController, NMapPOIdataOverlayDelegate, NMapViewDelegate, NMapLocationManagerDelegate {
 
     var mapView: NMapView?
-    var userLocation: NGeoPoint?
-    var locationTrackingStateButton: UIButton?
-    var locationManager: NMapLocationManager?
-    var POIdata: POIData? {
+    var userLocation: NGeoPoint? {
         didSet {
-            self.showMarkers()
+            guard let userLocation = self.userLocation else { return }
+            self.fetchNearMarts(from: userLocation)
         }
     }
+    var locationTrackingStateButton: UIButton?
+    var locationManager: NMapLocationManager?
+    var poiData: POIData?
+    var flag: Bool = true
+    var variableCenter: NGeoPoint?
+    var searchDistance: Int?
+
+    /*
+     // report the current center position of the map view
+     - (void) notifyMapCenterPosition;
+     - (BOOL) hasTouchEvents;
+     */
 
     enum state {
         case disabled
@@ -36,8 +46,7 @@ class LocationSearchViewController: UIViewController, NMapPOIdataOverlayDelegate
         self.locationManager = locationManager
 
         mapView = NMapView(frame: CGRect(x: 0, y: 45, width: self.view.frame.width, height: self.view.frame.height-45))
-
-        mapView?.delegate
+        mapView?.needsNotifyMapCenterPosition = true
 
         if let mapView = mapView {
 
@@ -45,23 +54,21 @@ class LocationSearchViewController: UIViewController, NMapPOIdataOverlayDelegate
             mapView.delegate = self
 
             // set the application api key for Open MapViewer Library
-            guard let keyInfo = MapSetter.loadNMapKeySet() else { return }
+            guard let keyInfo = KeyInfoLoader.loadNMapKeySet() else { return }
             guard let id = keyInfo.id as? String else { return }
             mapView.setClientId(id)
 
             mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 
-            currentState = .tracking
+//            currentState = .tracking
             locationTrackingStateButton = setLocationTrackingButton()
             enableLocationUpdate()
 
             view.addSubview(mapView)
             if let button = locationTrackingStateButton {
                 self.view.addSubview(button)
-
             }
         }
-
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -82,6 +89,15 @@ class LocationSearchViewController: UIViewController, NMapPOIdataOverlayDelegate
         disableLocationUpdate()
     }
 
+    @IBAction func distanceSegmentedControlChanged(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+            case 0: self.searchDistance = 2
+            case 1: self.searchDistance = 5
+            case 2: self.searchDistance = 7
+            default: break
+        }
+    }
+
     // MARK: - NMapViewDelegate Methods
 
     open func onMapView(_ mapView: NMapView!, initHandler error: NMapError!) {
@@ -94,38 +110,23 @@ class LocationSearchViewController: UIViewController, NMapPOIdataOverlayDelegate
         }
     }
 
-    func fetchNearMarts() {
-//        DistanceSearch.fetch(geoPoint: userLocation!, distance: 3, handler: { self.setPOIdata(with:) })
-        DistanceSearch.fetch(geoPoint: userLocation!, distance: 3)
-                            { raw in self.setPOIdata(raw) }
+    func onMapView(_ mapView: NMapView!, didChangeMapCenter location: NGeoPoint) {
+        mapView.setMapCenter(location)
     }
 
-    func setPOIdata(_ rawData: [TempBranchRaw]) {
-        self.POIdata = POIData(for: rawData)
-    }
 
-    func showMarkers() {
-        if let mapOverlayManager = mapView?.mapOverlayManager {
-
-            // create POI data overlay
-            if let poiDataOverlay = mapOverlayManager.newPOIdataOverlay() {
-
-                poiDataOverlay.initPOIdata(3)
-
-                poiDataOverlay.addPOIitem(atLocation: NGeoPoint(longitude: 126.979, latitude: 37.567), title: "마커 1", type: UserPOIflagTypeDefault, iconIndex: 0, with: nil)
-
-                poiDataOverlay.addPOIitem(atLocation: NGeoPoint(longitude: 126.974, latitude: 37.566), title: "마커 2", type: UserPOIflagTypeDefault, iconIndex: 1, with: nil)
-
-                poiDataOverlay.addPOIitem(atLocation: NGeoPoint(longitude: 126.984, latitude: 37.565), title: "마커 3", type: UserPOIflagTypeInvisible, iconIndex: 2, with: nil)
-
-                poiDataOverlay.endPOIdata()
-
-                // show all POI data
-                poiDataOverlay.showAllPOIdata()
-
-                poiDataOverlay.selectPOIitem(at: 2, moveToCenter: false, focusedBySelectItem: true)
-            }
+    func fetchNearMarts(from geoPoint: NGeoPoint) {
+        let distance = self.searchDistance ?? 2
+        DistanceSearch.fetch(geoPoint: geoPoint,
+                             distance: distance) { (branchRawData) in
+                                self.setPOIdata(branchRawData)
         }
+    }
+
+
+    func setPOIdata(_ rawData: [BranchRawData]) {
+        self.poiData = POIData(list: BranchList(branches: rawData)) // BranchList
+        self.mapView?.showMarkers(at: self.poiData)
     }
 
     private func setNavigationBar() {
@@ -155,19 +156,21 @@ class LocationSearchViewController: UIViewController, NMapPOIdataOverlayDelegate
     }
 
     @objc func locationTrackingButtonTapped(_ sender: UIButton!) {
+        self.toggleTrackingMode()
+    }
 
+    private func toggleTrackingMode() {
         switch currentState {
         case .disabled:
             enableLocationUpdate()
-            updateState(.tracking)
+            updateTrackingState(.tracking)
         case .tracking:
             disableLocationUpdate()
-            updateState(.disabled)
+            updateTrackingState(.disabled)
         }
     }
 
-    func updateState(_ newState: state) {
-
+    private func updateTrackingState(_ newState: state) {
         currentState = newState
 
         switch currentState {
@@ -183,12 +186,15 @@ class LocationSearchViewController: UIViewController, NMapPOIdataOverlayDelegate
     func locationManager(_ locationManager: NMapLocationManager!, didUpdateTo location: CLLocation!) {
         let coordinate = location.coordinate
 
-        let myLocation = NGeoPoint(longitude: coordinate.longitude, latitude: coordinate.latitude)
+        let userLocation = NGeoPoint(longitude: coordinate.longitude, latitude: coordinate.latitude)
         let locationAccuracy = Float(location.horizontalAccuracy)
-        self.userLocation = myLocation
 
-        mapView?.mapOverlayManager.setMyLocation(myLocation, locationAccuracy: locationAccuracy)
-        mapView?.setMapCenter(myLocation)
+        mapView?.mapOverlayManager.setMyLocation(userLocation, locationAccuracy: locationAccuracy)
+        mapView?.setMapCenter(userLocation)
+//        self.fetchNearMarts(from: userLocation)
+//        self.flag = false
+//        self.toggleTrackingMode()
+        self.userLocation = userLocation
     }
 
 
@@ -282,56 +288,3 @@ class LocationSearchViewController: UIViewController, NMapPOIdataOverlayDelegate
 
 }
 
-
-// To mark as a poi flag on a map
-class POIData {
-
-    var values: [POIDatum]
-
-    init(_ values: [TempBranchRaw]) {
-        self.values = values.map { POIDatum(rawData: $0) }
-    }
-
-    init(for values: [TempBranchRaw]) {
-        var data = [POIDatum]()
-        for i in 0..<values.count {
-            data.append(POIDatum(rawData: values[i], index: i))
-        }
-        self.values = data
-    }
-
-
-
-}
-
-class POIDatum {
-//    poiDataOverlay.addPOIitem(atLocation: NGeoPoint(longitude: 126.984, latitude: 37.565), title: "마커 3", type: UserPOIflagTypeDefault, iconIndex: 2, with: nil)
-
-    var title: String
-    var longitude: Double
-    var latitude: Double
-    var id: Int
-    var POIindex: Int?
-
-    init(title: String, longitude: Double, latitude: Double, id: Int) {
-        self.title = title
-        self.longitude = longitude
-        self.latitude = latitude
-        self.id = id
-    }
-
-    init(rawData: TempBranchRaw) {
-        self.title = "\(rawData.martType ?? "") \(rawData.branchName ?? "")"
-        self.longitude = rawData.longitude ?? 0
-        self.latitude = rawData.latitude ?? 0
-        self.id = rawData.id ?? 0
-    }
-
-    init(rawData: TempBranchRaw, index: Int) {
-        self.title = "\(rawData.martType ?? "") \(rawData.branchName ?? "")"
-        self.longitude = rawData.longitude ?? 0
-        self.latitude = rawData.latitude ?? 0
-        self.id = rawData.id ?? 0
-        self.POIindex = index
-    }
-}
