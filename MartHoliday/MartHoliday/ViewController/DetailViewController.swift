@@ -13,7 +13,7 @@ import NMapsMap
 class DetailViewController: RechabilityDetectViewController, SFSafariViewControllerDelegate {
 
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
-    @IBOutlet weak var mapView: NMFMapView!
+    @IBOutlet weak var mapView: UIView!
     @IBOutlet weak var businessHour: UILabel!
     @IBOutlet weak var phoneNumberLabel: UILabel!
     @IBOutlet weak var address: UILabel!
@@ -22,6 +22,7 @@ class DetailViewController: RechabilityDetectViewController, SFSafariViewControl
     @IBOutlet weak var scrollView: UIScrollView!
     var starButton: StarButton!
     private var viewTag = 100
+    var martMapView: MartMapView?
 
     var branchData: Branch? {
         didSet {
@@ -115,14 +116,21 @@ class DetailViewController: RechabilityDetectViewController, SFSafariViewControl
     }
 
     private func setMapView() {
-        let centerPoint = NMFCameraPosition(NMGLatLng(lat: branchData?.latitude ?? 0, lng: branchData?.longitude ?? 0), zoom: DEFAULT_MAP_ZOOM)
+        let centerPoint = GeoPoint(lat: branchData?.latitude ?? 0, lng: branchData?.longitude ?? 0)
 
-        DispatchQueue.main.async {
-            self.mapView.moveCamera(NMFCameraUpdate(position: centerPoint))
-            let marker = NMFMarker(position: self.mapView.cameraPosition.target)
-            marker.iconImage = NMF_MARKER_IMAGE_LIGHTBLUE
-            marker.mapView = self.mapView
-        }
+        self.martMapView = MartMapView(frame: self.mapView.bounds, center: centerPoint)
+        guard let martMapView = self.martMapView else { return }
+
+        martMapView.translatesAutoresizingMaskIntoConstraints = false
+        self.mapView.addSubview(martMapView)
+
+        martMapView.leadingAnchor.constraint(equalTo: self.mapView.leadingAnchor).isActive = true
+        martMapView.topAnchor.constraint(equalTo: self.mapView.topAnchor).isActive = true
+        martMapView.trailingAnchor.constraint(equalTo: self.mapView.trailingAnchor).isActive = true
+        martMapView.bottomAnchor.constraint(equalTo: self.mapView.bottomAnchor).isActive = true
+
+        martMapView.addDefaultMarker()
+        martMapView.setUserGestureEnable(false)
 
         let ges = UITapGestureRecognizer(target: self, action: #selector(tapMapView))
         mapView.addGestureRecognizer(ges)
@@ -180,7 +188,7 @@ class DetailViewController: RechabilityDetectViewController, SFSafariViewControl
 
     @objc func tapMapView() {
         let nextVC = MapViewController()
-        nextVC.centerPoint = (lat: branchData?.latitude ?? 0, lng: branchData?.longitude ?? 0)
+        nextVC.centerPoint = GeoPoint(lat: branchData?.latitude ?? 0, lng: branchData?.longitude ?? 0)
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
 
