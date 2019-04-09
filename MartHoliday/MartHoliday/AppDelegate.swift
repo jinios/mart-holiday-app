@@ -129,31 +129,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
 
     private func executeAppUpdate(_ result: ConfigResult) {
-        var alert = UIAlertController()
 
         switch result {
         case .forcedUpdate:
             let forcedUpdateAction = UIAlertAction(title: "업데이트", style: .default) { (action) in
                 self.openAppStore()
             }
+            var alert = UIAlertController()
             alert = UIAlertController.make(message: .ForcedUpdate)
             alert.addAction(forcedUpdateAction)
-
+            self.window?.rootViewController?.present(alert, animated: true, completion: nil)
         case .optionalUpdate:
             let allowUpdateAction = UIAlertAction(title: "네", style: .default) { (action) in
                 self.openAppStore()
             }
             let denyUpdateAction = UIAlertAction(title: "아니요", style: .default) { (action) in
                 // execute app & change root viewcontroller
+                self.window?.rootViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateInitialViewController()
+                return
             }
+            var alert = UIAlertController()
             alert = UIAlertController.make(message: .OptionalUpdate)
             alert.addAction(allowUpdateAction)
             alert.addAction(denyUpdateAction)
+            self.window?.rootViewController?.present(alert, animated: true, completion: nil)
         default:
             // execute app & change root viewcontroller
+            self.window?.rootViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateInitialViewController()
             return
         }
-        self.window?.rootViewController?.present(alert, animated: true, completion: nil)
     }
 
     private func openAppStore() {
