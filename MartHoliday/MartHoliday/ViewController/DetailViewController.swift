@@ -130,10 +130,6 @@ class DetailViewController: RechabilityDetectViewController, SFSafariViewControl
         martMapView.bottomAnchor.constraint(equalTo: self.mapView.bottomAnchor).isActive = true
 
         martMapView.addDefaultMarker()
-        martMapView.setUserGestureEnable(false)
-
-        let ges = UITapGestureRecognizer(target: self, action: #selector(tapMapView))
-        mapView.addGestureRecognizer(ges)
     }
 
     private func setPhoneNumber() {
@@ -185,13 +181,6 @@ class DetailViewController: RechabilityDetectViewController, SFSafariViewControl
     @objc func starBarButtonTapped() {
         toggleState()
     }
-
-    @objc func tapMapView() {
-        let nextVC = MapViewController()
-        nextVC.centerPoint = GeoPoint(lat: branchData?.latitude ?? 0, lng: branchData?.longitude ?? 0)
-        self.navigationController?.pushViewController(nextVC, animated: true)
-    }
-
 }
 
 extension DetailViewController: FavoriteTogglable {
