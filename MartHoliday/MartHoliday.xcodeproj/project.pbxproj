@@ -37,6 +37,7 @@
 		FD4DDC8E21411236004E981F /* DataSetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4DDC8D21411236004E981F /* DataSetter.swift */; };
 		FD4DDC9021412294004E981F /* SelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4DDC8F21412294004E981F /* SelectionTableViewCell.swift */; };
 		FD52566F21353C9C0014070E /* KeyInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD52566E21353C9C0014070E /* KeyInfo.plist */; };
+		FD5359FE225F8BDB00AB48BE /* MartMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5359FD225F8BDB00AB48BE /* MartMapView.swift */; };
 		FD59D2D52164C597009B7FDF /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBF9A4721240911001C2DAA /* DataStorage.swift */; };
 		FD5E63F92153C8F400DC082A /* HolidayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5E63F82153C8F400DC082A /* HolidayTableViewCell.swift */; };
 		FD606AA32173AE7F00AB477F /* FavoriteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBF9A49212414A9001C2DAA /* FavoriteList.swift */; };
@@ -183,6 +184,7 @@
 		FD4DDC8D21411236004E981F /* DataSetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSetter.swift; sourceTree = "<group>"; };
 		FD4DDC8F21412294004E981F /* SelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionTableViewCell.swift; sourceTree = "<group>"; };
 		FD52566E21353C9C0014070E /* KeyInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = KeyInfo.plist; sourceTree = "<group>"; };
+		FD5359FD225F8BDB00AB48BE /* MartMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MartMapView.swift; sourceTree = "<group>"; };
 		FD5E63F82153C8F400DC082A /* HolidayTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayTableViewCell.swift; sourceTree = "<group>"; };
 		FD66C2802158F6F800B4F823 /* MainHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainHeaderView.xib; sourceTree = "<group>"; };
 		FD66C2822158FD7700B4F823 /* MainTableViewFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewFooter.swift; sourceTree = "<group>"; };
@@ -318,6 +320,7 @@
 				FDF8ABC5215B76FC00DA74C9 /* MainTableViewCell.swift */,
 				FDC19BA9215D2D54007D9A95 /* NoDataView.swift */,
 				FDEEE8E72163B5BD00E63733 /* NoMapView.swift */,
+				FD5359FD225F8BDB00AB48BE /* MartMapView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -785,6 +788,7 @@
 				FD4850F4212869AF0064747A /* SlideMenuCell.swift in Sources */,
 				FD7FC0DA216E23CA0022094F /* KeyInfoLoader.swift in Sources */,
 				FDCB9E8B212566F1006281CB /* MainViewController.swift in Sources */,
+				FD5359FE225F8BDB00AB48BE /* MartMapView.swift in Sources */,
 				FD9F409C211EBFAF007D7F1B /* BranchRawData.swift in Sources */,
 				FDC5A7422167CD50009F0B0C /* TodayExtensionTableViewCell.swift in Sources */,
 				FDF8ABC6215B76FC00DA74C9 /* MainTableViewCell.swift in Sources */,
