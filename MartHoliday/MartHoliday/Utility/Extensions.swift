@@ -177,6 +177,12 @@ extension NMapView {
 
 }
 
+extension NMGLatLng {
+    convenience init(geoPoint: GeoPoint) {
+        self.init(lat: geoPoint.latitude, lng: geoPoint.longitude)
+    }
+}
+
 extension Collection where Index == Int {
 
     func randomElement() -> Iterator.Element? {

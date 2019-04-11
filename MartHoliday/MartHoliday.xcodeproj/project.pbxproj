@@ -38,6 +38,7 @@
 		FD4DDC9021412294004E981F /* SelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4DDC8F21412294004E981F /* SelectionTableViewCell.swift */; };
 		FD52566F21353C9C0014070E /* KeyInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD52566E21353C9C0014070E /* KeyInfo.plist */; };
 		FD5359FE225F8BDB00AB48BE /* MartMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5359FD225F8BDB00AB48BE /* MartMapView.swift */; };
+		FD535A00225F8FB000AB48BE /* GeoPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5359FF225F8FB000AB48BE /* GeoPoint.swift */; };
 		FD59D2D52164C597009B7FDF /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBF9A4721240911001C2DAA /* DataStorage.swift */; };
 		FD5E63F92153C8F400DC082A /* HolidayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5E63F82153C8F400DC082A /* HolidayTableViewCell.swift */; };
 		FD606AA32173AE7F00AB477F /* FavoriteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBF9A49212414A9001C2DAA /* FavoriteList.swift */; };
@@ -185,6 +186,7 @@
 		FD4DDC8F21412294004E981F /* SelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionTableViewCell.swift; sourceTree = "<group>"; };
 		FD52566E21353C9C0014070E /* KeyInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = KeyInfo.plist; sourceTree = "<group>"; };
 		FD5359FD225F8BDB00AB48BE /* MartMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MartMapView.swift; sourceTree = "<group>"; };
+		FD5359FF225F8FB000AB48BE /* GeoPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoPoint.swift; sourceTree = "<group>"; };
 		FD5E63F82153C8F400DC082A /* HolidayTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayTableViewCell.swift; sourceTree = "<group>"; };
 		FD66C2802158F6F800B4F823 /* MainHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainHeaderView.xib; sourceTree = "<group>"; };
 		FD66C2822158FD7700B4F823 /* MainTableViewFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewFooter.swift; sourceTree = "<group>"; };
@@ -376,6 +378,7 @@
 			isa = PBXGroup;
 			children = (
 				FD9B94B9224B2EA800303C37 /* RemoteConfigManager.swift */,
+				FD5359FF225F8FB000AB48BE /* GeoPoint.swift */,
 				FDA27AF2222E624800610B09 /* POIData.swift */,
 				FD9F409F211EC5EA007D7F1B /* Mart.swift */,
 				FD780D76212F185600B569B3 /* SlideMenuManager.swift */,
@@ -781,6 +784,7 @@
 				FD66C2832158FD7700B4F823 /* MainTableViewFooter.swift in Sources */,
 				FD4850F2212843FB0064747A /* SlideMenuView.swift in Sources */,
 				FD86712321458FCB00273B3C /* StarButton.swift in Sources */,
+				FD535A00225F8FB000AB48BE /* GeoPoint.swift in Sources */,
 				FD3B642F2122A4FF003C1332 /* NMapViewResources.swift in Sources */,
 				FDEEE8E82163B5BD00E63733 /* NoMapView.swift in Sources */,
 				FD780D77212F185600B569B3 /* SlideMenuManager.swift in Sources */,
