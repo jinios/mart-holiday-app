@@ -23,3 +23,9 @@ class GeoPoint {
     }
 
 }
+
+extension NMGLatLng {
+    convenience init(geoPoint: GeoPoint) {
+        self.init(lat: geoPoint.latitude, lng: geoPoint.longitude)
+    }
+}

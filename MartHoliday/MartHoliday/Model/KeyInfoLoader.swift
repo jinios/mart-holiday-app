@@ -19,15 +19,15 @@ class KeyInfoLoader {
         return value
     }
 
-    class func loadNMapKeySet() -> (id: Any, secretKey: Any)? {
-        if let path = Bundle.main.path(forResource: "KeyInfo", ofType: "plist"){
-            guard let myDict = NSDictionary(contentsOfFile: path) else { return nil }
-            let appID = myDict["NMapClientID"]!
-            let secretKey = myDict["NMapSecretKey"]!
-            return (id: appID, secretKey: secretKey)
-        }
-        return nil
-    }
+//    class func loadNMapKeySet() -> (id: Any, secretKey: Any)? {
+//        if let path = Bundle.main.path(forResource: "KeyInfo", ofType: "plist"){
+//            guard let myDict = NSDictionary(contentsOfFile: path) else { return nil }
+//            let appID = myDict["NMapClientID"]!
+//            let secretKey = myDict["NMapSecretKey"]!
+//            return (id: appID, secretKey: secretKey)
+//        }
+//        return nil
+//    }
 
 }
 
@@ -39,8 +39,8 @@ enum KeyInfo: String {
     case LottemartList
     case HomeplusList
     case HomeplusExpressList
-    case NMapSecretKey
-    case NMapClientID
+//    case NMapSecretKey
+//    case NMapClientID
     case AcknowledgementsURL
     case BaseURL
     case NMFMapViewKey
