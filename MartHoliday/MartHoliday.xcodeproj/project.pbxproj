@@ -29,7 +29,6 @@
 		FD2E513B2171E059006E15A6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FDB26C5D2170711400313A02 /* InfoPlist.strings */; };
 		FD3B64242121BEAA003C1332 /* ApiGatewayMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3B64232121BEAA003C1332 /* ApiGatewayMac.framework */; };
 		FD3B64252121BEAA003C1332 /* ApiGatewayMac.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD3B64232121BEAA003C1332 /* ApiGatewayMac.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FD3B642F2122A4FF003C1332 /* NMapViewResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3B642E2122A4FF003C1332 /* NMapViewResources.swift */; };
 		FD4850F2212843FB0064747A /* SlideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4850F1212843FB0064747A /* SlideMenuView.swift */; };
 		FD4850F4212869AF0064747A /* SlideMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4850F3212869AF0064747A /* SlideMenuCell.swift */; };
 		FD4850F621287AFE0064747A /* SlideMenuCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD4850F521287AFE0064747A /* SlideMenuCellView.xib */; };
@@ -177,7 +176,6 @@
 		FD3B64232121BEAA003C1332 /* ApiGatewayMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ApiGatewayMac.framework; sourceTree = "<group>"; };
 		FD3B64282121BEDD003C1332 /* NMapViewerSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NMapViewerSDK.framework; path = "../../../../../Desktop/maps.ios-master/Frameworks/NMapViewerSDK.framework"; sourceTree = "<group>"; };
 		FD3B642B2121C3FB003C1332 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
-		FD3B642E2122A4FF003C1332 /* NMapViewResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NMapViewResources.swift; sourceTree = "<group>"; };
 		FD4850F1212843FB0064747A /* SlideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideMenuView.swift; sourceTree = "<group>"; };
 		FD4850F3212869AF0064747A /* SlideMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideMenuCell.swift; sourceTree = "<group>"; };
 		FD4850F521287AFE0064747A /* SlideMenuCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SlideMenuCellView.xib; path = MartHoliday/SlideMenuCellView.xib; sourceTree = SOURCE_ROOT; };
@@ -394,7 +392,6 @@
 				FD7087DE216B427700A2A16F /* FavoriteData.swift */,
 				FDB3AD66216F94FD002209A2 /* StorageAPI.swift */,
 				FDB3AD68216FBA7F002209A2 /* NetworkManager.swift */,
-				FD3B642E2122A4FF003C1332 /* NMapViewResources.swift */,
 				FD0371D72208121800B2055F /* DistanceSearch.swift */,
 				FD93878D225A39420082CC71 /* APIResponse.swift */,
 			);
@@ -785,7 +782,6 @@
 				FD4850F2212843FB0064747A /* SlideMenuView.swift in Sources */,
 				FD86712321458FCB00273B3C /* StarButton.swift in Sources */,
 				FD535A00225F8FB000AB48BE /* GeoPoint.swift in Sources */,
-				FD3B642F2122A4FF003C1332 /* NMapViewResources.swift in Sources */,
 				FDEEE8E82163B5BD00E63733 /* NoMapView.swift in Sources */,
 				FD780D77212F185600B569B3 /* SlideMenuManager.swift in Sources */,
 				FDC5A74A2167DA4D009F0B0C /* FavoriteAPI.swift in Sources */,
