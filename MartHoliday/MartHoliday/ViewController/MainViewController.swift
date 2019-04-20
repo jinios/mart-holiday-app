@@ -139,7 +139,7 @@ class MainViewController: RechabilityDetectViewController, FavoriteConvertible, 
 
     private func presentErrorAlert() {
         DispatchQueue.main.async {
-            self.networkTimeOutAlert()
+            self.presentErrorAlert(type: .NetworkTimeout)
         }
     }
 
