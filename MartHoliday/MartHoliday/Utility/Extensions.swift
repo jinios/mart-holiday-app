@@ -120,62 +120,62 @@ extension UILabel {
     }
 }
 
-extension NMapView {
-
-    func setMapGesture(enable: Bool) {
-        self.setPanEnabled(enable)
-        self.setZoomEnabled(enable)
-        self.isMultipleTouchEnabled = enable
-    }
-
-
-    func showMarker(at point: NGeoPoint) {
-
-        if let mapOverlayManager = self.mapOverlayManager {
-
-            if let poiDataOverlay = mapOverlayManager.newPOIdataOverlay() {
-
-                poiDataOverlay.initPOIdata(1)
-
-                poiDataOverlay.addPOIitem(atLocation: NGeoPoint(longitude: point.longitude, latitude: point.latitude), title: "", type: UserPOIflagTypeDefault, iconIndex: 0, with: nil)
-
-                poiDataOverlay.endPOIdata()
-                poiDataOverlay.showAllPOIdata()
-            }
-        }
-    }
-
-    func showMarkers(at poiData: POIData?) {
-
-        if let mapOverlayManager = self.mapOverlayManager {
-            guard let poiData = poiData else { return }
-
-            // create POI data overlay
-            if let poiDataOverlay = mapOverlayManager.newPOIdataOverlay() {
-
-                poiDataOverlay.initPOIdata(Int32(poiData.count))
-
-                for i in 0..<poiData.count {
-                    let poiDatum = poiData[i]
-                    poiDataOverlay.addPOIitem(
-                        atLocation: poiDatum.nGeoPoint,
-                        title: poiDatum.branch.displayName(),
-                        type: UserPOIflagTypeDefault,
-                        iconIndex: Int32(i),
-                        with: nil)
-                }
-
-                poiDataOverlay.endPOIdata()
-
-                // show all POI data
-                poiDataOverlay.showAllPOIdata()
-
-                poiDataOverlay.selectPOIitem(at: 0, moveToCenter: false, focusedBySelectItem: true)
-            }
-        }
-    }
-
-}
+//extension NMapView {
+//
+//    func setMapGesture(enable: Bool) {
+//        self.setPanEnabled(enable)
+//        self.setZoomEnabled(enable)
+//        self.isMultipleTouchEnabled = enable
+//    }
+//
+//
+//    func showMarker(at point: NGeoPoint) {
+//
+//        if let mapOverlayManager = self.mapOverlayManager {
+//
+//            if let poiDataOverlay = mapOverlayManager.newPOIdataOverlay() {
+//
+//                poiDataOverlay.initPOIdata(1)
+//
+//                poiDataOverlay.addPOIitem(atLocation: NGeoPoint(longitude: point.longitude, latitude: point.latitude), title: "", type: UserPOIflagTypeDefault, iconIndex: 0, with: nil)
+//
+//                poiDataOverlay.endPOIdata()
+//                poiDataOverlay.showAllPOIdata()
+//            }
+//        }
+//    }
+//
+//    func showMarkers(at poiData: POIData?) {
+//
+//        if let mapOverlayManager = self.mapOverlayManager {
+//            guard let poiData = poiData else { return }
+//
+//            // create POI data overlay
+//            if let poiDataOverlay = mapOverlayManager.newPOIdataOverlay() {
+//
+//                poiDataOverlay.initPOIdata(Int32(poiData.count))
+//
+//                for i in 0..<poiData.count {
+//                    let poiDatum = poiData[i]
+//                    poiDataOverlay.addPOIitem(
+//                        atLocation: poiDatum.nGeoPoint,
+//                        title: poiDatum.branch.displayName(),
+//                        type: UserPOIflagTypeDefault,
+//                        iconIndex: Int32(i),
+//                        with: nil)
+//                }
+//
+//                poiDataOverlay.endPOIdata()
+//
+//                // show all POI data
+//                poiDataOverlay.showAllPOIdata()
+//
+//                poiDataOverlay.selectPOIitem(at: 0, moveToCenter: false, focusedBySelectItem: true)
+//            }
+//        }
+//    }
+//
+//}
 
 extension Collection where Index == Int {
 
