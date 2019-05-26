@@ -125,6 +125,14 @@ extension NMGLatLng {
     convenience init(geoPoint: GeoPoint) {
         self.init(lat: geoPoint.latitude, lng: geoPoint.longitude)
     }
+
+    func compareDifference(compare: NMGLatLng ,value: Double) -> Bool {
+        if self.lat - compare.lat > 0.0005 || self.lng - compare.lng > 0.0005 {
+            return true
+        } else {
+            return false
+        }
+    }
 }
 
 class GeoPoint {
