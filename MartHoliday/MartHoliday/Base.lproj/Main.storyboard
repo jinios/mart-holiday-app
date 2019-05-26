@@ -487,7 +487,7 @@ Cgo
                                         <rect key="frame" x="30" y="8.5" width="315" height="29"/>
                                         <color key="backgroundColor" name="mh-mint"/>
                                         <segments>
-                                            <segment title="3km"/>
+                                            <segment title="2km"/>
                                             <segment title="5km"/>
                                             <segment title="7km"/>
                                         </segments>

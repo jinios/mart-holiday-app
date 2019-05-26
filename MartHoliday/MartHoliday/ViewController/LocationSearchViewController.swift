@@ -7,8 +7,160 @@
 //
 
 import UIKit
+import NMapsMap
 
-class LocationSearchViewController: UIViewController {
+enum State {
+    case disabled
+    case tracking
+}
+
+enum SearchDistance: Int {
+    case near = 2
+    case middle = 5
+    case far = 7
+}
+
+
+class LocationSearchViewController: IndicatorViewController, NMFMapViewDelegate {
+
+    @IBOutlet weak var naverMapView: NMFNaverMapView!
+
+    var userLocation: NMGLatLng? {
+        didSet {
+            guard let userLocation = self.userLocation else { return }
+            if self.previousUserLocation?.compareDifference(compare: self.locationOverlay!.location, value: 0.0005) ?? true {
+                self.fetchNearMarts(from: userLocation)
+            }
+        }
+    }
+
+    var previousUserLocation: NMGLatLng?
+
+    var searchDistance: SearchDistance?
+
+    var locationOverlay: NMFLocationOverlay?
+    var isFetchEnable = true
+
+
+    var currentState: State = .disabled
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.userLocation = self.locationOverlay?.location
+        naverMapView.delegate = self
+
+        naverMapView.addObserver(self, forKeyPath: "positionMode", options: [.new], context: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(showErrorAlert), name: .apiErrorAlertPopup, object: nil)
+    }
+
+    @objc private func showErrorAlert() {
+        DispatchQueue.main.async {
+            self.presentErrorAlert(type: .DisableNearbyMarts)
+        }
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.setNavigationBar()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        naverMapView.positionMode = .direction
+        startIndicator()
+
+        let mainQueue = DispatchQueue.main
+        let deadline = DispatchTime.now() + .seconds(2)
+        mainQueue.asyncAfter(deadline: deadline) {
+
+            let lng = self.locationOverlay?.location.lng ?? 0
+            let lat = self.locationOverlay?.location.lat ?? 0
+
+            self.userLocation = NMGLatLng(lat: lat, lng: lng)
+            self.previousUserLocation = self.userLocation // 맨 처음엔 같게 지정
+
+            self.finishIndicator()
+        }
+
+    }
+
+    private func setNavigationBar() {
+        navigationController?.navigationBar.barTintColor = UIColor.appColor(color: .mint)
+        navigationController?.navigationBar.isTranslucent = false
+        // To remove 1px line of under the navigationBar
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationItem.title = "내 주변 마트 검색"
+    }
+
 
 }
 
+
+extension LocationSearchViewController {
+
+    // 포지션 모드가 변경될때만 호출
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        self.locationOverlay = naverMapView.mapView.locationOverlay
+
+        if keyPath == "positionMode" {
+            self.userLocation = self.locationOverlay!.location
+        }
+    }
+
+    @IBAction func distanceSegmentedControlChanged(_ sender: UISegmentedControl) {
+        guard let userLocation = self.userLocation else { return }
+        switch sender.selectedSegmentIndex {
+            case 0: self.searchDistance = .near
+            case 1: self.searchDistance = .middle
+            case 2: self.searchDistance = .far
+            default: break
+        }
+        self.fetchNearMarts(from: userLocation)
+        self.naverMapView.positionMode = .normal
+    }
+
+
+    func fetchNearMarts(from geoPoint: NMGLatLng) {
+        let distance = self.searchDistance ?? .near
+
+        DistanceSearch.fetch(geoPoint: geoPoint,
+                             distance: distance) { (branchRawData) in
+                                let branches = BranchList(branches: branchRawData)
+                                self.showMarkers(of: branches)
+        }
+    }
+
+    private func showMarkers(of branches: BranchList) {
+        branches.branches.forEach({ (mart) in
+            let marker = NMFMarker()
+            marker.iconImage = NMF_MARKER_IMAGE_PINK
+            marker.position = NMGLatLng(lat: mart.latitude, lng: mart.longitude)
+
+            marker.touchHandler = { (overlay) in
+                if let marker = overlay as? NMFMarker {
+                    print(marker.position.lat)
+                }
+                return false // didTapMapView
+            }
+            marker.mapView = self.naverMapView.mapView
+        })
+    }
+
+    // MARK: - MapView Delegate
+
+    func didTapMapView(_ point: CGPoint, latLng latlng: NMGLatLng) {
+        let mapCenter = NMFCameraPosition(NMGLatLng(lat: latlng.lat, lng: latlng.lng), zoom: DEFAULT_MAP_ZOOM)
+        DispatchQueue.main.async {
+            self.naverMapView.mapView.moveCamera(NMFCameraUpdate(position: mapCenter))
+        }
+    }
+
+}
+
+extension Double {
+    func truncate(places : Int)-> Double {
+        return Double(floor(pow(10.0, Double(places)) * self) / pow(10.0, Double(places)))
+    }
+}
