@@ -12,11 +12,6 @@ class SlideMenuManager: NSObject, UICollectionViewDataSource, UICollectionViewDe
 
     static let cellID = "cellID"
 
-//    let menuData = [MenuDatum(title: "메인으로", imageName: "home"),
-//                    MenuDatum(title: "마트검색", imageName: "search-2"),
-//                    MenuDatum(title: "문의하기", imageName: "mail"),
-//                    MenuDatum(title: "앱 정보", imageName: "appinfo")]
-
     let menuData = SlideMenu.allCases
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

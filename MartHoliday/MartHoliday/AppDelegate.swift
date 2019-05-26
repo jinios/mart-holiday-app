@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import UserNotifications
 import Reachability
+import NMapsMap
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, MessagingDelegate {
@@ -22,11 +23,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window?.backgroundColor = .white
+        window?.rootViewController = UIStoryboard.init(name: "LaunchScreen", bundle: nil).instantiateInitialViewController()
+        RemoteConfigManager.shared().launch(handler: self.executeAppUpdate)
+
         // listener starts
         networkManager = NetworkManager.shared
 
         setNavigationBar()
         FirebaseApp.configure()
+        setNMFMapViewKey()
 
         application.applicationIconBadgeNumber = 0
 
@@ -53,6 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         setFavoritesURLTodayExtension()
         return true
     }
+
 
     func application(_ application: UIApplication, didRegister notificationSettings: UIUserNotificationSettings) {
         if notificationSettings.types == .none {
@@ -117,5 +123,49 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         UIBarButtonItem.appearance().setTitleTextAttributes(fontAttributes, for: .normal)
     }
 
+    private func setNMFMapViewKey() {
+        guard let value = KeyInfoLoader.loadValue(of: .NMFMapViewKey) else { return }
+        NMFAuthManager.shared().clientId = value
+    }
+
+    private func executeAppUpdate(_ result: ConfigResult) {
+
+        switch result {
+        case .forcedUpdate:
+            let forcedUpdateAction = UIAlertAction(title: "업데이트", style: .default) { (action) in
+                self.openAppStore()
+            }
+            var alert = UIAlertController()
+            alert = UIAlertController.make(message: .ForcedUpdate)
+            alert.addAction(forcedUpdateAction)
+            self.window?.rootViewController?.present(alert, animated: true, completion: nil)
+        case .optionalUpdate:
+            let allowUpdateAction = UIAlertAction(title: "네", style: .default) { (action) in
+                self.openAppStore()
+            }
+            let denyUpdateAction = UIAlertAction(title: "아니요", style: .default) { (action) in
+                // execute app & change root viewcontroller
+                self.window?.rootViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateInitialViewController()
+                return
+            }
+            var alert = UIAlertController()
+            alert = UIAlertController.make(message: .OptionalUpdate)
+            alert.addAction(allowUpdateAction)
+            alert.addAction(denyUpdateAction)
+            self.window?.rootViewController?.present(alert, animated: true, completion: nil)
+        default:
+            // execute app & change root viewcontroller
+            self.window?.rootViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateInitialViewController()
+            return
+        }
+    }
+
+    private func openAppStore() {
+        guard let appStoreURLRawValue = KeyInfoLoader.loadValue(of: .AppStoreScheme) else { return }
+        if let appstoreScheme = URL(string: appStoreURLRawValue), UIApplication.shared.canOpenURL(appstoreScheme) {
+                UIApplication.shared.open(appstoreScheme, options: [:], completionHandler: nil)
+            }
+
+        }
 }
 

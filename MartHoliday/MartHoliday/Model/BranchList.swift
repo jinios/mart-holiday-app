@@ -36,7 +36,7 @@ class BranchList {
 
 class Branch: NSObject, Comparable {
 
-    override var hashValue: Int {
+    override var hash: Int {
         return self.id
     }
 
@@ -60,6 +60,8 @@ class Branch: NSObject, Comparable {
     var url: String
     var holidays: [String]
     var favorite: Bool
+    var latitude: Double
+    var longitude: Double
 
     init(branch: BranchRawData) {
         self.id = branch.id
@@ -71,6 +73,8 @@ class Branch: NSObject, Comparable {
         self.openingHours = branch.openingHours
         self.url = branch.url
         self.holidays = branch.holidays
+        self.latitude = branch.latitude ?? 0
+        self.longitude = branch.longitude ?? 0
         self.favorite = FavoriteList.shared().isFavorite(branchId: id)
     }
 
@@ -86,9 +90,10 @@ class Branch: NSObject, Comparable {
         return true
     }
 
-    func martName() -> String {
+    private func martName() -> String {
         switch self.martType {
         case "홈플러스 익스프레스": return "홈플러스EX"
+        case "이마트 트레이더스": return "이마트"
         default: return martType
         }
     }
@@ -96,6 +101,5 @@ class Branch: NSObject, Comparable {
     func displayName() -> String {
         return "\(martName()) \(self.branchName)"
     }
-
 }
 

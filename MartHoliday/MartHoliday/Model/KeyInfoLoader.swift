@@ -23,16 +23,15 @@ class KeyInfoLoader {
 
 enum KeyInfo: String {
     case FavoriteBranchesURL
-    case NMapGeoCodeURL
     case EmartList
     case TradersList
     case CostcoList
     case LottemartList
     case HomeplusList
     case HomeplusExpressList
-    case NMapSecretKey
-    case NMapClientID
     case AcknowledgementsURL
     case BaseURL
+    case NMFMapViewKey
+    case AppStoreScheme
 }
 

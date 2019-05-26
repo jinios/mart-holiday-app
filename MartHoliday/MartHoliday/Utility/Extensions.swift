@@ -38,20 +38,56 @@ enum AppColor: CustomStringConvertible {
 }
 
 extension UIAlertController {
-    class func noNetworkAlert() -> UIAlertController {
-        let alert = UIAlertController(title: ProgramDescription.networkErrorTitle.rawValue,
-                                      message: ProgramDescription.noNetworkErrorMsg.rawValue,
+
+    class func make(message: AlertMessage) -> UIAlertController {
+        let alert = UIAlertController(title: message.rawValue.title,
+                                      message: message.rawValue.body,
                                       preferredStyle: .alert)
         return alert
     }
 
-    class func networkTimeOutAlert() -> UIAlertController {
-        let alert = UIAlertController(title: ProgramDescription.sorryErrorTitle.rawValue,
-                                      message: ProgramDescription.networkTimeoutMsg.rawValue,
-                                      preferredStyle: .alert)
-        return alert
-    }
+    enum AlertMessage: RawRepresentable {
+        case DisableNearbyMarts
+        case NetworkError
+        case NetworkTimeout
+        case SuccessSendingMail
+        case FailureSendingMail
+        case ForcedUpdate
+        case OptionalUpdate
 
+        var rawValue: (title: String, body: String) {
+            switch self {
+            case .DisableNearbyMarts:
+                return (title:"위치 검색", body: "마트 위치검색에 문제가 발생했습니다.\n잠시 후 다시 시도해주세요.")
+            case .NetworkError:
+                return (title:"에러!💥", body: "네트워크를 찾을 수 없습니다.\n앱을 구동하기위해 인터넷 연결을 확인해주세요.")
+            case .NetworkTimeout:
+                return (title: "죄송합니다😰", body: "서버에 문제가 발생했습니다.\n잠시 후 다시 시도해주세요.")
+            case .SuccessSendingMail:
+                return (title: "감사합니다❤️", body:"소중한 의견 감사합니다 :)")
+            case .FailureSendingMail:
+                return (title: "메일 전송 실패😢", body:"아이폰 기본 '메일'앱에서 계정을 추가해주세요!")
+            case .ForcedUpdate:
+                return (title: "업데이트", body: "필수 업데이트가 있습니다.\n앱을 구동하기위해 업데이트해주세요.😍")
+            case .OptionalUpdate:
+                return (title: "업데이트", body: "새 버전이 출시됐습니다.\n업데이트 하러 갈래요?😆")
+            }
+
+        }
+
+        init?(rawValue: (title: String, body: String)) {
+            switch rawValue {
+            case (title:"위치 검색", body: "마트 위치검색에 문제가 발생했습니다.\n잠시 후 다시 시도해주세요."):
+                self = .DisableNearbyMarts
+            case (title:"에러!💥", body: "네트워크를 찾을 수 없습니다.\n앱을 구동하기위해 인터넷 연결을 확인해주세요."):
+                self = .NetworkError
+            case (title: "죄송합니다😰",body: "서버에 문제가 발생했습니다.\n잠시 후 다시 시도해주세요."):
+                self = .NetworkTimeout
+            default: return nil
+            }
+        }
+
+    }
 }
 
 extension UIColor {
@@ -84,39 +120,62 @@ extension UILabel {
     }
 }
 
-extension NMapView {
-
-    func setMapGesture(enable: Bool) {
-        self.setPanEnabled(enable)
-        self.setZoomEnabled(enable)
-        self.isMultipleTouchEnabled = enable
-    }
-
-    func setCenter(point: GeoPoint) {
-        let x = point.x
-        let y = point.y
-        self.setMapCenter(NGeoPoint(longitude:x, latitude:y), atLevel:12)
-    }
-
-    func showMarker(at point: GeoPoint) {
-        let x = point.x
-        let y = point.y
-
-        if let mapOverlayManager = self.mapOverlayManager {
-
-            if let poiDataOverlay = mapOverlayManager.newPOIdataOverlay() {
-
-                poiDataOverlay.initPOIdata(1)
-
-                poiDataOverlay.addPOIitem(atLocation: NGeoPoint(longitude: x, latitude: y), title: "", type: UserPOIflagTypeDefault, iconIndex: 0, with: nil)
-
-                poiDataOverlay.endPOIdata()
-                poiDataOverlay.showAllPOIdata()
-            }
-        }
-    }
-
-}
+//extension NMapView {
+//
+//    func setMapGesture(enable: Bool) {
+//        self.setPanEnabled(enable)
+//        self.setZoomEnabled(enable)
+//        self.isMultipleTouchEnabled = enable
+//    }
+//
+//
+//    func showMarker(at point: NGeoPoint) {
+//
+//        if let mapOverlayManager = self.mapOverlayManager {
+//
+//            if let poiDataOverlay = mapOverlayManager.newPOIdataOverlay() {
+//
+//                poiDataOverlay.initPOIdata(1)
+//
+//                poiDataOverlay.addPOIitem(atLocation: NGeoPoint(longitude: point.longitude, latitude: point.latitude), title: "", type: UserPOIflagTypeDefault, iconIndex: 0, with: nil)
+//
+//                poiDataOverlay.endPOIdata()
+//                poiDataOverlay.showAllPOIdata()
+//            }
+//        }
+//    }
+//
+//    func showMarkers(at poiData: POIData?) {
+//
+//        if let mapOverlayManager = self.mapOverlayManager {
+//            guard let poiData = poiData else { return }
+//
+//            // create POI data overlay
+//            if let poiDataOverlay = mapOverlayManager.newPOIdataOverlay() {
+//
+//                poiDataOverlay.initPOIdata(Int32(poiData.count))
+//
+//                for i in 0..<poiData.count {
+//                    let poiDatum = poiData[i]
+//                    poiDataOverlay.addPOIitem(
+//                        atLocation: poiDatum.nGeoPoint,
+//                        title: poiDatum.branch.displayName(),
+//                        type: UserPOIflagTypeDefault,
+//                        iconIndex: Int32(i),
+//                        with: nil)
+//                }
+//
+//                poiDataOverlay.endPOIdata()
+//
+//                // show all POI data
+//                poiDataOverlay.showAllPOIdata()
+//
+//                poiDataOverlay.selectPOIitem(at: 0, moveToCenter: false, focusedBySelectItem: true)
+//            }
+//        }
+//    }
+//
+//}
 
 extension Collection where Index == Int {
 

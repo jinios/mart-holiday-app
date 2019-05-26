@@ -47,7 +47,7 @@ class FavoriteBranch: ExpandCollapseTogglable {
     }
 
     func branchName() -> String {
-        return "\(branch.martName()) \(branch.branchName)"
+        return branch.displayName()
     }
 }
 
