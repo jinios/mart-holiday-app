@@ -22,7 +22,6 @@ class MartSelectViewController: IndicatorViewController {
         tableView.backgroundColor = UIColor.appColor(color: .lightgray)
         tableView.delaysContentTouches = false
         self.navigationItem.title = ProgramDescription.SeachingMart.rawValue
-        setIndicator()
         setNetworkConnectionObserver()
     }
 
