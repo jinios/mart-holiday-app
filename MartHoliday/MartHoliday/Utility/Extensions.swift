@@ -13,6 +13,7 @@ extension Notification.Name {
     static let slideMenuTapped = Notification.Name("slideMenuClose")
     static let mapViewTapped = Notification.Name("mapViewTapped")
     static let connectionStatus = Notification.Name("connectionStatus")
+    static let apiErrorAlertPopup = Notification.Name("apiErrorAlertPopup")
 }
 
 enum AppColor: CustomStringConvertible {
