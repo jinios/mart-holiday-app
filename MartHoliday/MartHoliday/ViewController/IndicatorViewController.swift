@@ -14,6 +14,7 @@ class IndicatorViewController: RechabilityDetectViewController {
     var indicatorBackgroundView: UIView!
 
     func startIndicator() {
+        setIndicator()
         indicatorBackgroundView.isHidden = false
         indicator.startAnimating()
     }
@@ -23,14 +24,14 @@ class IndicatorViewController: RechabilityDetectViewController {
         indicator.stopAnimating()
     }
 
-    func setIndicatorBackground() {
+    private func setIndicatorBackground() {
         indicatorBackgroundView = UIView(frame: self.view.bounds)
         indicatorBackgroundView.backgroundColor = UIColor.appColor(color: .lightgray)
         self.view.addSubview(indicatorBackgroundView)
         indicatorBackgroundView.isHidden = true
     }
 
-    func setIndicator() {
+    private func setIndicator() {
         setIndicatorBackground()
         indicator = NVActivityIndicatorView(frame: CGRect(x: UIScreen.main.bounds.width/2 - 40, y: UIScreen.main.bounds.height/2 - 40, width: 60, height: 60), type: .circleStrokeSpin, color: UIColor.appColor(color: .lightmint))
         self.view.addSubview(indicator)
