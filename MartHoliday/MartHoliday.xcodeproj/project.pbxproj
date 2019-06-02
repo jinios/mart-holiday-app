@@ -18,6 +18,8 @@
 		FD0202902146559B0083BE22 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC2A941212458F400A1E2FF /* Extensions.swift */; };
 		FD0202912146565C0083BE22 /* MartHolidayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0202612146517B0083BE22 /* MartHolidayTests.swift */; };
 		FD0371D82208121800B2055F /* DistanceSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0371D72208121800B2055F /* DistanceSearch.swift */; };
+		FD086D7F22A3B54600030929 /* DistanceSlider.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD086D7E22A3B54600030929 /* DistanceSlider.xib */; };
+		FD086D8122A3B59200030929 /* DistanceSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD086D8022A3B59200030929 /* DistanceSlider.swift */; };
 		FD11EAE321203A4C003EB3E9 /* BranchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD11EAE221203A4C003EB3E9 /* BranchTableViewCell.swift */; };
 		FD15A11021F38DBB00B7276A /* LocationSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD15A10F21F38DBB00B7276A /* LocationSearchViewController.swift */; };
 		FD1B4F212126BB8B00946311 /* SlideBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1B4F202126BB8B00946311 /* SlideBackgroundView.swift */; };
@@ -165,6 +167,8 @@
 		FD0202612146517B0083BE22 /* MartHolidayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MartHolidayTests.swift; sourceTree = "<group>"; };
 		FD0202632146517B0083BE22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD0371D72208121800B2055F /* DistanceSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceSearch.swift; sourceTree = "<group>"; };
+		FD086D7E22A3B54600030929 /* DistanceSlider.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DistanceSlider.xib; sourceTree = "<group>"; };
+		FD086D8022A3B59200030929 /* DistanceSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DistanceSlider.swift; path = View/DistanceSlider.swift; sourceTree = "<group>"; };
 		FD11EAE221203A4C003EB3E9 /* BranchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchTableViewCell.swift; sourceTree = "<group>"; };
 		FD15A10F21F38DBB00B7276A /* LocationSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchViewController.swift; sourceTree = "<group>"; };
 		FD1B4F202126BB8B00946311 /* SlideBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideBackgroundView.swift; sourceTree = "<group>"; };
@@ -452,6 +456,8 @@
 				FD9F40A2211ECB26007D7F1B /* Utility */,
 				FDAF601A21273D9F0006B68A /* fonts */,
 				FDB4BE25211D6BAD00D3B264 /* Main.storyboard */,
+				FD086D7E22A3B54600030929 /* DistanceSlider.xib */,
+				FD086D8022A3B59200030929 /* DistanceSlider.swift */,
 				FDE2542D21627303008B25C8 /* NoMapView.xib */,
 				FD80CE282161241D00C16150 /* DetailHeaderView.xib */,
 				FD4850F521287AFE0064747A /* SlideMenuCellView.xib */,
@@ -519,7 +525,7 @@
 				FD3B64262121BEAA003C1332 /* Embed Frameworks */,
 				FD3B642A2121C316003C1332 /* ShellScript */,
 				FD859869214BE9FA00C1A3E2 /* Embed App Extensions */,
-				29CE85A4F13D65ACAAEA4B3F /* [CP] Embed Pods Frameworks */,
+				FC6236A145B51B361DF6CBE0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -617,6 +623,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD66C2812158F6F800B4F823 /* MainHeaderView.xib in Resources */,
+				FD086D7F22A3B54600030929 /* DistanceSlider.xib in Resources */,
 				FDAF602221273E880006B68A /* NanumSquareRoundOTFEB.otf in Resources */,
 				FDAF602021273E880006B68A /* NanumSquareRoundOTFB.otf in Resources */,
 				FD2B746E218A395F00A2BC9E /* SlideMenuView.xib in Resources */,
@@ -655,24 +662,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		29CE85A4F13D65ACAAEA4B3F /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-MartHoliday/Pods-MartHoliday-frameworks.sh",
-				"${PODS_ROOT}/NMapsMap/framework/NMapsMap.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NMapsMap.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MartHoliday/Pods-MartHoliday-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		A2941B5A4530CD89F3490E62 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -707,6 +696,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FC6236A145B51B361DF6CBE0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MartHoliday/Pods-MartHoliday-frameworks.sh",
+				"${PODS_ROOT}/NMapsMap/framework/NMapsMap.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NMapsMap.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MartHoliday/Pods-MartHoliday-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD3B642A2121C316003C1332 /* ShellScript */ = {
@@ -769,6 +776,7 @@
 				FDBF9A4821240911001C2DAA /* DataStorage.swift in Sources */,
 				FD1B4F212126BB8B00946311 /* SlideBackgroundView.swift in Sources */,
 				FD9F40A0211EC5EA007D7F1B /* Mart.swift in Sources */,
+				FD086D8122A3B59200030929 /* DistanceSlider.swift in Sources */,
 				FD80CE2B21612BAE00C16150 /* HolidayHeaderView.swift in Sources */,
 				FD7087DF216B427700A2A16F /* FavoriteData.swift in Sources */,
 				FDB4BE24211D6BAD00D3B264 /* MartSelectViewController.swift in Sources */,
