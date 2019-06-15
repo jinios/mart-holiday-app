@@ -39,18 +39,41 @@ class LocationSearchViewController: IndicatorViewController, NMFMapViewDelegate 
     var searchDistance: SearchDistance?
 
     var locationOverlay: NMFLocationOverlay?
-    var isFetchEnable = true
-
 
     var currentState: State = .disabled
+
+    var infoWindow = NMFInfoWindow()
+    var defaultInfoWindowImage = NMFInfoWindowDefaultTextSource.data()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.userLocation = self.locationOverlay?.location
         naverMapView.delegate = self
+        self.settingDistance = 3
 
         naverMapView.addObserver(self, forKeyPath: "positionMode", options: [.new], context: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(showErrorAlert), name: .apiErrorAlertPopup, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(changeTrackingStatus), name: .completeFetchNearMart, object: nil)
+
+        naverMapView.positionMode = .direction
+        naverMapView.mapView.logoAlign = .rightTop
+
+        startIndicator()
+
+        let mainQueue = DispatchQueue.main
+        let deadline = DispatchTime.now() + .seconds(2)
+
+        mainQueue.asyncAfter(deadline: deadline) {
+
+            let lng = self.locationOverlay?.location.lng ?? 0
+            let lat = self.locationOverlay?.location.lat ?? 0
+
+            self.userLocation = NMGLatLng(lat: lat, lng: lng)
+            self.previousUserLocation = self.userLocation // 맨 처음엔 같게 지정
+
+            self.finishIndicator()
+        }
+
     }
 
     @objc private func showErrorAlert() {
@@ -66,34 +89,45 @@ class LocationSearchViewController: IndicatorViewController, NMFMapViewDelegate 
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+    }
 
-        naverMapView.positionMode = .direction
-        startIndicator()
-
-        let mainQueue = DispatchQueue.main
-        let deadline = DispatchTime.now() + .seconds(2)
-        mainQueue.asyncAfter(deadline: deadline) {
-
-            let lng = self.locationOverlay?.location.lng ?? 0
-            let lat = self.locationOverlay?.location.lat ?? 0
-
-            self.userLocation = NMGLatLng(lat: lat, lng: lng)
-            self.previousUserLocation = self.userLocation // 맨 처음엔 같게 지정
-
-            self.finishIndicator()
-        }
-
+    @objc func changeTrackingStatus() {
+        naverMapView.positionMode = .disabled
     }
 
     private func setNavigationBar() {
-        navigationController?.navigationBar.barTintColor = UIColor.appColor(color: .mint)
-        navigationController?.navigationBar.isTranslucent = false
-        // To remove 1px line of under the navigationBar
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.prefersLargeTitles = false
         self.navigationItem.title = "내 주변 마트 검색"
     }
 
+    var settingDistance: Int? {
+        didSet {
+            let distanceSettingButton = UIButton(type: .custom)
+
+            let buttonTitle = NSAttributedString(string: "\(self.settingDistance ?? 2)km",
+                attributes: [.font: UIFont(name: "NanumSquareRoundOTF", size: 13.5)?.bold(),
+                             .foregroundColor: UIColor.white])
+
+            distanceSettingButton.setAttributedTitle(buttonTitle, for: .normal)
+            distanceSettingButton.setImage(UIImage(named: "focus"), for: .normal)
+            distanceSettingButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: -4, bottom: 0, right: 0)
+            distanceSettingButton.titleEdgeInsets = UIEdgeInsets(top: 2, left: 2, bottom: 0, right: 0)
+            distanceSettingButton.layer.borderColor = UIColor.white.cgColor
+            distanceSettingButton.layer.borderWidth = 0.5
+            distanceSettingButton.layer.cornerRadius = 8.0
+            distanceSettingButton.clipsToBounds = true
+
+            distanceSettingButton.addTarget(self, action: #selector(changeSearchDistance), for: .touchUpInside)
+            distanceSettingButton.frame = CGRect(x: 0, y: 0, width: 62, height: 28)
+
+            let homeBarButton = UIBarButtonItem(customView: distanceSettingButton)
+            self.navigationItem.setRightBarButtonItems([homeBarButton], animated: false)
+        }
+    }
+
+    @objc func changeSearchDistance() {
+
+    }
 
 }
 
@@ -124,23 +158,43 @@ extension LocationSearchViewController {
 
     func fetchNearMarts(from geoPoint: NMGLatLng) {
         let distance = self.searchDistance ?? .near
-
         DistanceSearch.fetch(geoPoint: geoPoint,
                              distance: distance) { (branchRawData) in
-                                let branches = BranchList(branches: branchRawData)
-                                self.showMarkers(of: branches)
+                                DispatchQueue.main.async {
+                                    let branches = BranchList(branches: branchRawData)
+                                    self.showMarkers(of: branches) // 여기서 main thread로?
+                                    NotificationCenter.default.post(name: .completeFetchNearMart, object: nil, userInfo: nil)
+            }
         }
     }
 
     private func showMarkers(of branches: BranchList) {
+        let cameraUpdate = NMFCameraUpdate(zoomTo: REDUCTION_MAP_ZOOM_MAX)
+        cameraUpdate.animation = .easeOut
+        naverMapView.mapView.moveCamera(cameraUpdate)
+
         branches.branches.forEach({ (mart) in
             let marker = NMFMarker()
-            marker.iconImage = NMF_MARKER_IMAGE_PINK
+            marker.iconImage = NMF_MARKER_IMAGE_LIGHTBLUE
+            marker.width = 23
+            marker.height = 30
             marker.position = NMGLatLng(lat: mart.latitude, lng: mart.longitude)
+            marker.userInfo = ["branch": mart]
 
-            marker.touchHandler = { (overlay) in
+            marker.touchHandler = { [weak self] (overlay) in
                 if let marker = overlay as? NMFMarker {
-                    print(marker.position.lat)
+                    if let nextVC = self?.storyboard?.instantiateViewController(withIdentifier: "detailVC") as? DetailViewController {
+                        nextVC.branchData = marker.userInfo["branch"] as? Branch
+                        let displayName = (marker.userInfo["branch"] as? Branch)?.displayName() ?? "마트"
+                        self?.defaultInfoWindowImage.title = displayName
+                        self?.infoWindow.dataSource = self?.defaultInfoWindowImage
+                        self?.infoWindow.open(with: marker, align: .top)
+                        self?.infoWindow.touchHandler = { [weak self] (overlay) in
+                            self?.infoWindow.close()
+                            self?.navigationController?.pushViewController(nextVC, animated: true)
+                            return true
+                        }
+                    }
                 }
                 return false // didTapMapView
             }
@@ -148,19 +202,18 @@ extension LocationSearchViewController {
         })
     }
 
+
     // MARK: - MapView Delegate
 
     func didTapMapView(_ point: CGPoint, latLng latlng: NMGLatLng) {
-        let mapCenter = NMFCameraPosition(NMGLatLng(lat: latlng.lat, lng: latlng.lng), zoom: DEFAULT_MAP_ZOOM)
+        let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: latlng.lat, lng: latlng.lng))
+        cameraUpdate.animation = .easeOut
+        cameraUpdate.animationDuration = 0.5
         DispatchQueue.main.async {
-            self.naverMapView.mapView.moveCamera(NMFCameraUpdate(position: mapCenter))
+            self.naverMapView.mapView.moveCamera(cameraUpdate)
         }
     }
 
 }
 
-extension Double {
-    func truncate(places : Int)-> Double {
-        return Double(floor(pow(10.0, Double(places)) * self) / pow(10.0, Double(places)))
-    }
-}
+

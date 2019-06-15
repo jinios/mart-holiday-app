@@ -14,6 +14,7 @@ extension Notification.Name {
     static let mapViewTapped = Notification.Name("mapViewTapped")
     static let connectionStatus = Notification.Name("connectionStatus")
     static let apiErrorAlertPopup = Notification.Name("apiErrorAlertPopup")
+    static let completeFetchNearMart = Notification.Name("completeFetchNearMart")
 }
 
 enum AppColor: CustomStringConvertible {
@@ -264,4 +265,10 @@ extension UIDevice {
 
     }
 
+}
+
+extension Double {
+    func truncate(places : Int)-> Double {
+        return Double(floor(pow(10.0, Double(places)) * self) / pow(10.0, Double(places)))
+    }
 }
