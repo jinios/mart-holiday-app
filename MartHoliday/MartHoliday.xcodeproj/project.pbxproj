@@ -106,6 +106,8 @@
 		FDEECC32214D002700F6FF09 /* NanumSquareRoundOTFR.otf in Resources */ = {isa = PBXBuildFile; fileRef = FDAF601D21273E880006B68A /* NanumSquareRoundOTFR.otf */; };
 		FDEECC33214D0C6500F6FF09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDB4BE28211D6BAE00D3B264 /* Assets.xcassets */; };
 		FDEEE8E82163B5BD00E63733 /* NoMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEEE8E72163B5BD00E63733 /* NoMapView.swift */; };
+		FDF492C722B4E59100827025 /* MarkerInfoWindowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDF492C622B4E59100827025 /* MarkerInfoWindowView.xib */; };
+		FDF492C922B4E59C00827025 /* MarkerInfoWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF492C822B4E59C00827025 /* MarkerInfoWindowView.swift */; };
 		FDF8ABC2215B722800DA74C9 /* FavoriteBranch.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF8ABC1215B722800DA74C9 /* FavoriteBranch.swift */; };
 		FDF8ABC4215B76B400DA74C9 /* MainTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF8ABC3215B76B400DA74C9 /* MainTableViewHeader.swift */; };
 		FDF8ABC6215B76FC00DA74C9 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF8ABC5215B76FC00DA74C9 /* MainTableViewCell.swift */; };
@@ -246,6 +248,8 @@
 		FDE2542D21627303008B25C8 /* NoMapView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoMapView.xib; sourceTree = "<group>"; };
 		FDEECC2C214CD3BD00F6FF09 /* MartHolidayTodayExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MartHolidayTodayExtension.entitlements; sourceTree = "<group>"; };
 		FDEEE8E72163B5BD00E63733 /* NoMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoMapView.swift; sourceTree = "<group>"; };
+		FDF492C622B4E59100827025 /* MarkerInfoWindowView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MarkerInfoWindowView.xib; sourceTree = "<group>"; };
+		FDF492C822B4E59C00827025 /* MarkerInfoWindowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerInfoWindowView.swift; sourceTree = "<group>"; };
 		FDF8ABC1215B722800DA74C9 /* FavoriteBranch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteBranch.swift; sourceTree = "<group>"; };
 		FDF8ABC3215B76B400DA74C9 /* MainTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewHeader.swift; sourceTree = "<group>"; };
 		FDF8ABC5215B76FC00DA74C9 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
@@ -325,6 +329,8 @@
 				FDC19BA9215D2D54007D9A95 /* NoDataView.swift */,
 				FDEEE8E72163B5BD00E63733 /* NoMapView.swift */,
 				FD5359FD225F8BDB00AB48BE /* MartMapView.swift */,
+				FDF492C822B4E59C00827025 /* MarkerInfoWindowView.swift */,
+				FDF492C622B4E59100827025 /* MarkerInfoWindowView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -626,6 +632,7 @@
 				FD086D7F22A3B54600030929 /* DistanceSlider.xib in Resources */,
 				FDAF602221273E880006B68A /* NanumSquareRoundOTFEB.otf in Resources */,
 				FDAF602021273E880006B68A /* NanumSquareRoundOTFB.otf in Resources */,
+				FDF492C722B4E59100827025 /* MarkerInfoWindowView.xib in Resources */,
 				FD2B746E218A395F00A2BC9E /* SlideMenuView.xib in Resources */,
 				FDAF602121273E880006B68A /* NanumSquareRoundOTFR.otf in Resources */,
 				FDB26C5B2170711400313A02 /* InfoPlist.strings in Resources */,
@@ -816,6 +823,7 @@
 				FD1CC4E1211DF76300B21E09 /* DetailViewController.swift in Sources */,
 				FD0371D82208121800B2055F /* DistanceSearch.swift in Sources */,
 				FD93878E225A39420082CC71 /* APIResponse.swift in Sources */,
+				FDF492C922B4E59C00827025 /* MarkerInfoWindowView.swift in Sources */,
 				FD15A11021F38DBB00B7276A /* LocationSearchViewController.swift in Sources */,
 				FDB3AD69216FBA7F002209A2 /* NetworkManager.swift in Sources */,
 				FD11EAE321203A4C003EB3E9 /* BranchTableViewCell.swift in Sources */,

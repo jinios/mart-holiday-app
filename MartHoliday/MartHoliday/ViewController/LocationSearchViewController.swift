@@ -43,7 +43,8 @@ class LocationSearchViewController: IndicatorViewController, NMFMapViewDelegate 
     var currentState: State = .disabled
 
     var infoWindow = NMFInfoWindow()
-    var defaultInfoWindowImage = NMFInfoWindowDefaultTextSource.data()
+
+    var markerInfoWindowDataSource = MarkerInfoWindowDataSource()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -169,7 +170,7 @@ extension LocationSearchViewController {
     }
 
     private func showMarkers(of branches: BranchList) {
-        let cameraUpdate = NMFCameraUpdate(zoomTo: REDUCTION_MAP_ZOOM_MAX)
+        let cameraUpdate = NMFCameraUpdate(zoomTo: REDUCTION_MAP_ZOOM_MIN)
         cameraUpdate.animation = .easeOut
         naverMapView.mapView.moveCamera(cameraUpdate)
 
@@ -185,9 +186,12 @@ extension LocationSearchViewController {
                 if let marker = overlay as? NMFMarker {
                     if let nextVC = self?.storyboard?.instantiateViewController(withIdentifier: "detailVC") as? DetailViewController {
                         nextVC.branchData = marker.userInfo["branch"] as? Branch
-                        let displayName = (marker.userInfo["branch"] as? Branch)?.displayName() ?? "마트"
-                        self?.defaultInfoWindowImage.title = displayName
-                        self?.infoWindow.dataSource = self?.defaultInfoWindowImage
+
+                        let markerInfoDataSource = MarkerInfoWindowDataSource()
+                        markerInfoDataSource.branch = marker.userInfo["branch"] as? Branch
+
+                        self?.infoWindow.dataSource = markerInfoDataSource
+
                         self?.infoWindow.open(with: marker, align: .top)
                         self?.infoWindow.touchHandler = { [weak self] (overlay) in
                             self?.infoWindow.close()

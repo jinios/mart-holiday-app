@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="NanumSquareRoundOTFR.otf">
+            <string>NanumSquareRoundOTFR</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MarkerInfoWindowView" customModule="MartHoliday" customModuleProvider="target">
+            <connections>
+                <outlet property="branchTitle" destination="gal-vv-uIe" id="49s-aC-qqS"/>
+                <outlet property="contentView" destination="LNM-4r-Da5" id="4fT-Kd-cm4"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="200" height="40"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LNM-4r-Da5">
+                    <rect key="frame" x="38" y="5" width="124" height="30"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="I2y-vF-Qin">
+                            <rect key="frame" x="7" y="5" width="110" height="20"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이마트 성수점" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gal-vv-uIe">
+                                    <rect key="frame" x="0.0" y="0.0" width="86" height="20"/>
+                                    <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="15"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rightArrow" translatesAutoresizingMaskIntoConstraints="NO" id="HIa-Wt-TSC">
+                                    <rect key="frame" x="90" y="0.0" width="20" height="20"/>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="d9M-Uw-KMG"/>
+                            </constraints>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" secondItem="I2y-vF-Qin" secondAttribute="height" multiplier="1.5" id="S28-nF-rQn"/>
+                        <constraint firstAttribute="trailing" secondItem="I2y-vF-Qin" secondAttribute="trailing" constant="7" id="ZRN-Ht-N9V"/>
+                        <constraint firstItem="I2y-vF-Qin" firstAttribute="centerY" secondItem="LNM-4r-Da5" secondAttribute="centerY" id="nRl-If-v7W"/>
+                        <constraint firstItem="I2y-vF-Qin" firstAttribute="leading" secondItem="LNM-4r-Da5" secondAttribute="leading" constant="7" id="uRm-gx-zG2"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="LNM-4r-Da5" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="PfA-Ks-2Lm"/>
+                <constraint firstItem="LNM-4r-Da5" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="WIN-Vd-Q3A"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-222" y="-117"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="rightArrow" width="20" height="20"/>
+    </resources>
+</document>
