@@ -212,8 +212,6 @@ extension LocationSearchViewController {
     // MARK: - MapView Delegate
 
     func didTapMapView(_ point: CGPoint, latLng latlng: NMGLatLng) {
-        infoWindow.close()
-
         let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: latlng.lat, lng: latlng.lng))
         cameraUpdate.animation = .easeOut
         cameraUpdate.animationDuration = 0.5
@@ -225,7 +223,6 @@ extension LocationSearchViewController {
     func mapView(_ mapView: NMFMapView, regionDidChangeAnimated animated: Bool, byReason reason: Int) {
         switch reason {
         case NMFMapChangedByGesture, NMFMapChangedByControl:
-            infoWindow.close()
             showSearchAgainButton(isShow: true)
         default:
             break
@@ -234,7 +231,10 @@ extension LocationSearchViewController {
 
     @IBAction func searchAgainButtonTapped(_ sender: Any) {
         showSearchAgainButton(isShow: false)
-        // 지도의 센터를 중심으로 fetch를 시작
+
+        let position = naverMapView.mapView.cameraPosition
+        let centerGeoPoint = position.target
+        self.fetchNearMarts(from: centerGeoPoint)
     }
 
     private func showSearchAgainButton(isShow: Bool) {
