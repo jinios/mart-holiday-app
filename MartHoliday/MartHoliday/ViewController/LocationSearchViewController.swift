@@ -24,6 +24,7 @@ enum SearchDistance: Int {
 class LocationSearchViewController: IndicatorViewController, NMFMapViewDelegate {
 
     @IBOutlet weak var naverMapView: NMFNaverMapView!
+    @IBOutlet weak var searchAgainButton: UIButton!
 
     var userLocation: NMGLatLng? {
         didSet {
@@ -48,6 +49,7 @@ class LocationSearchViewController: IndicatorViewController, NMFMapViewDelegate 
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.searchAgainButton.alpha = 0
         self.userLocation = self.locationOverlay?.location
         naverMapView.delegate = self
         self.settingDistance = 3
@@ -163,7 +165,7 @@ extension LocationSearchViewController {
                              distance: distance) { (branchRawData) in
                                 DispatchQueue.main.async {
                                     let branches = BranchList(branches: branchRawData)
-                                    self.showMarkers(of: branches) // 여기서 main thread로?
+                                    self.showMarkers(of: branches)
                                     NotificationCenter.default.post(name: .completeFetchNearMart, object: nil, userInfo: nil)
             }
         }
@@ -210,6 +212,8 @@ extension LocationSearchViewController {
     // MARK: - MapView Delegate
 
     func didTapMapView(_ point: CGPoint, latLng latlng: NMGLatLng) {
+        infoWindow.close()
+
         let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: latlng.lat, lng: latlng.lng))
         cameraUpdate.animation = .easeOut
         cameraUpdate.animationDuration = 0.5
@@ -218,6 +222,26 @@ extension LocationSearchViewController {
         }
     }
 
+    func mapView(_ mapView: NMFMapView, regionDidChangeAnimated animated: Bool, byReason reason: Int) {
+        switch reason {
+        case NMFMapChangedByGesture, NMFMapChangedByControl:
+            infoWindow.close()
+            showSearchAgainButton(isShow: true)
+        default:
+            break
+        }
+    }
+
+    @IBAction func searchAgainButtonTapped(_ sender: Any) {
+        showSearchAgainButton(isShow: false)
+        // 지도의 센터를 중심으로 fetch를 시작
+    }
+
+    private func showSearchAgainButton(isShow: Bool) {
+        UIView.animate(withDuration: 0.5) { [weak self] in
+            self?.searchAgainButton.alpha = isShow ? 1 : 0
+        }
+    }
 }
 
 
