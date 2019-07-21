@@ -25,11 +25,13 @@ class LocationSearchViewController: IndicatorViewController, NMFMapViewDelegate 
 
     @IBOutlet weak var naverMapView: NMFNaverMapView!
     @IBOutlet weak var searchAgainButton: UIButton!
+    @IBOutlet weak var distanceSlider: UISlider!
 
     var userLocation: NMGLatLng? {
         didSet {
             guard let userLocation = self.userLocation else { return }
-            if self.previousUserLocation?.compareDifference(compare: self.locationOverlay!.location, value: 0.0005) ?? true {
+            let isValid = (self.previousUserLocation?.compareDifference(compare: self.locationOverlay!.location, value: 0.0005) ?? true) && userLocation.isNationalValid()
+            if isValid {
                 self.fetchNearMarts(from: userLocation)
             }
         }

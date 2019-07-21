@@ -122,11 +122,18 @@ extension NMGLatLng {
     }
 
     func compareDifference(compare: NMGLatLng ,value: Double) -> Bool {
-        if self.lat - compare.lat > 0.0005 || self.lng - compare.lng > 0.0005 {
-            return true
-        } else {
-            return false
-        }
+        return self.lat - compare.lat > 0.0005 || self.lng - compare.lng > 0.0005
+    }
+
+    // 국내 유효범위 lat: 33 - 39, lng: 126 - 130
+    func isNationalValid() -> Bool {
+        var isValidLat = false
+        var isValidLng = false
+
+        isValidLat = (33...39 ~= self.lat)
+        isValidLng = (126...130 ~= self.lng)
+
+        return isValidLat && isValidLng
     }
 }
 

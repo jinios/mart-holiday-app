@@ -531,22 +531,32 @@ Cgo
                                     <action selector="searchAgainButtonTapped:" destination="0c7-x9-EAa" eventType="touchUpInside" id="ivy-89-Ob6"/>
                                 </connections>
                             </button>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="3.5" translatesAutoresizingMaskIntoConstraints="NO" id="1Hl-cV-cV2">
+                                <rect key="frame" x="98" y="181" width="179" height="31"/>
+                                <color key="minimumTrackTintColor" name="mh-red"/>
+                                <color key="maximumTrackTintColor" name="mh-navy"/>
+                                <color key="thumbTintColor" name="mh-yellow"/>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ATF-n8-0BF" firstAttribute="top" secondItem="eFQ-Aq-t96" secondAttribute="top" constant="50" id="1ff-wP-iNq"/>
                             <constraint firstAttribute="bottom" secondItem="VUR-Wx-Vkf" secondAttribute="bottom" id="3Aj-Jn-s9d"/>
+                            <constraint firstItem="eFQ-Aq-t96" firstAttribute="trailing" secondItem="1Hl-cV-cV2" secondAttribute="trailing" constant="100" id="3sX-Bf-cHZ"/>
                             <constraint firstItem="PQR-co-5qa" firstAttribute="leading" secondItem="eFQ-Aq-t96" secondAttribute="leading" id="GwZ-RL-gA2"/>
                             <constraint firstItem="eFQ-Aq-t96" firstAttribute="trailing" secondItem="VUR-Wx-Vkf" secondAttribute="trailing" id="Jvf-p8-gML"/>
                             <constraint firstItem="ATF-n8-0BF" firstAttribute="centerX" secondItem="iGd-SD-Jr7" secondAttribute="centerX" id="MXh-id-vgf"/>
+                            <constraint firstItem="1Hl-cV-cV2" firstAttribute="leading" secondItem="eFQ-Aq-t96" secondAttribute="leading" constant="100" id="McS-Sg-C4g"/>
                             <constraint firstItem="PQR-co-5qa" firstAttribute="top" secondItem="eFQ-Aq-t96" secondAttribute="top" id="NVn-fy-rkB"/>
                             <constraint firstItem="VUR-Wx-Vkf" firstAttribute="leading" secondItem="eFQ-Aq-t96" secondAttribute="leading" id="P3P-2W-TEY"/>
                             <constraint firstItem="PQR-co-5qa" firstAttribute="trailing" secondItem="eFQ-Aq-t96" secondAttribute="trailing" id="WRa-Si-LgA"/>
+                            <constraint firstItem="1Hl-cV-cV2" firstAttribute="top" secondItem="ATF-n8-0BF" secondAttribute="bottom" constant="50" id="hVm-d9-N5Q"/>
                             <constraint firstItem="VUR-Wx-Vkf" firstAttribute="top" secondItem="eFQ-Aq-t96" secondAttribute="top" id="kgW-ms-DLN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eFQ-Aq-t96"/>
                     </view>
                     <connections>
+                        <outlet property="distanceSlider" destination="1Hl-cV-cV2" id="Z3B-np-GKl"/>
                         <outlet property="naverMapView" destination="VUR-Wx-Vkf" id="XiJ-hg-yky"/>
                         <outlet property="searchAgainButton" destination="ATF-n8-0BF" id="h1c-ke-n2s"/>
                     </connections>
@@ -642,6 +652,15 @@ Cgo
         </namedColor>
         <namedColor name="mh-mint">
             <color red="0.54117647058823526" green="0.7686274509803922" blue="0.81568627450980391" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="mh-navy">
+            <color red="0.15686274509803921" green="0.32156862745098042" blue="0.47843137254901963" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="mh-red">
+            <color red="0.92156862745098034" green="0.31764705882352939" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="mh-yellow">
+            <color red="1" green="0.93333333333333335" blue="0.41568627450980394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
