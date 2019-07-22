@@ -11,6 +11,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="NanumSquareRoundOTFB.otf">
+            <string>NanumSquareRoundOTFB</string>
+        </array>
         <array key="NanumSquareRoundOTFR.otf">
             <string>NanumSquareRoundOTFR</string>
         </array>
@@ -490,10 +493,48 @@ Cgo
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X6j-SK-HJD">
-                                <rect key="frame" x="0.0" y="44" width="375" height="52"/>
-                                <color key="backgroundColor" name="mh-yellow"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="110"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내 위치를 기준으로 검색반경을 설정합니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vYs-Mr-ejF">
+                                        <rect key="frame" x="73" y="15" width="229" height="15"/>
+                                        <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="13"/>
+                                        <color key="textColor" name="mh-charcoal"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qzi-IJ-Ajd">
+                                        <rect key="frame" x="44" y="68" width="287" height="34"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="abM-zN-l3S"/>
+                                        </constraints>
+                                    </view>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="distanceMinus" translatesAutoresizingMaskIntoConstraints="NO" id="V57-ED-QkH">
+                                        <rect key="frame" x="20" y="79" width="12" height="12"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="distancePlus" translatesAutoresizingMaskIntoConstraints="NO" id="X5n-6M-kNd">
+                                        <rect key="frame" x="343" y="79" width="12" height="12"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pn2-z4-Hpw">
+                                        <rect key="frame" x="166.33333333333334" y="42" width="42.333333333333343" height="20"/>
+                                        <fontDescription key="fontDescription" name="NanumSquareRoundOTFB" family="NanumSquareRoundOTF" pointSize="18"/>
+                                        <color key="textColor" name="mh-mint"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="52" id="EB3-ks-jlP"/>
+                                    <constraint firstItem="X5n-6M-kNd" firstAttribute="leading" secondItem="qzi-IJ-Ajd" secondAttribute="trailing" constant="12" id="CA1-vh-a4a"/>
+                                    <constraint firstAttribute="height" constant="110" id="EB3-ks-jlP"/>
+                                    <constraint firstAttribute="trailing" secondItem="qzi-IJ-Ajd" secondAttribute="trailing" constant="44" id="JYM-YL-RRg"/>
+                                    <constraint firstItem="pn2-z4-Hpw" firstAttribute="top" secondItem="vYs-Mr-ejF" secondAttribute="bottom" constant="12" id="Qh7-so-Uc2"/>
+                                    <constraint firstItem="pn2-z4-Hpw" firstAttribute="centerX" secondItem="X6j-SK-HJD" secondAttribute="centerX" id="RjF-6s-nQd"/>
+                                    <constraint firstItem="X5n-6M-kNd" firstAttribute="centerY" secondItem="qzi-IJ-Ajd" secondAttribute="centerY" id="bxL-Gb-j7y"/>
+                                    <constraint firstItem="vYs-Mr-ejF" firstAttribute="top" secondItem="X6j-SK-HJD" secondAttribute="top" constant="15" id="cwl-XI-xjN"/>
+                                    <constraint firstItem="qzi-IJ-Ajd" firstAttribute="leading" secondItem="V57-ED-QkH" secondAttribute="trailing" constant="12" id="fSE-Qv-4Bg"/>
+                                    <constraint firstItem="vYs-Mr-ejF" firstAttribute="centerX" secondItem="X6j-SK-HJD" secondAttribute="centerX" id="sVP-oj-y3a"/>
+                                    <constraint firstItem="V57-ED-QkH" firstAttribute="centerY" secondItem="qzi-IJ-Ajd" secondAttribute="centerY" id="t3b-YV-3Yc"/>
+                                    <constraint firstItem="qzi-IJ-Ajd" firstAttribute="leading" secondItem="X6j-SK-HJD" secondAttribute="leading" constant="44" id="vhm-op-u0n"/>
+                                    <constraint firstAttribute="bottom" secondItem="qzi-IJ-Ajd" secondAttribute="bottom" constant="8" id="wh0-pT-Mbi"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ATF-n8-0BF">
@@ -527,9 +568,11 @@ Cgo
                         <viewLayoutGuide key="safeArea" id="eFQ-Aq-t96"/>
                     </view>
                     <connections>
+                        <outlet property="distanceLabel" destination="pn2-z4-Hpw" id="r7t-6C-Ri3"/>
+                        <outlet property="distanceSearchView" destination="X6j-SK-HJD" id="l7p-Wv-uwq"/>
                         <outlet property="naverMapView" destination="VUR-Wx-Vkf" id="XiJ-hg-yky"/>
                         <outlet property="searchAgainButton" destination="ATF-n8-0BF" id="h1c-ke-n2s"/>
-                        <outlet property="sliderView" destination="X6j-SK-HJD" id="Pur-hg-0VG"/>
+                        <outlet property="sliderView" destination="qzi-IJ-Ajd" id="9Ff-Bc-VwM"/>
                         <outlet property="sliderViewTopConstraint" destination="iAu-98-sgI" id="qk5-Pl-Gey"/>
                     </connections>
                 </viewController>
@@ -616,17 +659,19 @@ Cgo
     </scenes>
     <resources>
         <image name="call-circle" width="40" height="40"/>
+        <image name="distanceMinus" width="12" height="12"/>
+        <image name="distancePlus" width="12" height="12"/>
         <image name="emptyStar" width="64" height="64"/>
         <image name="safari-circle" width="40" height="40"/>
         <image name="star" width="40" height="40"/>
+        <namedColor name="mh-charcoal">
+            <color red="0.37099999189376831" green="0.37099999189376831" blue="0.37099999189376831" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="mh-lightgray">
             <color red="0.93725490196078431" green="0.94509803921568625" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="mh-mint">
             <color red="0.54117647058823526" green="0.7686274509803922" blue="0.81568627450980391" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-        </namedColor>
-        <namedColor name="mh-yellow">
-            <color red="1" green="0.93333333333333335" blue="0.41568627450980394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
