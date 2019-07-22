@@ -26,6 +26,7 @@ class TickMarkSlider: UISlider {
         self.unit = (maximumValue - self.minimumValue) / tick
         self.maximumValue = maximumValue
         self.value = initialValue
+        self.minimumTrackTintColor = UIColor.appColor(color: .mint)
     }
 
     private override init(frame: CGRect) {

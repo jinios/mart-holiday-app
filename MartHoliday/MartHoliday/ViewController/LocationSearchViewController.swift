@@ -25,8 +25,12 @@ class LocationSearchViewController: IndicatorViewController, NMFMapViewDelegate,
 
     @IBOutlet weak var naverMapView: NMFNaverMapView!
     @IBOutlet weak var searchAgainButton: UIButton!
+
+    @IBOutlet weak var distanceSearchView: UIView!
     @IBOutlet weak var sliderView : UIView!
     @IBOutlet weak var sliderViewTopConstraint: NSLayoutConstraint!
+
+    @IBOutlet weak var distanceLabel: UILabel!
 
     var userLocation: NMGLatLng? {
         didSet {
@@ -116,6 +120,8 @@ class LocationSearchViewController: IndicatorViewController, NMFMapViewDelegate,
 
     var settingDistance: Int? {
         didSet {
+            self.distanceLabel.text = "\(self.settingDistance ?? 2) km"
+
             let distanceSettingButton = UIButton(type: .custom)
 
             let buttonTitle = NSAttributedString(string: "\(self.settingDistance ?? 2)km",
@@ -139,8 +145,25 @@ class LocationSearchViewController: IndicatorViewController, NMFMapViewDelegate,
         }
     }
 
-    @objc func changeSearchDistance() {
+    var isDistanceSearchViewShown = false
 
+    @objc func changeSearchDistance() {
+        self.showAndHideDistanceView(isShown: self.isDistanceSearchViewShown)
+    }
+
+    @IBAction func hideDistanceView(_ sender: UIButton) {
+        self.showAndHideDistanceView(isShown: false)
+    }
+
+    private func showAndHideDistanceView(isShown: Bool) {
+        self.sliderViewTopConstraint.constant = isShown ? 0 : -150
+
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseIn, animations: { 
+            self.distanceSearchView.alpha = isShown ? 1 : 0
+            self.view.layoutIfNeeded()
+        }) { _ in
+            self.isDistanceSearchViewShown = !self.isDistanceSearchViewShown
+        }
     }
 
 }
