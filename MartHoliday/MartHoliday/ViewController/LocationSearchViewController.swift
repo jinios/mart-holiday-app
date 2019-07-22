@@ -21,11 +21,12 @@ enum SearchDistance: Int {
 }
 
 
-class LocationSearchViewController: IndicatorViewController, NMFMapViewDelegate {
+class LocationSearchViewController: IndicatorViewController, NMFMapViewDelegate, TickMarkSliderDelegate {
 
     @IBOutlet weak var naverMapView: NMFNaverMapView!
     @IBOutlet weak var searchAgainButton: UIButton!
-    @IBOutlet weak var distanceSlider: UISlider!
+    @IBOutlet weak var sliderView : UIView!
+    @IBOutlet weak var sliderViewTopConstraint: NSLayoutConstraint!
 
     var userLocation: NMGLatLng? {
         didSet {
@@ -36,6 +37,8 @@ class LocationSearchViewController: IndicatorViewController, NMFMapViewDelegate 
             }
         }
     }
+
+    var distanceSlider: TickMarkSlider?
 
     var previousUserLocation: NMGLatLng?
 
@@ -54,7 +57,6 @@ class LocationSearchViewController: IndicatorViewController, NMFMapViewDelegate 
         self.searchAgainButton.alpha = 0
         self.userLocation = self.locationOverlay?.location
         naverMapView.delegate = self
-        self.settingDistance = 3
 
         naverMapView.addObserver(self, forKeyPath: "positionMode", options: [.new], context: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(showErrorAlert), name: .apiErrorAlertPopup, object: nil)
@@ -78,6 +80,13 @@ class LocationSearchViewController: IndicatorViewController, NMFMapViewDelegate 
 
             self.finishIndicator()
         }
+
+        distanceSlider = TickMarkSlider(tick: 8, maximumValue: 8, initialValue: 2.0, frame: self.sliderView.bounds)
+        distanceSlider!.addTickMarks()
+        distanceSlider!.delegate = self
+        self.sliderView.addSubview(distanceSlider!)
+
+        self.settingDistance = Int(distanceSlider!.value)
 
     }
 
@@ -118,12 +127,12 @@ class LocationSearchViewController: IndicatorViewController, NMFMapViewDelegate 
             distanceSettingButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: -4, bottom: 0, right: 0)
             distanceSettingButton.titleEdgeInsets = UIEdgeInsets(top: 2, left: 2, bottom: 0, right: 0)
             distanceSettingButton.layer.borderColor = UIColor.white.cgColor
-            distanceSettingButton.layer.borderWidth = 0.5
-            distanceSettingButton.layer.cornerRadius = 8.0
+            distanceSettingButton.layer.borderWidth = 1.0
+            distanceSettingButton.layer.cornerRadius = 13.0
             distanceSettingButton.clipsToBounds = true
 
             distanceSettingButton.addTarget(self, action: #selector(changeSearchDistance), for: .touchUpInside)
-            distanceSettingButton.frame = CGRect(x: 0, y: 0, width: 62, height: 28)
+            distanceSettingButton.frame = CGRect(x: 0, y: 0, width: 68, height: 30)
 
             let homeBarButton = UIBarButtonItem(customView: distanceSettingButton)
             self.navigationItem.setRightBarButtonItems([homeBarButton], animated: false)
@@ -210,6 +219,11 @@ extension LocationSearchViewController {
         })
     }
 
+    // MARK: - TickMarkSlider Delegate
+
+    func valueChanged(_ sender: UISlider) {
+        self.settingDistance = Int(distanceSlider!.value)
+    }
 
     // MARK: - MapView Delegate
 

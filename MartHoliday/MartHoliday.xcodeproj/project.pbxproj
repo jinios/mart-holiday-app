@@ -111,6 +111,7 @@
 		FDF8ABC2215B722800DA74C9 /* FavoriteBranch.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF8ABC1215B722800DA74C9 /* FavoriteBranch.swift */; };
 		FDF8ABC4215B76B400DA74C9 /* MainTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF8ABC3215B76B400DA74C9 /* MainTableViewHeader.swift */; };
 		FDF8ABC6215B76FC00DA74C9 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF8ABC5215B76FC00DA74C9 /* MainTableViewCell.swift */; };
+		FDFF1CD522E455520045220F /* TickMarkSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF1CD422E455520045220F /* TickMarkSlider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -254,6 +255,7 @@
 		FDF8ABC3215B76B400DA74C9 /* MainTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewHeader.swift; sourceTree = "<group>"; };
 		FDF8ABC5215B76FC00DA74C9 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		FDFB0344212E7AF10092411E /* MartHoliday.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MartHoliday.entitlements; sourceTree = "<group>"; };
+		FDFF1CD422E455520045220F /* TickMarkSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickMarkSlider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -331,6 +333,7 @@
 				FD5359FD225F8BDB00AB48BE /* MartMapView.swift */,
 				FDF492C822B4E59C00827025 /* MarkerInfoWindowView.swift */,
 				FDF492C622B4E59100827025 /* MarkerInfoWindowView.xib */,
+				FDFF1CD422E455520045220F /* TickMarkSlider.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -806,6 +809,7 @@
 				FD5359FE225F8BDB00AB48BE /* MartMapView.swift in Sources */,
 				FD9F409C211EBFAF007D7F1B /* BranchRawData.swift in Sources */,
 				FDC5A7422167CD50009F0B0C /* TodayExtensionTableViewCell.swift in Sources */,
+				FDFF1CD522E455520045220F /* TickMarkSlider.swift in Sources */,
 				FDF8ABC6215B76FC00DA74C9 /* MainTableViewCell.swift in Sources */,
 				FDB3AD67216F94FD002209A2 /* StorageAPI.swift in Sources */,
 				FD91364E216EF70B001A21DF /* AppInfoViewController.swift in Sources */,

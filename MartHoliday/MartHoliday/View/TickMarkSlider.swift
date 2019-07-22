@@ -8,21 +8,27 @@
 
 import UIKit
 
+protocol TickMarkSliderDelegate {
+    func valueChanged(_ sender: UISlider)
+}
+
 class TickMarkSlider: UISlider {
 
     var numberOfTickMarks: Float?
     var unit: Float?
+    var delegate: TickMarkSliderDelegate?
 
-    let hapticGenerator = UIImpactFeedbackGenerator(style: .light)
+    private let hapticGenerator = UIImpactFeedbackGenerator(style: .light)
 
-    convenience init(tick: Float, maximumValue: Float, frame: CGRect) {
+    convenience init(tick: Float, maximumValue: Float, initialValue: Float, frame: CGRect) {
         self.init(frame: frame)
         self.numberOfTickMarks = tick
-        self.maximumValue = maximumValue
         self.unit = (maximumValue - self.minimumValue) / tick
+        self.maximumValue = maximumValue
+        self.value = initialValue
     }
 
-    override init(frame: CGRect) {
+    private override init(frame: CGRect) {
         super.init(frame: frame)
     }
 
@@ -58,8 +64,10 @@ class TickMarkSlider: UISlider {
         guard let unit = self.unit else { return }
         let newStep = roundf(self.value / unit)
         self.value = newStep * unit
+        self.delegate?.valueChanged(self)
         hapticGenerator.impactOccurred()
     }
+
 
 
 }
