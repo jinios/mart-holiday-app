@@ -11,14 +11,14 @@ import NMapsMap
 
 class DistanceSearch {
 
-    class func fetch(geoPoint: NMGLatLng, distance: SearchDistance, handler: @escaping ([BranchRawData]) -> Void) {
+    class func fetch(geoPoint: NMGLatLng, distance: Int, handler: @escaping ([BranchRawData]) -> Void) {
         guard let value = KeyInfoLoader.loadValue(of: .BaseURL) else { return }
         var urlComponents = URLComponents(string: value)
 
         urlComponents?.queryItems = [
             URLQueryItem(name: "latitude", value: String(geoPoint.lat)),
             URLQueryItem(name: "longitude", value: String(geoPoint.lng)),
-            URLQueryItem(name: "distance", value: String(distance.rawValue))
+            URLQueryItem(name: "distance", value: String(distance))
         ]
         guard let url = urlComponents?.url else { return }
         URLSession.shared.dataTask(with: url) { (data, response, error) in

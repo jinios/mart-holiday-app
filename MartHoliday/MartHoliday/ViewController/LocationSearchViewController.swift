@@ -14,13 +14,6 @@ enum State {
     case tracking
 }
 
-enum SearchDistance: Int {
-    case near = 2
-    case middle = 5
-    case far = 7
-}
-
-
 class LocationSearchViewController: IndicatorViewController, NMFMapViewDelegate, TickMarkSliderDelegate {
 
     @IBOutlet weak var naverMapView: NMFNaverMapView!
@@ -45,8 +38,6 @@ class LocationSearchViewController: IndicatorViewController, NMFMapViewDelegate,
     var distanceSlider: TickMarkSlider?
 
     var previousUserLocation: NMGLatLng?
-
-    var searchDistance: SearchDistance?
 
     var locationOverlay: NMFLocationOverlay?
 
@@ -91,6 +82,7 @@ class LocationSearchViewController: IndicatorViewController, NMFMapViewDelegate,
         self.sliderView.addSubview(distanceSlider!)
 
         self.settingDistance = Int(distanceSlider!.value)
+        setNaviBarSearchButtonTitle()
 
     }
 
@@ -120,50 +112,61 @@ class LocationSearchViewController: IndicatorViewController, NMFMapViewDelegate,
 
     var settingDistance: Int? {
         didSet {
-            self.distanceLabel.text = "\(self.settingDistance ?? 2) km"
-
-            let distanceSettingButton = UIButton(type: .custom)
-
-            let buttonTitle = NSAttributedString(string: "\(self.settingDistance ?? 2)km",
-                attributes: [.font: UIFont(name: "NanumSquareRoundOTF", size: 13.5)?.bold(),
-                             .foregroundColor: UIColor.white])
-
-            distanceSettingButton.setAttributedTitle(buttonTitle, for: .normal)
-            distanceSettingButton.setImage(UIImage(named: "focus"), for: .normal)
-            distanceSettingButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: -4, bottom: 0, right: 0)
-            distanceSettingButton.titleEdgeInsets = UIEdgeInsets(top: 2, left: 2, bottom: 0, right: 0)
-            distanceSettingButton.layer.borderColor = UIColor.white.cgColor
-            distanceSettingButton.layer.borderWidth = 1.0
-            distanceSettingButton.layer.cornerRadius = 13.0
-            distanceSettingButton.clipsToBounds = true
-
-            distanceSettingButton.addTarget(self, action: #selector(changeSearchDistance), for: .touchUpInside)
-            distanceSettingButton.frame = CGRect(x: 0, y: 0, width: 68, height: 30)
-
-            let homeBarButton = UIBarButtonItem(customView: distanceSettingButton)
-            self.navigationItem.setRightBarButtonItems([homeBarButton], animated: false)
+            self.distanceLabel.text = "\(self.settingDistance ?? 2)km"
         }
     }
 
-    var isDistanceSearchViewShown = false
+    var isDistanceSearchViewShown = true
+    var previousDistance: Int?
 
     @objc func changeSearchDistance() {
         self.showAndHideDistanceView(isShown: self.isDistanceSearchViewShown)
+        guard self.isDistanceSearchViewShown else { return }
+        guard let userLocation = self.userLocation else { return }
+        fetchNearMarts(from: userLocation)
     }
 
-    @IBAction func hideDistanceView(_ sender: UIButton) {
-        self.showAndHideDistanceView(isShown: false)
-    }
+//    @IBAction func hideDistanceView(_ sender: UIButton) {
+//        self.showAndHideDistanceView(isShown: false)
+//    }
 
     private func showAndHideDistanceView(isShown: Bool) {
+        self.isDistanceSearchViewShown = !self.isDistanceSearchViewShown
+        setNaviBarSearchButtonTitle()
+
         self.sliderViewTopConstraint.constant = isShown ? 0 : -150
 
-        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseIn, animations: { 
+        UIView.animate(withDuration: 0.3,
+                       delay: 0,
+                       options: .curveEaseOut,
+                       animations: {
             self.distanceSearchView.alpha = isShown ? 1 : 0
             self.view.layoutIfNeeded()
-        }) { _ in
-            self.isDistanceSearchViewShown = !self.isDistanceSearchViewShown
-        }
+            })
+    }
+
+    private func setNaviBarSearchButtonTitle() {
+        let titleText = isDistanceSearchViewShown ? "검색" : "\(self.settingDistance ?? 2)km"
+
+        let distanceSettingButton = UIButton(type: .custom)
+        let buttonTitle = NSAttributedString(string: titleText,
+                                             attributes: [.font: UIFont(name: "NanumSquareRoundOTF", size: 13.5)?.bold(),
+                                                          .foregroundColor: UIColor.white])
+
+        distanceSettingButton.setAttributedTitle(buttonTitle, for: .normal)
+        distanceSettingButton.setImage(UIImage(named: "focus"), for: .normal)
+        distanceSettingButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: -4, bottom: 0, right: 0)
+        distanceSettingButton.titleEdgeInsets = UIEdgeInsets(top: 2, left: 2, bottom: 0, right: 0)
+        distanceSettingButton.layer.borderColor = UIColor.white.cgColor
+        distanceSettingButton.layer.borderWidth = 1.0
+        distanceSettingButton.layer.cornerRadius = 13.0
+        distanceSettingButton.clipsToBounds = true
+
+        distanceSettingButton.addTarget(self, action: #selector(changeSearchDistance), for: .touchUpInside)
+        distanceSettingButton.frame = CGRect(x: 0, y: 0, width: 68, height: 30)
+
+        let homeBarButton = UIBarButtonItem(customView: distanceSettingButton)
+        self.navigationItem.setRightBarButtonItems([homeBarButton], animated: false)
     }
 
 }
@@ -180,21 +183,9 @@ extension LocationSearchViewController {
         }
     }
 
-    @IBAction func distanceSegmentedControlChanged(_ sender: UISegmentedControl) {
-        guard let userLocation = self.userLocation else { return }
-        switch sender.selectedSegmentIndex {
-            case 0: self.searchDistance = .near
-            case 1: self.searchDistance = .middle
-            case 2: self.searchDistance = .far
-            default: break
-        }
-        self.fetchNearMarts(from: userLocation)
-        self.naverMapView.positionMode = .normal
-    }
-
 
     func fetchNearMarts(from geoPoint: NMGLatLng) {
-        let distance = self.searchDistance ?? .near
+        guard let distance = self.settingDistance else { return }
         DistanceSearch.fetch(geoPoint: geoPoint,
                              distance: distance) { (branchRawData) in
                                 DispatchQueue.main.async {
@@ -206,7 +197,11 @@ extension LocationSearchViewController {
     }
 
     private func showMarkers(of branches: BranchList) {
-        let cameraUpdate = NMFCameraUpdate(zoomTo: REDUCTION_MAP_ZOOM_MIN)
+
+        guard let distance = self.settingDistance else { return }
+        let zoomLevel = distance > 5 ? REDUCTION_MAP_ZOOM_MAX : REDUCTION_MAP_ZOOM_MIN
+
+        let cameraUpdate = NMFCameraUpdate(zoomTo: zoomLevel)
         cameraUpdate.animation = .easeOut
         naverMapView.mapView.moveCamera(cameraUpdate)
 
