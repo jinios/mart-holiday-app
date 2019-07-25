@@ -120,27 +120,24 @@ class LocationSearchViewController: IndicatorViewController, NMFMapViewDelegate,
     var previousDistance: Int?
 
     @objc func changeSearchDistance() {
-        self.showAndHideDistanceView(isShown: self.isDistanceSearchViewShown)
+        self.showAndHideDistanceView()
         guard self.isDistanceSearchViewShown else { return }
         guard let userLocation = self.userLocation else { return }
+
         fetchNearMarts(from: userLocation)
     }
 
-//    @IBAction func hideDistanceView(_ sender: UIButton) {
-//        self.showAndHideDistanceView(isShown: false)
-//    }
-
-    private func showAndHideDistanceView(isShown: Bool) {
+    private func showAndHideDistanceView() {
         self.isDistanceSearchViewShown = !self.isDistanceSearchViewShown
         setNaviBarSearchButtonTitle()
 
-        self.sliderViewTopConstraint.constant = isShown ? 0 : -150
+        self.sliderViewTopConstraint.constant = self.isDistanceSearchViewShown ? 0 : -150
 
         UIView.animate(withDuration: 0.3,
                        delay: 0,
                        options: .curveEaseOut,
                        animations: {
-            self.distanceSearchView.alpha = isShown ? 1 : 0
+            self.distanceSearchView.alpha = self.isDistanceSearchViewShown ? 1 : 0
             self.view.layoutIfNeeded()
             })
     }
