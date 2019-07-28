@@ -8,6 +8,13 @@
 
 import UIKit
 import NMapsMap
+import Toaster
+
+public let DEFAULT_MAP_ZOOM: Double = 15.0
+public let REDUCTION_MAP_ZOOM_MIN: Double = 13.0
+public let REDUCTION_MAP_ZOOM_MID: Double = 11.0
+public let REDUCTION_MAP_ZOOM_MAX: Double = 10.0
+public let DEFAULT_MAP_MARKER_IMAGE: NMFOverlayImage = NMF_MARKER_IMAGE_LIGHTBLUE
 
 enum State {
     case disabled
@@ -49,6 +56,7 @@ class LocationSearchViewController: IndicatorViewController, NMFMapViewDelegate,
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setSearchAgainButtonBorder()
         self.searchAgainButton.alpha = 0
         self.userLocation = self.locationOverlay?.location
         naverMapView.delegate = self
@@ -110,6 +118,11 @@ class LocationSearchViewController: IndicatorViewController, NMFMapViewDelegate,
         self.navigationItem.title = "내 주변 마트 검색"
     }
 
+    private func setSearchAgainButtonBorder() {
+        self.searchAgainButton.layer.cornerRadius = searchAgainButton.frame.height/2
+        self.searchAgainButton.clipsToBounds = true
+    }
+
     var settingDistance: Int? {
         didSet {
             self.distanceLabel.text = "\(self.settingDistance ?? 2)km"
@@ -131,7 +144,7 @@ class LocationSearchViewController: IndicatorViewController, NMFMapViewDelegate,
         self.isDistanceSearchViewShown = !self.isDistanceSearchViewShown
         setNaviBarSearchButtonTitle()
 
-        self.sliderViewTopConstraint.constant = self.isDistanceSearchViewShown ? 0 : -150
+        self.sliderViewTopConstraint.constant = self.isDistanceSearchViewShown ? 0 : -distanceSearchView.bounds.height
 
         UIView.animate(withDuration: 0.3,
                        delay: 0,
@@ -185,30 +198,57 @@ extension LocationSearchViewController {
         guard let distance = self.settingDistance else { return }
         DistanceSearch.fetch(geoPoint: geoPoint,
                              distance: distance) { (branchRawData) in
-                                DispatchQueue.main.async {
-                                    let branches = BranchList(branches: branchRawData)
-                                    self.showMarkers(of: branches)
-                                    NotificationCenter.default.post(name: .completeFetchNearMart, object: nil, userInfo: nil)
+                                self.completeReceiveBranches(branchRawData) }
+    }
+
+    private func completeReceiveBranches(_ branches: [BranchRawData]) {
+        let hasSettingDistance = !(self.settingDistance == nil)
+        let distaceGuideText = hasSettingDistance ? "\(self.settingDistance!)km 반경 내에서" : "요청하신 거리 내에서"
+
+        ToastView.appearance().bottomOffsetPortrait = UIScreen.main.bounds.height / 2
+
+        DispatchQueue.main.async {
+            let branches = BranchList(branches: branches)
+
+            if branches.count() == 0 {
+                Toast(text: "\(distaceGuideText) 마트가 없습니다.").show()
+            } else {
+                Toast(text: "\(distaceGuideText) \(branches.count())곳의 마트가 검색되었습니다.").show()
+                self.showMarkers(of: branches)
             }
+
+            NotificationCenter.default.post(name: .completeFetchNearMart, object: nil, userInfo: nil)
         }
     }
 
+    private func zoomLevel() -> Double {
+        guard let distance = self.settingDistance else { return DEFAULT_MAP_ZOOM }
+        switch distance {
+        case 0...2: return REDUCTION_MAP_ZOOM_MIN
+        case 3...6: return REDUCTION_MAP_ZOOM_MID
+        case 7...8: return REDUCTION_MAP_ZOOM_MAX
+        default: return DEFAULT_MAP_ZOOM
+        }
+    }
+
+    private func makeMarkers(of mart: Branch) -> NMFMarker {
+        let marker = NMFMarker()
+        marker.iconImage = NMF_MARKER_IMAGE_LIGHTBLUE
+        marker.width = 23
+        marker.height = 30
+        marker.position = NMGLatLng(lat: mart.latitude, lng: mart.longitude)
+        marker.userInfo = ["branch": mart]
+
+        return marker
+    }
+
     private func showMarkers(of branches: BranchList) {
-
-        guard let distance = self.settingDistance else { return }
-        let zoomLevel = distance > 5 ? REDUCTION_MAP_ZOOM_MAX : REDUCTION_MAP_ZOOM_MIN
-
-        let cameraUpdate = NMFCameraUpdate(zoomTo: zoomLevel)
+        let cameraUpdate = NMFCameraUpdate(zoomTo: self.zoomLevel())
         cameraUpdate.animation = .easeOut
         naverMapView.mapView.moveCamera(cameraUpdate)
 
         branches.branches.forEach({ (mart) in
-            let marker = NMFMarker()
-            marker.iconImage = NMF_MARKER_IMAGE_LIGHTBLUE
-            marker.width = 23
-            marker.height = 30
-            marker.position = NMGLatLng(lat: mart.latitude, lng: mart.longitude)
-            marker.userInfo = ["branch": mart]
+            let marker = self.makeMarkers(of: mart)
 
             marker.touchHandler = { [weak self] (overlay) in
                 if let marker = overlay as? NMFMarker {
@@ -243,7 +283,7 @@ extension LocationSearchViewController {
     // MARK: - MapView Delegate
 
     func didTapMapView(_ point: CGPoint, latLng latlng: NMGLatLng) {
-        let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: latlng.lat, lng: latlng.lng))
+        let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: latlng.lat, lng: latlng.lng), zoomTo: DEFAULT_MAP_ZOOM)
         cameraUpdate.animation = .easeOut
         cameraUpdate.animationDuration = 0.5
         DispatchQueue.main.async {

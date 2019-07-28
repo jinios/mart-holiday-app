@@ -9,11 +9,6 @@
 import UIKit
 import NMapsMap
 
-public let DEFAULT_MAP_ZOOM: Double = 15.0
-public let REDUCTION_MAP_ZOOM_MIN: Double = 12.0
-public let REDUCTION_MAP_ZOOM_MAX: Double = 9.0
-public let DEFAULT_MAP_MARKER_IMAGE: NMFOverlayImage = NMF_MARKER_IMAGE_LIGHTBLUE
-
 class MapViewController: UIViewController {
 
     var mapView: MartMapView?

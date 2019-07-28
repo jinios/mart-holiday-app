@@ -538,7 +538,7 @@ Cgo
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ATF-n8-0BF">
-                                <rect key="frame" x="122.66666666666669" y="344" width="130" height="37"/>
+                                <rect key="frame" x="122.66666666666669" y="164" width="130" height="37"/>
                                 <color key="backgroundColor" name="mh-mint"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="37" id="Vii-jo-uR4"/>
@@ -555,9 +555,9 @@ Cgo
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ATF-n8-0BF" firstAttribute="top" secondItem="eFQ-Aq-t96" secondAttribute="top" constant="300" id="1ff-wP-iNq"/>
                             <constraint firstAttribute="bottom" secondItem="VUR-Wx-Vkf" secondAttribute="bottom" id="3Aj-Jn-s9d"/>
                             <constraint firstItem="X6j-SK-HJD" firstAttribute="leading" secondItem="eFQ-Aq-t96" secondAttribute="leading" id="4iv-Bw-Kfd"/>
+                            <constraint firstItem="ATF-n8-0BF" firstAttribute="top" secondItem="X6j-SK-HJD" secondAttribute="bottom" constant="10" id="FfT-Oy-KAh"/>
                             <constraint firstItem="eFQ-Aq-t96" firstAttribute="trailing" secondItem="VUR-Wx-Vkf" secondAttribute="trailing" id="Jvf-p8-gML"/>
                             <constraint firstItem="ATF-n8-0BF" firstAttribute="centerX" secondItem="iGd-SD-Jr7" secondAttribute="centerX" id="MXh-id-vgf"/>
                             <constraint firstItem="VUR-Wx-Vkf" firstAttribute="leading" secondItem="eFQ-Aq-t96" secondAttribute="leading" id="P3P-2W-TEY"/>
