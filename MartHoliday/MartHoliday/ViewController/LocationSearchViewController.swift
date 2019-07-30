@@ -54,6 +54,17 @@ class LocationSearchViewController: IndicatorViewController, NMFMapViewDelegate,
 
     var markerInfoWindowDataSource = MarkerInfoWindowDataSource()
 
+    var isDistanceSearchViewShown = true
+    var previousDistance: Int?
+
+    var settingDistance: Int? {
+        didSet {
+            self.distanceLabel.text = "\(self.settingDistance ?? 2)km"
+        }
+    }
+
+    let nMapViewObserverKeypath = "positionMode"
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setSearchAgainButtonBorder()
@@ -61,7 +72,7 @@ class LocationSearchViewController: IndicatorViewController, NMFMapViewDelegate,
         self.userLocation = self.locationOverlay?.location
         naverMapView.delegate = self
 
-        naverMapView.addObserver(self, forKeyPath: "positionMode", options: [.new], context: nil)
+        naverMapView.addObserver(self, forKeyPath: nMapViewObserverKeypath, options: [.new], context: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(showErrorAlert), name: .apiErrorAlertPopup, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(changeTrackingStatus), name: .completeFetchNearMart, object: nil)
 
@@ -84,7 +95,7 @@ class LocationSearchViewController: IndicatorViewController, NMFMapViewDelegate,
             self.finishIndicator()
         }
 
-        distanceSlider = TickMarkSlider(tick: 8, maximumValue: 8, initialValue: 2.0, frame: self.sliderView.bounds)
+        distanceSlider = TickMarkSlider(tick: 8, minimumValue: 0, maximumValue: 8, initialValue: 2.0, frame: self.sliderView.bounds)
         distanceSlider!.addTickMarks()
         distanceSlider!.delegate = self
         self.sliderView.addSubview(distanceSlider!)
@@ -94,23 +105,29 @@ class LocationSearchViewController: IndicatorViewController, NMFMapViewDelegate,
 
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.setNavigationBar()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+
     @objc private func showErrorAlert() {
         DispatchQueue.main.async {
             self.presentErrorAlert(type: .DisableNearbyMarts)
         }
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.setNavigationBar()
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-
     @objc func changeTrackingStatus() {
         naverMapView.positionMode = .disabled
+    }
+
+    @objc func changeSearchDistance() {
+        self.showAndHideDistanceView()
+        guard !self.isDistanceSearchViewShown else { return }
+        fetchNearMarts(from: self.getMapCenter())
     }
 
     private func setNavigationBar() {
@@ -123,21 +140,10 @@ class LocationSearchViewController: IndicatorViewController, NMFMapViewDelegate,
         self.searchAgainButton.clipsToBounds = true
     }
 
-    var settingDistance: Int? {
-        didSet {
-            self.distanceLabel.text = "\(self.settingDistance ?? 2)km"
-        }
-    }
-
-    var isDistanceSearchViewShown = true
-    var previousDistance: Int?
-
-    @objc func changeSearchDistance() {
-        self.showAndHideDistanceView()
-        guard self.isDistanceSearchViewShown else { return }
-        guard let userLocation = self.userLocation else { return }
-
-        fetchNearMarts(from: userLocation)
+    private func getMapCenter() -> NMGLatLng {
+        let position = naverMapView.mapView.cameraPosition
+        let centerGeoPoint = position.target
+        return centerGeoPoint
     }
 
     private func showAndHideDistanceView() {
@@ -188,7 +194,7 @@ extension LocationSearchViewController {
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         self.locationOverlay = naverMapView.mapView.locationOverlay
 
-        if keyPath == "positionMode" {
+        if keyPath == nMapViewObserverKeypath {
             self.userLocation = self.locationOverlay!.location
         }
     }
