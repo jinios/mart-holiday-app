@@ -63,6 +63,7 @@ class LocationSearchViewController: IndicatorViewController, NMFMapViewDelegate,
         }
     }
 
+    var markers = [NMFMarker]()
     let nMapViewObserverKeypath = "positionMode"
 
     override func viewDidLoad() {
@@ -252,6 +253,7 @@ extension LocationSearchViewController {
         let cameraUpdate = NMFCameraUpdate(zoomTo: self.zoomLevel())
         cameraUpdate.animation = .easeOut
         naverMapView.mapView.moveCamera(cameraUpdate)
+        self.markers.forEach { $0.mapView = nil }
 
         branches.branches.forEach({ (mart) in
             let marker = self.makeMarkers(of: mart)
@@ -277,6 +279,7 @@ extension LocationSearchViewController {
                 return false // didTapMapView
             }
             marker.mapView = self.naverMapView.mapView
+            self.markers.append(marker)
         })
     }
 
