@@ -20,10 +20,11 @@ class TickMarkSlider: UISlider {
 
     private let hapticGenerator = UIImpactFeedbackGenerator(style: .light)
 
-    convenience init(tick: Float, maximumValue: Float, initialValue: Float, frame: CGRect) {
+    convenience init(tick: Float, minimumValue: Float, maximumValue: Float, initialValue: Float, frame: CGRect) {
         self.init(frame: frame)
         self.numberOfTickMarks = tick
         self.unit = (maximumValue - self.minimumValue) / tick
+        self.minimumValue = minimumValue
         self.maximumValue = maximumValue
         self.value = initialValue
         self.minimumTrackTintColor = UIColor.appColor(color: .mint)
@@ -51,6 +52,7 @@ class TickMarkSlider: UISlider {
                 xPosition += width
                 continue
             }
+
             xPosition = CGFloat(Float(i) * ratio)
 
             let tick = UIView(frame: CGRect(x: xPosition, y: yPosition, width: width, height: height))
@@ -63,12 +65,14 @@ class TickMarkSlider: UISlider {
 
     override func endTracking(_ touch: UITouch?, with event: UIEvent?) {
         guard let unit = self.unit else { return }
+
         let newStep = roundf(self.value / unit)
         self.value = newStep * unit
         self.delegate?.valueChanged(self)
         hapticGenerator.impactOccurred()
+
+        let adjustValue: Float = self.value > 4 ? 0.3 : 0
+        self.value = (newStep * unit) + adjustValue
     }
-
-
 
 }
