@@ -10,29 +10,33 @@ import UIKit
 import NVActivityIndicatorView
 
 class IndicatorViewController: RechabilityDetectViewController {
-    var indicator: NVActivityIndicatorView!
-    var indicatorBackgroundView: UIView!
+    var indicator: NVActivityIndicatorView?
+    var indicatorBackgroundView: UIView?
 
     func startIndicator() {
-        indicatorBackgroundView.isHidden = false
-        indicator.startAnimating()
+        setIndicator()
+        indicatorBackgroundView?.isHidden = false
+        indicator?.startAnimating()
     }
 
     func finishIndicator() {
-        indicatorBackgroundView.isHidden = true
-        indicator.stopAnimating()
+        indicatorBackgroundView?.isHidden = true
+        indicator?.stopAnimating()
     }
 
-    func setIndicatorBackground() {
+    private func setIndicatorBackground() {
         indicatorBackgroundView = UIView(frame: self.view.bounds)
+        guard let indicatorBackgroundView = self.indicatorBackgroundView else { return }
         indicatorBackgroundView.backgroundColor = UIColor.appColor(color: .lightgray)
         self.view.addSubview(indicatorBackgroundView)
         indicatorBackgroundView.isHidden = true
     }
 
-    func setIndicator() {
+    private func setIndicator() {
         setIndicatorBackground()
         indicator = NVActivityIndicatorView(frame: CGRect(x: UIScreen.main.bounds.width/2 - 40, y: UIScreen.main.bounds.height/2 - 40, width: 60, height: 60), type: .circleStrokeSpin, color: UIColor.appColor(color: .lightmint))
+
+        guard let indicator = self.indicator else { return }
         self.view.addSubview(indicator)
         indicator.translatesAutoresizingMaskIntoConstraints = false
         indicator.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true

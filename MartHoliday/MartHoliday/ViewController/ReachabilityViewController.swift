@@ -15,18 +15,12 @@ class RechabilityDetectViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(reachabilityAlert(notification:)), name: .connectionStatus, object: nil)
     }
 
-    func networkErrorAlert() {
-        let alert = UIAlertController.make(message: .NetworkError)
-        alert.addAction(UIAlertAction(title: "Done", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-    }
-
     @objc func reachabilityAlert(notification: Notification) {
         guard let userInfo = notification.userInfo else { return }
         guard let connection = userInfo["status"] as? Reachability.Connection else { return }
         switch connection {
         case .none:
-            networkErrorAlert()
+            self.presentErrorAlert(type: .NetworkError)
         default:
             networkAvailable()
         }
@@ -37,8 +31,8 @@ class RechabilityDetectViewController: UIViewController {
         return
     }
 
-    func networkTimeOutAlert() {
-        let alert = UIAlertController.make(message: .NetworkTimeout)
+    func presentErrorAlert(type: UIAlertController.AlertMessage) {
+        let alert = UIAlertController.make(message: type)
         alert.addAction(UIAlertAction(title: "Done", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }

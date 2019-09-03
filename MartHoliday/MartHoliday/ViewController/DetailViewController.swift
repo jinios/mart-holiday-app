@@ -69,13 +69,12 @@ class DetailViewController: RechabilityDetectViewController, SFSafariViewControl
 
     private func setNavigationItem() {
         self.navigationController?.navigationBar.isTranslucent = false
-
+        self.navigationItem.largeTitleDisplayMode = .always
+        self.navigationController?.navigationBar.prefersLargeTitles = true
         // 브랜치이름 Title 설정
         guard let branchData = self.branchData else { return }
 
         self.navigationItem.title = branchData.branchName
-        self.navigationItem.largeTitleDisplayMode = .always
-        self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.navigationBar.largeTitleTextAttributes = makeTextWithAttributes(fontSize: 24)
 
         starButton = StarBarButton()

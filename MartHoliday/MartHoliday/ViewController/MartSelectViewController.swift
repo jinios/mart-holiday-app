@@ -22,7 +22,6 @@ class MartSelectViewController: IndicatorViewController {
         tableView.backgroundColor = UIColor.appColor(color: .lightgray)
         tableView.delaysContentTouches = false
         self.navigationItem.title = ProgramDescription.SeachingMart.rawValue
-        setIndicator()
         setNetworkConnectionObserver()
     }
 
@@ -47,8 +46,7 @@ class MartSelectViewController: IndicatorViewController {
         DispatchQueue.main.async {
             guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "searchVC") as? SearchViewController else { return }
             guard let data = data else {
-                self.networkTimeOutAlert()
-//                SlackWebhook.fire(brokenUrl: mart.url)
+                self.presentErrorAlert(type: .NetworkTimeout)
                 self.navigationController?.popViewController(animated: true)
                 return
             }

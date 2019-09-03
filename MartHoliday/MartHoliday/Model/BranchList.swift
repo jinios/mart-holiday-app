@@ -93,7 +93,7 @@ class Branch: NSObject, Comparable {
     private func martName() -> String {
         switch self.martType {
         case "홈플러스 익스프레스": return "홈플러스EX"
-        case "이마트 트레이더스": return "이마트"
+        case "이마트 트레이더스": return "트레이더스"
         default: return martType
         }
     }

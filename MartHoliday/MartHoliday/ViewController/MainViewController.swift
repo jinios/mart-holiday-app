@@ -139,7 +139,7 @@ class MainViewController: RechabilityDetectViewController, FavoriteConvertible, 
 
     private func presentErrorAlert() {
         DispatchQueue.main.async {
-            self.networkTimeOutAlert()
+            self.presentErrorAlert(type: .NetworkTimeout)
         }
     }
 
@@ -330,10 +330,10 @@ extension MainViewController: MFMailComposeViewControllerDelegate {
             handleDismiss()
             guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "martSelectVC") as? MartSelectViewController else { return }
             self.navigationController?.pushViewController(nextVC, animated: true)
-//        case .location:
-//            handleDismiss()
-//            guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "locationVC") as? LocationSearchViewController else { return }
-//            self.navigationController?.pushViewController(nextVC, animated: true)
+        case .location:
+            handleDismiss()
+            guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "locationVC") as? LocationSearchViewController else { return }
+            self.navigationController?.pushViewController(nextVC, animated: true)
         case .sendMail:
             handleDismiss()
             var email: String
