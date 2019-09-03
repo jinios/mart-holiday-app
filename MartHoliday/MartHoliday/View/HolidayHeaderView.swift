@@ -11,7 +11,6 @@ import UIKit
 class HolidayHeaderView: UITableViewHeaderFooterView {
 
     @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var selectionDetectView: UIView!
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var dateLabel: UILabel!
     var delegate: HeaderDelegate?
@@ -27,7 +26,6 @@ class HolidayHeaderView: UITableViewHeaderFooterView {
 
     func setExpand(state: Bool) {
         self.button.isSelected = state
-        self.selectionDetectView.isHidden = !state
     }
 
 }
