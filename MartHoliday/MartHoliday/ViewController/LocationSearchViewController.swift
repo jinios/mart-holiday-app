@@ -263,6 +263,9 @@ extension LocationSearchViewController {
                     if let nextVC = self?.storyboard?.instantiateViewController(withIdentifier: "detailVC") as? DetailViewController {
                         nextVC.branchData = marker.userInfo["branch"] as? Branch
 
+                        let hapticGenerator = UIImpactFeedbackGenerator(style: .medium)
+                        hapticGenerator.impactOccurred()
+                        
                         let markerInfoDataSource = MarkerInfoWindowDataSource()
                         markerInfoDataSource.branch = marker.userInfo["branch"] as? Branch
 
