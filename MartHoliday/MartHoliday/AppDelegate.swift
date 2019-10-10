@@ -110,13 +110,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
 
     private func setNavigationBar() {
+
+        if #available(iOS 13.0, *) {
+            let coloredAppearance = UINavigationBarAppearance()
+            coloredAppearance.configureWithOpaqueBackground()
+            coloredAppearance.backgroundColor = UIColor.appColor(color: .mint)
+            coloredAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+            coloredAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+
+            UINavigationBar.appearance().standardAppearance = coloredAppearance
+            UINavigationBar.appearance().scrollEdgeAppearance = coloredAppearance
+        } else {
+            //To change Navigation Bar Background Color
+            UINavigationBar.appearance().barTintColor = UIColor.appColor(color: .mint)
+        }
+
         let fontAttributes = [
             NSAttributedString.Key.foregroundColor: UIColor.white,
             NSAttributedString.Key.font: UIFont(name: "NanumSquareRoundOTF", size: UIFont.labelFontSize)?.bold()
         ]
 
-        //To change Navigation Bar Background Color
-        UINavigationBar.appearance().barTintColor = UIColor.appColor(color: .mint)
         //To change Back button title & icon color
         UINavigationBar.appearance().tintColor = UIColor.white
         UINavigationBar.appearance().titleTextAttributes = fontAttributes
