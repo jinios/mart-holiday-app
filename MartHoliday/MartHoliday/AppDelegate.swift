@@ -112,14 +112,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     private func setNavigationBar() {
 
         if #available(iOS 13.0, *) {
-            let coloredAppearance = UINavigationBarAppearance()
-            coloredAppearance.configureWithOpaqueBackground()
-            coloredAppearance.backgroundColor = UIColor.appColor(color: .mint)
-            coloredAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-            coloredAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.backgroundColor = UIColor.appColor(color: .mint)
 
-            UINavigationBar.appearance().standardAppearance = coloredAppearance
-            UINavigationBar.appearance().scrollEdgeAppearance = coloredAppearance
+            appearance.largeTitleTextAttributes = [.font: UIFont(name: "NanumSquareRoundOTF", size: 24)?.bold() ?? UIFont(),
+            .foregroundColor: UIColor.white]
+            appearance.titleTextAttributes = [.font: UIFont(name: "NanumSquareRoundOTF", size: UIFont.labelFontSize)?.bold() ?? UIFont(),
+            .foregroundColor: UIColor.white]
+            appearance.buttonAppearance.normal.titleTextAttributes = [.font: UIFont(name: "NanumSquareRoundOTF", size: UIFont.labelFontSize) ?? UIFont(),
+            .foregroundColor: UIColor.white]
+
+            UINavigationBar.appearance().standardAppearance = appearance
+            UINavigationBar.appearance().scrollEdgeAppearance = appearance
+
         } else {
             //To change Navigation Bar Background Color
             UINavigationBar.appearance().barTintColor = UIColor.appColor(color: .mint)
