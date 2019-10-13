@@ -48,7 +48,7 @@ class MainViewController: RechabilityDetectViewController, FavoriteConvertible, 
         slideMenu.dataSource = slideMenuManager
         slideOpenFlag = false
         tableView.delaysContentTouches = false
-        setNaviBarButton()
+//        setNaviBarButton()
 
         addGestures()
         NotificationCenter.default.addObserver(self, selector: #selector(detectSelectedMenu(_:)), name: .slideMenuTapped, object: nil)
@@ -101,6 +101,7 @@ class MainViewController: RechabilityDetectViewController, FavoriteConvertible, 
         navigationItem.leftBarButtonItem = searhButton
     }
 
+    // 상단 편집버튼
     private func setNaviBarButton() {
         let settingButton = UIButton(type: .custom)
         

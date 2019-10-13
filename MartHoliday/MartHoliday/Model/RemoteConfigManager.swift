@@ -43,7 +43,7 @@ class RemoteConfigManager: NSObject {
 
                 let appConfig = AppConfig(status: updateStatus, min: min, latest: latest)
                 let configResult = appConfig.compare()
-                self.setBaseURL(url: remoteConfig[RemoteConfigKey.baseURL.rawValue].stringValue)
+//                self.setBaseURL(url: remoteConfig[RemoteConfigKey.baseURL.rawValue].stringValue)
                 handler(configResult)
             } else {
                 // fetch 실패시 앱 실행
