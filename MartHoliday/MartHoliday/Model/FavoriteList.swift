@@ -84,4 +84,8 @@ class FavoriteList: NSObject, NSCoding {
         return martSet.isEmpty
     }
 
+    func count() -> Int {
+        return martSet.count
+    }
+
 }
