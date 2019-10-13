@@ -46,7 +46,7 @@ class LocationSearchViewController: IndicatorViewController, NMFMapViewDelegate,
 
     var previousUserLocation: NMGLatLng?
 
-    var locationOverlay: NMFLocationOverlay?
+    weak var locationOverlay: NMFLocationOverlay?
 
     var currentState: State = .disabled
 
@@ -97,8 +97,8 @@ class LocationSearchViewController: IndicatorViewController, NMFMapViewDelegate,
         }
 
         distanceSlider = TickMarkSlider(tick: 8, minimumValue: 0, maximumValue: 8, initialValue: 2.0, frame: self.sliderView.bounds)
-        distanceSlider!.addTickMarks()
-        distanceSlider!.delegate = self
+        distanceSlider?.addTickMarks()
+        distanceSlider?.delegate = self
         self.sliderView.addSubview(distanceSlider!)
 
         self.settingDistance = Int(distanceSlider!.value)
@@ -110,14 +110,20 @@ class LocationSearchViewController: IndicatorViewController, NMFMapViewDelegate,
         super.viewWillAppear(animated)
         self.setNavigationBar()
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+    }
+
+    deinit {
+        self.naverMapView.removeFromSuperview()
+        self.locationOverlay = nil
+        ToastCenter.default.cancelAll()
     }
 
     @objc private func showErrorAlert() {
-        DispatchQueue.main.async {
-            self.presentErrorAlert(type: .DisableNearbyMarts)
+        DispatchQueue.main.async { [weak self] in
+            self?.presentErrorAlert(type: .DisableNearbyMarts)
         }
     }
 
@@ -214,7 +220,8 @@ extension LocationSearchViewController {
 
         ToastView.appearance().bottomOffsetPortrait = UIScreen.main.bounds.height / 2
 
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
             let branches = BranchList(branches: branches)
 
             if branches.count() == 0 {
@@ -298,8 +305,8 @@ extension LocationSearchViewController {
         let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: latlng.lat, lng: latlng.lng), zoomTo: DEFAULT_MAP_ZOOM)
         cameraUpdate.animation = .easeOut
         cameraUpdate.animationDuration = 0.5
-        DispatchQueue.main.async {
-            self.naverMapView.mapView.moveCamera(cameraUpdate)
+        DispatchQueue.main.async { [weak self] in
+            self?.naverMapView.mapView.moveCamera(cameraUpdate)
         }
     }
 

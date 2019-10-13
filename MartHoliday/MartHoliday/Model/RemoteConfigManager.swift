@@ -13,9 +13,13 @@ enum RemoteConfigKey: String {
     case updateStatus = "update_status"
     case minimumVersion = "minimum_version"
     case latestVersion = "latest_version"
+    case baseURL = "base_url"
 }
 
+// App Initializer
 class RemoteConfigManager: NSObject {
+
+    var baseURL: URL?
 
     private static var sharedInstance = RemoteConfigManager()
 
@@ -39,6 +43,7 @@ class RemoteConfigManager: NSObject {
 
                 let appConfig = AppConfig(status: updateStatus, min: min, latest: latest)
                 let configResult = appConfig.compare()
+//                self.setBaseURL(url: remoteConfig[RemoteConfigKey.baseURL.rawValue].stringValue)
                 handler(configResult)
             } else {
                 // fetch 실패시 앱 실행
@@ -52,6 +57,12 @@ class RemoteConfigManager: NSObject {
         return Double(appVersionString) ?? 0
     }
 
+    private func setBaseURL(url: String?) {
+        guard let url = URL(string: url ?? "") else { return }
+
+        CoreUserDefaults.set(value: url, key: .baseURL, type: URL.self)
+        self.baseURL = CoreUserDefaults.load(key: .baseURL) as? URL
+    }
 
 }
 
@@ -91,6 +102,32 @@ class AppConfig {
             case minVersion..<latestVersion: return .optionalUpdate
             default: return .comparingFailure
         }
+    }
+
+}
+
+enum CoreUserDefaults: String {
+
+    case baseURL = "baseURL"
+
+    static func set<T: Equatable & Codable>(value: Any, key: CoreUserDefaults, type: T.Type) {
+        if let loadedData = self.load(key: key), compare(type: type, rhs: loadedData, lhs: value) {
+            return
+        }
+        guard let encodedValue = try? JSONEncoder().encode(value as! T) else { return }
+        UserDefaults.standard.set(encodedValue, forKey: key.rawValue)
+    }
+
+    static func load(key: CoreUserDefaults) -> Any? {
+        if let loadedData = UserDefaults.standard.data(forKey: key.rawValue) {
+            return loadedData
+        }
+        return nil
+    }
+
+    static func compare<T: Equatable>(type: T.Type, rhs: Any, lhs: Any) -> Bool {
+        guard let rhs = rhs as? T, let lhs = lhs as? T else { return false }
+        return rhs == lhs
     }
 
 }

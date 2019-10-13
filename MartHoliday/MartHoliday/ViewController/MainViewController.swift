@@ -48,6 +48,7 @@ class MainViewController: RechabilityDetectViewController, FavoriteConvertible, 
         slideMenu.dataSource = slideMenuManager
         slideOpenFlag = false
         tableView.delaysContentTouches = false
+//        setNaviBarButton()
 
         addGestures()
         NotificationCenter.default.addObserver(self, selector: #selector(detectSelectedMenu(_:)), name: .slideMenuTapped, object: nil)
@@ -98,6 +99,26 @@ class MainViewController: RechabilityDetectViewController, FavoriteConvertible, 
         let searchImage = UIImage(named: "slidebar")
         let searhButton = UIBarButtonItem(image: searchImage, style: .plain, target: self, action: #selector(toggleSlideMenu))
         navigationItem.leftBarButtonItem = searhButton
+    }
+
+    // 상단 편집버튼
+    private func setNaviBarButton() {
+        let settingButton = UIButton(type: .custom)
+        
+        settingButton.setImage(UIImage(named: "settingNavbar"), for: .normal)
+
+        settingButton.addTarget(self, action: #selector(settingFavoriteList), for: .touchUpInside)
+        settingButton.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
+
+        let settingBarButton = UIBarButtonItem(customView: settingButton)
+        self.navigationItem.setRightBarButtonItems([settingBarButton], animated: false)
+    }
+
+    @objc func settingFavoriteList() {
+        guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "SettingFavoriteListViewController") as? SettingFavoriteListViewController else { return }
+        nextVC.favoriteBranches = holidayData as? [FavoriteBranch]
+
+        self.present(nextVC, animated: true, completion: nil)
     }
 
     private func setTableView() {

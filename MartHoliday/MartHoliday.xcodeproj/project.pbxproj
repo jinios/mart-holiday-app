@@ -76,6 +76,7 @@
 		FDA311A9214C141800A7E94B /* BranchRawData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409B211EBFAF007D7F1B /* BranchRawData.swift */; };
 		FDA311B2214C14CA00A7E94B /* StarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD86712221458FCB00273B3C /* StarButton.swift */; };
 		FDA311B5214C150100A7E94B /* Mart.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F409F211EC5EA007D7F1B /* Mart.swift */; };
+		FDA69AC0234A289000C1D51E /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA69ABF234A289000C1D51E /* SettingTableViewCell.swift */; };
 		FDAF601F21273E880006B68A /* NanumSquareRoundOTFL.otf in Resources */ = {isa = PBXBuildFile; fileRef = FDAF601B21273E880006B68A /* NanumSquareRoundOTFL.otf */; };
 		FDAF602021273E880006B68A /* NanumSquareRoundOTFB.otf in Resources */ = {isa = PBXBuildFile; fileRef = FDAF601C21273E880006B68A /* NanumSquareRoundOTFB.otf */; };
 		FDAF602121273E880006B68A /* NanumSquareRoundOTFR.otf in Resources */ = {isa = PBXBuildFile; fileRef = FDAF601D21273E880006B68A /* NanumSquareRoundOTFR.otf */; };
@@ -88,6 +89,7 @@
 		FDB4BE27211D6BAD00D3B264 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDB4BE25211D6BAD00D3B264 /* Main.storyboard */; };
 		FDB4BE29211D6BAE00D3B264 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDB4BE28211D6BAE00D3B264 /* Assets.xcassets */; };
 		FDB4BE2C211D6BAE00D3B264 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDB4BE2A211D6BAE00D3B264 /* LaunchScreen.storyboard */; };
+		FDB71350231EC17F00852182 /* SettingFavoriteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB7134F231EC17F00852182 /* SettingFavoriteListViewController.swift */; };
 		FDBF9A4821240911001C2DAA /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBF9A4721240911001C2DAA /* DataStorage.swift */; };
 		FDBF9A4A212414A9001C2DAA /* FavoriteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBF9A49212414A9001C2DAA /* FavoriteList.swift */; };
 		FDC19BAA215D2D54007D9A95 /* NoDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC19BA9215D2D54007D9A95 /* NoDataView.swift */; };
@@ -225,6 +227,7 @@
 		FD9F409B211EBFAF007D7F1B /* BranchRawData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchRawData.swift; sourceTree = "<group>"; };
 		FD9F409F211EC5EA007D7F1B /* Mart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mart.swift; sourceTree = "<group>"; };
 		FDA27AF2222E624800610B09 /* POIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POIData.swift; sourceTree = "<group>"; };
+		FDA69ABF234A289000C1D51E /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		FDAF601B21273E880006B68A /* NanumSquareRoundOTFL.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundOTFL.otf; sourceTree = "<group>"; };
 		FDAF601C21273E880006B68A /* NanumSquareRoundOTFB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundOTFB.otf; sourceTree = "<group>"; };
 		FDAF601D21273E880006B68A /* NanumSquareRoundOTFR.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundOTFR.otf; sourceTree = "<group>"; };
@@ -240,6 +243,7 @@
 		FDB4BE28211D6BAE00D3B264 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FDB4BE2B211D6BAE00D3B264 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FDB4BE2D211D6BAE00D3B264 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FDB7134F231EC17F00852182 /* SettingFavoriteListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingFavoriteListViewController.swift; sourceTree = "<group>"; };
 		FDBF9A4721240911001C2DAA /* DataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
 		FDBF9A49212414A9001C2DAA /* FavoriteList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteList.swift; sourceTree = "<group>"; };
 		FDC19BA9215D2D54007D9A95 /* NoDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoDataView.swift; sourceTree = "<group>"; };
@@ -320,6 +324,7 @@
 				FD11EAE221203A4C003EB3E9 /* BranchTableViewCell.swift */,
 				FD1B4F202126BB8B00946311 /* SlideBackgroundView.swift */,
 				FD1B4F222126BBD200946311 /* SlideTopView.swift */,
+				FDA69ABF234A289000C1D51E /* SettingTableViewCell.swift */,
 				FD4850F1212843FB0064747A /* SlideMenuView.swift */,
 				FD4850F3212869AF0064747A /* SlideMenuCell.swift */,
 				FD4DDC8F21412294004E981F /* SelectionTableViewCell.swift */,
@@ -350,6 +355,7 @@
 				FD9654CE2172593B00C17D76 /* ReachabilityViewController.swift */,
 				FD9654D0217259D800C17D76 /* IndicatorViewController.swift */,
 				FD15A10F21F38DBB00B7276A /* LocationSearchViewController.swift */,
+				FDB7134F231EC17F00852182 /* SettingFavoriteListViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -791,6 +797,7 @@
 				FD7087DF216B427700A2A16F /* FavoriteData.swift in Sources */,
 				FDB4BE24211D6BAD00D3B264 /* MartSelectViewController.swift in Sources */,
 				FDA27AF3222E624800610B09 /* POIData.swift in Sources */,
+				FDA69AC0234A289000C1D51E /* SettingTableViewCell.swift in Sources */,
 				FDF8ABC4215B76B400DA74C9 /* MainTableViewHeader.swift in Sources */,
 				FD1B4F232126BBD200946311 /* SlideTopView.swift in Sources */,
 				FDC5A7432167CD66009F0B0C /* TodayViewController.swift in Sources */,
@@ -827,6 +834,7 @@
 				FD1CC4E1211DF76300B21E09 /* DetailViewController.swift in Sources */,
 				FD0371D82208121800B2055F /* DistanceSearch.swift in Sources */,
 				FD93878E225A39420082CC71 /* APIResponse.swift in Sources */,
+				FDB71350231EC17F00852182 /* SettingFavoriteListViewController.swift in Sources */,
 				FDF492C922B4E59C00827025 /* MarkerInfoWindowView.swift in Sources */,
 				FD15A11021F38DBB00B7276A /* LocationSearchViewController.swift in Sources */,
 				FDB3AD69216FBA7F002209A2 /* NetworkManager.swift in Sources */,
@@ -1132,7 +1140,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jinios.MartHoliday;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "ddcab98d-0f37-4b55-b8e3-d007d31351e8";
-				PROVISIONING_PROFILE_SPECIFIER = MartHoliday1008;
+				PROVISIONING_PROFILE_SPECIFIER = Mijin_personal_191009;
 				SWIFT_OBJC_BRIDGING_HEADER = MartHoliday/Header.h;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1163,7 +1171,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jinios.MartHoliday;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "ddcab98d-0f37-4b55-b8e3-d007d31351e8";
-				PROVISIONING_PROFILE_SPECIFIER = MartHoliday1008;
+				PROVISIONING_PROFILE_SPECIFIER = Mijin_personal_191009;
 				SWIFT_OBJC_BRIDGING_HEADER = MartHoliday/Header.h;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
