@@ -22,7 +22,7 @@ class DetailViewController: RechabilityDetectViewController, SFSafariViewControl
     @IBOutlet weak var scrollView: UIScrollView!
     var starButton: StarButton!
     private var viewTag = 100
-    var martMapView: MartMapView?
+    weak var martMapView: MartMapView?
 
     var branchData: Branch? {
         didSet {
