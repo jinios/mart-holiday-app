@@ -30,7 +30,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSApplicationCategoryType</key>
 	<string>NSLocationWhenInUseUsageDescription</string>
 	<key>LSHasLocalizedDisplayName</key>
@@ -43,9 +43,9 @@
 		<true/>
 	</dict>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>사용자의 위치를 받습니다.(항상)</string>
+	<string>위치를 허용해주시면 주변의 가까운 마트를 알려드려요! (위치 항상 허용)</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string>위치를 허용해주시면 주변의 가까운 마트를 알려드려요! (앱 사용시 위치 허용)</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>NanumSquareRoundOTFR.otf</string>

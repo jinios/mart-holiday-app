@@ -948,6 +948,7 @@
 				CODE_SIGN_ENTITLEMENTS = MartHolidayTodayExtension/MartHolidayTodayExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 964726ULPQ;
 				INFOPLIST_FILE = MartHolidayTodayExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
@@ -974,6 +975,7 @@
 				CODE_SIGN_ENTITLEMENTS = MartHolidayTodayExtension/MartHolidayTodayExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 964726ULPQ;
 				INFOPLIST_FILE = MartHolidayTodayExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
@@ -1127,6 +1129,7 @@
 				CODE_SIGN_ENTITLEMENTS = MartHoliday/MartHoliday.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 964726ULPQ;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1159,6 +1162,7 @@
 				CODE_SIGN_ENTITLEMENTS = MartHoliday/MartHoliday.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 964726ULPQ;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
