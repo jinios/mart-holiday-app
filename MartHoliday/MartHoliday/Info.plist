@@ -2,8 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UIUserInterfaceStyle</key>
-	<string>Light</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>주변의 가까운 마트를 알려드릴 수 있도록 위치 정보를 허용해주세요! &apos;앱을 사용하는 동안&apos;을 선택해주세요 : )</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>주변의 가까운 마트를 알려드릴 수 있도록 위치 정보를 허용해주세요!</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -45,9 +47,7 @@
 		<true/>
 	</dict>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>위치를 허용해주시면 주변의 가까운 마트를 알려드려요! (위치 항상 허용)</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>위치를 허용해주시면 주변의 가까운 마트를 알려드려요! (앱 사용시 위치 허용)</string>
+	<string>주변의 가까운 마트를 알려드릴 수 있도록 위치 정보를 허용해주세요! (항상 허용)</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>NanumSquareRoundOTFR.otf</string>
@@ -80,6 +80,8 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 </dict>
