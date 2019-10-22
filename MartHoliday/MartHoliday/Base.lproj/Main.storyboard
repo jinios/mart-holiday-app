@@ -151,19 +151,10 @@
                         <viewLayoutGuide key="safeArea" id="2qd-M4-ebx"/>
                     </view>
                     <connections>
-                        <outlet property="searchDisplayController" destination="y4g-sB-r6h" id="Ud9-kL-yVm"/>
                         <outlet property="tableView" destination="itu-oI-71t" id="mCM-gN-eSs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qre-Wy-OR0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="y4g-sB-r6h">
-                    <connections>
-                        <outlet property="delegate" destination="ppn-tM-5rG" id="lBf-7v-2Ez"/>
-                        <outlet property="searchContentsController" destination="ppn-tM-5rG" id="FTP-Tw-aX1"/>
-                        <outlet property="searchResultsDataSource" destination="ppn-tM-5rG" id="Cqg-0w-K9M"/>
-                        <outlet property="searchResultsDelegate" destination="ppn-tM-5rG" id="OlE-zo-7tV"/>
-                    </connections>
-                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="3343.1999999999998" y="-564.46776611694156"/>
         </scene>
@@ -435,13 +426,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="버전 정보" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RpG-ai-1VI">
-                                <rect key="frame" x="19" y="25" width="337.5" height="19"/>
+                                <rect key="frame" x="19" y="25" width="337.5" height="18"/>
                                 <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ig2-fw-Apt">
-                                <rect key="frame" x="19" y="64" width="337.5" height="583"/>
+                                <rect key="frame" x="19" y="63" width="337.5" height="584"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text" base64-UTF8="YES">
 Cgo
@@ -494,7 +485,7 @@ Cgo
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="110"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내 위치를 기준으로 검색반경을 설정합니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vYs-Mr-ejF">
-                                        <rect key="frame" x="77.5" y="15" width="220.5" height="15"/>
+                                        <rect key="frame" x="73" y="15" width="229" height="15"/>
                                         <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="13"/>
                                         <color key="textColor" name="mh-charcoal"/>
                                         <nil key="highlightedColor"/>
@@ -507,13 +498,13 @@ Cgo
                                         </constraints>
                                     </view>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="distanceMinus" translatesAutoresizingMaskIntoConstraints="NO" id="V57-ED-QkH">
-                                        <rect key="frame" x="8" y="73" width="24" height="24"/>
+                                        <rect key="frame" x="20" y="79" width="12" height="12"/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="distancePlus" translatesAutoresizingMaskIntoConstraints="NO" id="X5n-6M-kNd">
-                                        <rect key="frame" x="343" y="73" width="24" height="24"/>
+                                        <rect key="frame" x="343" y="79" width="12" height="12"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pn2-z4-Hpw">
-                                        <rect key="frame" x="167.5" y="42" width="40" height="21"/>
+                                        <rect key="frame" x="166.5" y="42" width="42.5" height="20"/>
                                         <fontDescription key="fontDescription" name="NanumSquareRoundOTFB" family="NanumSquareRoundOTF" pointSize="18"/>
                                         <color key="textColor" name="mh-mint"/>
                                         <nil key="highlightedColor"/>
