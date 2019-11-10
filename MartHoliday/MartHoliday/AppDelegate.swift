@@ -22,6 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     private var isPushAllowed: Bool?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
+        FirebaseApp.configure()
+
         window?.backgroundColor = .white
         window?.rootViewController = UIStoryboard.init(name: "LaunchScreen", bundle: nil).instantiateInitialViewController()
         RemoteConfigManager.shared().launch(handler: self.executeAppUpdate)
@@ -30,7 +33,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         networkManager = NetworkManager.shared
 
         setNavigationBar()
-        FirebaseApp.configure()
         setNMFMapViewKey()
 
         application.applicationIconBadgeNumber = 0

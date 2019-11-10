@@ -2,10 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>주변의 가까운 마트를 알려드릴 수 있도록 위치 정보를 허용해주세요! &apos;앱을 사용하는 동안&apos;을 선택해주세요 : )</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>주변의 가까운 마트를 알려드릴 수 있도록 위치 정보를 허용해주세요!</string>
+	<key>FIREBASE_ANALYTICS_COLLECTION_ENABLED</key>
+	<string>NO</string>
+	<key>FIREBASE_ANALYTICS_COLLECTION_DEACTIVATED</key>
+	<string>YES</string>
+	<key>FirebaseScreenReportingEnabled</key>
+	<false/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -46,8 +48,12 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>주변의 가까운 마트를 알려드릴 수 있도록 위치 정보를 허용해주세요!</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>주변의 가까운 마트를 알려드릴 수 있도록 위치 정보를 허용해주세요! (항상 허용)</string>
+	<string>주변의 가까운 마트를 알려드릴 수 있도록 위치 정보를 허용해주세요!</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>주변의 가까운 마트를 알려드릴 수 있도록 위치 정보를 허용해주세요!</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>NanumSquareRoundOTFR.otf</string>

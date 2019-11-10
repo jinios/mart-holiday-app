@@ -11,15 +11,15 @@ import Reachability
 
 class NetworkManager: NSObject {
 
-    var reachability: Reachability!
+    var reachability: Reachability?
     static var shared: NetworkManager = NetworkManager()
 
     override init() {
         super.init()
-        reachability = Reachability()
+        reachability = try? Reachability()
         NotificationCenter.default.addObserver(self, selector: #selector(networkStatusChanged(_:)), name: .reachabilityChanged, object: reachability)
         do {
-            try reachability.startNotifier()
+            try reachability?.startNotifier()
         } catch {
             print(error.localizedDescription)
         }
@@ -31,7 +31,8 @@ class NetworkManager: NSObject {
     }
 
     static func isUnreachable(completed: @escaping (NetworkManager) -> Void) {
-        if (NetworkManager.shared.reachability).connection == .none {
+
+        if let connection = (NetworkManager.shared.reachability)?.connection, connection == .none {
             completed(NetworkManager.shared)
         }
     }
