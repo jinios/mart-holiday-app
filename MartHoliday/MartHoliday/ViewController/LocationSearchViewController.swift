@@ -35,8 +35,13 @@ class LocationSearchViewController: IndicatorViewController, NMFMapViewDelegate,
     var userLocation: NMGLatLng? {
         didSet {
             guard let userLocation = self.userLocation else { return }
-            let isValid = (self.previousUserLocation?.compareDifference(compare: self.locationOverlay!.location, value: 0.0005) ?? true) && userLocation.isNationalValid()
+            guard let currentLocation = self.locationManager?.currentLatLng() else { return }
+            let isValid = (self.previousUserLocation?.compareDifference(compare: currentLocation, value: 0.0005) ?? true) && userLocation.isNationalValid()
             if isValid {
+                let cameraUpdate = NMFCameraUpdate(zoomTo: self.zoomLevel())
+                cameraUpdate.animation = .easeOut
+                naverMapView.mapView.moveCamera(cameraUpdate)
+
                 self.fetchNearMarts(from: userLocation)
             }
         }
@@ -47,6 +52,8 @@ class LocationSearchViewController: IndicatorViewController, NMFMapViewDelegate,
     var previousUserLocation: NMGLatLng?
 
     weak var locationOverlay: NMFLocationOverlay?
+
+    var locationManager: NMFLocationManager?
 
     var currentState: State = .disabled
 
@@ -70,17 +77,32 @@ class LocationSearchViewController: IndicatorViewController, NMFMapViewDelegate,
         super.viewDidLoad()
         setSearchAgainButtonBorder()
         self.searchAgainButton.alpha = 0
-        self.userLocation = self.locationOverlay?.location
-        naverMapView.delegate = self
-
-        naverMapView.addObserver(self, forKeyPath: nMapViewObserverKeypath, options: [.new], context: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(showErrorAlert), name: .apiErrorAlertPopup, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(changeTrackingStatus), name: .completeFetchNearMart, object: nil)
-
-        naverMapView.positionMode = .direction
-        naverMapView.mapView.logoAlign = .rightTop
 
         startIndicator()
+
+        locationManager = NMFLocationManager()
+        locationManager?.add(self)
+
+        naverMapView.delegate = self
+
+        initializeNMapview()
+        setTickMarkSlider()
+        setNaviBarSearchButtonTitle()
+    }
+
+    private func setTickMarkSlider() {
+        distanceSlider = TickMarkSlider(tick: 8, minimumValue: 0, maximumValue: 8, initialValue: 2.0, frame: self.sliderView.bounds)
+        distanceSlider?.addTickMarks()
+        distanceSlider?.delegate = self
+        self.sliderView.addSubview(distanceSlider!)
+
+        self.settingDistance = Int(distanceSlider!.value)
+    }
+
+    private func initializeUserLoction() {
+        startIndicator()
+
+        self.userLocation = self.locationManager?.currentLatLng()
 
         let mainQueue = DispatchQueue.main
         let deadline = DispatchTime.now() + .seconds(2)
@@ -95,15 +117,15 @@ class LocationSearchViewController: IndicatorViewController, NMFMapViewDelegate,
 
             self.finishIndicator()
         }
+    }
 
-        distanceSlider = TickMarkSlider(tick: 8, minimumValue: 0, maximumValue: 8, initialValue: 2.0, frame: self.sliderView.bounds)
-        distanceSlider?.addTickMarks()
-        distanceSlider?.delegate = self
-        self.sliderView.addSubview(distanceSlider!)
+    private func initializeNMapview() {
+        naverMapView.addObserver(self, forKeyPath: nMapViewObserverKeypath, options: [.new], context: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(showErrorAlert), name: .apiErrorAlertPopup, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(changeTrackingStatus), name: .completeFetchNearMart, object: nil)
 
-        self.settingDistance = Int(distanceSlider!.value)
-        setNaviBarSearchButtonTitle()
-
+        naverMapView.positionMode = .direction
+        naverMapView.mapView.logoAlign = .rightTop
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -190,6 +212,23 @@ class LocationSearchViewController: IndicatorViewController, NMFMapViewDelegate,
 
         let homeBarButton = UIBarButtonItem(customView: distanceSettingButton)
         self.navigationItem.setRightBarButtonItems([homeBarButton], animated: false)
+    }
+
+}
+
+extension LocationSearchViewController: NMFLocationManagerDelegate {
+
+    func locationManager(_ locationManager: NMFLocationManager!, didChangeAuthStatus status: CLAuthorizationStatus) {
+        switch status {
+        case .authorizedAlways, .authorizedWhenInUse: locationManager.startUpdatingLocation()
+        case .denied, .notDetermined, .restricted: return
+        }
+    }
+
+    func locationManager(_ locationManager: NMFLocationManager!, didUpdateLocations locations: [Any]!) {
+        self.userLocation = locationManager.currentLatLng()
+        locationManager.stopUpdatingLocation()
+        finishIndicator()
     }
 
 }
