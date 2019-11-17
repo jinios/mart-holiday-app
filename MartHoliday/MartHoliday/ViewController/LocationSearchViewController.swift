@@ -36,13 +36,15 @@ class LocationSearchViewController: IndicatorViewController, NMFMapViewDelegate,
         didSet {
             guard let userLocation = self.userLocation else { return }
             guard let currentLocation = self.locationManager?.currentLatLng() else { return }
+
             let isValid = (self.previousUserLocation?.compareDifference(compare: currentLocation, value: 0.0005) ?? true) && userLocation.isNationalValid()
             if isValid {
                 let cameraUpdate = NMFCameraUpdate(zoomTo: self.zoomLevel())
                 cameraUpdate.animation = .easeOut
                 naverMapView.mapView.moveCamera(cameraUpdate)
 
-                self.fetchNearMarts(from: userLocation)
+                locationManager?.stopUpdatingLocation()
+//                self.fetchNearMarts(from: userLocation)
             }
         }
     }
@@ -306,6 +308,9 @@ extension LocationSearchViewController {
 
             marker.touchHandler = { [weak self] (overlay) in
                 if let marker = overlay as? NMFMarker {
+
+                    self?.moveCameraPosition(of: marker)
+
                     if let nextVC = self?.storyboard?.instantiateViewController(withIdentifier: "detailVC") as? DetailViewController {
                         nextVC.branchData = marker.userInfo["branch"] as? Branch
 
@@ -325,11 +330,21 @@ extension LocationSearchViewController {
                         }
                     }
                 }
-                return false // didTapMapView
+                return true // didTapMapView
             }
             marker.mapView = self.naverMapView.mapView
             self.markers.append(marker)
         })
+    }
+
+    private func moveCameraPosition(of marker: NMFMarker) {
+        let cameraUpdate = NMFCameraUpdate(scrollTo: marker.position, zoomTo: DEFAULT_MAP_ZOOM)
+        cameraUpdate.animation = .easeOut
+        cameraUpdate.animationDuration = 0.5
+
+        DispatchQueue.main.async { [weak self] in
+            self?.naverMapView.mapView.moveCamera(cameraUpdate)
+        }
     }
 
     // MARK: - TickMarkSlider Delegate
@@ -341,11 +356,12 @@ extension LocationSearchViewController {
     // MARK: - MapView Delegate
 
     func didTapMapView(_ point: CGPoint, latLng latlng: NMGLatLng) {
-        let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: latlng.lat, lng: latlng.lng), zoomTo: DEFAULT_MAP_ZOOM)
-        cameraUpdate.animation = .easeOut
-        cameraUpdate.animationDuration = 0.5
+        let moveLocationCameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: latlng.lat, lng: latlng.lng), zoomTo: self.naverMapView.mapView.zoomLevel)
+        moveLocationCameraUpdate.animation = .easeOut
+        moveLocationCameraUpdate.animationDuration = 0.3
+
         DispatchQueue.main.async { [weak self] in
-            self?.naverMapView.mapView.moveCamera(cameraUpdate)
+            self?.naverMapView.mapView.moveCamera(moveLocationCameraUpdate)
         }
     }
 
