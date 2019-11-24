@@ -39,12 +39,15 @@ class LocationSearchViewController: IndicatorViewController, NMFMapViewDelegate,
 
             let isValid = (self.previousUserLocation?.compareDifference(compare: currentLocation, value: 0.0005) ?? true) && userLocation.isNationalValid()
             if isValid {
-                let cameraUpdate = NMFCameraUpdate(zoomTo: self.zoomLevel())
+                let cameraUpdate = NMFCameraUpdate(scrollTo: userLocation, zoomTo: self.zoomLevel())
                 cameraUpdate.animation = .easeOut
-                naverMapView.mapView.moveCamera(cameraUpdate)
+
+                DispatchQueue.main.async { [ weak self ] in
+                    self?.naverMapView.mapView.moveCamera(cameraUpdate)
+                }
 
                 locationManager?.stopUpdatingLocation()
-//                self.fetchNearMarts(from: userLocation)
+                self.fetchNearMarts(from: userLocation)
             }
         }
     }
@@ -80,8 +83,6 @@ class LocationSearchViewController: IndicatorViewController, NMFMapViewDelegate,
         setSearchAgainButtonBorder()
         self.searchAgainButton.alpha = 0
 
-        startIndicator()
-
         locationManager = NMFLocationManager()
         locationManager?.add(self)
 
@@ -90,6 +91,16 @@ class LocationSearchViewController: IndicatorViewController, NMFMapViewDelegate,
         initializeNMapview()
         setTickMarkSlider()
         setNaviBarSearchButtonTitle()
+
+        if isLocationTrackingAuthorized() {
+            initializeUserLoction()
+        }
+
+    }
+
+    private func isLocationTrackingAuthorized() -> Bool {
+        guard let authrization = locationManager?.locationUpdateAuthorization() else { return false }
+        return (authrization == .authorizedAlways || authrization == .authorizedWhenInUse)
     }
 
     private func setTickMarkSlider() {
@@ -102,23 +113,8 @@ class LocationSearchViewController: IndicatorViewController, NMFMapViewDelegate,
     }
 
     private func initializeUserLoction() {
-        startIndicator()
-
         self.userLocation = self.locationManager?.currentLatLng()
-
-        let mainQueue = DispatchQueue.main
-        let deadline = DispatchTime.now() + .seconds(2)
-
-        mainQueue.asyncAfter(deadline: deadline) {
-
-            let lng = self.locationOverlay?.location.lng ?? 0
-            let lat = self.locationOverlay?.location.lat ?? 0
-
-            self.userLocation = NMGLatLng(lat: lat, lng: lng)
-            self.previousUserLocation = self.userLocation // 맨 처음엔 같게 지정
-
-            self.finishIndicator()
-        }
+        self.previousUserLocation = self.userLocation // 맨 처음엔 같게 지정
     }
 
     private func initializeNMapview() {
@@ -222,15 +218,18 @@ extension LocationSearchViewController: NMFLocationManagerDelegate {
 
     func locationManager(_ locationManager: NMFLocationManager!, didChangeAuthStatus status: CLAuthorizationStatus) {
         switch status {
-        case .authorizedAlways, .authorizedWhenInUse: locationManager.startUpdatingLocation()
-        case .denied, .notDetermined, .restricted: return
+        case .authorizedAlways:
+            locationManager.startUpdatingLocation()
+        case .authorizedWhenInUse:
+            locationManager.startUpdatingLocation()
+        case .denied: return
+        case .notDetermined: return
+        case .restricted: return
         }
     }
 
     func locationManager(_ locationManager: NMFLocationManager!, didUpdateLocations locations: [Any]!) {
-        self.userLocation = locationManager.currentLatLng()
-        locationManager.stopUpdatingLocation()
-        finishIndicator()
+        initializeUserLoction()
     }
 
 }
@@ -241,18 +240,14 @@ extension LocationSearchViewController {
     // 포지션 모드가 변경될때만 호출
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         self.locationOverlay = naverMapView.mapView.locationOverlay
-
-        if keyPath == nMapViewObserverKeypath {
-            self.userLocation = self.locationOverlay!.location
-        }
     }
 
 
     func fetchNearMarts(from geoPoint: NMGLatLng) {
         guard let distance = self.settingDistance else { return }
         DistanceSearch.fetch(geoPoint: geoPoint,
-                             distance: distance) { (branchRawData) in
-                                self.completeReceiveBranches(branchRawData) }
+                             distance: distance) { [weak self] (branchRawData) in
+                                self?.completeReceiveBranches(branchRawData) }
     }
 
     private func completeReceiveBranches(_ branches: [BranchRawData]) {
@@ -322,7 +317,7 @@ extension LocationSearchViewController {
 
                         self?.infoWindow.dataSource = markerInfoDataSource
 
-                        self?.infoWindow.open(with: marker, align: .top)
+                        self?.infoWindow.open(with: marker, alignType: .top)
                         self?.infoWindow.touchHandler = { [weak self] (overlay) in
                             self?.infoWindow.close()
                             self?.navigationController?.pushViewController(nextVC, animated: true)
