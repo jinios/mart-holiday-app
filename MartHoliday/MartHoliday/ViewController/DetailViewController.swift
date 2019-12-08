@@ -22,7 +22,7 @@ class DetailViewController: RechabilityDetectViewController, SFSafariViewControl
     @IBOutlet weak var scrollView: UIScrollView!
     var starButton: StarButton!
     private var viewTag = 100
-    var martMapView: MartMapView?
+    weak var martMapView: MartMapView?
 
     var branchData: Branch? {
         didSet {
@@ -68,15 +68,33 @@ class DetailViewController: RechabilityDetectViewController, SFSafariViewControl
     }
 
     private func setNavigationItem() {
-        self.navigationController?.navigationBar.isTranslucent = false
-
         // 브랜치이름 Title 설정
         guard let branchData = self.branchData else { return }
-
         self.navigationItem.title = branchData.branchName
-        self.navigationItem.largeTitleDisplayMode = .always
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationController?.navigationBar.largeTitleTextAttributes = makeTextWithAttributes(fontSize: 24)
+
+        let naviBar = self.navigationController?.navigationBar
+
+        if #available(iOS 13, *) {
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.backgroundColor = UIColor.appColor(color: .mint)
+
+            appearance.largeTitleTextAttributes = [.font: UIFont(name: "NanumSquareRoundOTF", size: 24)?.bold() ?? UIFont(),
+            .foregroundColor: UIColor.white]
+            appearance.titleTextAttributes = [.font: UIFont(name: "NanumSquareRoundOTF", size: UIFont.labelFontSize)?.bold() ?? UIFont(),
+            .foregroundColor: UIColor.white]
+            appearance.buttonAppearance.normal.titleTextAttributes = [.font: UIFont(name: "NanumSquareRoundOTF", size: UIFont.labelFontSize)?.bold() ?? UIFont(),
+            .foregroundColor: UIColor.white]
+            naviBar?.standardAppearance = appearance
+            naviBar?.scrollEdgeAppearance = appearance
+
+        } else {
+            self.navigationController?.navigationBar.isTranslucent = false
+            self.navigationItem.largeTitleDisplayMode = .always
+            self.navigationController?.navigationBar.prefersLargeTitles = true
+
+            self.navigationController?.navigationBar.largeTitleTextAttributes = makeTextWithAttributes(fontSize: 24) as [NSAttributedString.Key : Any]
+        }
 
         starButton = StarBarButton()
         setStarButton()

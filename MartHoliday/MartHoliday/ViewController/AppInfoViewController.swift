@@ -15,7 +15,6 @@ class AppInfoViewController: IndicatorViewController {
     @IBOutlet weak var acknowledgementsTextView: UITextView!
 
     override func viewDidLoad() {
-        setIndicator()
         startIndicator()
         self.versionLabel.text = setVersionLabel()
         setTextView()

@@ -29,9 +29,11 @@ enum KeyInfo: String {
     case LottemartList
     case HomeplusList
     case HomeplusExpressList
+    case NobrandList
     case AcknowledgementsURL
     case BaseURL
     case NMFMapViewKey
     case AppStoreScheme
 }
+
 

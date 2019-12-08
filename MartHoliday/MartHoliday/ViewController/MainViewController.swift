@@ -48,6 +48,7 @@ class MainViewController: RechabilityDetectViewController, FavoriteConvertible, 
         slideMenu.dataSource = slideMenuManager
         slideOpenFlag = false
         tableView.delaysContentTouches = false
+//        setNaviBarButton()
 
         addGestures()
         NotificationCenter.default.addObserver(self, selector: #selector(detectSelectedMenu(_:)), name: .slideMenuTapped, object: nil)
@@ -100,6 +101,26 @@ class MainViewController: RechabilityDetectViewController, FavoriteConvertible, 
         navigationItem.leftBarButtonItem = searhButton
     }
 
+    // 상단 편집버튼
+    private func setNaviBarButton() {
+        let settingButton = UIButton(type: .custom)
+        
+        settingButton.setImage(UIImage(named: "settingNavbar"), for: .normal)
+
+        settingButton.addTarget(self, action: #selector(settingFavoriteList), for: .touchUpInside)
+        settingButton.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
+
+        let settingBarButton = UIBarButtonItem(customView: settingButton)
+        self.navigationItem.setRightBarButtonItems([settingBarButton], animated: false)
+    }
+
+    @objc func settingFavoriteList() {
+        guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "SettingFavoriteListViewController") as? SettingFavoriteListViewController else { return }
+        nextVC.favoriteBranches = holidayData as? [FavoriteBranch]
+
+        self.present(nextVC, animated: true, completion: nil)
+    }
+
     private func setTableView() {
         if FavoriteList.shared().isEmpty() {
             tableView.alpha = 0
@@ -139,7 +160,7 @@ class MainViewController: RechabilityDetectViewController, FavoriteConvertible, 
 
     private func presentErrorAlert() {
         DispatchQueue.main.async {
-            self.networkTimeOutAlert()
+            self.presentErrorAlert(type: .NetworkTimeout)
         }
     }
 
@@ -330,10 +351,10 @@ extension MainViewController: MFMailComposeViewControllerDelegate {
             handleDismiss()
             guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "martSelectVC") as? MartSelectViewController else { return }
             self.navigationController?.pushViewController(nextVC, animated: true)
-//        case .location:
-//            handleDismiss()
-//            guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "locationVC") as? LocationSearchViewController else { return }
-//            self.navigationController?.pushViewController(nextVC, animated: true)
+        case .location:
+            handleDismiss()
+            guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "locationVC") as? LocationSearchViewController else { return }
+            self.navigationController?.pushViewController(nextVC, animated: true)
         case .sendMail:
             handleDismiss()
             var email: String

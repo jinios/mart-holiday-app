@@ -36,7 +36,6 @@ class MainTableViewHeader: UITableViewHeaderFooterView {
     }
 
     @IBAction func headerButtonTapped(_ sender: Any) {
-        self.containerView.backgroundColor = UIColor.appColor(color: .mint)
         delegate?.selectHeader(index: sectionIndex!)
     }
 

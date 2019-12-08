@@ -22,6 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     private var isPushAllowed: Bool?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
+        FirebaseApp.configure()
+
         window?.backgroundColor = .white
         window?.rootViewController = UIStoryboard.init(name: "LaunchScreen", bundle: nil).instantiateInitialViewController()
         RemoteConfigManager.shared().launch(handler: self.executeAppUpdate)
@@ -30,7 +33,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         networkManager = NetworkManager.shared
 
         setNavigationBar()
-        FirebaseApp.configure()
         setNMFMapViewKey()
 
         application.applicationIconBadgeNumber = 0
@@ -110,13 +112,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
 
     private func setNavigationBar() {
+
+        if #available(iOS 13.0, *) {
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.backgroundColor = UIColor.appColor(color: .mint)
+
+            appearance.largeTitleTextAttributes = [.font: UIFont(name: "NanumSquareRoundOTF", size: 24)?.bold() ?? UIFont(),
+            .foregroundColor: UIColor.white]
+            appearance.titleTextAttributes = [.font: UIFont(name: "NanumSquareRoundOTF", size: UIFont.labelFontSize)?.bold() ?? UIFont(),
+            .foregroundColor: UIColor.white]
+            appearance.buttonAppearance.normal.titleTextAttributes = [.font: UIFont(name: "NanumSquareRoundOTF", size: UIFont.labelFontSize) ?? UIFont(),
+            .foregroundColor: UIColor.white]
+
+            UINavigationBar.appearance().standardAppearance = appearance
+            UINavigationBar.appearance().scrollEdgeAppearance = appearance
+
+        } else {
+            //To change Navigation Bar Background Color
+            UINavigationBar.appearance().barTintColor = UIColor.appColor(color: .mint)
+        }
+
         let fontAttributes = [
             NSAttributedString.Key.foregroundColor: UIColor.white,
             NSAttributedString.Key.font: UIFont(name: "NanumSquareRoundOTF", size: UIFont.labelFontSize)?.bold()
         ]
 
-        //To change Navigation Bar Background Color
-        UINavigationBar.appearance().barTintColor = UIColor.appColor(color: .mint)
         //To change Back button title & icon color
         UINavigationBar.appearance().tintColor = UIColor.white
         UINavigationBar.appearance().titleTextAttributes = fontAttributes
